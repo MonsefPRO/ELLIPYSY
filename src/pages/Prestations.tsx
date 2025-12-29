@@ -381,16 +381,6 @@ export default function Prestations() {
                     </div>
                   </div>
 
-                  {prestation.id === 'nettoyage-facade' && (
-                    <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
-                      <img
-                        src="/ares.png"
-                        alt="Drone spécialisé pour le nettoyage de façade"
-                        className="w-full h-full object-contain bg-gray-50"
-                      />
-                    </div>
-                  )}
-
                   {prestation.id === 'demoussage' && (
                     <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
