@@ -19,11 +19,11 @@ function App() {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const heroImages = [
-    { src: '/dsc03616.jpg', alt: 'Drone sur panneaux solaires' },
-    { src: '/dsc03727.jpg', alt: 'Système de nettoyage en action' },
-    { src: '/dsc07832.jpg', alt: 'Drone professionnel au sol' },
-    { src: '/dsc03813.jpg', alt: 'Équipement de nettoyage drone' },
-    { src: '/dsc07631.jpg', alt: 'Technologie de nettoyage drone' }
+    { src: '/dsc03603-2.jpg', alt: 'Drone professionnel' },
+    { src: '/dsc03727 copy.jpg', alt: 'Système de nettoyage en action' },
+    { src: '/dsc07631 copy.jpg', alt: 'Technologie de nettoyage drone' },
+    { src: '/ares copy.png', alt: 'Drone ARES' },
+    { src: '/dsc03658 copy.jpg', alt: 'Équipement de nettoyage' }
   ];
 
   const testimonials = [
