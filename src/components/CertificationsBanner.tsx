@@ -2,7 +2,7 @@ export default function CertificationsBanner() {
   const certifications = [
     {
       id: 1,
-      image: '/dgac_certification.png',
+      image: '/2.png',
       alt: 'Certification DGAC'
     },
     {
