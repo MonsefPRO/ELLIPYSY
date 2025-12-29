@@ -38,8 +38,8 @@ export default function Prestations() {
       id: 'nettoyage-facade',
       title: 'La Solution Moderne et Sécurisée pour les Bâtiments Professionnels',
       description:
-        "Une façade encrassée ou négligée nuit à l’image de votre bâtiment et accélère la dégradation des matériaux. Grâce à notre technologie de nettoyage par drone, certifiée et sans recours à l’échafaudage ou à la nacelle, redonnez éclat, propreté et durabilité à vos façades professionnelles en toute sécurité.",
-      image: '/dsc07631.jpg',
+        "Une façade encrassée ou négligée nuit à l'image de votre bâtiment et accélère la dégradation des matériaux. Grâce à notre technologie de nettoyage par drone, certifiée et sans recours à l'échafaudage ou à la nacelle, redonnez éclat, propreté et durabilité à vos façades professionnelles en toute sécurité.",
+      image: '/dsc07631 copy.jpg',
       link: '/prestations/nettoyage-facade',
       icon: Droplets,
       equipment: [
