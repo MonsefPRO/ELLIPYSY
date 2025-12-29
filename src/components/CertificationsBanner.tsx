@@ -7,12 +7,12 @@ export default function CertificationsBanner() {
     },
     {
       id: 2,
-      image: '/3.png',
+      image: '/1.png',
       alt: 'Certification 2'
     },
     {
       id: 3,
-      image: '/1.png', 
+      image: '/3.png', 
       alt: 'Certification 3'
     }
   ];
