@@ -365,21 +365,12 @@ export default function Prestations() {
                   isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
                 } gap-0 items-center bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300`}
               >
-                <div
-                  className={`w-full lg:w-1/2 flex-shrink-0 ${
-                    prestation.id === 'demoussage' ||
-                    prestation.id === 'panneaux-photovoltaiques' ||
-                    prestation.id === 'nettoyage-facade' ||
-                    prestation.id === 'elimination-frelons'
-                      ? 'space-y-4 p-4'
-                      : 'p-4'
-                  }`}
-                >
-                  <div className="h-[320px] relative overflow-hidden rounded-2xl">
+                <div className="w-full lg:w-1/2 flex-shrink-0 p-4 space-y-4">
+                  <div className="h-[320px] relative overflow-hidden rounded-2xl shadow-md">
                     <img
                       src={prestation.image}
                       alt={prestation.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 rounded-2xl"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute top-4 left-4">
                       <div
@@ -391,41 +382,41 @@ export default function Prestations() {
                   </div>
 
                   {prestation.id === 'nettoyage-facade' && (
-                    <div className="h-[280px] relative overflow-hidden rounded-2xl">
+                    <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
                         src="/ares.png"
                         alt="Drone spécialisé pour le nettoyage de façade"
-                        className="w-full h-full object-cover rounded-2xl"
+                        className="w-full h-full object-contain bg-gray-50"
                       />
                     </div>
                   )}
 
                   {prestation.id === 'demoussage' && (
-                    <div className="h-[280px] relative overflow-hidden rounded-2xl">
+                    <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
                         src="/toiture_2.png"
                         alt="Drone effectuant le démoussage d'une toiture"
-                        className="w-full h-full object-cover rounded-2xl"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   )}
 
                   {prestation.id === 'panneaux-photovoltaiques' && (
-                    <div className="h-[280px] relative overflow-hidden rounded-2xl">
+                    <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
                         src="/dsc03727.jpg"
                         alt="Robot de nettoyage en action sur panneaux photovoltaïques"
-                        className="w-full h-full object-cover rounded-2xl"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   )}
 
                   {prestation.id === 'elimination-frelons' && (
-                    <div className="h-[280px] relative overflow-hidden rounded-2xl">
+                    <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
                         src="/frel.png"
                         alt="Drone en action pour l'élimination de nids de frelons"
-                        className="w-full h-full object-cover rounded-2xl"
+                        className="w-full h-full object-contain bg-gray-50"
                       />
                     </div>
                   )}
