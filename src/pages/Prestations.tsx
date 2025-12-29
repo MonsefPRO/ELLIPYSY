@@ -389,18 +389,6 @@ export default function Prestations() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                  )}
-
-                  {prestation.id === 'demoussage' && (
-                    <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
-                      <img
-                        src="/rony3jpg"
-                        alt="Drone effectuant le démoussage d'une toiture"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
-
                   {prestation.id === 'panneaux-photovoltaiques' && (
                     <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
