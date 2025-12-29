@@ -1,27 +1,53 @@
 export default function CertificationsBanner() {
+  const certifications = [
+    {
+      id: 1,
+      image: '/dgac_certification.png',
+      alt: 'Certification DGAC'
+    },
+    {
+      id: 2,
+      image: '/certification_2.png',
+      alt: 'Certification 2'
+    },
+    {
+      id: 3,
+      image: '/certification_3.png',
+      alt: 'Certification 3'
+    }
+  ];
+
   return (
     <section className="py-8 bg-gradient-to-r from-sky-600 to-blue-700 overflow-hidden relative">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
 
       <div className="flex animate-scroll">
-        <div className="flex items-center gap-8 px-8">
-          {[...Array(8)].map((_, i) => (
+        <div className="flex items-center gap-12 px-8">
+          {certifications.map((cert) => (
             <div
-              key={i}
-              className="flex-shrink-0 w-32 h-32 bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 flex items-center justify-center"
+              key={cert.id}
+              className="flex-shrink-0 w-40 h-40 bg-white rounded-xl border-2 border-white/30 hover:scale-110 hover:shadow-2xl transition-all duration-300 flex items-center justify-center p-4"
             >
-              <div className="text-white/50 text-4xl font-bold">{i + 1}</div>
+              <img
+                src={cert.image}
+                alt={cert.alt}
+                className="w-full h-full object-contain"
+              />
             </div>
           ))}
         </div>
 
-        <div className="flex items-center gap-8 px-8">
-          {[...Array(8)].map((_, i) => (
+        <div className="flex items-center gap-12 px-8">
+          {certifications.map((cert) => (
             <div
-              key={`duplicate-${i}`}
-              className="flex-shrink-0 w-32 h-32 bg-white/10 backdrop-blur-sm rounded-xl border-2 border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300 flex items-center justify-center"
+              key={`duplicate-${cert.id}`}
+              className="flex-shrink-0 w-40 h-40 bg-white rounded-xl border-2 border-white/30 hover:scale-110 hover:shadow-2xl transition-all duration-300 flex items-center justify-center p-4"
             >
-              <div className="text-white/50 text-4xl font-bold">{i + 1}</div>
+              <img
+                src={cert.image}
+                alt={cert.alt}
+                className="w-full h-full object-contain"
+              />
             </div>
           ))}
         </div>
