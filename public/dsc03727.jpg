@@ -1,5 +1,0 @@
-<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="800" fill="#dbeafe"/>
-  <rect x="300" y="300" width="600" height="200" fill="#3b82f6" opacity="0.4"/>
-  <text x="600" y="420" font-family="Arial" font-size="38" font-weight="bold" fill="#1e40af" text-anchor="middle">Système de nettoyage</text>
-</svg>
