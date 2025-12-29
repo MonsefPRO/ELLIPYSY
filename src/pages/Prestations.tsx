@@ -119,7 +119,7 @@ export default function Prestations() {
       title: "Optimisez votre production solaire jusqu'à +30 %",
       description:
         "Des panneaux solaires encrassés peuvent perdre jusqu'à 30 % de rendement énergétique, entraînant une perte financière quotidienne. Grâce à un nettoyage professionnel par drone, réalisé deux fois par an, vous récupérez une production énergétique maximale et optimisez durablement votre retour sur investissement photovoltaïque.",
-      image: '/dsc03658.jpg',
+      image: '/rony.jpg',
       link: '/prestations/panneaux-photovoltaiques',
       icon: Sun,
       equipment: [
