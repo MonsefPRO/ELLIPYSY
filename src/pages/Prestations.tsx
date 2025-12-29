@@ -384,7 +384,7 @@ export default function Prestations() {
                   {prestation.id === 'demoussage' && (
                     <div className="h-[300px] relative overflow-hidden rounded-2xl shadow-md">
                       <img
-                        src="/Demoussage drone 1.jpg"
+                        src="5kmh_et_jusqu’a_600m2_heure_de_traitement.png."
                         alt="Drone effectuant le démoussage d'une toiture"
                         className="w-full h-full object-cover"
                       />
