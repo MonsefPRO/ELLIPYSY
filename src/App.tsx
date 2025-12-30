@@ -1005,13 +1005,22 @@ function App() {
               </ul>
             </div>
 
-            <div>
-              <h3 className="font-bold mb-4">{t('contact.title')}</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>04 67 20 97 09</li>
-                <li>contact@ellipsys.fr</li>
-                <li>159 Rue de Thor, Montpellier.</li>
-              </ul>
+            <div className="flex items-start gap-6">
+              <div>
+                <h3 className="font-bold mb-4">{t('contact.title')}</h3>
+                <ul className="space-y-2 text-gray-400">
+                  <li>04 67 20 97 09</li>
+                  <li>contact@ellipsys.fr</li>
+                  <li>159 Rue de Thor, Montpellier.</li>
+                </ul>
+              </div>
+              <div className="flex-shrink-0">
+                <img
+                  src="/4.png"
+                  alt="Ellipsys"
+                  className="h-32 w-auto"
+                />
+              </div>
             </div>
           </div>
 
