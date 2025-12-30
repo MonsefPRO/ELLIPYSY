@@ -16,7 +16,7 @@ export const translations = {
       title1: 'Les drones au service',
       title2: 'de l\'humain',
       subtitle: 'Technologie drone de pointe pour le nettoyage et l\'entretien de tous vos bâtiments.',
-      badge1: 'Sécurité maximale',
+      badge1: 'Sécurité',
       badge2: 'Rapidité d\'intervention',
       badge3: 'Écologique',
       intervention: 'Intervention sur tous types de surfaces, sans échafaudage ni nacelle.',
