@@ -62,7 +62,7 @@ export const translations = {
       subtitle: 'Interventions professionnelles par drone pour sites industriels, tertiaires et patrimoniaux',
       industrial: {
         title: 'Bâtiments industriels',
-        description: 'Optimisez l\'entretien de vos <strong>installations logistiques, hangars et entrepôts</strong> grâce à notre <strong>nettoyage haute performance par drone</strong>, <strong>sans interruption d\'activité</strong>. Solution idéale pour les <strong>environnements de production et de stockage</strong> à <strong>fort volume</strong>.'
+        description: 'Optimisez l\’entretien de vos installations logistiques, hangars et entrepôts grâce à notre nettoyage haute performance par drone, sans interruption d’activité. Solution idéale pour les environnements de production et de stockage à fort volume.'
       },
       commercial: {
         title: 'Centres commerciaux & retail parks',
