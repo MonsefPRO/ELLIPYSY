@@ -310,7 +310,7 @@ export default function Valeurs() {
           <section className="relative overflow-hidden rounded-2xl">
             <div className="absolute inset-0 bg-gradient-to-br from-sky-500 via-blue-600 to-indigo-700 animate-[gradient_8s_ease_infinite]"></div>
             <img
-              src="/reji.png"
+              src="/reji.png" 
               alt="Contactez-nous"
               className="absolute inset-0 w-full h-full object-cover opacity-20"
             />
