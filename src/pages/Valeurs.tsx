@@ -261,7 +261,7 @@ export default function Valeurs() {
               title="Bienveillance"
               description="Nous plaçons la relation client au cœur de chaque projet, avec écoute attentive, accompagnement personnalisé, transparence totale et un suivi dédié à chaque étape."
               color="sky"
-              image="/bienveillance.png"
+              image="/bienveillance.png" 
               items={[
                 'Écoute active de vos besoins',
                 'Transparence totale',
