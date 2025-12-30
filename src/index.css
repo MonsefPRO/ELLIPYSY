@@ -18,21 +18,12 @@
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    /* ✅ léger upgrade premium */
-    letter-spacing: 0.01em;
   }
 
   /* ✅ Titles Font = Space Grotesk */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', 'Manrope', sans-serif;
-    letter-spacing: 0.04em;
     font-weight: 600;
-  }
-
-  /* ✅ Optionnel : titres principaux encore plus "tech" */
-  h1, h2 {
-    letter-spacing: 0.015em;
   }
 }
 
@@ -40,7 +31,6 @@
   /* ✅ (Optionnel mais pratique) classes utilitaires pour Tailwind */
   .font-title {
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.05em;
   }
 
   .font-body {
