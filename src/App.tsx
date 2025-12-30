@@ -964,7 +964,7 @@ function App() {
             <div>
               <div className="mb-4">
                 <img
-                  src="/ellisys_drones_solutions_for_good_travers.png"
+                  src="/4.png"
                   alt="Ellipsys"
                   className="h-48 w-auto"
                 />
