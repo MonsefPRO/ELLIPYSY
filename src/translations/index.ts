@@ -45,7 +45,7 @@ export const translations = {
       },
       speed: {
         title: 'Gain de temps',
-        text: 'Nos drones terrestres et aériens de nettoyage et de maintenance accèdent rapidement aux zones les plus difficiles (façades, toitures, panneaux solaires) sans échafaudage ni nacelle. Cette technologie innovante réduit drastiquement les temps d’intervention, limite les interférences sur les sites industriels, évite les perturbations d’exploitation et sécurise les usagers du domaine public, tout en garantissant une efficacité optimale..'
+        text: 'Nos <strong>drones terrestres et aériens</strong> de <strong>nettoyage et de maintenance</strong> accèdent rapidement aux <strong>zones les plus difficiles</strong> (<strong>façades, toitures, panneaux solaires</strong>) <strong>sans échafaudage ni nacelle</strong>. Cette <strong>technologie innovante</strong> réduit drastiquement les <strong>temps d\'intervention</strong>, limite les interférences sur les <strong>sites industriels</strong>, évite les perturbations d\'exploitation et sécurise les usagers du domaine public, tout en garantissant une <strong>efficacité optimale</strong>.'
       },
       cost: {
         title: 'Optimisation des coûts et performance environnementale',
