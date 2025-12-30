@@ -277,7 +277,7 @@ export default function Valeurs() {
               title="Engagement responsable"
               description="Engagement environnemental au cœur de nos pratiques. Produits respectueux et démarche durable."
               color="green"
-              image="/eco.png"
+              image="/eco.png" 
               items={[
                 'Produits certifiés AB',
                 'Respect environnemental',
