@@ -38,13 +38,13 @@ export default function PanneauxPhotovoltaiques() {
             <section>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Nettoyage de Panneaux Solaires</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Des panneaux photovoltaïques encrassés peuvent perdre jusqu’à 30 % de leur production énergétique. Poussières, pollens, fientes d’oiseaux et pollution s’accumulent, réduisant votre performance jour après jour — et impactant directement votre rentabilité énergétique.
+                Des <strong>panneaux photovoltaïques</strong> encrassés peuvent perdre <strong>jusqu'à 30 % de leur production énergétique</strong>. Poussières, pollens, fientes d'oiseaux et pollution s'accumulent, réduisant votre performance jour après jour — et impactant directement votre rentabilité énergétique.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-              Grâce à notre solution de nettoyage par drone professionnel, vous optimisez votre production solaire en toute sécurité, sans contact, sans rayures, et sans immobiliser votre site. Une intervention 2 fois par an suffit pour maintenir un rendement optimal.
+              Grâce à notre solution de <strong>nettoyage par drone professionnel</strong>, vous <strong>optimisez votre production solaire</strong> en <strong>toute sécurité, sans contact, sans rayures</strong>, et <strong>sans immobiliser votre site</strong>. Une intervention <strong>2 fois par an</strong> suffit pour maintenir un <strong>rendement optimal</strong>.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Notre technologie est conçue pour les sites industriels, toitures d’entreprises, hangars agricoles ou installations solaires étendues. Chaque intervention inclut un rapport avant/après avec mesures de performance, preuve chiffrée à l’appui de votre retour sur investissement (ROI)..
+                Notre technologie est conçue pour les <strong>sites industriels, toitures d'entreprises, hangars agricoles ou installations solaires étendues</strong>. Chaque intervention inclut un <strong>rapport avant/après</strong> avec mesures de performance, preuve chiffrée à l'appui de votre <strong>retour sur investissement (ROI)</strong>.
               </p>
             </section>
 
