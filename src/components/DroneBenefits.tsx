@@ -50,9 +50,10 @@ export default function DroneBenefits() {
               <h3 className="text-2xl font-bold mb-4 text-gray-800">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {benefit.description}
-              </p>
+              <p
+                className="text-gray-600 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: benefit.description }}
+              />
             </div>
           ))}
         </div>

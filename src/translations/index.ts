@@ -41,7 +41,7 @@ export const translations = {
       title: 'Pourquoi choisir le nettoyage par drone ?',
       safety: {
         title: 'Conformité et Sécurité',
-        text: 'Fini les échafaudages dangereux ou les nacelles coûteuses. Notre méthode par drone réduit considérablement les risques liés aux travaux en hauteur. Une personne dédiée assure le périmètre de sécurité pendant l\’intervention, pendant que vos équipes restent au sol en toute sécurité.Notre service est réalisé par des pilotes certifiés DGAC, dans le respect des normes françaises et européennes en matière d\’intervention aérienne professionnelle. Toutes nos prestations sont conformes à la législation 2026 et aux obligations liées à la sécurité des chantiers BTP.'
+        text: 'Fini les <strong>échafaudages dangereux</strong> ou les <strong>nacelles coûteuses</strong>. Notre <strong>méthode par drone</strong> réduit considérablement les <strong>risques</strong> liés aux <strong>travaux en hauteur</strong>. Une personne dédiée assure le <strong>périmètre de sécurité</strong> pendant l\'<strong>intervention</strong>, pendant que vos <strong>équipes restent au sol</strong> en toute <strong>sécurité</strong>. Notre service est réalisé par des <strong>pilotes certifiés DGAC</strong>, dans le respect des <strong>normes françaises et européennes</strong> en matière d\'<strong>intervention aérienne professionnelle</strong>. Toutes nos <strong>prestations</strong> sont conformes à la <strong>législation 2026</strong> et aux obligations liées à la <strong>sécurité des chantiers BTP</strong>.'
       },
       speed: {
         title: 'Gain de temps',
