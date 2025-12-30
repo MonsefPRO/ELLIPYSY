@@ -13,7 +13,7 @@ export default function Demoussage() {
       <Header />
       <div className="h-96 bg-gradient-to-br from-green-600 to-emerald-700 relative overflow-hidden pt-20">
         <img
-          src="/dji_0738.jpg"
+          src="/Demoussage drone 1.jpg"
           alt="Démoussage de toiture par drone"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
