@@ -332,7 +332,7 @@ export default function Prestations() {
             <div className="bg-green-50 border border-green-200 rounded-xl p-6">
               <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
               <h3 className="font-bold text-gray-800 mb-2">Produits écologiques</h3>
-              <p className="text-gray-600 text-sm">Certifiés AB et biodégradables</p>
+              <p className="text-gray-600 text-sm">Certifiés eco-responsable</p>
             </div>
 
             <div className="bg-orange-50 border border-orange-200 rounded-xl p-6">
