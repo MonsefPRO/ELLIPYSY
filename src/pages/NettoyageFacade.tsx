@@ -35,7 +35,7 @@ export default function NettoyageFacade() {
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2 space-y-8">
             <section>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Nettoyage de façade par drone : la technologie au service de l'entretien</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-6">Nettoyage de façade</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
                 Ellipsys révolutionne l’entretien des façades avec une solution aérienne par drone, spécialement conçue pour les entreprises, collectivités et gestionnaires de patrimoine immobilier. Alliant sécurité maximale, rapidité d’exécution et rentabilité, notre méthode s’impose comme la nouvelle référence du nettoyage de façade professionnel sans échafaudage.
               </p>
