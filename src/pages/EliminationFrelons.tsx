@@ -12,7 +12,7 @@ export default function EliminationFrelons() {
       <Header />
       <div className="h-96 bg-gradient-to-br from-red-600 to-rose-700 relative overflow-hidden pt-20">
         <img
-          src="/dsc07832.jpg"
+          src="/abateur_de_frelons.png"
           alt="Élimination de nids de frelons par drone"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
