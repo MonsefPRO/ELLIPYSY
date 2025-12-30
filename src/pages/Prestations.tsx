@@ -318,7 +318,7 @@ export default function Prestations() {
             Excellence opérationnelle & sécurité certifiée
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            Ellipsys Solutions est une entreprise certifiée DGAC & EASA, experte dans les prestations professionnelles par drone
+            Ellipsys Solutions répond au normes éditée par la DGAC & EASA, experte dans les prestations professionnelles par drone
             pour l’entretien, la maintenance et l’inspection de bâtiments industriels.Nous garantissons des interventions
             100 % conformes à la réglementation européenne, avec l’utilisation exclusive de produits biodégradables
             certifiés AB. Grâce à notre technologie, nos opérations sont jusqu’à 5 fois plus rapides que les méthodes
