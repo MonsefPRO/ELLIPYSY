@@ -19,7 +19,7 @@ export default function Prestations() {
   const carouselImages = [
     { src: '/rony.jpg', alt: 'Robot de nettoyage drone sur panneaux solaires' },
     { src: '/abateur_de_frelons.png', alt: 'Système de nettoyage en action' },
-    { src: '/rony3.jpg', alt: 'Drone nettoyant une toiture' },
+    { src: '/rony3.jpg', alt: 'Drone nettoyant une toiture' }, 
     { src: '/ares.jpg', alt: 'Drone professionnel au sol' },
     { src: '/rony2.jpg', alt: 'Équipement de nettoyage drone' },
     { src: '/ares2.jpg', alt: 'Drone sur panneaux solaires' },
