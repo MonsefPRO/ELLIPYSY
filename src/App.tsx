@@ -1018,7 +1018,7 @@ function App() {
             <div>
               <h3 className="font-bold mb-4">{t('contact.title')}</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>06 85 57 96 79 </li>
+                <li>04 67 20 97 09</li>
                 <li>contact@ellipsys.fr</li>
                 <li className="pt-2">{t('footer.description')}</li>
               </ul>
