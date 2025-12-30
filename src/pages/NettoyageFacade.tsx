@@ -13,7 +13,7 @@ export default function NettoyageFacade() {
       <Header />
       <div className="h-96 bg-gradient-to-br from-sky-500 to-blue-700 relative overflow-hidden pt-20">
         <img
-          src="/dsc07631.jpg"
+          src="/ares.png"
           alt="Nettoyage de façade par drone"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
