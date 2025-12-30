@@ -19,7 +19,7 @@ export default function EliminationFrelons() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Élimination de nids de frelons par drone</h1>
-            <p className="text-xl md:text-2xl text-red-100">Intervention rapide, sécurisée et sans risque, même en zones difficiles d'accès</p>
+            <p className="text-xl md:text-2xl text-red-100">Les drones au service de l'humain</p>
           </div>
         </div>
       </div>
