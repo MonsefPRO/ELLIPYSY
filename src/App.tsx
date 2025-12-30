@@ -304,7 +304,7 @@ function App() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in whitespace-nowrap">
-                  <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent font-akkurat-mono">
+                  <span className="bg-gradient-to-r from-sky-600 to-blue-700 bg-clip-text text-transparent">
                     {t('hero.title1')}
                   </span>
                   {' '}
