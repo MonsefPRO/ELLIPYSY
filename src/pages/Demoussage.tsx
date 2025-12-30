@@ -37,10 +37,10 @@ export default function Demoussage() {
             <section>
               <h2 className="text-3xl font-bold text-gray-800 mb-6">Démoussage de Toiture par Drone</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Ellipsys modernise l’entretien de toiture grâce au démoussage par drone, une solution innovante conçue pour les professionnels, collectivités et grands comptes. Cette méthode aérienne supprime les risques liés aux interventions humaines, tout en assurant un traitement précis et non invasif de la couverture.
+                Ellipsys modernise l'entretien de toiture grâce au <strong>démoussage par drone</strong>, une <strong>solution innovante</strong> conçue pour les <strong>professionnels, collectivités et grands comptes</strong>. Cette méthode aérienne <strong>supprime les risques</strong> liés aux interventions humaines, tout en assurant un <strong>traitement précis et non invasif</strong> de la couverture.
               </p>
               <p className="text-gray-600 leading-relaxed mb-4">
-               Nos drones certifiés DGAC interviennent rapidement sur tous types de toitures : tuiles, ardoises, zinc, bac acier, toitures végétalisées, etc. La pulvérisation ciblée élimine efficacement mousses, lichens, algues et champignons, responsables de la dégradation des toitures.
+               Nos <strong>drones certifiés DGAC</strong> interviennent <strong>rapidement</strong> sur tous types de toitures : tuiles, ardoises, zinc, bac acier, toitures végétalisées, etc. La <strong>pulvérisation ciblée</strong> <strong>élimine efficacement</strong> mousses, lichens, algues et champignons, responsables de la dégradation des toitures.
               </p>
             </section>
             <section className="bg-amber-50 rounded-2xl p-8 border border-amber-200">
