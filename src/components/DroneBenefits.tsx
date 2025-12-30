@@ -58,16 +58,24 @@ export default function DroneBenefits() {
         </div>
 
         <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 md:p-12 text-white shadow-2xl">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex-1">
-              <h3
-                className="text-2xl md:text-3xl font-bold mb-4"
-                dangerouslySetInnerHTML={{ __html: t('benefits.summary') }}
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
+            <div>
+              <p
+                className="text-xl leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t('benefits.summaryPart1') }}
               />
             </div>
+            <div>
+              <p
+                className="text-xl leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t('benefits.summaryPart2') }}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center">
             <a
               href="/devis"
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg hover:shadow-xl"
             >
               {t('hero.cta')}
             </a>
