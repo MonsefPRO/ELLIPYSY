@@ -147,7 +147,7 @@ export default function RejoignezNous() {
           <FloatingOrb delay={4} />
         </div>
         <img
-          src="/rejoingez_nous_banner.png"
+          src="/reji.png"
           alt="Rejoignez l'équipe Ellipsys"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
