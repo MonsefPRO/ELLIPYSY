@@ -40,7 +40,7 @@ export const translations = {
     benefits: {
       title: 'Pourquoi choisir le nettoyage par drone ?',
       safety: {
-        title: 'Conformité et Sécurité,
+        title: 'Conformité et Sécurité',
         text: 'Plus besoin d\'échafaudages. Notre méthode par drone réduit tous les risques liés aux travaux en hauteur. Plus besoin d\'échafaudages dangereux ni de nacelles coûteuses. Une personne dédiée assure le périmètre de sécurité pendant l’intervention, et vos équipes restent au sol en toute sécurité.'
       },
       speed: {
