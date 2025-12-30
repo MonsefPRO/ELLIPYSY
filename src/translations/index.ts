@@ -1395,7 +1395,7 @@ export const translations = {
         email: 'Email :',
         emailAddress: 'contact@ellipsys.fr',
         phone: 'Téléphone :',
-        phoneNumber: '06 85 57 96 79',
+        phoneNumber: '04 67 20 97 09',
         note: 'Le responsable du traitement est la personne qui détermine les finalités et les moyens du traitement des données personnelles.'
       },
       section2: {
