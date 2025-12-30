@@ -63,7 +63,7 @@ export const translations = {
         description: 'Optimisez l\’entretien de vos installations logistiques, hangars et entrepôts grâce à notre nettoyage haute performance par drone, sans interruption d’activité. Solution idéale pour les environnements de production et de stockage à fort volume.'
       },
       commercial: {
-        title: 'Centres commerciaux & retail parks',
+        title: 'Centres commerciaux & Ombrières',
         description: 'Nettoyage en toute discrétion pendant les heures creuses, pour maintenir l\’esthétique et la sécurité des zones commerciales sans perturber l\’activité des enseignes. Attirez et fidélisez vos visiteurs.'
       },
       residential: {
