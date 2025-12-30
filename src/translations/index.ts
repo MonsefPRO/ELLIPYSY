@@ -1,4 +1,5 @@
 export const translations = {
+  
   fr: {
     nav: {
       home: 'Accueil',
@@ -51,7 +52,7 @@ export const translations = {
         title: 'Optimisation des coûts et performance environnementale',
         text: 'Le recours au nettoyage professionnel par drones permet de supprimer l\'installation d’échafaudages et l\'utilisation de nacelles élévatrices, tout en limitant les besoins en ressources humaines. Cette solution technologique assure une maîtrise des coûts d\'exploitation et une réduction significative des délais d\'intervention. Elle s\'inscrit pleinement dans une démarche écoresponsable, avec une optimisation des volumes d’eau consommés et l\'emploi de produits de nettoyage éco-certifiés, tout en garantissant un haut niveau de qualité, de sécurité et de conformité pour le nettoyage des façades, toitures et installations photovoltaïques.' 
       },
-      summary: ' <strong>Le nettoyage par drone</strong> s\'impose comme une solution moderne et performante pour l\'entretien des <strong>façades industrielles</strong>, <strong>toitures</strong> et <strong>panneaux solaires</strong>. Sans exposition au risque humain ni installation coûteuse, cette technologie assure une <strong>intervention rapide, sécurisée et économiquement optimisée</strong>, avec un résultat professionnel, y compris dans les <strong>zones difficiles d\'accès</strong>.'
+      summary: 'Le nettoyage par drone</strong> s\'impose comme une solution moderne et performante pour l\'entretien des <strong>façades industrielles, <strong>toitures</strong> et <strong>panneaux solaires</strong>. Sans exposition au risque humain ni installation coûteuse, cette technologie assure une <strong>intervention rapide, sécurisée et économiquement optimisée</strong>, avec un résultat professionnel, y compris dans les <strong>zones difficiles d\'accès</strong>.'
 , 
       
       summaryTag: 'La tech au service de l\'humain',
