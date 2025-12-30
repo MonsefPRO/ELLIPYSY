@@ -20,6 +20,7 @@ function App() {
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const heroImages = [
+    { src: '/rony.jpg', alt: 'Expert drone Ellipsys' },
     { src: '/dsc03603-2.jpg', alt: 'Drone professionnel' },
     { src: '/abateur_de_frelons.png', alt: 'Abatteur de frelons' },
     { src: '/dsc03727 copy.jpg', alt: 'Système de nettoyage en action' },
