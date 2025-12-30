@@ -153,7 +153,7 @@ export default function NettoyageFacade() {
             <section>
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Certifications et garanties</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Ellipsys détient l'ensemble des certifications requises pour exercer cette activité en toute sécurité.
+                Ellipsys Solutions détient l'ensemble des certifications requises pour exercer cette activité en toute sécurité.
               </p>
               <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl p-8 border border-sky-200">
                 <ul className="space-y-3">
