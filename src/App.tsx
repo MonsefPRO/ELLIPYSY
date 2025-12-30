@@ -963,20 +963,7 @@ function App() {
 
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols4- gap-8">
-            <div>
-              <div className="mb-4">
-                <img
-                  src="/4.png"
-                  alt="Ellipsys"
-                  className="h-48 w-auto"
-                />
-              </div>
-              <p className="text-gray-400 leading-relaxed">
-                {t('footer.description')}
-              </p>
-            </div>
-
+          <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="font-bold mb-4">{t('footer.quickLinks')}</h3>
               <ul className="space-y-2">
@@ -1023,7 +1010,7 @@ function App() {
               <ul className="space-y-2 text-gray-400">
                 <li>04 67 20 97 09</li>
                 <li>contact@ellipsys.fr</li>
-                <li className="pt-2">{t('footer.description')}</li>
+                <li>159 Rue de Thor, Montpellier.</li>
               </ul>
             </div>
           </div>
