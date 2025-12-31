@@ -94,7 +94,7 @@ export const translations = {
         description: 'Éradiquez mousses, lichens et algues grâce à un traitement curatif et préventif par drone. Idéal pour les toitures de grandes surfaces ou complexes d’accès. Ce service prolonge la durée de vie de vos matériaux de couverture tout en préservant l\’intégrité structurelle..'
       },
       facade: {
-        title: 'Nettoyage de façades professionnelles',
+        title: 'Nettoyage de façades',
         description: 'Restaurez l\’image de vos bâtiments grâce à un nettoyage haute précision des façades en pierre, béton ou crépi. Notre technologie par drone permet un nettoyage sans contact, sans nacelle, sans dégradation des surfaces, pour un résultat esthétique et durable.'
       },
       hornets: {
