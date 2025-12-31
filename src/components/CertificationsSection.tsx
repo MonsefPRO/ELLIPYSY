@@ -45,6 +45,11 @@ const CertificationsSection = () => {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-blue-200/20 to-transparent rounded-full blur-3xl"></div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+            Certifications
+          </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {certifications.map((cert, index) => (
             <CertificationCard
