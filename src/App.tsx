@@ -289,7 +289,7 @@ function App() {
                 <h1 className="text-3xl font-bold leading-tight animate-fade-in text-black mx-auto whitespace-nowrap" style={{ maxWidth: '1100px' }}>
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-4 mx-auto" style={{ maxWidth: '1100px' }}>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-8 mx-auto" style={{ maxWidth: '1100px' }}>
                   <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
@@ -304,7 +304,7 @@ function App() {
                       <span className="text-blue-700">{t('hero.badge3')}</span>
                     </span>
                   </span>
-                  <span className="block text-base">
+                  <span className="block text-base sm:text-lg md:text-xl lg:text-2xl">
                     {t('hero.intervention')}
                   </span>
                 </p>
