@@ -368,6 +368,34 @@ function App() {
             </div>
           </div>
         </section>
+        <section className="py-8 bg-white/98 backdrop-blur-md relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-50/30 to-transparent"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="flex items-center justify-center gap-12 flex-wrap">
+              <div className="w-40 h-40 bg-white rounded-xl border-2 border-sky-200 shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-300 flex items-center justify-center p-4">
+                <img
+                  src="/ecolab.png"
+                  alt="Certification Ecolab"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="w-40 h-40 bg-white rounded-xl border-2 border-sky-200 shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-300 flex items-center justify-center p-4">
+                <img
+                  src="/1.png"
+                  alt="Certification DGAC"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="w-40 h-40 bg-white rounded-xl border-2 border-sky-200 shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-300 flex items-center justify-center p-4">
+                <img
+                  src="/3.jpg"
+                  alt="Certification ISO"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
         <DroneBenefits />
 
         <section className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-sky-50 to-blue-50 relative overflow-hidden">
