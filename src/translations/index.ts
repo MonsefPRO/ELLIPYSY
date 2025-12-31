@@ -15,7 +15,7 @@ export const translations = {
     hero: {
       title1: 'Les drones au service',
       title2: 'de l\'humain',
-      subtitle: 'Technologie drone de pointe pour le nettoyage et l\'entretien de tous vos bâtiments.',
+      subtitle: 'Le nettoyage et l\'entretien de vos bâtiments et panneaux solaires réinventés grâce à une technologie de pointe.',
       badge1: 'Sécurité',
       badge2: 'Rapidité',
       badge3: 'Écologique',
