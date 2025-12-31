@@ -390,7 +390,7 @@ function App() {
                   <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                     <span className="text-white font-bold text-2xl">01</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
                     {t('mainServices.facade.title')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-lg text-justify">
@@ -413,7 +413,7 @@ function App() {
                   <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                     <span className="text-white font-bold text-2xl">02</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
                     {t('mainServices.demoussage.title')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-lg text-justify">
@@ -436,7 +436,7 @@ function App() {
                   <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                     <span className="text-white font-bold text-2xl">03</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
                     {t('mainServices.hornets.title')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-lg text-justify">
@@ -459,7 +459,7 @@ function App() {
                   <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                     <span className="text-white font-bold text-2xl">04</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
                     {t('servicesSection.industrial2.title')}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-lg text-justify">
