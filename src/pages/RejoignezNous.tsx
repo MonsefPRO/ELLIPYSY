@@ -6,10 +6,12 @@ import { useSecureForm } from '../hooks/useSecureForm';
 
 const FloatingOrb = ({ delay }: { delay: number }) => (
   <div
-    className="absolute rounded-full bg-gradient-to-br from-sky-400 to-blue-600 opacity-20 blur-3xl"
+    className="absolute rounded-full bg-gradient-to-br from-sky-400 to-blue-600 opacity-10"
     style={{
       animation: `float ${6 + delay}s ease-in-out infinite`,
       animationDelay: `${delay}s`,
+      width: '200px',
+      height: '200px',
     }}
   />
 );

@@ -120,7 +120,6 @@ function ValueSection({ icon: Icon, title, description, color, image, items }: V
         </div>
 
         <div className="order-1 lg:order-2 relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-sky-400 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
           <div className="relative overflow-hidden rounded-2xl shadow-2xl">
             <img
               src={image}
@@ -169,7 +168,6 @@ function WhyChooseSection() {
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="relative group">
-                <div className={`absolute -inset-0.5 bg-gradient-to-r ${item.color} rounded-xl blur opacity-30 group-hover:opacity-60 transition duration-500`}></div>
                 <div className="relative bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center">
                   <div className={`w-12 h-12 bg-gradient-to-br ${item.color} rounded-xl flex items-center justify-center mb-3 mx-auto transform group-hover:rotate-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
                     <item.icon className="w-6 h-6 text-white" />
