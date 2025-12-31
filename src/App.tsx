@@ -375,7 +375,7 @@ function App() {
           </div>
           <div className="w-full relative z-10 px-4 py-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: '#334786' }}>
                 {t('mainServices.title')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
