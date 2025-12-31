@@ -15,21 +15,21 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
 
   return (
     <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
-  <nav className="container mx-auto px-1 sm:px-2 lg:px-2">
-    <div className="flex justify-between items-center h-[160rem] px-[20px]">
+  <nav className="w-full">
+    <div className="flex justify-between items-center h-[110px]">
       <div className="flex items-center">
-        <Link to="/" className="flex-shrink-0 w-[11cm]">
+        <Link to="/" className="flex-shrink-0">
           <img
             src="/logo_de_cote.png"
             alt="Ellipsys"
-            className="h-[58rem] sm:h-[112rem] md:h-[128rem] lg:h-[144rem] xl:h-[160rem] 2xl:h-[192rem] w-auto ml-[38px] hover:scale-110 transition-transform duration-300 cursor-pointer p-[15px]"
+            className="h-28 sm:h-36 md:h-44 lg:h-56 xl:h-64 2xl:h-72 w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer"
           />
         </Link>
       </div>
 
 
-          <div className="hidden md:flex items-center space-x-16 flex-1 justify-center">
-            <Link to="/prestations" className={`font-semibold text-xl transition-colors relative group ${
+          <div className="hidden md:flex items-center space-x-12">
+            <Link to="/prestations" className={`font-semibold text-lg transition-colors relative group ${
               onBlueBanner
                 ? 'text-white hover:text-sky-100'
                 : 'text-gray-700 hover:text-sky-600'
@@ -43,7 +43,7 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
             <div className="relative group">
               <button
                 onMouseEnter={() => setIsActualitesOpen(true)}
-                className={`flex items-center font-semibold text-xl transition-all duration-300 relative ${
+                className={`flex items-center font-semibold text-lg transition-all duration-300 relative ${
                   onBlueBanner
                     ? 'text-white hover:text-sky-100'
                     : 'text-gray-700 hover:text-sky-600'
@@ -73,7 +73,7 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
               )}
             </div>
 
-            <Link to="/valeurs" className={`font-semibold text-xl transition-colors relative group ${
+            <Link to="/valeurs" className={`font-semibold text-lg transition-colors relative group ${
               onBlueBanner
                 ? 'text-white hover:text-sky-100'
                 : 'text-gray-700 hover:text-sky-600'
@@ -83,7 +83,7 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
                 onBlueBanner ? 'bg-white' : 'bg-sky-600'
               }`}></span>
             </Link>
-            <Link to="/rejoignez-nous" className={`font-semibold text-xl transition-colors relative group ${
+            <Link to="/rejoignez-nous" className={`font-semibold text-lg transition-colors relative group ${
               onBlueBanner
                 ? 'text-white hover:text-sky-100'
                 : 'text-gray-700 hover:text-sky-600'
@@ -93,7 +93,7 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
                 onBlueBanner ? 'bg-white' : 'bg-sky-600'
               }`}></span>
             </Link>
-            <a href="#contact" className={`font-semibold text-xl transition-colors relative group ${
+            <Link to="/#contact" className={`font-semibold text-lg transition-colors relative group ${
               onBlueBanner
                 ? 'text-white hover:text-sky-100'
                 : 'text-gray-700 hover:text-sky-600'
@@ -102,10 +102,10 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${
                 onBlueBanner ? 'bg-white' : 'bg-sky-600'
               }`}></span>
-            </a>
+            </Link>
           </div>
 
-          <div className="hidden md:flex items-center gap-4 ml-auto">
+          <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
             <Link
               to="/devis"
@@ -146,9 +146,9 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
             <Link to="/valeurs" className="block w-full text-left text-gray-700 hover:text-sky-600 font-medium py-2">
               {t('nav.values')}
             </Link>
-            <a href="#contact" className="block w-full text-left text-gray-700 hover:text-sky-600 font-medium py-2">
+            <Link to="/#contact" className="block w-full text-left text-gray-700 hover:text-sky-600 font-medium py-2">
               {t('contact.title')}
-            </a>
+            </Link>
             <div className="flex items-center justify-center py-4">
               <LanguageSwitcher />
             </div>
