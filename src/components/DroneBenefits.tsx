@@ -9,19 +9,16 @@ export default function DroneBenefits() {
       icon: Shield,
       title: t('benefits.safety.title'),
       description: t('benefits.safety.text'),
-      color: 'from-green-500 to-emerald-600'
     },
     {
       icon: Zap,
       title: t('benefits.speed.title'),
       description: t('benefits.speed.text'),
-      color: 'from-blue-500 to-cyan-600'
     },
     {
       icon: BarChart3,
       title: t('benefits.cost.title'),
       description: t('benefits.cost.text'),
-      color: 'from-orange-500 to-amber-600'
     }
   ];
 
@@ -44,7 +41,7 @@ export default function DroneBenefits() {
               key={index}
               className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
             >
-              <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-6 shadow-lg`}>
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-lg" style={{ backgroundColor: '#233B72' }}>
                 <benefit.icon className="w-8 h-8 text-white" strokeWidth={2.5} />
               </div>
               <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
