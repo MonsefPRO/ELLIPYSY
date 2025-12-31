@@ -33,7 +33,7 @@ export default function DroneBenefits() {
             {t('benefits.title')}
           </h2>
           <p
-            className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-black max-w-4xl mx-auto leading-relaxed"
             dangerouslySetInnerHTML={{ __html: t('benefits.summary') }}
           />
         </div>
