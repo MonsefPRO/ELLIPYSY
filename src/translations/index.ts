@@ -1579,7 +1579,7 @@ export const translations = {
       },
       cta: {
         title: 'Besoin d\'une prestation sur mesure ?',
-        subtitle: 'Nous adaptons nos services à vos besoins spécifiques. Contactez-nous pour discuter de votre projet.',
+        subtitle: ' Pour des demandes spécifiques, nous proposons également des missions complémentaires : cartographie, thermographie, prises de vue techniques, analyses….',
         quoteButton: 'Demander un devis',
         contactButton: 'Nous contacter'
       }
