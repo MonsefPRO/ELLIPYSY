@@ -98,7 +98,7 @@ export const translations = {
         description: 'Restaurez l\’image de vos bâtiments grâce à un nettoyage haute précision des façades en pierre, béton ou crépi. Notre technologie par drone permet un nettoyage sans contact, sans nacelle, sans dégradation des surfaces, pour un résultat esthétique et durable.'
       },
       hornets: {
-        title: 'Destruction de nids de frelons asiatiques et européens',
+        title: 'Destruction de nids de frelons',
         description: 'Neutralisation sécurisée des nids par drone, sans intervention humaine en hauteur. Intervention rapide, même en zone dense ou sur des structures difficiles à atteindre. Réduction immédiate des risques pour les salariés, clients et riverains.'
       },
       seeMore: 'Voir le détail'
