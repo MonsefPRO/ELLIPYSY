@@ -15,17 +15,18 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
 
   return (
     <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
-      <nav className="container mx-auto px-1 sm:px-2 lg:px-2">
-        <div className="flex justify-between items-center h-[80rem]">
-          <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0">
-              <img
-                src="/logo_de_cote.png"
-                alt="Ellipsys"
-                className='h-[29rem] sm:h-[56rem] md:h-[64rem] lg:h-[72rem] xl:h-[80rem] 2xl:h-[96rem] w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer'
-              />
-            </Link>
-          </div>
+  <nav className="container mx-auto px-1 sm:px-2 lg:px-2">
+    <div className="flex justify-between items-center h-[160rem]">
+      <div className="flex items-center">
+        <Link to="/" className="flex-shrink-0">
+          <img
+            src="/logo_de_cote.png"
+            alt="Ellipsys"
+            className="h-[58rem] sm:h-[112rem] md:h-[128rem] lg:h-[144rem] xl:h-[160rem] 2xl:h-[192rem] w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer"
+          />
+        </Link>
+      </div>
+
 
           <div className="hidden md:flex items-center space-x-16 flex-1 justify-center">
             <Link to="/prestations" className={`font-semibold text-xl transition-colors relative group ${
