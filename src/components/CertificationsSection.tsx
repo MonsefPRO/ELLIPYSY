@@ -67,7 +67,7 @@ const CertificationsSection = () => {
     },
     {
       logo: '/3.jpg',
-      title: 'ISO 9001',
+      title: 'EASA',
       description: 'Système de management de la qualité certifié garantissant excellence et satisfaction client.',
       icon: <CheckCircle2 className="w-5 h-5 text-white" />
     }
