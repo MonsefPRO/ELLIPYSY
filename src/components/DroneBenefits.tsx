@@ -47,7 +47,7 @@ export default function DroneBenefits() {
               <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-6 shadow-lg`}>
                 <benefit.icon className="w-8 h-8 text-white" strokeWidth={2.5} />
               </div>
-              <h3 className="text-2xl font-bold mb-4 text-gray-800">
+              <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
                 {benefit.title}
               </h3>
               <p
