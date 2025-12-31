@@ -267,25 +267,6 @@ export default function Prestations() {
             <p className="text-xl md:text-2xl text-sky-100 mb-6">
               La technologie au service de l'humain
             </p>
-
-            <div className="flex flex-wrap justify-center gap-4 mt-6">
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Award className="w-5 h-5" />
-                <span className="text-sm font-semibold">Certifié DGAC</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Award className="w-5 h-5" />
-                <span className="text-sm font-semibold">Certifié EASA</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <CheckCircle className="w-5 h-5" />
-                <span className="text-sm font-semibold">Produits éco-responsable</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                <Shield className="w-5 h-5" />
-                <span className="text-sm font-semibold">Conforme 2026</span>
-              </div>
-            </div>
           </div>
         </div>
 
