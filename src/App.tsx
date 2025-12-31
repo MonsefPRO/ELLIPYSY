@@ -683,7 +683,7 @@ function App() {
               <div className="space-y-8">
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#233B72' }}>
                       <Phone className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -694,7 +694,7 @@ function App() {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#233B72' }}>
                       <Mail className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -705,7 +705,7 @@ function App() {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-sky-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#233B72' }}>
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
