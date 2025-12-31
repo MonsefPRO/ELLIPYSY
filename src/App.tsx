@@ -295,6 +295,7 @@ function App() {
                   </span>
                   <span className="flex flex-wrap justify-center gap-2 font-medium text-gray-700">
                     <span className="inline-flex items-center bg-sky-50 px-3 py-1 rounded-lg hover:bg-sky-100 hover:scale-105 transition-all duration-300 cursor-pointer">
+                      <Shield className="w-4 h-4 text-sky-700 mr-1.5" />
                       <span className="text-sky-700">{t('hero.badge1')}</span>
                     </span>
                     <span className="inline-flex items-center bg-green-50 px-3 py-1 rounded-lg hover:bg-green-100 hover:scale-105 transition-all duration-300 cursor-pointer">
