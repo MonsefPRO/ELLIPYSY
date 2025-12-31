@@ -92,11 +92,11 @@ function ValueSection({ icon: Icon, title, description, color, image, items }: V
     >
       <div className="grid lg:grid-cols-2 gap-8 items-center">
         <div className="order-2 lg:order-1">
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-8">
             <div className={`w-16 h-16 bg-gradient-to-br ${colors.gradient} rounded-2xl flex items-center justify-center mr-4 shadow-lg hover:scale-110 transition-transform duration-300`}>
               <Icon className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">{title}</h2>
+            <h2 className="text-4xl md:text-5xl font-bold whitespace-nowrap">{title}</h2>
           </div>
 
           <div className={`bg-gradient-to-br ${colors.bg} rounded-2xl p-8 border ${colors.border} shadow-xl hover:shadow-2xl transition-all duration-300`}>
