@@ -258,7 +258,7 @@ export default function PolitiqueConfidentialite() {
                     Pour toute demande concernant vos données personnelles, contactez-nous :
                   </p>
                   <div className="space-y-2 text-sm">
-                    <p>📧 <strong>Email :</strong> contact@ellipsys-group.comcontact@ellipsys-group.com</p>
+                    <p>📧 <strong>Email :</strong> contact@ellipsys-group.com</p>
                     <p>📞 <strong>Téléphone :</strong> 04 67 20 97 09</p>
                   </div>
                   <p className="text-sm mt-4 opacity-90">
@@ -387,7 +387,7 @@ export default function PolitiqueConfidentialite() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:contact@ellipsys.fr"
+                  href="mailto:contact@ellipsys-group.com"
                   className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-sky-600 to-blue-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-sky-700 hover:to-blue-800 transition-all"
                 >
                   ✉️ Nous contacter
