@@ -315,7 +315,7 @@ function App() {
                     </div>
                     <div>
                       <div className="text-3xl font-bold text-gray-800">
-                        <AnimatedCounter end={190000} suffix={t('hero.stat1Value')} />
+                        <AnimatedCounter end={120000} suffix={t('hero.stat1Value')} />
                       </div>
                       <div className="text-sm text-gray-600">{t('hero.stat1Label')}</div>
                     </div>
