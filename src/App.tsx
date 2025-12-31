@@ -285,7 +285,7 @@ function App() {
           </div>
           <div className="container mx-auto relative z-10 px-1 sm:px-2 lg:px-2">
             <div className="flex flex-col items-center justify-center">
-              <div className="space-y-8 w-full max-w-7xl text-center">
+              <div className="space-y-8 w-full max-w-7xl mx-auto text-center">
                 <h1 className="text-3xl font-bold leading-tight animate-fade-in text-black mx-auto whitespace-nowrap" style={{ maxWidth: '1100px' }}>
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
