@@ -285,11 +285,11 @@ function App() {
           </div>
           <div className="w-full relative z-10">
             <div className="flex flex-col items-center justify-center">
-              <div className="space-y-8 w-full text-center">
+              <div className="space-y-6 w-full text-center">
                 <h1 className="text-3xl font-bold leading-tight animate-fade-in text-black whitespace-nowrap">
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-8">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-6">
                   <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
@@ -311,7 +311,7 @@ function App() {
                     {t('hero.intervention')}
                   </span>
                 </p>
-                <div className="flex flex-wrap justify-center gap-8 py-6">
+                <div className="flex flex-wrap justify-center gap-8">
                   <div className="flex items-center space-x-3 group cursor-pointer">
                     <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center group-hover:bg-sky-200 group-hover:scale-110 transition-all duration-300">
                       <TrendingUp className="w-6 h-6 text-sky-600 group-hover:rotate-12 transition-transform duration-300" />
