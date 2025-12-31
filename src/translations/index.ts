@@ -19,7 +19,7 @@ export const translations = {
       badge1: 'Sécurité',
       badge2: 'Rapidité',
       badge3: 'Écologique',
-      intervention: 'Intervention sur tous types de surfaces, sans échafaudage ni nacelle.',
+      intervention: 'Intervention sur tous types de surfaces jusqu\'a une hauteur de 100 mètres, sans échafaudage ni nacelle.',
       stat1Value: ' m²',
       stat1Label: 'Nettoyés à ce jour',
       stat2Value: ' chantiers',
