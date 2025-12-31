@@ -198,7 +198,7 @@ export default function Valeurs() {
           <div className="text-center text-white px-4 max-w-4xl animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold mb-3 animate-[slideDown_0.8s_ease-out]">Nos valeurs</h1>
             <p className="text-lg md:text-xl text-sky-100 animate-[slideUp_0.8s_ease-out_0.2s_both]">
-              L'innovation au service de l'humain
+              Les drones au service de l'humain
             </p>
           </div>
         </div>
