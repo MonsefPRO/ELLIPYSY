@@ -293,18 +293,6 @@ function App() {
                   <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
-                  <span className="flex flex-wrap justify-center gap-2 font-medium text-gray-700">
-                    <span className="inline-flex items-center bg-sky-50 px-3 py-1 rounded-lg hover:bg-sky-100 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <Shield className="w-4 h-4 text-sky-700 mr-1.5" />
-                      <span className="text-sky-700">{t('hero.badge1')}</span>
-                    </span>
-                    <span className="inline-flex items-center bg-green-50 px-3 py-1 rounded-lg hover:bg-green-100 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <span className="text-green-700">{t('hero.badge2')}</span>
-                    </span>
-                    <span className="inline-flex items-center bg-blue-50 px-3 py-1 rounded-lg hover:bg-blue-100 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <span className="text-blue-700">{t('hero.badge3')}</span>
-                    </span>
-                  </span>
                   <span className="block text-base sm:text-lg md:text-xl lg:text-2xl">
                     {t('hero.intervention')}
                   </span>
