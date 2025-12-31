@@ -46,7 +46,7 @@ const CertificationsSection = () => {
 
       <div className="container mx-auto max-w-7xl relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
             Certifications
           </h2>
         </div>
