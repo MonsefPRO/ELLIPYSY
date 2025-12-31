@@ -1394,7 +1394,7 @@ export const translations = {
         website: 'Site web :',
         websiteUrl: 'ellipsys-solution.com',
         email: 'Email :',
-        emailAddress: 'contact@ellipsys.fr',
+        emailAddress: 'contact@ellipsys-group.com',
         phone: 'Téléphone :',
         phoneNumber: '04 67 20 97 09',
         note: 'Le responsable du traitement est la personne qui détermine les finalités et les moyens du traitement des données personnelles.'
