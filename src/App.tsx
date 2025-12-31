@@ -286,11 +286,11 @@ function App() {
           <div className="container mx-auto relative z-10 px-4">
             <div className="flex flex-col items-center justify-center">
               <div className="space-y-8 w-full max-w-7xl text-center">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in text-black">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in text-black mx-auto" style={{ maxWidth: '1100px' }}>
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-4 mx-auto max-w-6xl">
-                  <span className="block">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-4 mx-auto" style={{ maxWidth: '1100px' }}>
+                  <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
                   <span className="flex flex-wrap justify-center gap-2 font-medium text-gray-700">
