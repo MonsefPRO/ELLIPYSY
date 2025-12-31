@@ -41,13 +41,7 @@ export const translations = {
       title: 'Pourquoi choisir le nettoyage par drone ?',
       safety: {
         title: 'Conformité et Sécurité',
-        text: `
-  <p>Notre <strong>méthode par drone</strong> réduit considérablement les <strong>risques</strong> liés aux <strong>travaux en hauteur</strong>.</p>
-
-  <p>De plus, un équipage d'intervention composé d'un télépilote et d'un agent au sol assure la sécurité du chantier pendant toute la durée de l'intervention suivant les recommandations de la DGAC.</p>
-
-  <p>Notre service est réalisé par des <strong>pilotes certifiés DGAC et EASA</strong>, dans le respect des <strong>normes françaises et européennes.</strong>
-
+        text: "<p>Notre <strong>méthode par drone</strong> réduit considérablement les <strong>risques</strong> liés aux <strong>travaux en hauteur</strong>.</p><p>De plus, un équipage d'intervention composé d'un télépilote et d'un agent au sol assure la sécurité du chantier pendant toute la durée de l'intervention suivant les recommandations de la DGAC.</p><p>Notre service est réalisé par des <strong>pilotes certifiés DGAC et EASA</strong>, dans le respect des <strong>normes françaises et européennes.</strong>"
 
       },
       speed: {
