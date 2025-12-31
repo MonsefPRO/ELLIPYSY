@@ -5,7 +5,6 @@ import { AnimatedCounter } from './components/AnimatedCounter';
 import CookieBanner from './components/CookieBanner';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import DroneBenefits from './components/DroneBenefits';
-import CertificationsBanner from './components/CertificationsBanner';
 import CertificationsSection from './components/CertificationsSection';
 import { useLanguage } from './contexts/LanguageContext';
 
@@ -485,8 +484,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <CertificationsBanner />
 
         <section id="avis" className="py-10 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
