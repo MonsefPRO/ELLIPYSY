@@ -699,7 +699,7 @@ function App() {
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-800 mb-1">{t('contact.email')}</h3>
-                      <p className="text-gray-600">contact@ellipsys.fr</p>
+                      <p className="text-gray-600">contact@ellipsys-group.com</p>
                       <p className="text-sm text-gray-500 mt-1">{t('quote.subtitle')}</p>
                     </div>
                   </div>
