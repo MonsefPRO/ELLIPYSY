@@ -22,7 +22,7 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
               <img
                 src="/logo_de_cote.png"
                 alt="Ellipsys"
-                className='h-52 sm:h-56 md:h-64 lg:h-72 xl:h-80 2xl:h-96 w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer'
+                className='h-56 sm:h-56 md:h-64 lg:h-72 xl:h-80 2xl:h-96 w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer'
               />
             </Link>
           </div>
