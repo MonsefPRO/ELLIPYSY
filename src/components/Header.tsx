@@ -18,7 +18,7 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
   <nav className="container mx-auto px-1 sm:px-2 lg:px-2">
     <div className="flex justify-between items-center h-[160rem] px-[20px]">
       <div className="flex items-center">
-        <Link to="/" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0 w-[11cm]">
           <img
             src="/logo_de_cote.png"
             alt="Ellipsys"
