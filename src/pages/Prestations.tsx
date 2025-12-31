@@ -41,7 +41,7 @@ export default function Prestations() {
       description:
         "Une façade encrassée ou négligée nuit à l'image de votre bâtiment et accélère la dégradation des matériaux. Grâce à notre technologie de nettoyage par drone, certifiée et sans recours à l'échafaudage ou à la nacelle, redonnez éclat, propreté et durabilité à vos façades professionnelles en toute sécurité.",
       image: '/ares.png',
-      image2: '/rony3.jpg',
+      image2: '/chronos.jpg',
       link: '/prestations/nettoyage-facade',
       icon: Droplets,
       equipment: [
