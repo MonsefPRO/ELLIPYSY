@@ -44,7 +44,7 @@ export const translations = {
         text: 'Fini les <strong>échafaudages dangereux</strong> ou les <strong>nacelles coûteuses</strong>. Notre <strong>méthode par drone</strong> réduit considérablement les <strong>risques</strong> liés aux <strong>travaux en hauteur</strong>. Une personne dédiée assure le <strong>périmètre de sécurité</strong> pendant l\'<strong>intervention</strong>, pendant que vos <strong>équipes restent au sol</strong> en toute <strong>sécurité</strong>. Notre service est réalisé par des <strong>pilotes certifiés DGAC</strong>, dans le respect des <strong>normes françaises et européennes</strong> en matière d\'<strong>intervention aérienne professionnelle</strong>. Toutes nos <strong>prestations</strong> sont conformes à la <strong>législation 2026</strong> et aux obligations liées à la <strong>sécurité des chantiers BTP</strong>.'
       },
       speed: {
-        title: 'Gain de temps',
+        title: 'Efficacité',
         text: 'Nos <strong>drones terrestres et aériens</strong> de <strong>nettoyage et de maintenance</strong> accèdent rapidement aux <strong>zones les plus difficiles</strong> (<strong>façades, toitures, panneaux solaires</strong>) <strong>sans échafaudage ni nacelle</strong>. Cette <strong>technologie innovante</strong> réduit drastiquement les <strong>temps d\'intervention</strong>, limite les interférences sur les <strong>sites industriels</strong>, évite les perturbations d\'exploitation et sécurise les usagers du domaine public, tout en garantissant une <strong>efficacité optimale</strong>.'
       },
       cost: {
