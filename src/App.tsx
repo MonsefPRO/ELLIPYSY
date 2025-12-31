@@ -375,9 +375,6 @@ function App() {
           </div>
           <div className="w-full relative z-10 px-4 py-8">
             <div className="text-center mb-12">
-              <div className="inline-block px-4 py-2 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold mb-4">
-                {t('servicesSection.badge')}
-              </div>
               <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4">
                 {t('mainServices.title')}
               </h2>
