@@ -392,11 +392,8 @@ function App() {
           </div>
         </section>
         <DroneBenefits />
-        <section id="services" className="pt-12 pb-4 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <img src="/dsc03727.jpg" alt="" className="w-full h-full object-cover" />
-          </div>
-          <div className="container mx-auto relative z-10">
+        <section id="services" className="pt-12 pb-4 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="container mx-auto">
             <div className="text-center mb-12">
               <div className="inline-block px-4 py-2 bg-sky-100 text-sky-700 rounded-full text-sm font-semibold mb-4">
                 {t('servicesSection.badge')}
