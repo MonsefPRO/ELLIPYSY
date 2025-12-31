@@ -266,7 +266,7 @@ export default function Valeurs() {
           <div className="container mx-auto max-w-7xl px-6">
             <ValueSection
               icon={Leaf}
-              title="Engagement responsable"
+              title="Eco-responsable"
               description="Engagement environnemental au cœur de nos pratiques. Produits respectueux et démarche durable."
               color="green"
               image="/eco.png" 
