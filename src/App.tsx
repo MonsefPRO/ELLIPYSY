@@ -283,7 +283,7 @@ function App() {
           <div className="w-full relative z-10">
             <div className="flex flex-col items-center justify-center">
               <div className="space-y-7 w-full text-center">
-                <h1 className="text-3xl sm:text-4xl font-bold leading-tight animate-fade-in text-black whitespace-nowrap">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent whitespace-nowrap">
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-7">
