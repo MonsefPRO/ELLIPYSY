@@ -151,13 +151,13 @@ function App() {
       <CookieBanner />
       <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
         <nav className="w-full">
-          <div className="flex justify-between items-center h-[90px]">
+          <div className="flex justify-between items-center h-[110px]">
             <div className="flex items-center">
               <Link to="/" className="flex-shrink-0">
                 <img
                   src="/logo_de_cote.png"
                   alt="Ellipsys"
-                  className='h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56 2xl:h-64 w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer'
+                  className='h-28 sm:h-36 md:h-44 lg:h-56 xl:h-64 2xl:h-72 w-auto -ml-4 hover:scale-110 transition-transform duration-300 cursor-pointer'
                 />
               </Link>
             </div>
