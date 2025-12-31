@@ -1,4 +1,4 @@
-import { Shield, Clock, TrendingUp } from 'lucide-react';
+import { Shield, Zap, BarChart3 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function DroneBenefits() {
@@ -12,13 +12,13 @@ export default function DroneBenefits() {
       color: 'from-green-500 to-emerald-600'
     },
     {
-      icon: Clock,
+      icon: Zap,
       title: t('benefits.speed.title'),
       description: t('benefits.speed.text'),
       color: 'from-blue-500 to-cyan-600'
     },
     {
-      icon: TrendingUp,
+      icon: BarChart3,
       title: t('benefits.cost.title'),
       description: t('benefits.cost.text'),
       color: 'from-orange-500 to-amber-600'
