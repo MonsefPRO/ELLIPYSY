@@ -89,15 +89,6 @@ const CertificationsSection = () => {
             />
           ))}
         </div>
-
-        <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 px-6 py-4 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-sky-100/50">
-            <Shield className="w-6 h-6 text-sky-600" />
-            <p className="text-gray-700 font-medium">
-              Toutes nos opérations sont conformes aux réglementations en vigueur
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
