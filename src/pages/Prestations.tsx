@@ -313,42 +313,6 @@ export default function Prestations() {
           <span className="text-gray-800 font-medium">Prestations</span>
         </nav>
 
-        <div className="mb-16 text-center max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-            Excellence opérationnelle & sécurité certifiée
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed mb-8">
-            Ellipsys Solutions répond au normes éditée par la DGAC & EASA, experte dans les prestations professionnelles par drone
-            pour l’entretien, la maintenance et l’inspection de bâtiments industriels.Nous garantissons des interventions
-            100 % conformes à la réglementation européenne, avec l’utilisation exclusive de produits éco-certifiés. Grâce à notre technologie, nos opérations sont jusqu’à 5 fois plus rapides que les méthodes classiques, en limitant au maximum les risques d'exploitation.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
-            <div className="bg-sky-50 border border-sky-200 rounded-xl p-6">
-              <Shield className="w-12 h-12 text-sky-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-800 mb-2">100% Sécurisé</h3>
-              <p className="text-gray-600 text-sm">Zéro accident, zéro risque de chute</p>
-            </div>
-
-            <div className="bg-green-50 border border-green-200 rounded-xl p-6">
-              <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-800 mb-2">Produits écologiques</h3>
-              <p className="text-gray-600 text-sm">Certifiés eco-responsable</p>
-            </div>
-
-            <div className="bg-orange-50 border border-orange-200 rounded-xl p-6">
-              <Clock className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-800 mb-2">Interventions rapides</h3>
-              <p className="text-gray-600 text-sm">3 à 5x plus rapide que les méthodes classiques</p>
-            </div>
-
-            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
-              <Users className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-              <h3 className="font-bold text-gray-800 mb-2">Accompagnement dédié</h3>
-              <p className="text-gray-600 text-sm">Un interlocuteur unique pour vos projets</p>
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-16">
           {prestations.map((prestation, index) => {
             const Icon = prestation.icon;
