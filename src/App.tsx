@@ -265,7 +265,7 @@ function App() {
       </header>
 
       <main>
-        <section id="accueil" className="pt-[150px] pb-16 relative overflow-hidden">
+        <section id="accueil" className="min-h-screen pt-32 pb-20 relative overflow-hidden flex items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-sky-50/25 via-blue-50/20 to-white/25 z-10"></div>
           <div className="absolute inset-0">
             {heroImages.map((image, index) => (
@@ -285,82 +285,82 @@ function App() {
           </div>
           <div className="w-full relative z-10">
             <div className="flex flex-col items-center justify-center">
-              <div className="space-y-7 w-full text-center">
-                <h1 className="text-3xl font-bold leading-tight animate-fade-in text-black whitespace-nowrap">
+              <div className="space-y-10 w-full text-center">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in text-black whitespace-nowrap">
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-7">
+                <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 leading-relaxed space-y-10">
                   <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
-                  <span className="flex flex-wrap justify-center gap-2 font-bold">
-                    <span className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <Shield className="w-4 h-4 text-black mr-1.5" />
-                      <span className="text-black">{t('benefits.safety.title')}</span>
+                  <span className="flex flex-wrap justify-center gap-3 font-bold">
+                    <span className="inline-flex items-center bg-gray-100/50 px-5 py-3 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                      <Shield className="w-7 h-7 text-black mr-2.5" />
+                      <span className="text-black text-lg">{t('benefits.safety.title')}</span>
                     </span>
-                    <span className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <Zap className="w-4 h-4 text-black mr-1.5" />
-                      <span className="text-black">{t('benefits.speed.title')}</span>
+                    <span className="inline-flex items-center bg-gray-100/50 px-5 py-3 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                      <Zap className="w-7 h-7 text-black mr-2.5" />
+                      <span className="text-black text-lg">{t('benefits.speed.title')}</span>
                     </span>
-                    <span className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <BarChart3 className="w-4 h-4 text-black mr-1.5" />
-                      <span className="text-black">{t('benefits.cost.title')}</span>
+                    <span className="inline-flex items-center bg-gray-100/50 px-5 py-3 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
+                      <BarChart3 className="w-7 h-7 text-black mr-2.5" />
+                      <span className="text-black text-lg">{t('benefits.cost.title')}</span>
                     </span>
                   </span>
-                  <span className="block text-base sm:text-lg md:text-xl lg:text-2xl">
+                  <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl">
                     {t('hero.intervention')}
                   </span>
                 </p>
-                <div className="flex flex-wrap justify-center gap-8">
-                  <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center group-hover:bg-sky-200 group-hover:scale-110 transition-all duration-300">
-                      <TrendingUp className="w-6 h-6 text-sky-600 group-hover:rotate-12 transition-transform duration-300" />
+                <div className="flex flex-wrap justify-center gap-12">
+                  <div className="flex items-center space-x-4 group cursor-pointer">
+                    <div className="w-20 h-20 bg-sky-100 rounded-full flex items-center justify-center group-hover:bg-sky-200 group-hover:scale-110 transition-all duration-300">
+                      <TrendingUp className="w-10 h-10 text-sky-600 group-hover:rotate-12 transition-transform duration-300" />
                     </div>
                     <div>
-                      <div className="text-3xl font-bold text-gray-800">
+                      <div className="text-5xl font-bold text-gray-800">
                         <AnimatedCounter end={190000} suffix={t('hero.stat1Value')} />
                       </div>
-                      <div className="text-sm text-gray-600">{t('hero.stat1Label')}</div>
+                      <div className="text-lg text-gray-600">{t('hero.stat1Label')}</div>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-3 group cursor-pointer">
-                    <div className="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center group-hover:bg-sky-200 group-hover:scale-110 transition-all duration-300">
-                      <Users className="w-6 h-6 text-sky-600 group-hover:rotate-12 transition-transform duration-300" />
+                  <div className="flex items-center space-x-4 group cursor-pointer">
+                    <div className="w-20 h-20 bg-sky-100 rounded-full flex items-center justify-center group-hover:bg-sky-200 group-hover:scale-110 transition-all duration-300">
+                      <Users className="w-10 h-10 text-sky-600 group-hover:rotate-12 transition-transform duration-300" />
                     </div>
                     <div>
-                      <div className="text-3xl font-bold text-gray-800">
+                      <div className="text-5xl font-bold text-gray-800">
                         <AnimatedCounter end={88} suffix={t('hero.stat2Value')} />
                       </div>
-                      <div className="text-sm text-gray-600">{t('hero.stat2Label')}</div>
+                      <div className="text-lg text-gray-600">{t('hero.stat2Label')}</div>
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
                   <Link
                     to="/devis"
-                    className="bg-gradient-to-r from-brand-orange-500 to-red-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-brand-orange-600 hover:to-red-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center group"
+                    className="bg-gradient-to-r from-brand-orange-500 to-red-600 text-white px-12 py-6 rounded-lg text-xl font-semibold hover:from-brand-orange-600 hover:to-red-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center group"
                   >
                     {t('hero.cta')}
-                    <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight className="ml-3 w-7 h-7 group-hover:translate-x-1 transition-transform" />
                   </Link>
                   <button
                     onClick={() => scrollToSection('services')}
-                    className="border-2 border-sky-600 text-sky-600 px-8 py-4 rounded-lg font-semibold hover:bg-sky-50 transition-all hover:scale-105 transform hover:border-sky-700"
+                    className="border-2 border-sky-600 text-sky-600 px-12 py-6 rounded-lg text-xl font-semibold hover:bg-sky-50 transition-all hover:scale-105 transform hover:border-sky-700"
                   >
                     {t('hero.ctaSecondary')}
                   </button>
                 </div>
               </div>
             </div>
-            <div className="flex justify-center gap-2 mt-12">
+            <div className="flex justify-center gap-3 mt-16">
               {heroImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentHeroImage(index)}
                   className={`transition-all duration-300 ${
                     index === currentHeroImage
-                      ? 'w-8 h-2 bg-sky-600'
-                      : 'w-2 h-2 bg-gray-400 hover:bg-gray-500'
+                      ? 'w-12 h-3 bg-sky-600'
+                      : 'w-3 h-3 bg-gray-400 hover:bg-gray-500'
                   } rounded-full`}
                   aria-label={`Image ${index + 1}`}
                 />
