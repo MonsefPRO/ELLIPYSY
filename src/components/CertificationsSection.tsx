@@ -54,21 +54,21 @@ const CertificationCard = ({ logo, title, description, icon }: CertificationCard
 const CertificationsSection = () => {
   const certifications = [
     {
-      logo: '/ecolab.png',
-      title: 'Écolabel',
-      description: 'Engagement environnemental certifié pour des solutions de nettoyage écologiques et durables.',
-      icon: <Shield className="w-5 h-5 text-white" />
-    },
-    {
-      logo: '/1.png',
+      logo: '/6.png',
       title: 'DGAC',
       description: 'Certification officielle de la Direction Générale de l\'Aviation Civile pour opérations par drone.',
-      icon: <Award className="w-5 h-5 text-white" />
+      icon: <Shield className="w-5 h-5 text-white" />
     },
     {
       logo: '/3.jpg',
       title: 'EASA',
       description: 'Système de management de la qualité certifié garantissant excellence et satisfaction client.',
+      icon: <Award className="w-5 h-5 text-white" />
+    },
+    {
+      logo: '/ecolab.png',
+      title: 'Eco-Label',
+      description: 'Engagement environnemental certifié pour des solutions de nettoyage écologiques et durables.',
       icon: <CheckCircle2 className="w-5 h-5 text-white" />
     }
   ];
