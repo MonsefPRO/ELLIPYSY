@@ -117,7 +117,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#EFF8FF]">
       {isLoading && (
         <div className={`fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-sky-500 via-blue-600 to-sky-700 transition-all duration-700 ${isFadingOut ? 'opacity-0 scale-110' : 'opacity-100 scale-100'}`}>
           <div className="absolute inset-0 overflow-hidden">
