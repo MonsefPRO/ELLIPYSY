@@ -283,7 +283,7 @@ function App() {
           <div className="w-full relative z-10">
             <div className="flex flex-col items-center justify-center">
               <div className="space-y-7 w-full text-center">
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent whitespace-nowrap">
+                <h1 className="text-4xl md:text-5xl font-bold mb-6 whitespace-nowrap" style={{ color: '#334786' }}>
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-7">
@@ -292,16 +292,16 @@ function App() {
                   </span>
                   <span className="flex flex-wrap justify-center gap-2 font-bold">
                     <span className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <Shield className="w-4 h-4 text-black mr-1.5" />
-                      <span className="text-black">{t('benefits.safety.title')}</span>
+                      <Shield className="w-4 h-4 mr-1.5" style={{ color: '#334786' }} />
+                      <span style={{ color: '#334786' }}>{t('benefits.safety.title')}</span>
                     </span>
                     <span className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <Zap className="w-4 h-4 text-black mr-1.5" />
-                      <span className="text-black">{t('benefits.speed.title')}</span>
+                      <Zap className="w-4 h-4 mr-1.5" style={{ color: '#334786' }} />
+                      <span style={{ color: '#334786' }}>{t('benefits.speed.title')}</span>
                     </span>
                     <span className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer">
-                      <BarChart3 className="w-4 h-4 text-black mr-1.5" />
-                      <span className="text-black">{t('benefits.cost.title')}</span>
+                      <BarChart3 className="w-4 h-4 mr-1.5" style={{ color: '#334786' }} />
+                      <span style={{ color: '#334786' }}>{t('benefits.cost.title')}</span>
                     </span>
                   </span>
                   <span className="block text-base sm:text-lg md:text-xl lg:text-2xl text-black">
