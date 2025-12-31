@@ -20,7 +20,7 @@ export default function Demoussage() {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-bold mb-4">Démoussage de toiture par drone</h1>
-            <p className="text-xl md:text-2xl text-green-100">Les drones au service de l'humain</p>
+            <p className="text-3xl sm:text-4xl text-green-100">Les drones au service de l'humain</p>
           </div>
         </div>
       </div>
