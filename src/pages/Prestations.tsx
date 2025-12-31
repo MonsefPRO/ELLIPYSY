@@ -395,7 +395,7 @@ export default function Prestations() {
         </div>
 
         <div className="mt-16 bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 md:p-12 text-center border border-sky-100">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Besoin d'une prestation sur mesure ?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#233B72' }}>Besoin d'une prestation sur mesure ?</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Pour des demandes spécifiques, nous proposons également des missions complémentaires : cartographie, thermographie, prises de vue techniques, analyses….
           </p>
