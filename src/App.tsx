@@ -12,7 +12,6 @@ function App() {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isActualitesOpen, setIsActualitesOpen] = useState(false);
-  const [isBannerVisible, setIsBannerVisible] = useState(true);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [expandedFAQ, setExpandedFAQ] = useState<{[key: number]: boolean}>({});
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
@@ -150,23 +149,7 @@ function App() {
         </div>
       )}
       <CookieBanner />
-      {isBannerVisible && (
-        <div className="bg-gradient-to-r from-sky-600 to-blue-700 text-white py-3 px-4 text-center relative z-50">
-          <div className="container mx-auto flex items-center justify-center">
-            <p className="text-sm sm:text-base font-medium">
-              {t('banner.offer')}
-            </p>
-            <button
-              onClick={() => setIsBannerVisible(false)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 hover:bg-white/20 rounded-full p-1 transition-colors"
-              aria-label="Fermer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-      )}
-      <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100" style={{ top: isBannerVisible ? '48px' : '0' }}>
+      <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
