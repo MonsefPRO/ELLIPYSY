@@ -54,7 +54,7 @@ export const translations = {
       },
       summary: '<strong>Le nettoyage par drone</strong> s\'impose comme une solution moderne et performante pour l\'entretien des <strong>façades industrielles, toitures et panneaux solaires</strong>. Sans exposition au risque humain <strong>ni installation coûteuse</strong>, cette technologie assure une <strong>intervention rapide, sécurisée et économiquement optimisée</strong>, avec un résultat professionnel, y compris dans les zones difficiles d\'accès.',
       summaryPart1: '<strong>Le nettoyage par drone</strong> s\'impose comme une solution moderne et performante pour l\'entretien des <strong>façades industrielles, toitures et panneaux solaires</strong>.',
-      summaryPart2: 'Sans exposition au risque humain <strong>ni installation coûteuse</strong>, cette technologie assure une <strong>intervention rapide, sécurisée et économiquement optimisée</strong>, avec un résultat professionnel, y compris dans les zones difficiles d\'accès.',
+      summaryPart2: 'Cette technologie assure une <strong>intervention rapide, sécurisée et économiquement optimisée</strong>, avec un résultat professionnel, y compris dans les zones difficiles d\'accès.',
       summaryTag: 'La tech au service de l\'humain ',
     },
     servicesSection: {
