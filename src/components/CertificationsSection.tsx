@@ -1,40 +1,20 @@
-import { Shield, CheckCircle2, Award } from 'lucide-react';
-
 interface CertificationCardProps {
   logo: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
 }
 
-const CertificationCard = ({ logo, title, description, icon }: CertificationCardProps) => {
+const CertificationCard = ({ logo }: CertificationCardProps) => {
   return (
     <div className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-500 border border-sky-100/50 hover:border-sky-200 hover:-translate-y-2">
       <div className="absolute inset-0 bg-gradient-to-br from-sky-50/50 via-white/50 to-blue-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-      <div className="relative z-10">
-        <div className="mb-4 flex justify-center">
-          <div className="relative w-48 h-48 bg-gradient-to-br from-white to-sky-50/30 rounded-2xl p-6 border-2 border-sky-100/50 shadow-md group-hover:scale-105 group-hover:shadow-xl transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
-            <div className="absolute inset-0 bg-gradient-to-br from-sky-400/5 to-blue-400/5 rounded-2xl"></div>
-            <img
-              src={logo}
-              alt={title}
-              className="w-full h-full object-contain relative z-10"
-            />
-          </div>
-        </div>
-
-        <div className="absolute top-4 right-4 w-10 h-10 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:rotate-12">
-          {icon}
-        </div>
-
-        <div className="text-center space-y-2">
-          <h3 className="text-2xl font-bold text-gray-800 group-hover:text-sky-700 transition-colors duration-300">
-            {title}
-          </h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {description}
-          </p>
+      <div className="relative z-10 flex justify-center">
+        <div className="relative w-48 h-48 bg-gradient-to-br from-white to-sky-50/30 rounded-2xl p-6 border-2 border-sky-100/50 shadow-md group-hover:scale-105 group-hover:shadow-xl transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+          <div className="absolute inset-0 bg-gradient-to-br from-sky-400/5 to-blue-400/5 rounded-2xl"></div>
+          <img
+            src={logo}
+            alt="Certification"
+            className="w-full h-full object-contain relative z-10"
+          />
         </div>
       </div>
 
@@ -47,22 +27,13 @@ const CertificationCard = ({ logo, title, description, icon }: CertificationCard
 const CertificationsSection = () => {
   const certifications = [
     {
-      logo: '/6.png',
-      title: 'DGAC',
-      description: 'Certification officielle de la Direction Générale de l\'Aviation Civile pour opérations par drone.',
-      icon: <Shield className="w-5 h-5 text-white" />
+      logo: '/6.png'
     },
     {
-      logo: '/3.jpg',
-      title: 'EASA',
-      description: 'Système de management de la qualité certifié garantissant excellence et satisfaction client.',
-      icon: <Award className="w-5 h-5 text-white" />
+      logo: '/3.jpg'
     },
     {
-      logo: '/ecolab.png',
-      title: 'Eco-Label',
-      description: 'Engagement environnemental certifié pour des solutions de nettoyage écologiques et durables.',
-      icon: <CheckCircle2 className="w-5 h-5 text-white" />
+      logo: '/ecolab.png'
     }
   ];
 
