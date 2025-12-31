@@ -289,8 +289,8 @@ function App() {
                 <h1 className="text-3xl font-bold leading-tight animate-fade-in text-black whitespace-nowrap">
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl leading-relaxed space-y-7">
-                  <span className="block whitespace-nowrap bg-white/80 backdrop-blur-sm px-6 py-3 rounded-lg inline-block font-semibold text-gray-800 shadow-sm">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-7">
+                  <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
                   <span className="flex flex-wrap justify-center gap-2 font-bold">
@@ -307,7 +307,7 @@ function App() {
                       <span className="text-black">{t('benefits.cost.title')}</span>
                     </span>
                   </span>
-                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl bg-white/80 backdrop-blur-sm px-6 py-3 rounded-lg inline-block font-semibold text-gray-800 shadow-sm max-w-5xl mx-auto">
+                  <span className="block text-base sm:text-lg md:text-xl lg:text-2xl">
                     {t('hero.intervention')}
                   </span>
                 </p>
