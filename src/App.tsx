@@ -285,11 +285,11 @@ function App() {
           </div>
           <div className="w-full relative z-10">
             <div className="flex flex-col items-center justify-center">
-              <div className="space-y-6 w-full text-center">
+              <div className="space-y-7 w-full text-center">
                 <h1 className="text-3xl font-bold leading-tight animate-fade-in text-black whitespace-nowrap">
                   {t('hero.title1')} {t('hero.title2')}
                 </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-6">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed space-y-7">
                   <span className="block whitespace-nowrap">
                     {t('hero.subtitle')}
                   </span>
