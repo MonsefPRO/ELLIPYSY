@@ -212,12 +212,6 @@ export default function Valeurs() {
             <span className="text-gray-800 font-medium">Nos valeurs</span>
           </nav>
 
-          <section className="text-center mb-6">
-            <p className="text-base text-gray-700 leading-relaxed max-w-3xl mx-auto">
-              Chez <span className="font-bold text-sky-600">Ellipsys</span>, la technologie est au service de l'humain.
-              Nos valeurs guident chacune de nos actions pour des prestations fiables, responsables et de haute qualité.
-            </p>
-          </section>
         </div>
 
         <div className="w-full space-y-16 py-8">
