@@ -53,7 +53,7 @@ export default function Blog() {
       category: "Réglementation",
       title: "Réglementation 2026 : Ce qui change pour le survol urbain",
       date: "05 Janv 2026",
-      image: "https://images.unsplash.com/photo-1506941433945-99a2aa4bd50a?auto=format&fit=crop&q=80&w=800",
+      image: "regle.png",
       excerpt: "Le passage définitif aux scénarios européens STS-01 est acté. Ellipsys fait le point sur les nouvelles certifications nécessaires.",
       content: `
         <div class="space-y-6 text-slate-700 leading-relaxed">
