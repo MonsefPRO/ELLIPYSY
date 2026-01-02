@@ -41,22 +41,28 @@ export function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm animate-in fade-in duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md animate-in fade-in duration-500"
       onClick={onClose}
+      style={{
+        animation: 'fadeIn 0.5s ease-out'
+      }}
     >
       <div
-        className="relative w-full max-w-5xl animate-in zoom-in-95 duration-300"
+        className="relative w-full max-w-7xl"
         onClick={(e) => e.stopPropagation()}
+        style={{
+          animation: 'zoomIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+        }}
       >
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 hover:scale-110 hover:rotate-90 transform"
+          className="absolute -top-14 right-0 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-200 hover:scale-110 hover:rotate-90 transform"
           aria-label="Fermer"
         >
           <X className="w-6 h-6" />
         </button>
 
-        <div className="bg-black rounded-2xl overflow-hidden shadow-2xl">
+        <div className="bg-black rounded-3xl overflow-hidden shadow-2xl ring-2 ring-white/10">
           <video
             ref={videoRef}
             className="w-full aspect-video"
@@ -68,6 +74,28 @@ export function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
           </video>
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes zoomIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
+        }
+      `}</style>
     </div>
   );
 }
