@@ -151,7 +151,7 @@ export default function RejoignezNous() {
         <img
           src="/reji.png"
           alt="Rejoignez l'équipe Ellipsys"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4 relative z-10">
