@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import App from './App.tsx';
@@ -17,25 +18,179 @@ import RejoignezNous from './pages/RejoignezNous.tsx';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite.tsx';
 import './index.css';
 
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <App />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/prestations"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Prestations />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/prestations/nettoyage-facade"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <NettoyageFacade />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/prestations/demoussage"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Demoussage />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/prestations/panneaux-photovoltaiques"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <PanneauxPhotovoltaiques />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/prestations/elimination-frelons"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <EliminationFrelons />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Blog />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/realisations"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Realisations />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/devis"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Devis />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/valeurs"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Valeurs />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/rejoignez-nous"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <RejoignezNous />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/politique-confidentialite"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <PolitiqueConfidentialite />
+            </motion.div>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LanguageProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/prestations" element={<Prestations />} />
-          <Route path="/prestations/nettoyage-facade" element={<NettoyageFacade />} />
-          <Route path="/prestations/demoussage" element={<Demoussage />} />
-          <Route path="/prestations/panneaux-photovoltaiques" element={<PanneauxPhotovoltaiques />} />
-          <Route path="/prestations/elimination-frelons" element={<EliminationFrelons />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/realisations" element={<Realisations />} />
-          <Route path="/devis" element={<Devis />} />
-          <Route path="/valeurs" element={<Valeurs />} />
-          <Route path="/rejoignez-nous" element={<RejoignezNous />} />
-          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </LanguageProvider>
   </StrictMode>

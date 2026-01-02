@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { ChevronRight, AlertTriangle, CheckCircle, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { FloatingDrone } from '../components/FloatingDrone';
 
 export default function EliminationFrelons() {
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function EliminationFrelons() {
     <div className="min-h-screen bg-white">
       <Header />
       <div className="h-96 bg-gradient-to-br from-red-600 to-rose-700 relative overflow-hidden pt-20">
-        <img
+        <FloatingDrone
           src="/abateur_de_frelons.png"
           alt="Élimination de nids de frelons par drone"
           className="absolute inset-0 w-full h-full object-cover opacity-40"

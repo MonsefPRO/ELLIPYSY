@@ -7,6 +7,9 @@ import LanguageSwitcher from './components/LanguageSwitcher';
 import DroneBenefits from './components/DroneBenefits';
 import CertificationsSection from './components/CertificationsSection';
 import { useLanguage } from './contexts/LanguageContext';
+import { Hover3DCard } from './components/Hover3DCard';
+import { ScrollReveal } from './components/ScrollReveal';
+import { AnimatedButton } from './components/AnimatedButton';
 
 function App() {
   const { t } = useLanguage();
@@ -385,97 +388,105 @@ function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-8">
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-sky-500">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
-                    <span className="text-white font-bold text-2xl">01</span>
+              <ScrollReveal delay={0.1}>
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-sky-500">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
+                      <span className="text-white font-bold text-2xl">01</span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
+                      {t('mainServices.facade.title')}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg text-justify">
+                      {t('mainServices.facade.description')}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
-                    {t('mainServices.facade.title')}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg text-justify">
-                    {t('mainServices.facade.description')}
-                  </p>
-                </div>
-                <div className="mt-[29px] pt-6 border-t border-gray-100">
-                  <Link
-                    to="/prestations/nettoyage-facade"
-                    className="text-sky-600 font-semibold hover:text-sky-700 inline-flex items-center group"
-                  >
-                    {t('mainServices.seeMore')}
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
+                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                    <Link
+                      to="/prestations/nettoyage-facade"
+                      className="text-sky-600 font-semibold hover:text-sky-700 inline-flex items-center group"
+                    >
+                      {t('mainServices.seeMore')}
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </Hover3DCard>
+              </ScrollReveal>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-green-500">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
-                    <span className="text-white font-bold text-2xl">02</span>
+              <ScrollReveal delay={0.2}>
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-green-500">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
+                      <span className="text-white font-bold text-2xl">02</span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
+                      {t('mainServices.demoussage.title')}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg text-justify">
+                      {t('mainServices.demoussage.description')}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
-                    {t('mainServices.demoussage.title')}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg text-justify">
-                    {t('mainServices.demoussage.description')}
-                  </p>
-                </div>
-                <div className="mt-[29px] pt-6 border-t border-gray-100">
-                  <Link
-                    to="/prestations/demoussage"
-                    className="text-green-600 font-semibold hover:text-green-700 inline-flex items-center group"
-                  >
-                    {t('mainServices.seeMore')}
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
+                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                    <Link
+                      to="/prestations/demoussage"
+                      className="text-green-600 font-semibold hover:text-green-700 inline-flex items-center group"
+                    >
+                      {t('mainServices.seeMore')}
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </Hover3DCard>
+              </ScrollReveal>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-red-500">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
-                    <span className="text-white font-bold text-2xl">03</span>
+              <ScrollReveal delay={0.3}>
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-red-500">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
+                      <span className="text-white font-bold text-2xl">03</span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
+                      {t('mainServices.hornets.title')}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg text-justify">
+                      {t('mainServices.hornets.description')}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
-                    {t('mainServices.hornets.title')}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg text-justify">
-                    {t('mainServices.hornets.description')}
-                  </p>
-                </div>
-                <div className="mt-[29px] pt-6 border-t border-gray-100">
-                  <Link
-                    to="/prestations/elimination-frelons"
-                    className="text-red-600 font-semibold hover:text-red-700 inline-flex items-center group"
-                  >
-                    {t('mainServices.seeMore')}
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
+                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                    <Link
+                      to="/prestations/elimination-frelons"
+                      className="text-red-600 font-semibold hover:text-red-700 inline-flex items-center group"
+                    >
+                      {t('mainServices.seeMore')}
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </Hover3DCard>
+              </ScrollReveal>
 
-              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-amber-500">
-                <div className="mb-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
-                    <span className="text-white font-bold text-2xl">04</span>
+              <ScrollReveal delay={0.4}>
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
+                  <div className="mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
+                      <span className="text-white font-bold text-2xl">04</span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
+                      {t('servicesSection.industrial2.title')}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg text-justify">
+                      {t('servicesSection.industrial2.description')}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-bold mb-4" style={{ color: '#334786' }}>
-                    {t('servicesSection.industrial2.title')}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-lg text-justify">
-                    {t('servicesSection.industrial2.description')}
-                  </p>
-                </div>
-                <div className="mt-[29px] pt-6 border-t border-gray-100">
-                  <Link
-                    to="/prestations"
-                    className="text-amber-600 font-semibold hover:text-amber-700 inline-flex items-center group"
-                  >
-                    {t('mainServices.seeMore')}
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </div>
+                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                    <Link
+                      to="/prestations"
+                      className="text-amber-600 font-semibold hover:text-amber-700 inline-flex items-center group"
+                    >
+                      {t('mainServices.seeMore')}
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </Hover3DCard>
+              </ScrollReveal>
 
             </div>
           </div>

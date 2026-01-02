@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { ChevronRight, Shield, Clock, Droplets, Award, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { FloatingDrone } from '../components/FloatingDrone';
 
 export default function NettoyageFacade() {
   useEffect(() => {
@@ -12,7 +13,7 @@ export default function NettoyageFacade() {
     <div className="min-h-screen bg-white">
       <Header />
       <div className="h-96 bg-gradient-to-br from-sky-500 to-blue-700 relative overflow-hidden pt-20">
-        <img
+        <FloatingDrone
           src="/ares.png"
           alt="Nettoyage de façade par drone"
           className="absolute inset-0 w-full h-full object-cover opacity-40"

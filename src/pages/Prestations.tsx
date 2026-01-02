@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import CertificationsSection from '../components/CertificationsSection';
+import { Hover3DCard } from '../components/Hover3DCard';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export default function Prestations() {
   const [currentCarouselImage, setCurrentCarouselImage] = useState(0);
@@ -306,11 +308,9 @@ export default function Prestations() {
             const isEven = index % 2 === 0;
 
             return (
-              <div
-                key={prestation.id}
-                className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300 p-8 lg:p-12"
-              >
-                <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center whitespace-nowrap" style={{ color: '#233B72' }}>{prestation.title}</h2>
+              <ScrollReveal key={prestation.id} delay={index * 0.1}>
+                <Hover3DCard className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300 p-8 lg:p-12">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center whitespace-nowrap" style={{ color: '#233B72' }}>{prestation.title}</h2>
 
                 <div className={`flex flex-col ${
                   isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
@@ -387,7 +387,8 @@ export default function Prestations() {
                     </div>
                   </div>
                 </div>
-              </div>
+                </Hover3DCard>
+              </ScrollReveal>
             );
           })}
         </div>
