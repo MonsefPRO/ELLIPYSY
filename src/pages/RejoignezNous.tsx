@@ -97,10 +97,10 @@ function WhyJoinSection() {
       ref={ref}
       className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-slate-50"
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Pourquoi nous rejoindre ?</h2>
-          <p className="text-gray-600 leading-relaxed text-lg text-justify max-w-2xl mx-auto">
+          <p className="text-gray-600 leading-relaxed text-lg text-center">
             Découvrez les avantages de faire partie de l'équipe Ellipsys
           </p>
         </div>
@@ -163,7 +163,7 @@ export default function RejoignezNous() {
             }}>
               Rejoignez-nous
             </h1>
-            <p className="text-xl md:text-2xl text-sky-100 max-w-3xl mx-auto" style={{
+            <p className="text-xl md:text-2xl text-sky-100" style={{
               animation: 'slideInUp 0.8s ease-out 0.2s both'
             }}>
               Développons ensemble l'avenir des services par drone
@@ -172,7 +172,7 @@ export default function RejoignezNous() {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16 max-w-6xl">
+      <div className="container mx-auto px-4 py-16">
         <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-12">
           <Link to="/" className="hover:text-sky-600 transition-colors">Accueil</Link>
           <ChevronRight className="w-4 h-4" />
