@@ -218,7 +218,7 @@ function App() {
               <div
                 key={index}
                 className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                  index === currentHeroImage ? 'opacity-75' : 'opacity-30'
+                  index === currentHeroImage ? 'opacity-75' : 'opacity-0'
                 }`}
               >
                 <img
