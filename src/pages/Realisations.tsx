@@ -188,7 +188,7 @@ export default function Realisations() {
       <div className="relative bg-gradient-to-br from-sky-600 via-blue-600 to-blue-700 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden pt-20">
         <div className="absolute inset-0 opacity-40">
           <img
-            src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="banner_nos.png"
             alt="Bâtiments modernes - Réalisations drone professionnelles"
             className="w-full h-full object-cover"
           />
