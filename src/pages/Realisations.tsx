@@ -80,8 +80,8 @@ export default function Realisations() {
       date: "Août 2024",
       surface: "1 800 m²",
       service: "Nettoyage de façade",
-      imageBefore: "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?auto=compress&cs=tinysrgb&w=800",
-      imageAfter: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg?auto=compress&cs=tinysrgb&w=800",
+      imageBefore: "38.png",
+      imageAfter: "39.png",
       description: "Ravalement de façade d'une résidence de 6 étages avec nettoyage haute pression par drone et traitement anti-pollution.",
       benefits: [
         "Intervention en période habitée",
