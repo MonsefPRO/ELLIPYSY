@@ -18,8 +18,6 @@ function App() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [expandedFAQ, setExpandedFAQ] = useState<{[key: number]: boolean}>({});
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
-  const [isFadingOut, setIsFadingOut] = useState(false);
 
   const heroImages = [
     { src: '/rony.jpg', alt: 'Expert drone Ellipsys' },
@@ -94,60 +92,8 @@ function App() {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  useEffect(() => {
-    const hasVisited = sessionStorage.getItem('hasVisitedSite');
-
-    if (hasVisited) {
-      setIsLoading(false);
-      setIsFadingOut(true);
-      return;
-    }
-
-    sessionStorage.setItem('hasVisitedSite', 'true');
-
-    const fadeTimer = setTimeout(() => {
-      setIsFadingOut(true);
-    }, 2500);
-
-    const hideTimer = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(hideTimer);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#EFF8FF]">
-      {isLoading && (
-        <div className={`fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-sky-500 via-blue-600 to-sky-700 transition-all duration-700 ${isFadingOut ? 'opacity-0 scale-110' : 'opacity-100 scale-100'}`}>
-          <div className="absolute inset-0 overflow-hidden">
-            <div className={`absolute inset-0 bg-gradient-to-br from-sky-400/20 via-transparent to-blue-400/20 transition-transform duration-1000 ${isFadingOut ? 'scale-150 rotate-45' : 'scale-100'}`}></div>
-          </div>
-          <div className={`text-center relative z-10 transition-all duration-700 ${isFadingOut ? 'scale-75 -translate-y-12' : 'scale-100'}`}>
-            <div className={`relative transition-all duration-1000 ${isFadingOut ? 'scale-90 rotate-6' : 'scale-100'}`}>
-              <img
-                src="/ellisys_drones_solutions_for_good_travers.png"
-                alt="Ellipsys"
-                className="h-72 w-auto mx-auto relative z-10 drop-shadow-2xl transition-all duration-1000"
-                style={{
-                  animation: isFadingOut ? 'none' : 'float 3s ease-in-out infinite'
-                }}
-              />
-            </div>
-            <div className="mt-12 flex justify-center space-x-3">
-              <div className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 animate-bounce" style={{ animationDelay: '0ms', animationDuration: '0.8s' }}></div>
-              <div className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 animate-bounce" style={{ animationDelay: '150ms', animationDuration: '0.8s' }}></div>
-              <div className="w-4 h-4 bg-white rounded-full shadow-lg shadow-white/50 animate-bounce" style={{ animationDelay: '300ms', animationDuration: '0.8s' }}></div>
-            </div>
-            <p className={`mt-8 text-white text-xl font-semibold tracking-wide transition-all duration-700 ${isFadingOut ? 'opacity-0 translate-y-4' : 'opacity-100'}`}>
-              Chargement...
-            </p>
-          </div>
-        </div>
-      )}
       <CookieBanner />
       <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
         <nav className="w-full">
