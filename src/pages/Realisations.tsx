@@ -126,8 +126,8 @@ export default function Realisations() {
       date: "Juin 2024",
       surface: "3 200 m²",
       service: "Nettoyage de façade",
-      imageBefore: "https://images.pexels.com/photos/380768/pexels-photo-380768.jpeg?auto=compress&cs=tinysrgb&w=800",
-      imageAfter: "https://images.pexels.com/photos/273209/pexels-photo-273209.jpeg?auto=compress&cs=tinysrgb&w=800",
+      imageBefore: "40.png",
+      imageAfter: "41.png",
       description: "Nettoyage de vitres et façades d'un centre commercial de 12 étages, intervention de nuit pour éviter toute gêne aux clients.",
       benefits: [
         "Intervention nocturne possible",
