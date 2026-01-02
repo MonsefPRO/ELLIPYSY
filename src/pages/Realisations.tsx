@@ -149,8 +149,8 @@ export default function Realisations() {
       date: "Mai 2024",
       surface: "4 500 m²",
       service: "Démoussage de toiture",
-      imageBefore: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
-      imageAfter: "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=800",
+      imageBefore: "44.png",
+      imageAfter: "45.png",
       description: "Démoussage et traitement hydrofuge de toitures sur un ensemble de 15 pavillons en copropriété. Traitement préventif 5 ans inclus.",
       benefits: [
         "Traitement préventif longue durée",
