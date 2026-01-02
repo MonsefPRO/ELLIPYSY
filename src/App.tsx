@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Droplets, Shield, Clock, Award, Mail, Phone, MapPin, ChevronRight, ChevronDown, Star, TrendingUp, Users, ChevronLeft, Zap, BarChart3 } from 'lucide-react';
+import { Menu, X, Droplets, Shield, Clock, Award, Mail, Phone, MapPin, ChevronRight, ChevronDown, Star, TrendingUp, Users, ChevronLeft, Zap, BarChart3, Play } from 'lucide-react';
 import { AnimatedCounter } from './components/AnimatedCounter';
 import CookieBanner from './components/CookieBanner';
 import LanguageSwitcher from './components/LanguageSwitcher';
@@ -10,6 +10,7 @@ import { useLanguage } from './contexts/LanguageContext';
 import { Hover3DCard } from './components/Hover3DCard';
 import { ScrollReveal } from './components/ScrollReveal';
 import { AnimatedButton } from './components/AnimatedButton';
+import { VideoModal } from './components/VideoModal';
 
 function App() {
   const { t } = useLanguage();
@@ -18,6 +19,7 @@ function App() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [expandedFAQ, setExpandedFAQ] = useState<{[key: number]: boolean}>({});
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const heroImages = [
     { src: '/rony.jpg', alt: 'Expert drone Ellipsys' },
@@ -299,11 +301,12 @@ function App() {
                     <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
                   </Link>
                   <button
-                    onClick={() => scrollToSection('services')}
-                    className="border-2 px-8 py-4 rounded-lg font-semibold hover:bg-sky-50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1 transform"
+                    onClick={() => setIsVideoModalOpen(true)}
+                    className="border-2 px-8 py-4 rounded-lg font-semibold hover:bg-sky-50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:-translate-y-1 transform flex items-center justify-center gap-2 group"
                     style={{ borderColor: '#334786', color: '#334786' }}
                   >
-                    {t('hero.ctaSecondary')}
+                    <Play className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                    Voir la démo
                   </button>
                 </div>
               </div>
@@ -801,6 +804,12 @@ function App() {
           </div>
         </section>
       </main>
+
+      <VideoModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoSrc="/chronosvideo.mp4"
+      />
 
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto">
