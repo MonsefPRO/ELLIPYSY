@@ -143,16 +143,10 @@ export default function RejoignezNous() {
       <Header onBlueBanner={true} />
 
       <div className="h-96 bg-gradient-to-br from-sky-600 to-blue-700 relative overflow-hidden pt-20">
-        <div className="absolute inset-0 overflow-hidden">
-          <FloatingOrb delay={0} />
-          <FloatingOrb delay={2} />
-          <FloatingOrb delay={4} />
-        </div>
-        <img
-          src="/reji.png"
-          alt="Rejoignez l'équipe Ellipsys"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
-        />
+        <div className="absolute inset-0" dangerouslySetInnerHTML={{
+          __html: '<spline-viewer url="https://prod.spline.design/2ETycByR4olGecMx/scene.splinecode" style="width: 100%; height: 100%;"></spline-viewer>'
+        }} />
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-600/30 to-blue-700/30" />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4 relative z-10">
             <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-full text-sm font-semibold mb-6 animate-pulse">
