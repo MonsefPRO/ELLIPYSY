@@ -103,8 +103,8 @@ export default function Realisations() {
       date: "Juillet 2024",
       surface: "800 m²",
       service: "Inspection + Nettoyage",
-      imageBefore: "https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?auto=compress&cs=tinysrgb&w=800",
-      imageAfter: "https://images.pexels.com/photos/1542495/pexels-photo-1542495.jpeg?auto=compress&cs=tinysrgb&w=800",
+      imageBefore: "36.png",
+      imageAfter: "37.png",
       description: "Inspection thermique et nettoyage délicat d'une façade classée monument historique avec produits spécialement adaptés.",
       benefits: [
         "Respect du patrimoine architectural",
