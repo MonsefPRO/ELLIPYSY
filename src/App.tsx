@@ -251,8 +251,7 @@ function App() {
                     </span>
                     <span
                       onClick={() => scrollToSection('benefit-speed')}
-                      
-                </span>
+                   </span>
                 </p>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="flex items-center space-x-3 group cursor-pointer">
