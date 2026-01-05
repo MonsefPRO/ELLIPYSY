@@ -5,7 +5,7 @@ interface CertificationCardProps {
 const CertificationCard = ({ logo }: CertificationCardProps) => {
   return (
     <div className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-5 shadow-lg hover:shadow-2xl transition-all duration-500 border border-sky-100/50 hover:border-sky-200 hover:-translate-y-2">
-      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/50 via-white/50 to-blue-50/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-50/25 via-white/50 to-blue-50/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
       <div className="relative z-10 flex justify-center">
         <div className="relative w-48 h-48 bg-gradient-to-br from-white to-sky-50/30 rounded-2xl p-6 border-2 border-sky-100/50 shadow-md group-hover:scale-105 group-hover:shadow-xl transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
