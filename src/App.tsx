@@ -808,7 +808,7 @@ function App() {
       <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
-        videoSrc="/videorony.mp4"
+        videoSrc="/videodemo.mp4"
       />
 
       <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
