@@ -449,24 +449,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-full mx-auto">
-              <video
-                className="w-full rounded-2xl shadow-2xl"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source src="/videodemo.mp4" type="video/mp4" />
-                Votre navigateur ne supporte pas la lecture de vidéos.
-              </video>
-            </div>
-          </div>
-        </section>
-
         <section id="avis" className="py-10 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
             <img src="/dsc03616.jpg" alt="" className="w-full h-full object-cover" />
