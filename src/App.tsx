@@ -263,7 +263,7 @@ function App() {
                       <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 mr-1.5" style={{ color: '#334786' }} />
                       <span className="text-base sm:text-lg md:text-xl lg:text-2xl" style={{ color: '#334786' }}>{t('benefits.cost.title')}</span>
                     </span>
-                  </span>
+                  </span> 
                   <span className="block text-base sm:text-lg md:text-xl lg:text-2xl text-black">
                     {t('hero.intervention')}
                   </span>
