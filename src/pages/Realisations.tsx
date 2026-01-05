@@ -185,7 +185,7 @@ export default function Realisations() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Header onBlueBanner={true} />
-      <div className="relative bg-gradient-to-br from-sky-600 via-blue-600 to-blue-700 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden pt-20">
+      <div className="relative bg-gradient-to-br from-sky-500 via-blue-600 to-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden pt-20">
         <div className="absolute inset-0 opacity-40">
           <img
             src="banner_nos.png"
