@@ -248,10 +248,25 @@ function App() {
                     >
                       <Shield className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 mr-1.5" style={{ color: '#334786' }} />
                       <span className="text-base sm:text-lg md:text-xl lg:text-2xl" style={{ color: '#334786' }}>{t('benefits.safety.title')}</span>
-                    </span>
+                    </span> 
                     <span
                       onClick={() => scrollToSection('benefit-speed')}
-                   </span>
+                      className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer"
+                    >
+                      <Zap className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 mr-1.5" style={{ color: '#334786' }} />
+                      <span className="text-base sm:text-lg md:text-xl lg:text-2xl" style={{ color: '#334786' }}>{t('benefits.speed.title')}</span>
+                    </span>
+                    <span
+                      onClick={() => scrollToSection('benefit-cost')}
+                      className="inline-flex items-center bg-gray-100/50 px-3 py-1 rounded-lg hover:bg-gray-200/50 hover:scale-105 transition-all duration-300 cursor-pointer"
+                    >
+                      <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 mr-1.5" style={{ color: '#334786' }} />
+                      <span className="text-base sm:text-lg md:text-xl lg:text-2xl" style={{ color: '#334786' }}>{t('benefits.cost.title')}</span>
+                    </span>
+                  </span> 
+                  <span className="block text-base sm:text-lg md:text-xl lg:text-2xl text-black">
+                    {t('hero.intervention')}
+                  </span>
                 </p>
                 <div className="flex flex-wrap justify-center gap-8">
                   <div className="flex items-center space-x-3 group cursor-pointer">
