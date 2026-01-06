@@ -192,12 +192,12 @@ export default function Realisations() {
   
   <div className="relative z-10 w-full text-center text-white px-4">
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
-        Nos Réalisations
-      </h1>
-      <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md">
-        Les drones au service de l'humain
-      </p>
+     <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg" style={{ color: '#233B72' }}>
+  Nos Réalisations
+</h1>
+<p className="text-xl md:text-2xl drop-shadow-md font-semibold" style={{ color: '#233B72' }}>
+  Les drones au service de l'humain
+</p>
 
       {/* Stats compactes pour ne pas prendre de hauteur */}
       <div className="flex justify-center gap-8 mt-6">
