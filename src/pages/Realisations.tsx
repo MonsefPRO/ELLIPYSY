@@ -186,7 +186,8 @@ export default function Realisations() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Header onBlueBanner={true} />
-    <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[450px]">
+      
+      <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[450px]">
         <HeroCarousel />
         
         <div className="container mx-auto max-w-6xl relative z-10 px-4">
@@ -205,13 +206,11 @@ export default function Realisations() {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
               Nos Réalisations
             </h1>
-            <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md">
+            <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md mb-8">
               Découvrez nos interventions techniques et nos projets d'envergure par drone
             </p>
-          </div>
-        </div>
-      </section>  
-            <div className="flex flex-wrap gap-6 mt-8">
+
+            <div className="flex flex-wrap gap-6">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
                   <TrendingUp className="w-6 h-6" />
@@ -233,7 +232,7 @@ export default function Realisations() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex flex-wrap gap-3 mb-12 justify-center">
@@ -365,15 +364,6 @@ export default function Realisations() {
             );
           })}
         </div>
-
-        {filteredRealisations.length === 0 && (
-          <div className="text-center py-16">
-            <div className="text-gray-400 mb-4">
-              <Building2 className="w-16 h-16 mx-auto" />
-            </div>
-            <p className="text-xl text-gray-600">Aucun projet dans cette catégorie</p>
-          </div>
-        )}
       </div>
 
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
