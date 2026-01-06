@@ -2,6 +2,7 @@ import { ChevronRight, Heart, Award, Leaf, Cpu, CheckCircle, Mail, Shield } from
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
+import { HeroCarousel } from '../components/HeroCarousel';
 
 function useInView() {
   const ref = useRef<HTMLDivElement>(null);
@@ -185,22 +186,20 @@ function WhyChooseSection() {
 
 export default function Valeurs() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-sky-50/30 to-white">
-      <Header />
-      <div className="h-[500px] bg-gradient-to-br from-sky-500 to-blue-700 relative overflow-hidden pt-32"> 
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-600/20 to-blue-700/20"></div>
-        <img
-          src="/banniere_page_nos_valeurs.png" 
-          alt="Nos valeurs - Ellipsys"
-          className="absolute inset-0 w-full h-full object-cover opacity-50 animate-[zoom_20s_ease-in-out_infinite_alternate]"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white px-4 max-w-4xl animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold mb-3 animate-[slideDown_0.8s_ease-out]">Nos valeurs</h1>
-            <p className="text-lg md:text-xl text-sky-100 animate-[slideUp_0.8s_ease-out_0.2s_both]">
+    <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[500px]">
+        <HeroCarousel />
+        
+        <div className="relative z-10 w-full text-center text-white px-4">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
+              Nos valeurs
+            </h1>
+            <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md">
               Les drones au service de l'humain
             </p>
           </div>
+        </div>
+      </section>
         </div>
       </div>
 
