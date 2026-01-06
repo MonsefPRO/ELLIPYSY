@@ -187,52 +187,32 @@ export default function Realisations() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Header onBlueBanner={false} />
       
-    <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[250px]">
-        <HeroCarousel />
-        
-        <div className="container mx-auto max-w-6xl relative z-10 px-4">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-8 transition-colors group"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            <span>Retour à l'accueil</span>
-          </Link>
+  <section className="relative pt-32 pb-20 overflow-hidden flex items-center h-[400px]">
+  <HeroCarousel />
+  
+  <div className="relative z-10 w-full text-center text-white px-4">
+    <div className="max-w-4xl mx-auto">
+      <h1 className="text-5xl md:text-7xl font-bold mb-4 drop-shadow-lg">
+        Nos Réalisations
+      </h1>
+      <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md">
+        Les drones au service de l'humain
+      </p>
 
-          <div className="max-w-3xl text-left text-white">
-            <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
-              Portfolio & Références Clients
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-              Nos Réalisations
-            </h1>
-            <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md mb-8">
-              Découvrez nos interventions techniques et nos projets d'envergure par drone
-            </p>
-
-            <div className="flex flex-wrap gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">500+</div>
-                  <div className="text-sm text-white/80">Projets réalisés</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
-                  <Check className="w-6 h-6" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold">98%</div>
-                  <div className="text-sm text-white/80">Satisfaction client</div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Stats compactes pour ne pas prendre de hauteur */}
+      <div className="flex justify-center gap-8 mt-6">
+        <div className="flex items-center gap-2">
+          <TrendingUp className="w-5 h-5 text-sky-400" />
+          <span className="font-bold">500+ Projets</span>
         </div>
-      </section>
+        <div className="flex items-center gap-2">
+          <Check className="w-5 h-5 text-green-400" />
+          <span className="font-bold">98% Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex flex-wrap gap-3 mb-12 justify-center">
