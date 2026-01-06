@@ -185,7 +185,7 @@ export default function Realisations() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      <Header onBlueBanner={true} />
+      <Header onBlueBanner={false} />
       
       <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[450px]">
         <HeroCarousel />
