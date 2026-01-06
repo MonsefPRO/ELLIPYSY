@@ -141,7 +141,7 @@ export default function RejoignezNous() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Header onBlueBanner={true} />
+      <Header onBlueBanner={false} />
       <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[500px]">
         <HeroCarousel />
         
