@@ -233,46 +233,18 @@ export default function Prestations() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <div className="h-[500px] bg-gradient-to-br from-sky-600 to-blue-700 relative overflow-hidden pt-32">
-        <div className="absolute inset-0">
-          {carouselImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentCarouselImage ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-            </div>
-          ))}
+     <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[500px]">
+        <HeroCarousel />
+        
+        <div className="relative z-10 w-full text-center text-white px-4">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+            Maintenance & Entretien par Drone
+          </h1>
+          <p className="text-xl md:text-2xl text-sky-100 mb-6 drop-shadow-md">
+            Les drones au service de l'humain
+          </p>
         </div>
-
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-600/20 to-blue-700/20" />
-
-        <div className="relative z-10 text-center text-white px-4">
-          <div className="text-center text-white px-4">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Maintenance & Entretien par Drone</h1>
-            <p className="text-xl md:text-2xl text-sky-100 mb-6">
-              Les drones au service de l'humain
-            </p>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex justify-center gap-2">
-          {carouselImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentCarouselImage(index)}
-              className={`transition-all duration-300 ${
-                index === currentCarouselImage
-                  ? 'w-8 h-2 bg-white'
-                  : 'w-2 h-2 bg-white/50 hover:bg-white/70'
-              } rounded-full`}
-              aria-label={`Image ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
+      </section>
 
       <div className="container mx-auto px-4 py-16 max-w-7xl">
         <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-12">
