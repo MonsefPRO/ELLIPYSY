@@ -330,7 +330,7 @@ function App() {
         <CertificationsSection />
         <DroneBenefits />
 
-        <section className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-sky-50 to-blue-50 relative overflow-hidden">
+     <section className="pt-8 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-sky-50 to-blue-50 relative overflow-hidden">
           <div className="absolute inset-0 opacity-5">
             <img src="/dsc07832.jpg" alt="" className="w-full h-full object-cover" />
           </div>
@@ -347,8 +347,8 @@ function App() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-8">
               <ScrollReveal delay={0.1}>
-                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-sky-500">
-                  <div className="mb-6">
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-sky-500 h-full flex flex-col">
+                  <div className="flex-grow">
                     <div className="w-16 h-16 bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                       <span className="text-white font-bold text-2xl">01</span>
                     </div>
@@ -359,7 +359,7 @@ function App() {
                       {t('mainServices.facade.description')}
                     </p>
                   </div>
-                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                  <div className="mt-8 pt-6 border-t border-gray-100">
                     <Link
                       to="/prestations/nettoyage-facade"
                       className="text-sky-600 font-semibold hover:text-sky-700 inline-flex items-center group"
@@ -372,8 +372,8 @@ function App() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-green-500">
-                  <div className="mb-6">
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-green-500 h-full flex flex-col">
+                  <div className="flex-grow">
                     <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                       <span className="text-white font-bold text-2xl">02</span>
                     </div>
@@ -384,7 +384,7 @@ function App() {
                       {t('mainServices.demoussage.description')}
                     </p>
                   </div>
-                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                  <div className="mt-8 pt-6 border-t border-gray-100">
                     <Link
                       to="/prestations/demoussage"
                       className="text-green-600 font-semibold hover:text-green-700 inline-flex items-center group"
@@ -397,8 +397,8 @@ function App() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.3}>
-                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-red-500">
-                  <div className="mb-6">
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-red-500 h-full flex flex-col">
+                  <div className="flex-grow">
                     <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                       <span className="text-white font-bold text-2xl">03</span>
                     </div>
@@ -409,7 +409,7 @@ function App() {
                       {t('mainServices.hornets.description')}
                     </p>
                   </div>
-                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                  <div className="mt-8 pt-6 border-t border-gray-100">
                     <Link
                       to="/prestations/elimination-frelons"
                       className="text-red-600 font-semibold hover:text-red-700 inline-flex items-center group"
@@ -422,8 +422,8 @@ function App() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.4}>
-                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500">
-                  <div className="mb-6">
+                <Hover3DCard className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-amber-500 h-full flex flex-col">
+                  <div className="flex-grow">
                     <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg mb-4">
                       <span className="text-white font-bold text-2xl">04</span>
                     </div>
@@ -434,7 +434,7 @@ function App() {
                       {t('servicesSection.industrial2.description')}
                     </p>
                   </div>
-                  <div className="mt-[29px] pt-6 border-t border-gray-100">
+                  <div className="mt-8 pt-6 border-t border-gray-100">
                     <Link
                       to="/prestations"
                       className="text-amber-600 font-semibold hover:text-amber-700 inline-flex items-center group"
