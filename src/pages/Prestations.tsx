@@ -233,14 +233,14 @@ export default function Prestations() {
     <div className="min-h-screen bg-white">
       <Header />
 
-     <section className="relative pt-24 pb-12 overflow-hidden flex items-center min-h-[400px]">
+   <section className="relative pt-20 pb-10 overflow-hidden flex items-center h-[400px]">
         <HeroCarousel />
         
         <div className="relative z-10 w-full text-center text-white px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 drop-shadow-lg">
             Maintenance & Entretien par Drone
           </h1>
-          <p className="text-xl md:text-2xl text-sky-100 mb-6 drop-shadow-md">
+          <p className="text-lg md:text-xl text-sky-100 drop-shadow-md">
             Les drones au service de l'humain
           </p>
         </div>
