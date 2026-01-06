@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ChevronLeft, ChevronRight, Building2, Home, Factory, Landmark, Check, Calendar, MapPin, TrendingUp, Award } from 'lucide-react';
 import Header from '../components/Header';
+import { HeroCarousel } from '../components/HeroCarousel';
 
 interface Realisation {
   id: number;
@@ -185,16 +186,10 @@ export default function Realisations() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <Header onBlueBanner={true} />
-      <div className="relative bg-gradient-to-br from-sky-500 via-blue-600 to-blue-600 text-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden pt-20">
-        <div className="absolute inset-0 opacity-40">
-          <img
-            src="banner_nos.png" 
-            alt="Bâtiments modernes - Réalisations drone professionnelles"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-600/20 via-blue-600/10 to-blue-700/20"></div>
-        <div className="container mx-auto max-w-6xl relative z-10">
+    <section className="relative pt-32 pb-20 overflow-hidden flex items-center min-h-[450px]">
+        <HeroCarousel />
+        
+        <div className="container mx-auto max-w-6xl relative z-10 px-4">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-white/90 hover:text-white mb-8 transition-colors group"
@@ -203,14 +198,19 @@ export default function Realisations() {
             <span>Retour à l'accueil</span>
           </Link>
 
-          <div className="max-w-3xl">
+          <div className="max-w-3xl text-left text-white">
             <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold mb-6">
               Portfolio & Références Clients
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
               Nos Réalisations
             </h1>
-
+            <p className="text-xl md:text-2xl text-sky-100 drop-shadow-md">
+              Découvrez nos interventions techniques et nos projets d'envergure par drone
+            </p>
+          </div>
+        </div>
+      </section>  
             <div className="flex flex-wrap gap-6 mt-8">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
