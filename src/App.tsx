@@ -99,7 +99,7 @@ function App() {
       <CookieBanner />
       <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
         <nav className="w-full">
-          <div className="flex justify-between items-center h-[110px] px-[120px]">
+        <div className="flex justify-between items-center h-[110px] px-[120px]">
             <div className="flex items-center">
               <Link to="/" className="flex-shrink-0">
                 <img
