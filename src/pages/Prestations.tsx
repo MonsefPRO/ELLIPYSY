@@ -15,27 +15,9 @@ import Header from '../components/Header';
 import CertificationsSection from '../components/CertificationsSection';
 import { Hover3DCard } from '../components/Hover3DCard';
 import { ScrollReveal } from '../components/ScrollReveal';
+import { HeroCarousel } from '../components/HeroCarousel';
 
 export default function Prestations() {
-  const [currentCarouselImage, setCurrentCarouselImage] = useState(0);
-
-  const carouselImages = [
-    { src: '/rony.jpg', alt: 'Robot de nettoyage drone sur panneaux solaires' },
-    { src: '/abateur_de_frelons.png', alt: 'Système de nettoyage en action' },
-    { src: '/rony3.jpg', alt: 'Drone nettoyant une toiture' }, 
-    { src: '/ares.png', alt: 'Drone professionnel au sol' },
-    { src: '/rony2.jpg', alt: 'Équipement de nettoyage drone' },
-    { src: '/ares2.jpg', alt: 'Drone sur panneaux solaires' },
-    { src: '/Demoussage drone 1.jpg', alt: 'Technologie de nettoyage drone' }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentCarouselImage((prev) => (prev + 1) % carouselImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [carouselImages.length]);
-
   const prestations = [
     {
       id: 'nettoyage-facade',
