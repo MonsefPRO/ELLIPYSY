@@ -19,10 +19,9 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
 <div className="flex justify-between items-center h-24 md:h-[110px] px-6 md:px-[120px]">
       <div className="flex items-center">
         <Link to="/" className="flex-shrink-0">
-        <img 
-  src="/logo.png" // ou le chemin de votre logo
+       <img src="/logo.png" // Le "/" au début est CRUCIAL pour l'affichage sur toutes les pages
   alt="Ellipsys Logo"
-  className="h-12 md:h-16 w-auto object-contain transition-transform hover:scale-105"
+  className="h-14 md:h-20 w-auto object-contain transition-transform hover:scale-105"
 />
         </Link>
       </div>
