@@ -199,12 +199,12 @@ export default function Blog() {
         <HeroCarousel />
         
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-6xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            Blog & Actualités
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-100 drop-shadow-md max-w-3xl mx-auto font-medium">
-            Expertise, conseils et innovations dans le nettoyage par drone
-          </p>
+         <h1 className="text-6xl md:text-7xl font-bold mb-6 drop-shadow-lg" style={{ color: '#233B72' }}>
+  Blog & Actualités
+</h1>
+<p className="text-xl md:text-2xl drop-shadow-md max-w-3xl mx-auto font-semibold" style={{ color: '#233B72' }}>
+  Expertise, conseils et innovations dans le nettoyage par drone
+</p>
         </div>
       </section>
 
