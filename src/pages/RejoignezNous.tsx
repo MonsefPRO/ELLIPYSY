@@ -3,7 +3,6 @@ import { ChevronRight, Briefcase, Users, Heart, Award, Send, FileText, Building2
 import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import { useSecureForm } from '../hooks/useSecureForm';
-import { HeroCarousel } from '../components/HeroCarousel';
 
 const FloatingOrb = ({ delay }: { delay: number }) => (
   <div
