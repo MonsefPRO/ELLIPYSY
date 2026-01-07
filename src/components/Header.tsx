@@ -19,13 +19,14 @@ return (
         {/* On garde une hauteur fixe pour ne pas écraser les bannières */}
         <div className="flex justify-between items-center h-20 md:h-24 px-6 md:px-[120px] relative">
           
-          {/* ZONE LOGO CORRIGÉE : Utilisation de w-40 pour réserver l'espace du logo */}
-         <div className="flex items-center h-full w-40 md:w-72">
-            <Link to="/" className="flex items-center">
+          {/* ZONE LOGO : On augmente la largeur md:w-80 et on autorise le débordement si besoin */}
+          <div className="flex items-center h-full w-40 md:w-80">
+            <Link to="/" className="flex items-center h-full">
               <img 
                 src="/bonlogo_de_cote.png" 
                 alt="Ellipsys Logo"
-               className="h-12 md:h-22 w-auto object-contain transition-transform hover:scale-105"
+                className="h-12 md:h-24 w-auto object-contain transition-transform hover:scale-105"
+                style={{ maxHeight: '120%' }} 
               />
             </Link>
           </div>
