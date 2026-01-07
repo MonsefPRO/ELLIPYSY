@@ -102,11 +102,11 @@ function App() {
       <div className="flex justify-between items-center h-24 md:h-[110px] px-6 md:px-[120px]">
             <div className="flex items-center">
               <Link to="/" className="flex-shrink-0">
-                <img
-                  src="/logo_de_cote.png"
-                  alt="Ellipsys"
-                className="h-24 md:h-36 w-auto transition-transform duration-300 cursor-pointer"
-                />
+              <img
+  src="/bonlogo_de_cote.png"
+  alt="Ellipsys"
+  className="h-12 md:h-24 w-auto transition-transform duration-300 cursor-pointer"
+/>
               </Link>
             </div>
 
