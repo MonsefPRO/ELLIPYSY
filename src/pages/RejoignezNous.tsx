@@ -153,7 +153,7 @@ export default function RejoignezNous() {
   Rejoignez-nous
 </h1>
 <p className="text-xl md:text-2xl drop-shadow-md font-semibold" style={{ color: '#233B72' }}>
-  Développons ensemble l'avenir des services par drone
+ Les drones au service de l'humain
 </p>
         </div>
       </section>
