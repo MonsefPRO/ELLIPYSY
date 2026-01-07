@@ -26,7 +26,7 @@ return (
       src="/bonlogo_de_cote.png" 
       alt="Ellipsys Logo"
       /* On s'assure que h-12 et md:h-24 sont appliqués sans conditions */
-      className="h-12 md:h-24 w-auto object-contain transition-transform hover:scale-105"
+    className="h-12 md:h-24 w-auto object-contain transition-transform hover:scale-105"
     />
   </Link>
 </div>
