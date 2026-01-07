@@ -13,20 +13,22 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isActualitesOpen, setIsActualitesOpen] = useState(false);
 
-  return (
+return (
     <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-40 transition-all border-b border-gray-100">
       <nav className="w-full">
-        <div className="flex justify-between items-center h-20 md:h-24 px-6 md:px-[120px]">
-          {/* ZONE LOGO CORRIGÉE */}
-          <div className="flex items-center relative h-full">
-  <Link to="/" className="flex items-center absolute left-0">
-    <img 
-  src="/bonlogo_de_cote.png" 
-  alt="Ellipsys Logo"
-  className="h-12 md:h-18 w-auto object-contain transition-transform hover:scale-105"
-/>
-  </Link>
-</div>
+        {/* On garde une hauteur fixe pour ne pas écraser les bannières */}
+        <div className="flex justify-between items-center h-20 md:h-24 px-6 md:px-[120px] relative">
+          
+          {/* ZONE LOGO CORRIGÉE : Utilisation de w-40 pour réserver l'espace du logo */}
+          <div className="flex items-center h-full w-40 md:w-60">
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/bonlogo_de_cote.png" 
+                alt="Ellipsys Logo"
+                className="h-12 md:h-18 w-auto object-contain transition-transform hover:scale-105"
+              />
+            </Link>
+          </div>
 
           {/* MENU PC */}
           <div className="hidden md:flex items-center space-x-12">
