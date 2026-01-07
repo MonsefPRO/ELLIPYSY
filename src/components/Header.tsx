@@ -21,15 +21,15 @@ return (
           
           {/* ZONE LOGO : On augmente la largeur md:w-80 et on autorise le débordement si besoin */}
           <div className="flex items-center h-full w-40 md:w-80">
-            <Link to="/" className="flex items-center h-full">
-              <img 
-                src="/bonlogo_de_cote.png" 
-                alt="Ellipsys Logo"
-                className="h-12 md:h-24 w-auto object-contain transition-transform hover:scale-105"
-                style={{ maxHeight: '120%' }} 
-              />
-            </Link>
-          </div>
+  <Link to="/" className="flex items-center h-full">
+    <img 
+      src="/bonlogo_de_cote.png" 
+      alt="Ellipsys Logo"
+      /* On s'assure que h-12 et md:h-24 sont appliqués sans conditions */
+      className="h-12 md:h-24 w-auto object-contain transition-transform hover:scale-105"
+    />
+  </Link>
+</div>
 
           {/* MENU PC */}
           <div className="hidden md:flex items-center space-x-12">
