@@ -18,15 +18,16 @@ export default function Header({ onBlueBanner = false }: HeaderProps) {
       <nav className="w-full">
         <div className="flex justify-between items-center h-20 md:h-24 px-6 md:px-[120px]">
           {/* ZONE LOGO CORRIGÉE */}
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <img 
-                src="/logo_de_cote.png" 
-                alt="Ellipsys Logo"
-                className="h-14 md:h-20 w-auto object-contain transition-transform hover:scale-105"
-              />
-            </Link>
-          </div>
+          <div className="flex items-center relative h-full">
+  <Link to="/" className="flex items-center absolute left-0">
+    <img 
+      src="/logo_de_cote.png" 
+      alt="Ellipsys Logo"
+      className="h-24 md:h-36 w-auto object-contain transition-transform hover:scale-105 drop-shadow-md"
+      style={{ maxWidth: 'none' }}
+    />
+  </Link>
+</div>
 
           {/* MENU PC */}
           <div className="hidden md:flex items-center space-x-12">
