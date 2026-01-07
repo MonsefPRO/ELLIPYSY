@@ -91,15 +91,24 @@ return (
               }`}></span>
             </Link>
 
-            <Link to="/#contact" className={`font-semibold text-lg transition-colors relative group ${
-              onBlueBanner ? 'text-white hover:text-sky-100' : 'text-gray-700 hover:text-sky-600'
-            }`}>
-              <span>Contact</span>
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${
-                onBlueBanner ? 'bg-white' : 'bg-sky-600'
-              }`}></span>
-            </Link>
-          </div>
+           <button 
+  onClick={() => {
+    if (window.location.pathname === '/') {
+      const contactSection = document.getElementById('contact');
+      contactSection?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#contact';
+    }
+  }}
+  className={`font-semibold text-lg transition-colors relative group ${
+    onBlueBanner ? 'text-white hover:text-sky-100' : 'text-gray-700 hover:text-sky-600'
+  }`}
+>
+  <span>Contact</span>
+  <span className={`absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300 ${
+    onBlueBanner ? 'bg-white' : 'bg-sky-600'
+  }`}></span>
+</button>
 
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
@@ -144,9 +153,20 @@ return (
             <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-sky-600 font-bold text-xl border-b pb-2">
               {t('nav.values')}
             </Link>
-            <Link to="/#contact" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-sky-600 font-bold text-xl border-b pb-2">
-              {t('contact.title')}
-            </Link>
+           <button 
+  onClick={() => {
+    setIsMenuOpen(false); // Ferme le menu mobile
+    if (window.location.pathname === '/') {
+      const contactSection = document.getElementById('contact');
+      contactSection?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.href = '/#contact';
+    }
+  }} 
+  className="block w-full text-left text-gray-700 hover:text-sky-600 font-bold text-xl border-b pb-2"
+>
+  {t('contact.title')}
+</button>
             <div className="pt-4 space-y-4">
               <div className="flex justify-center">
                 <LanguageSwitcher />
