@@ -15,8 +15,6 @@ import Header from './components/Header';
 
 function App() {
   const { t } = useLanguage();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isActualitesOpen, setIsActualitesOpen] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [expandedFAQ, setExpandedFAQ] = useState<{[key: number]: boolean}>({});
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
