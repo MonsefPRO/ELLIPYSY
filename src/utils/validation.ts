@@ -1,7 +1,6 @@
 export const sanitizeInput = (input: string): string => {
   return input
     .replace(/[<>]/g, '')
-    .trim();
 };
 
 export const validateEmail = (email: string): boolean => {
