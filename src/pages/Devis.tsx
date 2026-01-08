@@ -35,7 +35,7 @@ export default function Devis() {
         service: values.service,
         message: values.message,
         rgpd: values.rgpd === 'true'
-      });
+      }); 
 
       validationErrors.forEach(err => {
         errors[err.field] = err.message;
