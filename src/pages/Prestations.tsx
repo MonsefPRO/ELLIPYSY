@@ -104,31 +104,29 @@ export default function Prestations() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
 
-      {/* HERO SECTION RESPONSIVE */}
+      {/* HERO SECTION */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
         <div className="relative z-10 w-full text-center px-4">
-          <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-lg" style={{ color: '#233B72' }}>
+          <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-lg text-[#233B72]">
             Nos Prestations par Drone
           </h1>
-          <p className="text-lg md:text-2xl drop-shadow-md font-semibold" style={{ color: '#233B72' }}>
+          <p className="text-lg md:text-2xl drop-shadow-md font-semibold text-[#233B72]">
             L'expertise aérienne au service de votre patrimoine
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
-        {/* BREADCRUMB CACHÉ SUR PETIT MOBILE SI BESOIN, MAIS ICI AJUSTÉ */}
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12">
           <Link to="/" className="hover:text-sky-600">Accueil</Link>
           <ChevronRight className="w-4 h-4" />
           <span className="text-gray-800 font-medium">Prestations</span>
         </nav>
 
-        {/* LISTE DES PRESTATIONS */}
         <div className="space-y-12 md:space-y-24">
           {prestations.map((prestation, index) => {
             const Icon = prestation.icon;
@@ -139,40 +137,39 @@ export default function Prestations() {
               <ScrollReveal key={prestation.id} delay={0.1}>
                 <Hover3DCard className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden p-5 md:p-10 lg:p-12">
                   
-                  {/* TITRE : Ajusté pour ne pas déborder sur mobile */}
-                  <h2 className="text-2xl md:text-5xl font-extrabold mb-6 md:mb-10 text-center lg:text-left" style={{ color: '#233B72' }}>
+                  <h2 className="text-2xl md:text-5xl font-extrabold mb-6 md:mb-10 text-center lg:text-left text-[#233B72]">
                     {prestation.title}
                   </h2>
 
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
                     
-                   {/* IMAGES : Une seule sur mobile, les deux sur PC */}
-<div className="w-full lg:w-1/2 space-y-4">
-  <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
-    {/* Image 1 : Toujours visible */}
-    <div className="h-56 sm:h-72 md:h-80 lg:h-80 relative overflow-hidden rounded-2xl shadow-lg">
-      <img 
-        src={prestation.image} 
-        alt={prestation.title} 
-        className="w-full h-full object-cover" 
-      />
-      <div className="absolute top-4 left-4">
-        <div className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-          <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-        </div>
-      </div>
-    </div>
+                    {/* ZONE IMAGES : Conditionnée pour le mobile */}
+                    <div className="w-full lg:w-1/2 space-y-4">
+                      <div className="grid grid-cols-1 gap-4">
+                        {/* Image 1 : TOUJOURS VISIBLE */}
+                        <div className="h-56 sm:h-72 md:h-80 relative overflow-hidden rounded-2xl shadow-lg">
+                          <img 
+                            src={prestation.image} 
+                            alt={prestation.title} 
+                            className="w-full h-full object-cover" 
+                          />
+                          <div className="absolute top-4 left-4">
+                            <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+                              <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                            </div>
+                          </div>
+                        </div>
 
-    {/* Image 2 : Masquée sur mobile (hidden), affichée sur ordinateur (lg:block) */}
-    <div className="hidden lg:block h-80 relative overflow-hidden rounded-2xl shadow-lg">
-      <img 
-        src={prestation.image2} 
-        alt={`${prestation.title} - Détail`} 
-        className="w-full h-full object-cover" 
-      />
-    </div>
-  </div>
-</div>>
+                        {/* Image 2 : CACHÉE SUR MOBILE, VISIBLE SUR LARGE (lg) */}
+                        <div className="hidden lg:block h-80 relative overflow-hidden rounded-2xl shadow-lg">
+                          <img 
+                            src={prestation.image2} 
+                            alt={`${prestation.title} - Détail`} 
+                            className="w-full h-full object-cover" 
+                          />
+                        </div>
+                      </div>
+                    </div>
 
                     {/* CONTENU TEXTE */}
                     <div className="w-full lg:w-1/2 space-y-6">
@@ -197,7 +194,6 @@ export default function Prestations() {
                         </ul>
                       </div>
 
-                      {/* BOUTONS : Empilés sur mobile, alignés sur PC */}
                       <div className="flex flex-col sm:flex-row gap-4 pt-4">
                         <Link
                           to={prestation.link}
@@ -222,10 +218,10 @@ export default function Prestations() {
           })}
         </div>
 
-        {/* SECTION BAS DE PAGE SUR MESURE */}
+        {/* SECTION BAS DE PAGE */}
         <div className="mt-16 md:mt-24 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Un projet spécifique ?</h2>
-          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto px-4">
             Cartographie, thermographie ou inspection technique : nos experts s'adaptent à vos besoins les plus complexes.
           </p>
 
