@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { ChevronRight, Shield, Clock, Droplets, Award, Zap } from 'lucide-react';
+import { ChevronRight, Shield, Clock, Droplets, Award, Zap, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { FloatingDrone } from '../components/FloatingDrone';
@@ -12,7 +12,9 @@ export default function NettoyageFacade() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <div className="h-96 bg-gradient-to-br from-sky-500 to-blue-700 relative overflow-hidden pt-20">
+
+      {/* HERO SECTION RESPONSIVE */}
+      <div className="h-[320px] md:h-96 bg-gradient-to-br from-sky-500 to-blue-700 relative overflow-hidden pt-20">
         <FloatingDrone
           src="/ares.png"
           alt="Nettoyage de façade par drone"
@@ -20,211 +22,176 @@ export default function NettoyageFacade() {
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center text-white px-4">
-            <h1 className="text-5xl md:text-6xl font-bold mb-4">Nettoyage de façade par drone</h1>
-            <p className="text-xl md:text-2xl text-sky-100">Les drones au service de l'humain</p>
+            <h1 className="text-3xl md:text-6xl font-bold mb-4 leading-tight">
+              Nettoyage de façade par drone
+            </h1>
+            <p className="text-lg md:text-2xl text-sky-100 font-medium">
+              La technologie au service de votre patrimoine
+            </p>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16 max-w-6xl">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
-          <Link to="/" className="hover:text-sky-600">Accueil</Link>
+      <div className="container mx-auto px-4 py-8 md:py-16 max-w-6xl">
+        {/* BREADCRUMB */}
+        <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link to="/" className="hover:text-sky-600 font-medium">Accueil</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-800 font-medium">Nettoyage de façade</span>
+          <span className="text-gray-800 font-bold">Nettoyage de façade</span>
         </nav>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          <div className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
+          
+          <div className="lg:col-span-2 space-y-10 md:space-y-12">
+            {/* INTRODUCTION */}
             <section>
-              <h2 className="text-3xl font-bold text-gray-800 mb-6">Nettoyage de façade</h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Ellipsys révolutionne l'entretien des façades avec une solution aérienne par <strong>drone</strong>, spécialement conçue pour les <strong>entreprises, collectivités et gestionnaires de patrimoine immobilier</strong>. Alliant <strong>sécurité maximale</strong>, <strong>rapidité d'exécution</strong> et <strong>rentabilité</strong>, notre méthode s'impose comme la nouvelle référence du <strong>nettoyage de façade professionnel sans échafaudage</strong>.
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                Nos pilotes de <strong>drone certifiés DGAC</strong> interviennent sur tous types de matériaux : pierre naturelle, béton, brique, crépi, bardage métallique ou encore façades vitrées. Grâce à une <strong>pulvérisation précise et douce</strong>, nous <strong>éliminons efficacement</strong> salissures, pollution atmosphérique, mousses, lichens et autres contaminants.
-              </p>
+              <h2 className="text-2xl md:text-3xl font-bold text-[#233B72] mb-6">L'excellence du nettoyage aérien</h2>
+              <div className="space-y-4 text-gray-600 leading-relaxed text-base md:text-lg text-justify">
+                <p>
+                  Ellipsys révolutionne l'entretien des façades avec une solution par <strong>drone</strong>, spécialement conçue pour les entreprises et collectivités. Notre méthode s'impose comme la référence du <strong>nettoyage sans échafaudage</strong>.
+                </p>
+                <p>
+                  Nos pilotes certifiés interviennent sur tous matériaux : pierre, béton, bardage ou vitres, éliminant efficacement pollution et contaminants par une pulvérisation précise.
+                </p>
+              </div>
             </section>
 
-            <section>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Tous les types de façades</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+            {/* TYPES DE FAÇADES - GRID RESPONSIVE */}
+            <section className="bg-sky-50 rounded-3xl p-6 md:p-10 border border-sky-100 shadow-sm">
+              <h3 className="text-xl md:text-2xl font-bold text-[#233B72] mb-6 text-center md:text-left">Supports pris en charge</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {[
-                  'Façades en pierre naturelle',
+                  'Pierre naturelle & Monuments',
                   'Bâtiments en béton',
-                  'Murs en brique',
-                  'Crépi et enduit',
-                  'Bardage métallique',
-                  'Façades vitrées',
-                  'Toitures et chéneaux',
-                  'Monuments historiques'
+                  'Bardage métallique industriel',
+                  'Façades vitrées & Verrières',
+                  'Crépi & Enduits fragiles',
+                  'Chéneaux & Gouttières'
                 ].map((type, index) => (
-                  <div key={index} className="flex items-start space-x-3 p-4 bg-sky-50 rounded-lg hover:bg-sky-100 transition-colors">
-                    <div className="w-2 h-2 bg-sky-600 rounded-full mt-1.5 flex-shrink-0"></div>
-                    <span className="text-gray-700">{type}</span>
+                  <div key={index} className="flex items-center space-x-3 p-3 bg-white rounded-xl shadow-sm border border-sky-50">
+                    <div className="w-2 h-2 bg-sky-500 rounded-full flex-shrink-0"></div>
+                    <span className="text-gray-700 font-medium text-sm md:text-base">{type}</span>
                   </div>
                 ))}
               </div>
             </section>
 
+            {/* ÉQUIPEMENTS & MÉTHODES */}
             <section>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Équipements utilisés</h3>
-              <div className="grid md:grid-cols-2 gap-4 mb-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-8">Équipements de pointe</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { title: 'Drone haute altitude', desc: 'Technologie professionnelle certifiée pour grandes hauteurs' },
-                  { title: 'Systèmes haute pression réglable', desc: 'Puissance adaptée par type de façade' },
-                  { title: 'Produits biodégradables certifiés AB', desc: 'Nettoyants écologiques et efficaces' },
-                  { title: 'Inspection thermique HD', desc: 'Détection anomalies et zones critiques' }
+                  { title: 'Drone Spécialisé', desc: 'Accès sécurisé aux grandes hauteurs' },
+                  { title: 'Pression Adaptative', desc: 'Puissance réglée selon le support' },
+                  { title: 'Produits Bio AB', desc: 'Nettoyants écologiques performants' },
+                  { title: 'Thermique HD', desc: 'Diagnostic des zones critiques' }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-gradient-to-br from-sky-50 to-blue-50 p-6 rounded-xl border border-sky-100">
-                    <h4 className="font-bold text-gray-800 mb-2 flex items-center gap-2">
-                      <Zap className="w-5 h-5 text-sky-600" />
+                  <div key={idx} className="bg-white border-2 border-gray-50 rounded-2xl p-6 hover:border-sky-200 transition-all shadow-sm">
+                    <h4 className="font-bold text-[#233B72] mb-2 flex items-center gap-2">
+                      <Zap className="w-5 h-5 text-sky-500" />
                       {item.title}
                     </h4>
-                    <p className="text-gray-600 text-sm">{item.desc}</p>
+                    <p className="text-gray-500 text-sm">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Avantages vs. méthodes traditionnelles</h3>
-              <div className="space-y-3 mb-8">
-                {[
-                  { title: 'Zéro risque de chute ou accident', desc: 'Intervention sécurisée sans équipement dangereux' },
-                  { title: 'Pas d\'installation d\'équipement lourd', desc: 'Pas d\'échelle, échafaudage, nacelle coûteux' },
-                  { title: 'Nettoyage homogène sans surcharges', desc: 'Pression régulée adaptée à chaque surface' },
-                  { title: 'Protection des matériaux fragiles', desc: 'Techniques spécialisées pour monuments historiques' }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 p-4 bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg border border-green-100">
-                    <div className="w-5 h-5 bg-gradient-to-br from-sky-500 to-blue-600 rounded-full flex items-center justify-center mt-0.5 flex-shrink-0">
-                      <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-gray-700 font-semibold text-sm">{item.title}</p>
-                      <p className="text-gray-600 text-xs">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Certifications légales</h3>
-              <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl p-8 border border-sky-200 mb-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {[
-                    'Certification DGAC',
-                    'Pilotes certifiés professionnels',
-                    'Assurance RC Pro complète',
-                    'Conformité législation 2026',
-                    'Produits certifiés AB écologiques',
-                    'Garantie decennale'
-                  ].map((cert, idx) => (
-                    <div key={idx} className="flex items-center space-x-2 p-3 bg-white rounded-lg border border-sky-100">
-                      <Award className="w-5 h-5 text-sky-600 flex-shrink-0" />
-                      <span className="text-sm font-semibold text-gray-800">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Techniques et équipements spécialisés</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Notre approche combine technologie de pointe et expertise professionnelle pour garantir des résultats exceptionnels.
-              </p>
+            {/* AVANTAGES VS TRADITIONNEL */}
+            <section className="space-y-4">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Pourquoi choisir le drone ?</h3>
               <div className="space-y-3">
                 {[
-                  'Hydrojet haute pression : nettoyage profond sans endommager les matériaux',
-                  'Traitement biocide préventif : protection durable contre la réapparition des mousses',
-                  'Application hydrofuge : protection longue durée contre infiltrations d\'eau',
-                  'Inspection thermique : diagnostic des défauts non visibles'
-                ].map((technique, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-                    <div className="w-1.5 h-1.5 bg-sky-600 rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-gray-700 text-sm">{technique}</span>
+                  { title: 'Sécurité Totale', desc: 'Zéro risque de chute pour les techniciens.' },
+                  { title: 'Gain de Temps', desc: 'Pas de montage d\'échafaudage ou nacelle.' },
+                  { title: 'Économie Majeure', desc: 'Réduction des coûts logistiques et matériels.' },
+                  { title: 'Matériaux Préservés', desc: 'Nettoyage doux sans contact mécanique.' }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-2xl border border-gray-100 shadow-sm">
+                    <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mt-1 flex-shrink-0 shadow-md">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-gray-800 font-bold text-sm md:text-base">{item.title}</p>
+                      <p className="text-gray-500 text-xs md:text-sm">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section>
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">Certifications et garanties</h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                Ellipsys Solutions détient l'ensemble des certifications requises pour exercer cette activité en toute sécurité.
-              </p>
-              <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-xl p-8 border border-sky-200">
-                <ul className="space-y-3">
-                  {[
-                    'Certification DGAC - Autorisation d\'exploitation de drones professionnels',
-                    'Pilotes certifiés avec formation validée',
-                    'Assurance RC Pro complète',
-                    'Conformité RGPD',
-                    'Certifications ISO 9001 et ISO 14001',
-                    'Produits éco-responsable'
-                  ].map((cert, idx) => (
-                    <li key={idx} className="flex items-start space-x-3">
-                      <div className="w-5 h-5 bg-sky-600 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                        <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                        </svg>
-                      </div>
-                      <span className="text-gray-700">{cert}</span>
-                    </li>
-                  ))}
-                </ul>
+            {/* CERTIFICATIONS - BADGES COMPACTS */}
+            <section className="bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-10 text-white shadow-2xl">
+              <h3 className="text-xl md:text-2xl font-bold mb-8 text-center uppercase tracking-widest text-sky-400">Garanties Légales</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {[
+                  'Certifié DGAC', 'Pilotes Pro', 'RC Pro Complète',
+                  'ISO 9001/14001', 'Normes 2026', 'Décennale'
+                ].map((cert, idx) => (
+                  <div key={idx} className="bg-white/10 backdrop-blur-md rounded-xl p-3 text-center border border-white/10 flex flex-col items-center justify-center gap-2">
+                    <Award className="w-5 h-5 text-sky-400" />
+                    <span className="text-[10px] md:text-xs font-black uppercase">{cert}</span>
+                  </div>
+                ))}
               </div>
             </section>
-
           </div>
 
+          {/* SIDEBAR STICKY RESPONSIVE */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8 space-y-6">
-              <div className="bg-gradient-to-br from-sky-500 to-blue-600 rounded-2xl p-8 text-white shadow-xl">
-                <h3 className="text-2xl font-bold mb-4">Demandez votre devis</h3>
-                <p className="mb-6 text-sky-100">Réponse sous 24h par nos experts</p>
+            <div className="lg:sticky lg:top-28 space-y-6">
+              
+              {/* CARD DEVIS */}
+              <div className="bg-gradient-to-br from-sky-600 to-blue-700 rounded-3xl p-8 text-white shadow-xl text-center">
+                <h3 className="text-2xl font-bold mb-4">Besoin d'un ravalement ?</h3>
+                <p className="mb-8 text-sky-100 text-sm md:text-base leading-relaxed">
+                  Confiez votre façade à nos experts pour un résultat irréprochable et sécurisé.
+                </p>
                 <Link
-                  to="/#contact"
-                  className="block w-full bg-white text-sky-600 text-center px-6 py-3 rounded-lg font-semibold hover:bg-sky-50 transition-colors"
+                  to="/devis"
+                  className="block w-full bg-white text-blue-700 py-4 rounded-xl font-bold text-lg hover:scale-105 transition-transform shadow-lg active:scale-95"
                 >
-                  Obtenir un devis
+                  Devis Personnalisé
                 </Link>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                <h4 className="font-bold text-gray-800 mb-4">Avantages clés</h4>
-                <div className="space-y-4">
+              {/* POINTS FORTS RAPIDES */}
+              <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100">
+                <h4 className="font-bold text-gray-800 mb-6 border-b pb-2">Atouts Ellipsys</h4>
+                <div className="space-y-5">
                   {[
-                    { icon: Shield, title: 'Sécurité maximale', desc: 'Zéro risque pour les opérateurs' },
-                    { icon: Clock, title: 'Rapidité', desc: 'Intervention rapide' },
-                    { icon: Droplets, title: 'Écologique', desc: 'Produits biodégradables' },
-                    { icon: Award, title: 'Certifié', desc: 'Pilotes certifiés DGAC' }
+                    { icon: Shield, title: 'Sécurité', desc: 'Intervention sans nacelle' },
+                    { icon: Clock, title: 'Rapidité', desc: 'Mise en place immédiate' },
+                    { icon: Droplets, title: 'Écologie', desc: 'Produits certifiés AB' }
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <item.icon className="w-6 h-6 text-sky-600 flex-shrink-0 mt-1" />
+                    <div key={index} className="flex items-center gap-4">
+                      <div className="p-2 bg-sky-50 rounded-xl">
+                        <item.icon className="w-5 h-5 text-sky-600" />
+                      </div>
                       <div>
-                        <div className="font-semibold text-gray-800">{item.title}</div>
-                        <div className="text-sm text-gray-600">{item.desc}</div>
+                        <div className="font-bold text-gray-800 text-sm">{item.title}</div>
+                        <div className="text-xs text-gray-500">{item.desc}</div>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                <h4 className="font-bold text-gray-800 mb-4">Autres services</h4>
-                <div className="space-y-2">
-                  <Link to="/prestations/demoussage" className="block text-sky-600 hover:text-sky-700 font-medium">
-                    → Démoussage de toiture
+              {/* NAVIGATION INTERNE */}
+              <div className="bg-gray-50 rounded-3xl p-6 border border-gray-200">
+                <h4 className="font-bold text-gray-800 mb-4 text-sm uppercase tracking-widest">Autres Services</h4>
+                <div className="space-y-4">
+                  <Link to="/prestations/demoussage" className="flex items-center justify-between group text-sky-600">
+                    <span className="text-sm font-bold group-hover:underline">Démoussage toiture</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
-                  <Link to="/prestations/elimination-frelons" className="block text-sky-600 hover:text-sky-700 font-medium">
-                    → Élimination de frelons
+                  <Link to="/prestations/elimination-frelons" className="flex items-center justify-between group text-sky-600">
+                    <span className="text-sm font-bold group-hover:underline">Nids de frelons</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
