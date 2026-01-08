@@ -28,203 +28,77 @@ export default function Prestations() {
       image2: '/chronos.jpg',
       link: '/prestations/nettoyage-facade',
       icon: Droplets,
-      equipment: [
-        'Drone haute altitude',
-        'Systèmes haute pression réglable',
-        'Produits biodégradables certifiés AB',
-        'Inspection thermique HD'
-      ],
-      advantages: [
-        'Zéro risque de chute ou accident',
-        "Pas d'installation d'équipement lourd (échelle, échafaudage)",
-        'Nettoyage homogène sans surcharges',
-        'Protection des matériaux fragiles'
-      ],
       benefits: [
-        'Sécurité maximale : zéro risque de chute, pas de rappel ni d’échafaudage',
-        'Intervention 3x plus rapide que les méthodes traditionnelles',
-        'Produits de nettoyage certifiés AB et biodégradables',
-        'Certifications DGAC et conformité législation 2026',
-        'Suivi client personnalisé avec rapport photo avant/après',
-        'Spécialisés : façades historiques, monuments, bâtiments industriels et logistiques',
-        'Protection hydrofuge longue durée incluse'
+        'Sécurité maximale : zéro risque de chute',
+        'Intervention 3x plus rapide que le traditionnel',
+        'Produits de nettoyage certifiés AB',
+        'Conformité législation 2026',
+        'Suivi avec rapport photo avant/après'
       ],
-      certifications: [
-        'Certification DGAC',
-        'Pilotes certifiés',
-        'Assurance RC Pro',
-        'Conformité 2026',
-        'Produits certifiés AB'
-      ],
-      color: 'sky',
-      seoKeywords:
-        'nettoyage façade drone, nettoyage façade industrielle, nettoyage monument historique, nettoyage bâtiment logistique, nettoyage façade sans échafaudage'
+      color: 'sky'
     },
     {
       id: 'demoussage',
-      title: 'Nettoyage et démoussage de Toitures',
+      title: 'Nettoyage de Toitures',
       description:
-        "Sans traitement régulier, les mousses, lichens et champignons dégradent progressivement l'étanchéité de votre toiture, réduisant sa durée de vie jusqu'à 30 %. Préservez votre patrimoine immobilier avec notre service de démoussage par drone, une solution sécurisée, rapide et certifiée pour une toiture durable et performante.",
+        "Sans traitement régulier, les mousses et lichens dégradent l'étanchéité de votre toiture. Préservez votre patrimoine avec notre service de démoussage par drone, une solution sécurisée et rapide pour une toiture durable.",
       image: '/Demoussage drone 1.jpg',
       image2: '/5kmh_et_jusqu’a_600m2_heure_de_traitement.png',
       link: '/prestations/demoussage',
       icon: Shield,
-      equipment: [
-        'Drone haute performance', 
-        'Systèmes hydrojet haute pression',
-        'Produits biocides biodégradables',
-        'Traitement hydrofuge professionnel'
-      ],
-      advantages: [
-        'Zéro déplacement sur la toiture',
-        'Nettoyage sans surcharge structurelle',
-        'Traitement ciblé sans débris',
-        'Protection longue durée (10 ans)'
-      ],
       benefits: [
-        'Intervention sans marcher sur la toiture : préservation des tuiles',
-        "Traitement 70% plus rapide qu'un démoussage traditionnel",
-        'Produits anti-mousse certifiés AB et écologiques',
-        'Opérateurs certifiés DGAC et conformité réglementation 2026',
-        "Traitement préventif anti-repousse efficace jusqu'à 10 ans",
-        "Rapport d'intervention détaillé et suivi client annuel",
-        'Hydrofugation haute performance disponible'
+        'Zéro déplacement sur la toiture : tuiles préservées',
+        'Traitement 70% plus rapide',
+        'Produits anti-mousse écologiques',
+        'Efficace jusqu\'à 10 ans',
+        'Rapport d\'intervention détaillé'
       ],
-      certifications: [
-        'Certification DGAC',
-        'Pilotes certifiés',
-        'Assurance RC Pro',
-        'Normes NF EN 13414',
-        'Produits éco-responsable'
-      ],
-      color: 'green',
-      seoKeywords:
-        'démoussage toiture drone, démoussage sans échafaudage, traitement anti-mousse écologique, démoussage rapide, entretien toiture drone'
+      color: 'green'
     },
     {
       id: 'panneaux-photovoltaiques',
-      title: "Nettoyage de panneaux photovaltaiques",
+      title: "Panneaux photovoltaïques",
       description:
-        "Des panneaux solaires encrassés peuvent perdre jusqu\'à 30 % de rendement énergétique. L\'accumulation de saletés peut également provoquer des points chauds (hotspots), causant des dommages localisés et réduisant la durée de vie de vos équipements. Grâce à un nettoyage professionnel par drone, réalisé deux fois par an, vous récupérez une production énergétique maximale et optimisez durablement votre retour sur investissement photovoltaïque.",
+        "Des panneaux encrassés perdent jusqu'à 30% de rendement. Notre nettoyage professionnel par drone vous permet de récupérer une production maximale et d'optimiser votre investissement.",
       image: '/rony.jpg',
       image2: '/rony4.jpg',
       link: '/prestations/panneaux-photovoltaiques',
       icon: Sun,
-      equipment: [
-        'Drone agronomique certifié',
-        'Systèmes basse pression doux',
-        'Eau déminéralisée osmosée',
-        'Inspection HD défauts'
-      ],
-      advantages: [
-        'Nettoyage sans contact direct',
-        "Zéro risque électrocution",
-        'Intervention ultra-rapide (2-3h)',
-        'Production énergétique optimisée'
-      ],
       benefits: [
-        "Récupérez jusqu'à 30% de production d'énergie perdue",
-        'Nettoyage sans contact direct : aucun risque de rayures ou dommages',
-        'Intervention 5x plus rapide que le nettoyage manuel',
-        'Produits spécialisés photovoltaïques certifiés et non abrasifs',
-        'Certification DGAC et conformité législation 2026',
-        "Planning d'entretien bi-annuel avec rappel automatique",
-        'Rapport de performance énergétique avant/après intervention'
+        "Récupérez jusqu'à 30% de production d'énergie",
+        'Zéro contact direct : aucun risque de rayures',
+        'Eau déminéralisée osmosée',
+        'Intervention 5x plus rapide que le manuel',
+        'Rapport de performance inclus'
       ],
-      certifications: [
-        'Certification DGAC',
-        'Formation photovoltaïque',
-        'Assurance RC Pro électricité',
-        'Conformité normes électriques',
-        'Protocoles sécurité'
-      ],
-      color: 'amber',
-      seoKeywords:
-        'nettoyage panneaux solaires, entretien photovoltaïque, nettoyage panneaux drone, rendement panneaux solaires, maintenance photovoltaïque'
+      color: 'amber'
     },
     {
       id: 'elimination-frelons',
-      title: 'Destruction de nids de frelons',
+      title: 'Nids de frelons',
       description:
-        "L'élimination des nids de frelons, en particulier des frelons asiatiques, constitue un risque sérieux pour les intervenants non équipés. Grâce à notre technologie drone de neutralisation, nous traitons rapidement et efficacement les nids situés en hauteur ou dans des zones difficiles d'accès, avec un minimum d'exposition humaine au danger de piqûres.",
+        "L'élimination des nids de frelons en hauteur est un risque sérieux. Notre technologie drone traite efficacement les nids difficiles d'accès avec un minimum d'exposition humaine.",
       image: '/abateur_de_frelons.png',
       image2: '/frel.png',
       link: '/prestations/elimination-frelons',
       icon: AlertTriangle,
-      equipment: [
-        'Drone haute altitude 50+ m',
-        'Systèmes injection précision',
-        'Biocides certifiés écologiques',
-        'Caméras thermiques HD'
-      ],
-      advantages: [
-        'Zéro exposition intervenant',
-        'Accès zones inaccessibles',
-        'Destruction complète garantie',
-        'Prévention réinfestation'
-      ],
       benefits: [
-        'Aucune prise de risque humaine : intervention 100% sécurisée',
-        'Accès aux nids en hauteur ou difficiles d’accès',
-        'Méthode rapide et précise par drone',
-        'Spécialement adaptée aux frelons asiatiques',
-        'Intervention professionnelle certifiée DGAC',
-        "Destruction ciblée sans danger pour l'environnement immédiat",
-        "Rapport d'intervention avec photos avant/après"
+        'Intervention 100% sécurisée à distance',
+        'Accès aux nids à plus de 50m de hauteur',
+        'Méthode ultra-précise',
+        'Biocides certifiés écologiques',
+        'Destruction complète garantie'
       ],
-      certifications: [
-        'Certification DGAC',
-        'Agrément biocides DGAC',
-        'Assurance RC Pro spécifique',
-        'Désinsectisation professionnelle',
-        'Directive biocides 2009/128/CE'
-      ],
-      color: 'red',
-      seoKeywords:
-        "élimination nid de frelons, destruction nid de frelons par drone, frelons asiatiques, nid difficile d'accès, destruction nid frelons hauteur"
+      color: 'red'
     }
   ];
 
   const getColorClasses = (color: string) => {
-    const colors: {
-      [key: string]: { gradient: string; text: string; bg: string; border: string };
-    } = {
-      sky: {
-        gradient: 'from-sky-500 to-blue-600',
-        text: 'text-sky-600',
-        bg: 'bg-sky-50',
-        border: 'border-sky-200'
-      },
-      green: {
-        gradient: 'from-green-500 to-emerald-600',
-        text: 'text-green-600',
-        bg: 'bg-green-50',
-        border: 'border-green-200'
-      },
-      amber: {
-        gradient: 'from-amber-500 to-orange-600',
-        text: 'text-amber-600',
-        bg: 'bg-amber-50',
-        border: 'border-amber-200'
-      },
-      violet: {
-        gradient: 'from-violet-500 to-fuchsia-600',
-        text: 'text-violet-600',
-        bg: 'bg-violet-50',
-        border: 'border-violet-200'
-      },
-      orange: {
-        gradient: 'from-orange-500 to-red-600',
-        text: 'text-orange-600',
-        bg: 'bg-orange-50',
-        border: 'border-orange-200'
-      },
-      red: {
-        gradient: 'from-red-500 to-rose-600',
-        text: 'text-red-600',
-        bg: 'bg-red-50',
-        border: 'border-red-200'
-      }
+    const colors: any = {
+      sky: { gradient: 'from-sky-500 to-blue-600', text: 'text-sky-600', bg: 'bg-sky-50', border: 'border-sky-200' },
+      green: { gradient: 'from-green-500 to-emerald-600', text: 'text-green-600', bg: 'bg-green-50', border: 'border-green-200' },
+      amber: { gradient: 'from-amber-500 to-orange-600', text: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-200' },
+      red: { gradient: 'from-red-500 to-rose-600', text: 'text-red-600', bg: 'bg-red-50', border: 'border-red-200' }
     };
     return colors[color] || colors.sky;
   };
@@ -233,140 +107,131 @@ export default function Prestations() {
     <div className="min-h-screen bg-white">
       <Header />
 
-   <section className="relative pt-20 pb-10 overflow-hidden flex items-center h-[400px]">
+      {/* HERO SECTION RESPONSIVE */}
+      <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
-        
-        <div className="relative z-10 w-full text-center text-white px-4">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg" style={{ color: '#233B72' }}>
-  Maintenance & Entretien par Drone
-</h1>
-<p className="text-xl md:text-2xl drop-shadow-md font-semibold" style={{ color: '#233B72' }}>
-  Les drones au service de l'humain
-</p>
+        <div className="relative z-10 w-full text-center px-4">
+          <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-lg" style={{ color: '#233B72' }}>
+            Nos Prestations par Drone
+          </h1>
+          <p className="text-lg md:text-2xl drop-shadow-md font-semibold" style={{ color: '#233B72' }}>
+            L'expertise aérienne au service de votre patrimoine
+          </p>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-16 max-w-7xl">
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-12">
-          <Link to="/" className="hover:text-sky-600">
-            Accueil
-          </Link>
+      <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
+        {/* BREADCRUMB CACHÉ SUR PETIT MOBILE SI BESOIN, MAIS ICI AJUSTÉ */}
+        <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12">
+          <Link to="/" className="hover:text-sky-600">Accueil</Link>
           <ChevronRight className="w-4 h-4" />
           <span className="text-gray-800 font-medium">Prestations</span>
         </nav>
 
-        <div className="space-y-16">
+        {/* LISTE DES PRESTATIONS */}
+        <div className="space-y-12 md:space-y-24">
           {prestations.map((prestation, index) => {
             const Icon = prestation.icon;
             const colors = getColorClasses(prestation.color);
             const isEven = index % 2 === 0;
 
             return (
-              <ScrollReveal key={prestation.id} delay={index * 0.1}>
-                <Hover3DCard className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300 p-8 lg:p-12">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-8 text-center whitespace-nowrap" style={{ color: '#233B72' }}>{prestation.title}</h2>
+              <ScrollReveal key={prestation.id} delay={0.1}>
+                <Hover3DCard className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden p-5 md:p-10 lg:p-12">
+                  
+                  {/* TITRE : Ajusté pour ne pas déborder sur mobile */}
+                  <h2 className="text-2xl md:text-5xl font-extrabold mb-6 md:mb-10 text-center lg:text-left" style={{ color: '#233B72' }}>
+                    {prestation.title}
+                  </h2>
 
-                <div className={`flex flex-col ${
-                  isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                } gap-0 items-center`}>
-                  <div className="w-full lg:w-1/2 flex-shrink-0 p-4">
-                    <div className="space-y-4">
-                      <div className="h-[320px] relative overflow-hidden rounded-2xl shadow-md">
-                        <img
-                          src={prestation.image}
-                          alt={prestation.title}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute top-4 left-4">
-                          <div
-                            className={`w-16 h-16 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}
-                          >
-                            <Icon className="w-8 h-8 text-white" />
+                  <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
+                    
+                    {/* IMAGES : En pile sur mobile, côte à côte sur PC */}
+                    <div className="w-full lg:w-1/2 space-y-4">
+                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 md:gap-4">
+                        <div className="h-48 md:h-64 lg:h-80 relative overflow-hidden rounded-2xl shadow-inner">
+                          <img src={prestation.image} alt={prestation.title} className="w-full h-full object-cover" />
+                          <div className="absolute top-2 left-2 md:top-4 md:left-4">
+                            <div className={`w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+                              <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="h-[320px] relative overflow-hidden rounded-2xl shadow-md">
-                        <img
-                          src={prestation.image2}
-                          alt={`${prestation.title} - Image 2`}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        />
+                        <div className="h-48 md:h-64 lg:h-80 relative overflow-hidden rounded-2xl shadow-inner">
+                          <img src={prestation.image2} alt={prestation.title} className="w-full h-full object-cover" />
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="w-full lg:w-1/2 p-4 lg:p-8 space-y-6">
-                    <div>
-                      <p className="text-gray-600 leading-relaxed text-lg text-justify">{prestation.description}</p>
-                    </div>
+                    {/* CONTENU TEXTE */}
+                    <div className="w-full lg:w-1/2 space-y-6">
+                      <p className="text-gray-600 text-base md:text-lg leading-relaxed text-justify">
+                        {prestation.description}
+                      </p>
 
-                  <div className={`${colors.bg} ${colors.border} border rounded-xl p-6`}>
-                    <h3 className="font-bold text-gray-800 mb-4 text-lg">Bénéfices clients :</h3>
-                    <ul className="space-y-3">
-                      {prestation.benefits.slice(0, 5).map((benefit, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <div
-                            className={`w-6 h-6 bg-gradient-to-br ${colors.gradient} rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0`}
-                          >
-                            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700 text-sm">{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                      <div className={`${colors.bg} ${colors.border} border rounded-2xl p-5 md:p-6`}>
+                        <h3 className="font-bold text-gray-800 mb-4 text-md md:text-lg flex items-center gap-2">
+                          <CheckCircle className={`w-5 h-5 ${colors.text}`} />
+                          Pourquoi nous choisir ?
+                        </h3>
+                        <ul className="space-y-3">
+                          {prestation.benefits.map((benefit, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                              <div className={`w-5 h-5 rounded-full bg-white border-2 ${colors.border} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                                <div className={`w-2 h-2 rounded-full ${colors.gradient} bg-gradient-to-br`} />
+                              </div>
+                              <span className="text-gray-700 text-sm md:text-base">{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                    <div className="flex gap-4 pt-4">
-                      <Link
-                        to={prestation.link}
-                        className={`inline-flex items-center gap-2 bg-gradient-to-r ${colors.gradient} text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg transition-all hover:scale-105 group`}
-                      >
-                        <span>En savoir plus</span>
-                        <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                      </Link>
+                      {/* BOUTONS : Empilés sur mobile, alignés sur PC */}
+                      <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <Link
+                          to={prestation.link}
+                          className={`flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r ${colors.gradient} text-white px-6 py-4 rounded-xl font-bold hover:shadow-lg transition-all active:scale-95 group`}
+                        >
+                          En savoir plus
+                          <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
 
-                      <Link
-                        to="/devis"
-                        className={`inline-flex items-center gap-2 border-2 ${colors.text} border-current px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all`}
-                      >
-                        <span>Demander un devis</span>
-                      </Link>
+                        <Link
+                          to="/devis"
+                          className={`flex-1 inline-flex items-center justify-center gap-2 border-2 ${colors.text} border-current px-6 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all active:scale-95`}
+                        >
+                          Devis gratuit
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
                 </Hover3DCard>
               </ScrollReveal>
             );
           })}
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 md:p-12 text-center border border-sky-100">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: '#233B72' }}>Besoin d'une prestation sur mesure ?</h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Pour des demandes spécifiques, nous proposons également des missions complémentaires : cartographie, thermographie, prises de vue techniques, analyses….
+        {/* SECTION BAS DE PAGE SUR MESURE */}
+        <div className="mt-16 md:mt-24 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">Un projet spécifique ?</h2>
+          <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto">
+            Cartographie, thermographie ou inspection technique : nos experts s'adaptent à vos besoins les plus complexes.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/devis"
-              className="bg-gradient-to-r from-brand-orange-500 to-red-600 text-white px-8 py-4 rounded-xl font-semibold hover:from-brand-orange-600 hover:to-red-700 transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2"
+              className="bg-brand-orange-500 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-brand-orange-600 transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              <span>Demander un devis</span>
+              Demander un devis
               <ChevronRight className="w-5 h-5" />
             </Link>
 
             <a
-              href="/#contact"
-              className="border-2 border-sky-600 text-sky-600 px-8 py-4 rounded-xl font-semibold hover:bg-sky-50 transition-all inline-flex items-center justify-center"
+              href="tel:0467209709"
+              className="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center"
             >
-              Nous contacter
+              Nous appeler
             </a>
           </div>
         </div>
