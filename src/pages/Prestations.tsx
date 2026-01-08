@@ -146,22 +146,33 @@ export default function Prestations() {
 
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
                     
-                    {/* IMAGES : En pile sur mobile, côte à côte sur PC */}
-                    <div className="w-full lg:w-1/2 space-y-4">
-                      <div className="grid grid-cols-2 lg:grid-cols-1 gap-3 md:gap-4">
-                        <div className="h-48 md:h-64 lg:h-80 relative overflow-hidden rounded-2xl shadow-inner">
-                          <img src={prestation.image} alt={prestation.title} className="w-full h-full object-cover" />
-                          <div className="absolute top-2 left-2 md:top-4 md:left-4">
-                            <div className={`w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-                              <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="h-48 md:h-64 lg:h-80 relative overflow-hidden rounded-2xl shadow-inner">
-                          <img src={prestation.image2} alt={prestation.title} className="w-full h-full object-cover" />
-                        </div>
-                      </div>
-                    </div>
+                   {/* IMAGES : Une seule sur mobile, les deux sur PC */}
+<div className="w-full lg:w-1/2 space-y-4">
+  <div className="grid grid-cols-1 lg:grid-cols-1 gap-4">
+    {/* Image 1 : Toujours visible */}
+    <div className="h-56 sm:h-72 md:h-80 lg:h-80 relative overflow-hidden rounded-2xl shadow-lg">
+      <img 
+        src={prestation.image} 
+        alt={prestation.title} 
+        className="w-full h-full object-cover" 
+      />
+      <div className="absolute top-4 left-4">
+        <div className={`w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+          <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+        </div>
+      </div>
+    </div>
+
+    {/* Image 2 : Masquée sur mobile (hidden), affichée sur ordinateur (lg:block) */}
+    <div className="hidden lg:block h-80 relative overflow-hidden rounded-2xl shadow-lg">
+      <img 
+        src={prestation.image2} 
+        alt={`${prestation.title} - Détail`} 
+        className="w-full h-full object-cover" 
+      />
+    </div>
+  </div>
+</div>>
 
                     {/* CONTENU TEXTE */}
                     <div className="w-full lg:w-1/2 space-y-6">
