@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import Header from '../components/Header';
 import { HeroCarousel } from '../components/HeroCarousel';
+import Footer from '../components/Footer'; // IMPORT DU FOOTER
 
 interface Realisation {
   id: number;
@@ -161,7 +162,6 @@ export default function Realisations() {
       Les drones au service de l'humain
     </p>
 
-    {/* Stats compactes avec fond translucide comme l'accueil */}
     <div className="flex justify-center gap-8 mt-6">
       <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full border border-white/30">
         <TrendingUp className="w-5 h-5 text-sky-200" />
@@ -176,7 +176,6 @@ export default function Realisations() {
 </section>
       <div className="container mx-auto max-w-7xl px-4 py-8 md:py-16">
         
-        {/* FILTRES RESPONSIVES : Scroll horizontal sur mobile */}
         <div className="flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap gap-2 md:gap-3 mb-10 md:mb-16 no-scrollbar justify-start md:justify-center">
           {categories.map(cat => {
             const Icon = cat.icon;
@@ -197,7 +196,6 @@ export default function Realisations() {
           })}
         </div>
 
-        {/* GRILLE DE PROJETS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {filteredRealisations.map(realisation => {
             const sliderValue = comparisonSlider[realisation.id] || 50;
@@ -207,14 +205,11 @@ export default function Realisations() {
                 key={realisation.id}
                 className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 flex flex-col h-full"
               >
-                {/* COMPARATEUR IMAGE - Format Rectangle Panorama */}
                 <div className="relative h-56 sm:h-72 md:h-80 bg-gray-200 overflow-hidden touch-none">
-                  {/* Image APRES */}
                   <div className="absolute inset-0">
                     <img src={realisation.imageAfter} alt="Après" className="w-full h-full object-cover" />
                   </div>
 
-                  {/* Image AVANT (Clip) */}
                   <div
                     className="absolute inset-0 transition-none"
                     style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}
@@ -222,7 +217,6 @@ export default function Realisations() {
                     <img src={realisation.imageBefore} alt="Avant" className="w-full h-full object-cover" />
                   </div>
 
-                  {/* Ligne de séparation & Curseur */}
                   <div
                     className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.3)] z-20"
                     style={{ left: `${sliderValue}%` }}
@@ -235,7 +229,6 @@ export default function Realisations() {
                     </div>
                   </div>
 
-                  {/* Input invisible pour le contrôle au doigt */}
                   <input
                     type="range"
                     min="0"
@@ -245,7 +238,6 @@ export default function Realisations() {
                     className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30"
                   />
 
-                  {/* Badges Avant/Après */}
                   <div className="absolute top-3 left-3 z-20">
                     <span className="bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[10px] font-bold uppercase tracking-wider">Avant</span>
                   </div>
@@ -254,7 +246,6 @@ export default function Realisations() {
                   </div>
                 </div>
 
-                {/* INFOS PROJET */}
                 <div className="p-6 md:p-8 flex-grow flex flex-col">
                   <div className="flex justify-between items-start mb-4 gap-2">
                     <h3 className="text-xl md:text-2xl font-bold text-gray-800 leading-tight">
@@ -275,7 +266,6 @@ export default function Realisations() {
                     {realisation.description}
                   </p>
 
-                  {/* STATS : 3 colonnes fixes */}
                   <div className="grid grid-cols-3 gap-2 md:gap-4 mb-6">
                     {realisation.stats.map((stat, idx) => (
                       <div key={idx} className="bg-gradient-to-br from-sky-50 to-white border border-sky-100 rounded-2xl p-2 md:p-3 text-center">
@@ -285,7 +275,6 @@ export default function Realisations() {
                     ))}
                   </div>
 
-                  {/* BENEFICES */}
                   <div className="space-y-2 mt-auto">
                     {realisation.benefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-xs md:text-sm text-gray-700">
@@ -303,7 +292,6 @@ export default function Realisations() {
         </div>
       </div>
 
-      {/* SECTION CTA FINALE */}
       <div className="bg-[#233B72] text-white py-12 md:py-20 px-4">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-2xl md:text-4xl font-bold mb-4">
@@ -321,6 +309,8 @@ export default function Realisations() {
           </Link>
         </div>
       </div>
+      {/* AJOUT DU FOOTER ICI */}
+      <Footer />
     </div>
   );
 }
