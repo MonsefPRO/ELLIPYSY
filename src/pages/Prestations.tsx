@@ -108,21 +108,25 @@ export default function Prestations() {
       <Header />
 
       {/* HERO SECTION */}
-     <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
-  <HeroCarousel />
-  {/* LE FILTRE BLEU SOMBRE ICI */}
-  <div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
+   <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
+  {/* 1. Le fond (Carousel ou Image) */}
+  <div className="absolute inset-0 z-0">
+    <HeroCarousel />
+  </div>
+
+  {/* 2. L'overlay sombre (Le filtre bleu/noir) - On force le z-index à 10 */}
+  <div className="absolute inset-0 bg-gradient-to-br from-sky-900/60 via-blue-900/40 to-black/60 z-10"></div>
   
+  {/* 3. Le contenu texte - On force le z-index à 20 pour qu'il soit au-dessus du filtre */}
   <div className="relative z-20 w-full text-center px-4">
-    <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-lg text-white">
+    <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-2xl text-white">
       Nos Prestations par Drone
     </h1>
-    <p className="text-lg md:text-2xl drop-shadow-md font-semibold text-sky-100">
+    <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-sky-100">
       L'expertise aérienne au service de votre patrimoine
     </p>
   </div>
 </section>
-
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12">
           <Link to="/" className="hover:text-sky-600">Accueil</Link>
