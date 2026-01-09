@@ -12,6 +12,7 @@ import { ScrollReveal } from './components/ScrollReveal';
 import { AnimatedButton } from './components/AnimatedButton';
 import { VideoModal } from './components/VideoModal';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const { t } = useLanguage();
@@ -383,11 +384,7 @@ function App() {
 
       <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videodemo.mp4" />
 
-      <footer className="bg-gray-900 text-white py-12 px-4 text-center">
-        <img src="/bonlogo_de_cote.png" className="h-12 mx-auto mb-6 invert brightness-0" alt="Ellipsys" />
-        <p className="text-gray-400 mb-4">&copy; 2026 Ellipsys Solutions. {t('footer.rights')}</p>
-        <Link to="/politique-confidentialite" className="text-gray-500 hover:text-white underline text-sm">{t('footer.privacy')}</Link>
-      </footer>
+    <Footer />
     </div>
   );
 }
