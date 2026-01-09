@@ -32,7 +32,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* MENU DESKTOP */}
+          {/* MENU DESKTOP - CORRIGÉ : AJOUT DE REJOIGNEZ-NOUS */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
             <Link to="/prestations" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
               <span>{t('nav.services')}</span>
@@ -64,6 +64,13 @@ export default function Header() {
 
             <Link to="/valeurs" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
               <span>{t('nav.values')}</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+
+            {/* --- CET ONGLET MANQUAIT SUR PC --- */}
+            <Link to="/rejoignez-nous" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
+              <span>Rejoignez-nous</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
           </div>
 
@@ -81,7 +88,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* MENU MOBILE (CORRECTION) */}
+        {/* MENU MOBILE */}
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t absolute w-full left-0 shadow-2xl animate-in slide-in-from-top duration-300">
             <div className="flex flex-col p-6 space-y-4 text-xl font-bold">
@@ -90,16 +97,16 @@ export default function Header() {
               
               <div className="py-2">
                 <p className="text-gray-400 text-sm uppercase tracking-widest mb-2">Actualités</p>
-                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700"><ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> Blog & Actualités</Link>
-                <Link to="/realisations" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700"><ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> Nos réalisations</Link>
+                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold"><ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> Blog & Actualités</Link>
+                <Link to="/realisations" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold"><ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> Nos réalisations</Link>
               </div>
 
               <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Nos valeurs</Link>
-              <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Contactez-nous</Link>
+              <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Rejoignez-nous</Link>
               
               <div className="pt-4 flex flex-col gap-4">
                  <div className="flex justify-center"><LanguageSwitcher /></div>
-                 <Link to="/devis" onClick={() => setIsMenuOpen(false)} className="w-full bg-brand-orange-500 text-white py-4 rounded-xl text-center shadow-lg">
+                 <Link to="/devis" onClick={() => setIsMenuOpen(false)} className="w-full bg-brand-orange-500 text-white py-4 rounded-xl text-center shadow-lg font-bold">
                    Demander un devis
                  </Link>
               </div>
