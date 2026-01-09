@@ -16,6 +16,7 @@ import CertificationsSection from '../components/CertificationsSection';
 import { Hover3DCard } from '../components/Hover3DCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { HeroCarousel } from '../components/HeroCarousel';
+import Footer from '../components/Footer'; // AJOUT DE L'IMPORT
 
 export default function Prestations() {
   const prestations = [
@@ -107,21 +108,19 @@ export default function Prestations() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
 
-  <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
-  <HeroCarousel />
-  {/* L'overlay identique à ton accueil */}
-  <div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
-  
-  {/* On ajoute z-20 et text-white pour matcher le style accueil */}
-  <div className="relative z-20 w-full text-center px-4">
-    <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-2xl text-white">
-      Nos Prestations par Drone
-    </h1>
-    <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
-      L'expertise aérienne au service de votre patrimoine
-    </p>
-  </div>
-</section>
+      <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
+        <HeroCarousel />
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
+        <div className="relative z-20 w-full text-center px-4">
+          <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-2xl text-white">
+            Nos Prestations par Drone
+          </h1>
+          <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
+            L'expertise aérienne au service de votre patrimoine
+          </p>
+        </div>
+      </section>
+
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12">
           <Link to="/" className="hover:text-sky-600">Accueil</Link>
@@ -138,17 +137,13 @@ export default function Prestations() {
             return (
               <ScrollReveal key={prestation.id} delay={0.1}>
                 <Hover3DCard className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden p-5 md:p-10 lg:p-12">
-                  
                   <h2 className="text-2xl md:text-5xl font-extrabold mb-6 md:mb-10 text-center lg:text-left text-[#233B72]">
                     {prestation.title}
                   </h2>
 
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
-                    
-                    {/* ZONE IMAGES : Conditionnée pour le mobile */}
                     <div className="w-full lg:w-1/2 space-y-4">
                       <div className="grid grid-cols-1 gap-4">
-                        {/* Image 1 : TOUJOURS VISIBLE */}
                         <div className="h-56 sm:h-72 md:h-80 relative overflow-hidden rounded-2xl shadow-lg">
                           <img 
                             src={prestation.image} 
@@ -161,8 +156,6 @@ export default function Prestations() {
                             </div>
                           </div>
                         </div>
-
-                        {/* Image 2 : CACHÉE SUR MOBILE, VISIBLE SUR LARGE (lg) */}
                         <div className="hidden lg:block h-80 relative overflow-hidden rounded-2xl shadow-lg">
                           <img 
                             src={prestation.image2} 
@@ -173,7 +166,6 @@ export default function Prestations() {
                       </div>
                     </div>
 
-                    {/* CONTENU TEXTE */}
                     <div className="w-full lg:w-1/2 space-y-6">
                       <p className="text-gray-600 text-base md:text-lg leading-relaxed text-justify">
                         {prestation.description}
@@ -220,7 +212,6 @@ export default function Prestations() {
           })}
         </div>
 
-        {/* SECTION BAS DE PAGE */}
         <div className="mt-16 md:mt-24 bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Un projet spécifique ?</h2>
           <p className="text-lg text-blue-100 mb-10 max-w-2xl mx-auto px-4">
@@ -247,6 +238,9 @@ export default function Prestations() {
       </div>
 
       <CertificationsSection />
+      
+      {/* AJOUT DU FOOTER ICI */}
+      <Footer />
     </div>
   );
 }
