@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { HeroCarousel } from '../components/HeroCarousel';
 import { Hover3DCard } from '../components/Hover3DCard';
 import { ScrollReveal } from '../components/ScrollReveal';
+import Footer from '../components/Footer'; // IMPORT DU FOOTER
 
 const getColorClasses = (color: string) => {
   const colors: { [key: string]: { gradient: string; text: string; bg: string; border: string } } = {
@@ -70,19 +71,20 @@ export default function Valeurs() {
       <Header />
       
       {/* HERO SECTION RESPONSIVE */}
-   <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
-  <HeroCarousel />
-<div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
+      <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
+        <HeroCarousel />
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
 
-  <div className="relative z-20 w-full text-center px-4">
-    <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-2xl text-white">
-      Nos Valeurs
-    </h1>
-    <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
-      Les drones au service de l'humain
-    </p>
-  </div>
-</section>
+        <div className="relative z-20 w-full text-center px-4">
+          <h1 className="text-3xl md:text-6xl font-bold mb-3 drop-shadow-2xl text-white">
+            Nos Valeurs
+          </h1>
+          <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
+            Les drones au service de l'humain
+          </p>
+        </div>
+      </section>
+
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         {/* BREADCRUMB */}
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12">
@@ -102,30 +104,27 @@ export default function Valeurs() {
               <ScrollReveal key={valeur.id} delay={0.1}>
                 <Hover3DCard className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden p-5 md:p-10 lg:p-12">
                   
-                  {/* TITRE VALEUR */}
                   <h2 className="text-2xl md:text-5xl font-extrabold mb-6 md:mb-10 text-center lg:text-left" style={{ color: '#233B72' }}>
                     {valeur.title}
                   </h2>
 
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}>
                     
-                   {/* IMAGE RESPONSIVE - FORMAT RECTANGLE SUR MOBILE */}
-<div className="w-full lg:w-1/2 flex-shrink-0">
-  <div className="h-40 sm:h-56 md:h-[400px] relative overflow-hidden rounded-2xl shadow-lg">
-    <img
-      src={valeur.image}
-      alt={valeur.title}
-      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-    />
-    <div className="absolute top-3 left-3 md:top-4 md:left-4">
-      <div className={`w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
-        <Icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
-      </div>
-    </div>
-  </div>
-</div>
+                    <div className="w-full lg:w-1/2 flex-shrink-0">
+                      <div className="h-40 sm:h-56 md:h-[400px] relative overflow-hidden rounded-2xl shadow-lg">
+                        <img
+                          src={valeur.image}
+                          alt={valeur.title}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                          <div className={`w-10 h-10 md:w-16 md:h-16 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
+                            <Icon className="w-5 h-5 md:w-8 md:h-8 text-white" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-                    {/* CONTENU TEXTE ET ENGAGEMENTS */}
                     <div className="w-full lg:w-1/2 space-y-6">
                       <p className="text-gray-600 leading-relaxed text-base md:text-lg text-justify">
                         {valeur.description}
@@ -165,11 +164,12 @@ export default function Valeurs() {
               <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
-          {/* PETIT EFFET DE DESIGN EN FOND */}
           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
           <div className="absolute -top-10 -left-10 w-40 h-40 bg-sky-400/20 rounded-full blur-3xl"></div>
         </div>
       </div>
+      {/* AJOUT DU FOOTER ICI */}
+      <Footer />
     </div>
   );
 }
