@@ -9,7 +9,6 @@ import { HeroCarousel } from '../components/HeroCarousel';
 
 function WhyJoinSection() {
   const { ref, isInView } = useInView();
-
   const benefits = [
     { icon: Heart, title: 'Équipe passionnée', description: 'Rejoignez une équipe engagée et bienveillante où chaque membre compte', color: 'from-pink-500 to-red-500' },
     { icon: Award, title: 'Innovation technologique', description: 'Travaillez avec des technologies de pointe dans le secteur des drones', color: 'from-sky-500 to-blue-600' },
@@ -20,16 +19,16 @@ function WhyJoinSection() {
   ];
 
   return (
-    <section ref={ref} className="py-12 md:py-20 px-4 bg-gradient-to-br from-gray-50 to-slate-50">
+    <section ref={ref} className="py-20 px-4 bg-gradient-to-br from-gray-50 to-slate-50">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-10 md:mb-16">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-[#233B72] mb-4">Pourquoi nous rejoindre ?</h2>
-          <p className="text-gray-600 text-sm md:text-lg">Découvrez les avantages de faire partie de l'équipe Ellipsys</p>
+          <p className="text-gray-600 text-lg">Découvrez les avantages de faire partie de l'équipe Ellipsys</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <div key={index} className={`transform transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 100}ms` }}>
-              <div className="group h-full bg-white rounded-2xl p-6 md:p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
+              <div className="group h-full bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300">
                 <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-6 shadow-lg`}>
                   <benefit.icon className="w-7 h-7 text-white" />
                 </div>
@@ -54,64 +53,56 @@ export default function RejoignezNous() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white">
       <Header />
       
       <section className="relative pt-32 pb-16 overflow-hidden flex items-center h-[350px] md:h-[400px]">
         <HeroCarousel />
         <div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
-        
-        <div className="relative z-20 w-full text-center px-4">
-          <div className="inline-block px-4 py-1.5 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-full text-[10px] md:text-sm font-semibold mb-4 uppercase tracking-widest">
-            Rejoignez l'aventure
-          </div>
-          <h1 className="text-4xl md:text-7xl font-bold mb-4 drop-shadow-2xl text-white">
-            Rejoignez-nous
-          </h1>
-          <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
-            Les drones au service de l'humain
-          </p>
+        <div className="relative z-20 w-full text-center px-4 text-white">
+          <h1 className="text-4xl md:text-7xl font-bold mb-4 drop-shadow-2xl">Rejoignez-nous</h1>
+          <p className="text-lg md:text-2xl font-semibold">Les drones au service de l'humain</p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
-        <nav className="flex items-center space-x-2 text-xs md:text-sm text-gray-600 mb-8 md:mb-12">
-          <Link to="/" className="hover:text-sky-600 transition-colors font-medium">Accueil</Link>
-          <ChevronRight className="w-3 h-3" />
-          <span className="text-[#233B72] font-bold">Rejoignez-nous</span>
-        </nav>
-
-        {/* ONGLETS / BLOCS DE SELECTION : 2 colonnes sur mobile */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-12">
+        {/* BLOCS DE SELECTION AVEC COULEURS ORIGINALES */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
           {[
-            { tab: 'candidature', icon: FileText, title: 'Candidature' },
-            { tab: 'apporteur', icon: Handshake, title: 'Apporteur' },
-            { tab: 'franchisee', icon: Briefcase, title: 'Franchisé' },
-            { tab: 'architecte', icon: Building2, title: 'Architecte' }
-          ].map(({ tab, icon: Icon, title }) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab as any)}
-              className={`p-5 md:p-8 rounded-3xl border-2 transition-all duration-300 flex flex-col items-center text-center group ${
-                activeTab === tab 
-                ? 'bg-sky-50 border-[#233B72] shadow-xl scale-105' 
-                : 'bg-white border-gray-100 hover:border-sky-200'
-              }`}
-            >
-              <div className={`w-12 h-12 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mb-4 transition-all shadow-md ${
-                activeTab === tab ? 'bg-white' : 'bg-gray-50'
-              }`}>
-                {/* ICONES FORCÉES EN BLEU FONCÉ #233B72 */}
-                <Icon className="w-6 h-6 md:w-10 md:h-10 text-[#233B72]" />
-              </div>
-              <h3 className={`text-xs md:text-xl font-bold uppercase tracking-tight ${activeTab === tab ? 'text-[#233B72]' : 'text-gray-500'}`}>
-                {title}
-              </h3>
-            </button>
-          ))}
+            { tab: 'candidature', icon: FileText, title: 'Candidature', color: 'green', hex: '#22c55e' },
+            { tab: 'apporteur', icon: Handshake, title: 'Apporteur', color: 'sky', hex: '#0ea5e9' },
+            { tab: 'franchisee', icon: Briefcase, title: 'Franchisé', color: 'amber', hex: '#f59e0b' },
+            { tab: 'architecte', icon: Building2, title: 'Architecte', color: 'orange', hex: '#f97316' }
+          ].map(({ tab, icon: Icon, title, color, hex }) => {
+            const isActive = activeTab === tab;
+            const colorClasses: any = {
+                green: 'bg-green-50 border-green-500',
+                sky: 'bg-sky-50 border-sky-500',
+                amber: 'bg-amber-50 border-amber-500',
+                orange: 'bg-orange-50 border-orange-500'
+            };
+
+            return (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab as any)}
+                className={`p-4 md:p-8 rounded-3xl border-2 transition-all duration-300 flex flex-col items-center text-center ${
+                  isActive ? `${colorClasses[color]} shadow-xl scale-105` : 'bg-white border-gray-100 opacity-70'
+                }`}
+              >
+                <div className={`w-12 h-12 md:w-20 md:h-20 rounded-2xl flex items-center justify-center mb-4 transition-all shadow-md bg-white border border-gray-100`}>
+                  {/* ICÔNE COULEUR BLEU FONCÉ ELLIPSYS */}
+                  <Icon className="w-6 h-6 md:w-10 md:h-10 text-[#233B72]" />
+                </div>
+                <h3 className={`text-[10px] md:text-lg font-bold uppercase tracking-tight ${isActive ? 'text-gray-900' : 'text-gray-500'}`}>
+                  {title}
+                </h3>
+              </button>
+            );
+          })}
         </div>
 
-        {/* FORMULAIRES ACTIFS */}
+        {/* AFFICHAGE DES FORMULAIRES SELON L'ONGLET ACTIF */}
         <div className="mt-8 transition-all duration-500 max-w-4xl mx-auto">
           {activeTab === 'candidature' && <CandidatureSpontaneeForm />}
           {activeTab === 'apporteur' && <ApporteurAffairesForm />}
@@ -122,56 +113,66 @@ export default function RejoignezNous() {
 
       <WhyJoinSection />
 
-      <footer className="bg-[#0f172a] text-white py-12 px-4 text-center">
-        <p className="text-gray-500 text-xs md:text-sm">&copy; {new Date().getFullYear()} Ellipsys Solutions. Tous droits réservés.</p>
+      <footer className="bg-gray-950 text-white py-12 px-4 text-center">
+        <p className="text-gray-500 text-sm">&copy; {new Date().getFullYear()} Ellipsys Solutions. Tous droits réservés.</p>
       </footer>
     </div>
   );
 }
 
-// --- FORMULAIRES COMPLETS RÉINTÉGRÉS ET RESPONSIVES ---
+// --- FORMULAIRES COMPLETS ORIGINAUX ---
 
-function ApporteurAffairesForm() {
-  const { formData, handleChange, handleSubmit, submitSuccess } = useSecureForm({ nom: '', prenom: '', email: '', telephone: '', entreprise: '', secteur: '', message: '' });
+function CandidatureSpontaneeForm() {
+  const { formData, errors, handleChange, handleSubmit, isSubmitting, submitSuccess } = useSecureForm({
+    nom: '', prenom: '', email: '', telephone: '', poste: '', experience: '', motivation: ''
+  });
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-12 border border-sky-100">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-xl bg-[#233B72] flex items-center justify-center text-white shadow-lg"><Handshake /></div>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#233B72]">Devenir apporteur d'affaires</h2>
+    <div className="bg-gradient-to-br from-white to-green-50 rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-green-100 animate-fadeIn">
+      <div className="flex items-center mb-8">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mr-4 shadow-lg text-white"><FileText /></div>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Candidature spontanée</h2>
       </div>
-      {submitSuccess ? <SuccessView /> : (
-        <form onSubmit={handleSubmit(() => {})} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <input name="nom" placeholder="Nom *" onChange={handleChange} required className="input-field-custom" />
-          <input name="prenom" placeholder="Prénom *" onChange={handleChange} required className="input-field-custom" />
-          <input name="email" type="email" placeholder="Email *" onChange={handleChange} required className="input-field-custom" />
-          <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-custom" />
-          <input name="entreprise" placeholder="Entreprise" onChange={handleChange} className="input-field-custom" />
-          <input name="secteur" placeholder="Secteur d'activité" onChange={handleChange} className="input-field-custom" />
-          <textarea name="message" placeholder="Votre message..." className="md:col-span-2 input-field-custom h-32" onChange={handleChange}></textarea>
-          <button className="md:col-span-2 w-full bg-[#233B72] text-white py-4 rounded-xl font-bold text-lg hover:bg-sky-900 transition-all shadow-lg">Envoyer la demande</button>
+      {submitSuccess ? <SuccessView color="green" /> : (
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="nom" placeholder="Nom *" onChange={handleChange} required className="input-field-custom" />
+            <input name="prenom" placeholder="Prénom *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="email" type="email" placeholder="Email *" onChange={handleChange} required className="input-field-custom" />
+            <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <input name="poste" placeholder="Poste recherché *" onChange={handleChange} required className="input-field-custom" />
+          <textarea name="motivation" placeholder="Votre motivation *" rows={5} onChange={handleChange} required className="input-field-custom"></textarea>
+          <button className="w-full bg-green-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition-all shadow-lg">Envoyer mon profil</button>
         </form>
       )}
     </div>
   );
 }
 
-function CandidatureSpontaneeForm() {
-  const { handleChange, handleSubmit, submitSuccess } = useSecureForm({ nom: '', prenom: '', email: '', telephone: '', poste: '', motivation: '' });
+function ApporteurAffairesForm() {
+  const { formData, handleChange, handleSubmit, submitSuccess } = useSecureForm({
+    nom: '', prenom: '', email: '', telephone: '', entreprise: '', secteur: '', message: ''
+  });
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-12 border border-green-100">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-xl bg-[#233B72] flex items-center justify-center text-white shadow-lg"><FileText /></div>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#233B72]">Candidature Spontanée</h2>
+    <div className="bg-gradient-to-br from-white to-sky-50 rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-sky-100 animate-fadeIn">
+      <div className="flex items-center mb-8">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center mr-4 shadow-lg text-white"><Handshake /></div>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Devenir apporteur d'affaires</h2>
       </div>
-      {submitSuccess ? <SuccessView /> : (
-        <form onSubmit={handleSubmit(() => {})} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <input placeholder="Nom *" className="input-field-custom" required />
-          <input placeholder="Prénom *" className="input-field-custom" required />
-          <input placeholder="Email *" className="input-field-custom" required />
-          <input placeholder="Téléphone *" className="input-field-custom" required />
-          <input placeholder="Poste recherché *" className="md:col-span-2 input-field-custom" required />
-          <textarea placeholder="Votre motivation..." className="md:col-span-2 input-field-custom h-32" required></textarea>
-          <button className="md:col-span-2 w-full bg-[#233B72] text-white py-4 rounded-xl font-bold text-lg shadow-lg">Envoyer mon profil</button>
+      {submitSuccess ? <SuccessView color="sky" /> : (
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="nom" placeholder="Nom *" onChange={handleChange} required className="input-field-custom" />
+            <input name="prenom" placeholder="Prénom *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="email" type="email" placeholder="Email *" onChange={handleChange} required className="input-field-custom" />
+            <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <textarea name="message" placeholder="Votre message..." rows={4} onChange={handleChange} className="input-field-custom"></textarea>
+          <button className="w-full bg-sky-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-sky-700 transition-all shadow-lg">Envoyer la demande</button>
         </form>
       )}
     </div>
@@ -179,23 +180,31 @@ function CandidatureSpontaneeForm() {
 }
 
 function FranchiseeForm() {
-  const { handleChange, handleSubmit, submitSuccess } = useSecureForm({ nom: '', prenom: '', email: '', telephone: '', ville: '', apport: '', message: '' });
+  const { formData, handleChange, handleSubmit, submitSuccess } = useSecureForm({
+    nom: '', prenom: '', email: '', telephone: '', ville: '', apport: '', experience: '', motivation: ''
+  });
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-12 border border-amber-100">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-xl bg-[#233B72] flex items-center justify-center text-white shadow-lg"><Briefcase /></div>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#233B72]">Devenir Franchisé</h2>
+    <div className="bg-gradient-to-br from-white to-amber-50 rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-amber-100 animate-fadeIn">
+      <div className="flex items-center mb-8">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center mr-4 shadow-lg text-white"><Briefcase /></div>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Devenir franchisé</h2>
       </div>
-      {submitSuccess ? <SuccessView /> : (
-        <form onSubmit={handleSubmit(() => {})} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <input placeholder="Nom *" className="input-field-custom" required />
-          <input placeholder="Prénom *" className="input-field-custom" required />
-          <input placeholder="Email *" className="input-field-custom" required />
-          <input placeholder="Téléphone *" className="input-field-custom" required />
-          <input placeholder="Ville d'implantation souhaitée *" className="input-field-custom" required />
-          <input placeholder="Apport personnel disponible (ex: 30k€)" className="input-field-custom" />
-          <textarea placeholder="Décrivez votre projet..." className="md:col-span-2 input-field-custom h-32"></textarea>
-          <button className="md:col-span-2 w-full bg-[#233B72] text-white py-4 rounded-xl font-bold text-lg shadow-lg">Demander une documentation</button>
+      {submitSuccess ? <SuccessView color="amber" /> : (
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="nom" placeholder="Nom *" onChange={handleChange} required className="input-field-custom" />
+            <input name="prenom" placeholder="Prénom *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="email" type="email" placeholder="Email *" onChange={handleChange} required className="input-field-custom" />
+            <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="ville" placeholder="Ville souhaitée *" onChange={handleChange} required className="input-field-custom" />
+            <input name="apport" placeholder="Apport personnel" onChange={handleChange} className="input-field-custom" />
+          </div>
+          <textarea name="motivation" placeholder="Parlez-nous de votre projet..." rows={4} onChange={handleChange} className="input-field-custom"></textarea>
+          <button className="w-full bg-amber-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-amber-700 shadow-lg">Demander une documentation</button>
         </form>
       )}
     </div>
@@ -203,22 +212,28 @@ function FranchiseeForm() {
 }
 
 function ArchitecteForm() {
-  const { handleChange, handleSubmit, submitSuccess } = useSecureForm({ nom: '', prenom: '', email: '', cabinet: '', message: '' });
+  const { formData, handleChange, handleSubmit, submitSuccess } = useSecureForm({
+    nom: '', prenom: '', email: '', telephone: '', cabinet: '', localisation: '', specialites: '', message: ''
+  });
   return (
-    <div className="bg-white rounded-3xl shadow-2xl p-6 md:p-12 border border-orange-100">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="w-12 h-12 rounded-xl bg-[#233B72] flex items-center justify-center text-white shadow-lg"><Building2 /></div>
-        <h2 className="text-2xl md:text-3xl font-bold text-[#233B72]">Partenariat Architecte</h2>
+    <div className="bg-gradient-to-br from-white to-orange-50 rounded-3xl shadow-2xl p-6 md:p-10 border-2 border-orange-100 animate-fadeIn">
+      <div className="flex items-center mb-8">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mr-4 shadow-lg text-white"><Building2 /></div>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Groupe d'architectes</h2>
       </div>
-      {submitSuccess ? <SuccessView /> : (
-        <form onSubmit={handleSubmit(() => {})} className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <input placeholder="Nom *" className="input-field-custom" required />
-          <input placeholder="Prénom *" className="input-field-custom" required />
-          <input placeholder="Nom du cabinet *" className="input-field-custom" required />
-          <input placeholder="Ville *" className="input-field-custom" required />
-          <input placeholder="Email professionnel *" className="md:col-span-2 input-field-custom" required />
-          <textarea placeholder="Quels sont vos besoins en drone (Inspection, Thermographie...) ?" className="md:col-span-2 input-field-custom h-32"></textarea>
-          <button className="md:col-span-2 w-full bg-[#233B72] text-white py-4 rounded-xl font-bold text-lg shadow-lg">Rejoindre le réseau</button>
+      {submitSuccess ? <SuccessView color="orange" /> : (
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="nom" placeholder="Nom *" onChange={handleChange} required className="input-field-custom" />
+            <input name="prenom" placeholder="Prénom *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <input name="cabinet" placeholder="Nom du cabinet *" onChange={handleChange} required className="input-field-custom" />
+          <div className="grid md:grid-cols-2 gap-6">
+            <input name="email" type="email" placeholder="Email professionnel *" onChange={handleChange} required className="input-field-custom" />
+            <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-custom" />
+          </div>
+          <textarea name="message" placeholder="Quels sont vos besoins en drone ?" rows={4} onChange={handleChange} className="input-field-custom"></textarea>
+          <button className="w-full bg-orange-600 text-white py-4 rounded-xl font-bold text-lg hover:bg-orange-700 shadow-lg">Rejoindre le réseau</button>
         </form>
       )}
     </div>
@@ -238,10 +253,16 @@ function useInView() {
   return { ref, isInView };
 }
 
-function SuccessView() {
-    return <div className="text-center py-10 px-4"><div className="w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl shadow-lg animate-bounce">✓</div><h3 className="text-xl md:text-2xl font-bold text-[#233B72]">Demande envoyée avec succès !</h3><p className="mt-2 text-gray-500">Nos équipes reviendront vers vous sous 48h.</p></div>
+function SuccessView({ color }: { color: string }) {
+    const bg = color === 'green' ? 'bg-green-500' : color === 'sky' ? 'bg-sky-500' : color === 'amber' ? 'bg-amber-500' : 'bg-orange-500';
+    return (
+        <div className="text-center py-10">
+            <div className={`w-20 h-20 ${bg} rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl shadow-lg animate-bounce`}>✓</div>
+            <h3 className="text-2xl font-bold">Demande envoyée !</h3>
+            <p className="text-gray-600 mt-2">Nous reviendrons vers vous dans les plus brefs délais.</p>
+        </div>
+    );
 }
 
-// CSS Inline simulé pour les champs de texte
-const inputStyle = "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:border-[#233B72] focus:bg-white transition-all text-sm md:text-base placeholder-gray-400";
-// Note : J'utilise className="input-field-custom" dans le code, assurez-vous d'ajouter ce style dans votre CSS global ou remplacez-le par les classes Tailwind ci-dessus.
+// Ajoute ce style dans ton index.css ou un fichier style global
+// .input-field-custom { @apply w-full px-4 py-3 bg-white/80 border border-gray-200 rounded-xl outline-none focus:border-[#233B72] focus:bg-white transition-all text-sm md:text-base; }
