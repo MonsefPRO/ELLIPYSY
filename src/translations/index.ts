@@ -101,6 +101,10 @@ export const translations = {
         title: 'Destruction de nids de frelons',
         description: 'Neutralisation sécurisée des nids par drone, sans intervention humaine en hauteur. Intervention rapide, même en zone dense ou sur des structures difficiles à atteindre. Réduction immédiate des risques pour les salariés, clients et riverains.'
       },
+      industrial2: {
+        title: 'Nettoyage de panneaux photovoltaïques',
+        description: 'Les panneaux encrassés perdent jusqu’à 30% de rendement énergétique. Notre service permet une remise à niveau de la performance.'
+      },
       seeMore: 'Voir le détail'
     },
     whyUs: {
