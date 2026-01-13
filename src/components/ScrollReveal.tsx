@@ -29,8 +29,11 @@ export function ScrollReveal({ children, delay = 0, className = '' }: ScrollReve
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
       className={className}
+      // On retire transformStyle: 'preserve-3d' qui peut créer des bugs de clic
+      // On ajoute pointerEvents: "auto" pour forcer la réactivité
       style={{
-        transformStyle: 'preserve-3d',
+        perspective: '1000px', 
+        backfaceVisibility: 'hidden',
       }}
     >
       {children}
