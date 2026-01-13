@@ -27,7 +27,7 @@ export default function Prestations() {
         "Une façade encrassée ou négligée nuit à l'image de votre bâtiment et accélère la dégradation des matériaux. Grâce à notre technologie de nettoyage par drone, certifiée et sans recours à l'échafaudage ou à la nacelle, redonnez éclat, propreté et durabilité à vos façades professionnelles en toute sécurité.",
       image: '/ares.png',
       image2: '/chronos.jpg',
-      link: '/nettoyage-facade', // CORRECTION : Redirection directe vers la page souhaitée
+      link: '/NettoyageFacade', // CORRECTION : Correspond au fichier NettoyageFacade.tsx
       icon: Droplets,
       benefits: [
         'Sécurité maximale : zéro risque de chute',
@@ -45,7 +45,7 @@ export default function Prestations() {
         "Sans traitement régulier, les mousses et lichens dégradent l'étanchéité de votre toiture. Préservez votre patrimoine avec notre service de démoussage par drone, une solution sécurisée et rapide pour une toiture durable.",
       image: '/Demoussage drone 1.jpg',
       image2: '/5kmh_et_jusqu’a_600m2_heure_de_traitement.png',
-      link: '/demoussage-toiture', // Suggestion de mise en conformité si besoin
+      link: '/Demoussage', // CORRECTION : Correspond au fichier Demoussage.tsx
       icon: Shield,
       benefits: [
         'Zéro déplacement sur la toiture : tuiles préservées',
@@ -63,7 +63,7 @@ export default function Prestations() {
         "Des panneaux encrassés perdent jusqu'à 30% de rendement. Notre nettoyage professionnel par drone vous permet de récupérer une production maximale et d'optimiser votre investissement.",
       image: '/rony.jpg',
       image2: '/rony4.jpg',
-      link: '/nettoyage-photovoltaique', // Suggestion de mise en conformité
+      link: '/PanneauxPhotovoltaiques', // CORRECTION : Correspond au fichier PanneauxPhotovoltaiques.tsx
       icon: Sun,
       benefits: [
         "Récupérez jusqu'à 30% de production d'énergie",
@@ -81,7 +81,7 @@ export default function Prestations() {
         "L'élimination des nids de frelons en hauteur est un risque sérieux. Notre technologie drone traite efficacement les nids difficiles d'accès avec un minimum d'exposition humaine.",
       image: '/abateur_de_frelons.png',
       image2: '/frel.png',
-      link: '/destruction-frelons', // Suggestion de mise en conformité
+      link: '/EliminationFrelons', // CORRECTION : Correspond au fichier EliminationFrelons.tsx
       icon: AlertTriangle,
       benefits: [
         'Intervention 100% sécurisée à distance',
@@ -145,11 +145,7 @@ export default function Prestations() {
                     <div className="w-full lg:w-1/2 space-y-4">
                       <div className="grid grid-cols-1 gap-4">
                         <div className="h-56 sm:h-72 md:h-80 relative overflow-hidden rounded-2xl shadow-lg">
-                          <img 
-                            src={prestation.image} 
-                            alt={prestation.title} 
-                            className="w-full h-full object-cover" 
-                          />
+                          <img src={prestation.image} alt={prestation.title} className="w-full h-full object-cover" />
                           <div className="absolute top-4 left-4">
                             <div className={`w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br ${colors.gradient} rounded-xl flex items-center justify-center shadow-lg`}>
                               <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
@@ -157,11 +153,7 @@ export default function Prestations() {
                           </div>
                         </div>
                         <div className="hidden lg:block h-80 relative overflow-hidden rounded-2xl shadow-lg">
-                          <img 
-                            src={prestation.image2} 
-                            alt={`${prestation.title} - Détail`} 
-                            className="w-full h-full object-cover" 
-                          />
+                          <img src={prestation.image2} alt={`${prestation.title} - Détail`} className="w-full h-full object-cover" />
                         </div>
                       </div>
                     </div>
@@ -198,7 +190,7 @@ export default function Prestations() {
                         </Link>
 
                         <Link
-                          to="/devis"
+                          to="/Devis" // CORRECTION : Pointe vers Devis.tsx
                           className={`flex-1 inline-flex items-center justify-center gap-2 border-2 ${colors.text} border-current px-6 py-4 rounded-xl font-bold hover:bg-gray-50 transition-all active:scale-95`}
                         >
                           Devis gratuit
@@ -220,23 +212,19 @@ export default function Prestations() {
 
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
-              to="/devis"
+              to="/Devis" // CORRECTION
               className="bg-brand-orange-500 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-brand-orange-600 transition-all shadow-lg flex items-center justify-center gap-2"
             >
               Demander un devis
               <ChevronRight className="w-5 h-5" />
             </Link>
 
-            <a
-              href="tel:0467209709"
-              className="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center"
-            >
+            <a href="tel:0467209709" className="border-2 border-white/30 text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center">
               Nous appeler
             </a>
           </div>
         </div>
       </div>
-
       <CertificationsSection />
       <Footer />
     </div>
