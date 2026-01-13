@@ -18,10 +18,10 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState('Tous');
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  // Initialisation du moteur Elfsight
+  // Initialisation du moteur Elfsight avec ton script spécifique
   useEffect(() => {
     const script = document.createElement('script');
-    script.src = "https://static.elfsight.com/platform/platform.js";
+    script.src = "https://elfsightcdn.com/platform.js";
     script.async = true;
     document.body.appendChild(script);
   }, []);
@@ -220,8 +220,8 @@ export default function Blog() {
                 <h2 className="text-2xl font-bold text-[#334786]">Ellipsys sur les réseaux sociaux</h2>
                 <p className="text-gray-500">Découvrez nos interventions en temps réel</p>
              </div>
-             {/* Remplace l'ID ci-dessous par ton ID Elfsight généré */}
-             <div className="elfsight-app-VOTRE-ID-UNIQUE" data-elfsight-app-lazy></div>
+             {/* Ton Widget Elfsight avec ton ID réel */}
+             <div className="elfsight-app-36c77099-6ba2-4501-bf85-3cbb1a1869b7" data-elfsight-app-lazy></div>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
