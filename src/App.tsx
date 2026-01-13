@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import des outils de navigation
 import { Shield, ChevronRight, Phone, Mail, MapPin, Star, TrendingUp, Users, Zap, BarChart3, Play, ChevronLeft } from 'lucide-react';
 import { AnimatedCounter } from './components/AnimatedCounter';
 import CookieBanner from './components/CookieBanner';
@@ -12,8 +12,17 @@ import { VideoModal } from './components/VideoModal';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-export default function App() {
-  const { t, language } = useLanguage(); // Ajout de language pour conditionner les textes hors i18n
+// IMPORT DE TES PAGES (Vérifie que les noms correspondent à tes fichiers dans src/pages)
+import Prestations from './pages/Prestations';
+import NettoyageFacade from './pages/NettoyageFacade';
+import Demoussage from './pages/Demoussage';
+import PanneauxPhotovoltaiques from './pages/PanneauxPhotovoltaiques';
+import EliminationFrelons from './pages/EliminationFrelons';
+import Devis from './pages/Devis';
+
+// Création d'un composant interne pour l'accueil
+function Home() {
+  const { t, language } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentHeroImage, setCurrentHeroImage] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
@@ -64,10 +73,7 @@ export default function App() {
   }, [heroImages.length]);
 
   return (
-    <div className="min-h-screen bg-[#EFF8FF] overflow-x-hidden flex flex-col">
-      <CookieBanner />
-      <Header />
-
+    <>
       <main className="flex-grow">
         <section id="accueil" className="min-h-[70vh] md:min-h-screen pt-28 pb-12 relative overflow-hidden flex items-center">
           <div className="absolute inset-0 bg-gradient-to-br from-sky-900/40 via-blue-900/20 to-black/40 z-10"></div>
@@ -116,7 +122,7 @@ export default function App() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-              <Link to="/devis" className="bg-brand-orange-500 text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-xl">
+              <Link to="/Devis" className="bg-brand-orange-500 text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-xl">
                 {t('hero.cta')}
               </Link>
               <button onClick={() => setIsVideoModalOpen(true)} className="bg-white/10 backdrop-blur-md border border-white/40 text-white px-8 py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
@@ -210,9 +216,31 @@ export default function App() {
           </div>
         </section>
       </main>
-
       <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videodemo.mp4" />
-      <Footer />
-    </div>
+    </>
+  );
+}
+
+// COMPOSANT PRINCIPAL AVEC LES ROUTES
+export default function App() {
+  return (
+    <Router>
+      <div className="min-h-screen bg-[#EFF8FF] overflow-x-hidden flex flex-col">
+        <CookieBanner />
+        <Header />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/prestations" element={<Prestations />} />
+          <Route path="/NettoyageFacade" element={<NettoyageFacade />} />
+          <Route path="/Demoussage" element={<Demoussage />} />
+          <Route path="/PanneauxPhotovoltaiques" element={<PanneauxPhotovoltaiques />} />
+          <Route path="/EliminationFrelons" element={<EliminationFrelons />} />
+          <Route path="/Devis" element={<Devis />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
