@@ -68,7 +68,7 @@ export default function App() {
   }, [heroImages.length]);
 
   return (
-    <div className="min-h-screen bg-[#EFF8FF] overflow-x-hidden flex flex-col font-sans">
+    <div className="min-h-screen bg-[#EFF8FF] overflow-x-hidden flex flex-col">
       <CookieBanner />
       <Header />
       
@@ -84,21 +84,21 @@ export default function App() {
             ))}
           </div>
 
-          <div className="w-full relative z-20 container mx-auto px-4 text-center text-white">
-            <h1 className="text-2xl md:text-6xl font-bold leading-tight drop-shadow-2xl mb-6 uppercase tracking-tighter italic">
+          <div className="w-full relative z-20 container mx-auto px-4 text-center">
+            <h1 className="text-2xl md:text-6xl font-bold leading-tight drop-shadow-2xl text-white mb-6">
               {t('hero.title1')} <br className="md:hidden" /> {t('hero.title2')}
             </h1>
             
-            <div className="space-y-6">
+            <div className="text-white space-y-6">
               <p className="text-sm md:text-xl font-bold drop-shadow-md">{t('hero.subtitle')}</p>
               <div className="flex flex-wrap justify-center gap-2 font-bold px-2">
-                <span onClick={() => scrollToSection('benefit-safety')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer hover:bg-white/40 transition-all">
+                <span onClick={() => scrollToSection('benefit-safety')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer">
                   <Shield className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('benefits.safety.title')}</span>
                 </span>
-                <span onClick={() => scrollToSection('benefit-speed')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer hover:bg-white/40 transition-all">
+                <span onClick={() => scrollToSection('benefit-speed')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer">
                   <Zap className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('benefits.speed.title')}</span>
                 </span>
-                <span onClick={() => scrollToSection('benefit-cost')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer hover:bg-white/40 transition-all">
+                <span onClick={() => scrollToSection('benefit-cost')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer">
                   <BarChart3 className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('benefits.cost.title')}</span>
                 </span>
               </div>
@@ -121,7 +121,7 @@ export default function App() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-              <Link to="/devis" className="bg-brand-orange-500 text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-xl text-center">
+              <Link to="/devis" className="bg-brand-orange-500 text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:scale-105 transition-all shadow-xl">
                 {t('hero.cta')}
               </Link>
               <button onClick={() => setIsVideoModalOpen(true)} className="bg-white/10 backdrop-blur-md border border-white/40 text-white px-8 py-3.5 rounded-xl font-bold text-lg flex items-center justify-center gap-2">
@@ -134,21 +134,21 @@ export default function App() {
         <CertificationsSection />
         <DroneBenefits />
 
-        {/* SECTION PRESTATIONS */}
+        {/* SECTION PRESTATIONS AVEC COULEURS RÉTABLIES */}
         <section className="py-16 px-4 bg-gradient-to-br from-sky-50 to-blue-50">
           <div className="container mx-auto max-w-7xl">
-            <h2 className="text-2xl md:text-5xl font-bold mb-12 text-center text-[#334786] uppercase italic tracking-tighter">{t('mainServices.title')}</h2>
+            <h2 className="text-2xl md:text-5xl font-bold mb-12 text-center text-[#334786]">{t('mainServices.title')}</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
               {['facade', 'demoussage', 'hornets', 'industrial2'].map((key, i) => (
                 <ScrollReveal delay={0.1 * (i + 1)} key={key}>
                   <Hover3DCard className={`bg-white rounded-2xl p-5 md:p-8 shadow-lg border-t-4 h-full flex flex-col ${i === 0 ? 'border-sky-500' : i === 1 ? 'border-green-500' : i === 2 ? 'border-red-500' : 'border-amber-500'}`}>
                     <div className="flex-grow">
-                      <div className="w-10 h-10 md:w-16 md:h-16 bg-gray-50 rounded-xl flex items-center justify-center mb-4 text-center">
+                      <div className="w-10 h-10 md:w-16 md:h-16 bg-gray-50 rounded-xl flex items-center justify-center mb-4">
                         <span className="text-gray-400 font-bold text-lg">0{i + 1}</span>
                       </div>
-                      <h3 className="text-sm md:text-2xl font-bold mb-2 text-[#334786] uppercase italic tracking-tighter text-center">{t(`mainServices.${key}.title`)}</h3>
+                      <h3 className="text-sm md:text-2xl font-bold mb-2 text-[#334786]">{t(`mainServices.${key}.title`)}</h3>
                     </div>
-                    <Link to="/prestations" className="mt-4 pt-4 border-t border-gray-100 text-sky-600 font-bold text-xs md:text-base flex items-center justify-center">
+                    <Link to="/prestations" className="mt-4 pt-4 border-t border-gray-100 text-sky-600 font-bold text-xs md:text-base flex items-center">
                       {language === 'fr' ? 'Voir' : 'View'} <ChevronRight className="w-4 h-4 ml-1" />
                     </Link>
                   </Hover3DCard>
@@ -161,7 +161,7 @@ export default function App() {
         {/* SECTION AVIS */}
         <section id="avis" className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
-            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-[#334786] uppercase italic tracking-tighter">{t('testimonials.title')}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-12 text-center text-[#334786]">{t('testimonials.title')}</h2>
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="bg-sky-50 p-8 rounded-2xl text-center w-full lg:w-1/4 border border-sky-100">
                 <div className="text-5xl font-bold text-gray-800 mb-2">4.9/5</div>
@@ -172,16 +172,16 @@ export default function App() {
               </div>
               <div className="flex-1 bg-white p-6 md:p-10 rounded-2xl shadow-xl border border-gray-100 relative">
                 <p className="text-gray-700 md:text-lg italic mb-6">"{testimonials[currentTestimonial].text}"</p>
-                <div className="flex items-center justify-center lg:justify-start">
-                  <img src={testimonials[currentTestimonial].image} className="w-14 h-14 rounded-full mr-4 object-cover border-2 border-white shadow-sm" alt="client" />
-                  <div className="text-left">
+                <div className="flex items-center">
+                  <img src={testimonials[currentTestimonial].image} className="w-14 h-14 rounded-full mr-4 object-cover" alt="client" />
+                  <div>
                     <div className="font-bold text-gray-800">{testimonials[currentTestimonial].name}</div>
                     <div className="text-sm text-gray-500">{testimonials[currentTestimonial].role}</div>
                   </div>
                 </div>
-                <div className="flex justify-center lg:justify-start gap-4 mt-8">
-                  <button onClick={prevTestimonial} className="p-3 rounded-full bg-white shadow-md hover:bg-sky-50 text-sky-600 transition-colors"><ChevronLeft /></button>
-                  <button onClick={nextTestimonial} className="p-3 rounded-full bg-white shadow-md hover:bg-sky-50 text-sky-600 transition-colors"><ChevronRight /></button>
+                <div className="flex gap-4 mt-8">
+                  <button onClick={prevTestimonial} className="p-3 rounded-full bg-white shadow-md hover:bg-sky-50 text-sky-600"><ChevronLeft /></button>
+                  <button onClick={nextTestimonial} className="p-3 rounded-full bg-white shadow-md hover:bg-sky-50 text-sky-600"><ChevronRight /></button>
                 </div>
               </div>
             </div>
