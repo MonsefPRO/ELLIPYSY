@@ -16,6 +16,10 @@ import Devis from './pages/Devis.tsx';
 import Valeurs from './pages/Valeurs.tsx';
 import RejoignezNous from './pages/RejoignezNous.tsx';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite.tsx';
+
+// NOUVEL IMPORT EXPERT
+import Risques from './pages/Risques.tsx';
+
 import './index.css';
 
 function AnimatedRoutes() {
@@ -151,6 +155,20 @@ function AnimatedRoutes() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
               <Valeurs />
+            </motion.div>
+          }
+        />
+        {/* NOUVELLE ROUTE : RISQUES ET RESPONSABILITÉS */}
+        <Route
+          path="/risques-et-responsabilites"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Risques />
             </motion.div>
           }
         />
