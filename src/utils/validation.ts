@@ -1,7 +1,28 @@
+// Fonction de nettoyage des entrées (requise par useSecureForm)
+export const sanitizeInput = (input: string): string => {
+  return input.trim();
+};
+
+// Vérifie si un champ est rempli
+export const validateRequired = (value: any): boolean => {
+  return value !== undefined && value !== null && value.toString().trim() !== '';
+};
+
+// Vérifie le format de l'email
+export const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+export interface ValidationError {
+  field: string;
+  message: string;
+}
+
 export const validatePhone = (phone: string): boolean => {
-  // Regex beaucoup plus souple qui accepte les formats standards français
+  // Regex souple pour les formats français
   const phoneRegex = /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/;
-  // Nettoyage agressif des espaces et points pour la vérification
+  // Nettoyage pour la vérification de longueur
   const cleaned = phone.replace(/[\s.-]/g, '');
   return cleaned.length === 10 || (cleaned.startsWith('33') && cleaned.length === 11);
 };
@@ -21,7 +42,7 @@ export const validateDevisForm = (formData: any): ValidationError[] => {
     errors.push({ field: 'phone', message: 'Téléphone invalide' });
   }
 
-  // ON REND CES CHAMPS OPTIONNELS s'ils ne sont pas dans le formulaire
+  // Champs optionnels
   if (formData.address && !validateRequired(formData.address)) {
     errors.push({ field: 'address', message: 'Adresse requise' });
   }
