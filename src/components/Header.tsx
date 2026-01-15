@@ -32,7 +32,7 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* MENU DESKTOP - CORRIGÉ : AJOUT DE REJOIGNEZ-NOUS */}
+          {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
             <Link to="/prestations" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
               <span>{t('nav.services')}</span>
@@ -67,7 +67,12 @@ export default function Header() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
-            {/* --- CET ONGLET MANQUAIT SUR PC --- */}
+            {/* NOUVEL ONGLET : RISQUES & CADRE LÉGAL */}
+            <Link to="/risques-et-responsabilites" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
+              <span>Risques & Cadre Légal</span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+
             <Link to="/rejoignez-nous" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
               <span>Rejoignez-nous</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
@@ -102,6 +107,10 @@ export default function Header() {
               </div>
 
               <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Nos valeurs</Link>
+              
+              {/* LIEN RISQUES MOBILE */}
+              <Link to="/risques-et-responsabilites" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Risques & Cadre Légal</Link>
+              
               <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Rejoignez-nous</Link>
               
               <div className="pt-4 flex flex-col gap-4">
