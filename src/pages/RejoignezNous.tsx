@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, Briefcase, Users, Heart, Award, Send, FileText, Building2, Handshake, Target, TrendingUp, Sparkles, ArrowRight } from 'lucide-react';
+import { ChevronRight, Briefcase, Users, Heart, Award, Send, FileText, Building2, Handshake, Target, TrendingUp, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import { useSecureForm } from '../hooks/useSecureForm';
@@ -57,16 +57,23 @@ export default function RejoignezNous() {
     <div className="min-h-screen bg-white">
       <Header />
       
-      <section className="relative pt-32 pb-16 overflow-hidden flex items-center h-[350px] md:h-[450px]">
+      {/* HERO SECTION HARMONISÉE */}
+      <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/60 via-[#233B72]/40 to-black/60 z-10"></div>
-        <div className="relative z-20 w-full text-center px-4 text-white">
-          <h1 className="text-4xl md:text-7xl font-bold mb-4 drop-shadow-2xl">Rejoignez-nous</h1>
-          <p className="text-lg md:text-2xl font-semibold opacity-90 tracking-wide">Les drones au service de l'humain</p>
+        
+        {/* LA LUEUR EXACTE RÉCUPÉRÉE : red-900 / blue-900 / black */}
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
+
+        <div className="relative z-20 w-full text-center px-4">
+          <h1 className="text-3xl md:text-6xl font-extrabold mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
+            Rejoignez-nous
+          </h1>
+          <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
+            Les drones au service de l'humain
+          </p>
         </div>
       </section>
 
-      {/* SECTION BLOCS ET FORMULAIRES EN LARGEUR MAXIMUM */}
       <div className="container mx-auto px-4 py-12 md:py-20 max-w-[1400px]">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-20">
           {[
@@ -108,7 +115,6 @@ export default function RejoignezNous() {
           })}
         </div>
 
-        {/* FORMULAIRES EN LARGEUR IDENTIQUE AUX BLOCS (max-w-full) */}
         <div className="transition-all duration-700 w-full">
           {activeTab === 'candidature' && <CandidatureSpontaneeForm />}
           {activeTab === 'apporteur' && <ApporteurAffairesForm />}
@@ -123,17 +129,17 @@ export default function RejoignezNous() {
   );
 }
 
-// --- FORMULAIRES AVEC CHAMPS XXL ---
+// --- FORMULAIRES ---
 
 function CandidatureSpontaneeForm() {
-  const { formData, handleChange, handleSubmit, submitSuccess } = useSecureForm({
+  const { handleChange, handleSubmit, submitSuccess } = useSecureForm({
     nom: '', prenom: '', email: '', telephone: '', poste: '', motivation: ''
   });
   return (
     <div className="bg-gradient-to-br from-white to-green-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-green-100 animate-fadeIn">
-      <div className="flex items-center mb-16">
+      <div className="flex items-center mb-16 text-gray-800">
         <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mr-8 shadow-xl text-white"><FileText className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black text-gray-800 tracking-tight">Candidature spontanée</h2>
+        <h2 className="text-3xl md:text-6xl font-black tracking-tight">Candidature spontanée</h2>
       </div>
       {submitSuccess ? <SuccessView color="green" /> : (
         <form onSubmit={handleSubmit(() => {})} className="space-y-10">
@@ -147,7 +153,7 @@ function CandidatureSpontaneeForm() {
           </div>
           <input name="poste" placeholder="Poste recherché *" onChange={handleChange} required className="input-field-xxl" />
           <textarea name="motivation" placeholder="Décrivez votre parcours et vos motivations..." rows={8} onChange={handleChange} required className="input-field-xxl"></textarea>
-          <button className="w-full bg-green-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-green-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Envoyer mon profil</button>
+          <button type="submit" className="w-full bg-green-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-green-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Envoyer mon profil</button>
         </form>
       )}
     </div>
@@ -160,9 +166,9 @@ function ApporteurAffairesForm() {
   });
   return (
     <div className="bg-gradient-to-br from-white to-sky-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-sky-100 animate-fadeIn">
-      <div className="flex items-center mb-16">
+      <div className="flex items-center mb-16 text-gray-800">
         <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center mr-8 shadow-xl text-white"><Handshake className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black text-gray-800 tracking-tight">Devenir apporteur d'affaires</h2>
+        <h2 className="text-3xl md:text-6xl font-black tracking-tight">Devenir apporteur d'affaires</h2>
       </div>
       {submitSuccess ? <SuccessView color="sky" /> : (
         <form onSubmit={handleSubmit(() => {})} className="space-y-10">
@@ -174,8 +180,8 @@ function ApporteurAffairesForm() {
             <input name="email" type="email" placeholder="Email *" onChange={handleChange} required className="input-field-xxl" />
             <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-xxl" />
           </div>
-          <textarea name="message" placeholder="Parlez-nous de votre réseau et de vos opportunités..." rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
-          <button className="w-full bg-sky-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-sky-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Envoyer la demande</button>
+          <textarea name="message" placeholder="Parlez-nous de votre réseau..." rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
+          <button type="submit" className="w-full bg-sky-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-sky-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Envoyer la demande</button>
         </form>
       )}
     </div>
@@ -188,9 +194,9 @@ function FranchiseeForm() {
   });
   return (
     <div className="bg-gradient-to-br from-white to-amber-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-amber-100 animate-fadeIn">
-      <div className="flex items-center mb-16">
+      <div className="flex items-center mb-16 text-gray-800">
         <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center mr-8 shadow-xl text-white"><Briefcase className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black text-gray-800 tracking-tight">Devenir franchisé</h2>
+        <h2 className="text-3xl md:text-6xl font-black tracking-tight">Devenir franchisé</h2>
       </div>
       {submitSuccess ? <SuccessView color="amber" /> : (
         <form onSubmit={handleSubmit(() => {})} className="space-y-10">
@@ -206,8 +212,8 @@ function FranchiseeForm() {
             <input name="ville" placeholder="Ville souhaitée *" onChange={handleChange} required className="input-field-xxl" />
             <input name="apport" placeholder="Apport disponible" onChange={handleChange} className="input-field-xxl" />
           </div>
-          <textarea name="motivation" placeholder="Parlez-nous de votre projet entrepreneurial..." rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
-          <button className="w-full bg-amber-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-amber-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Demander documentation</button>
+          <textarea name="motivation" placeholder="Votre projet..." rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
+          <button type="submit" className="w-full bg-amber-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-amber-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Demander documentation</button>
         </form>
       )}
     </div>
@@ -220,9 +226,9 @@ function ArchitecteForm() {
   });
   return (
     <div className="bg-gradient-to-br from-white to-orange-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-orange-100 animate-fadeIn">
-      <div className="flex items-center mb-16">
+      <div className="flex items-center mb-16 text-gray-800">
         <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mr-8 shadow-xl text-white"><Building2 className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black text-gray-800 tracking-tight">Groupe d'architectes</h2>
+        <h2 className="text-3xl md:text-6xl font-black tracking-tight">Groupe d'architectes</h2>
       </div>
       {submitSuccess ? <SuccessView color="orange" /> : (
         <form onSubmit={handleSubmit(() => {})} className="space-y-10">
@@ -235,8 +241,8 @@ function ArchitecteForm() {
             <input name="email" type="email" placeholder="Email professionnel *" onChange={handleChange} required className="input-field-xxl" />
             <input name="telephone" type="tel" placeholder="Téléphone *" onChange={handleChange} required className="input-field-xxl" />
           </div>
-          <textarea name="message" placeholder="Vos besoins spécifiques par drone (modélisation, inspection technique, thermographie...)" rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
-          <button className="w-full bg-orange-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-orange-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Rejoindre le réseau</button>
+          <textarea name="message" placeholder="Besoins spécifiques..." rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
+          <button type="submit" className="w-full bg-orange-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-orange-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">Rejoindre le réseau</button>
         </form>
       )}
     </div>
@@ -259,18 +265,12 @@ function useInView() {
 function SuccessView({ color }: { color: string }) {
     const bg = color === 'green' ? 'bg-green-500' : color === 'sky' ? 'bg-sky-500' : color === 'amber' ? 'bg-amber-500' : 'bg-orange-500';
     return (
-        <div className="text-center py-20">
-            <div className={`w-32 h-32 ${bg} rounded-full flex items-center justify-center mx-auto mb-10 text-white text-6xl shadow-2xl animate-bounce`}>✓</div>
-            <h3 className="text-5xl font-black text-gray-800">Demande envoyée !</h3>
-            <p className="text-gray-500 text-2xl mt-6">Nous reviendrons vers vous sous 48h.</p>
+        <div className="text-center py-20 animate-in fade-in zoom-in duration-500">
+            <div className={`w-32 h-32 ${bg} rounded-full flex items-center justify-center mx-auto mb-10 text-white shadow-2xl animate-bounce`}>
+              <CheckCircle2 size={64} />
+            </div>
+            <h3 className="text-4xl md:text-5xl font-black text-gray-800">Demande transmise avec succès !</h3>
+            <p className="text-gray-500 text-2xl mt-6">Nous vous répondrons dans les plus brefs délais.</p>
         </div>
     );
 }
-
-/**
- * AJOUTEZ CE STYLE DANS index.css POUR LE RENDU XXL :
- * .input-field-xxl { 
- * @apply w-full px-10 py-7 bg-white border-2 border-gray-100 rounded-[1.5rem] outline-none 
- * focus:border-[#233B72] focus:ring-4 focus:ring-[#233B72]/5 transition-all text-2xl shadow-sm placeholder-gray-400 font-medium; 
- * }
- */
