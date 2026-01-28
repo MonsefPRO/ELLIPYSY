@@ -20,74 +20,74 @@ import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Prestations() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const prestations = [
     {
       id: 'nettoyage-facade',
-      title: t.prestations.service1.title,
-      description: t.prestations.service1.description,
+      title: t('prestations.service1.title'),
+      description: t('prestations.service1.description'),
       image: '/ares.png',
       image2: '/chronos.jpg',
       link: '/prestations/nettoyage-facade',
       icon: Droplets,
       benefits: [
-        t.prestations.service1.benefit1,
-        t.prestations.service1.benefit2,
-        t.prestations.service1.benefit3,
-        t.prestations.service1.benefit4,
-        t.prestations.service1.benefit5
+        t('prestations.service1.benefit1'),
+        t('prestations.service1.benefit2'),
+        t('prestations.service1.benefit3'),
+        t('prestations.service1.benefit4'),
+        t('prestations.service1.benefit5')
       ],
       color: 'sky'
     },
     {
       id: 'demoussage',
-      title: t.prestations.service2.title,
-      description: t.prestations.service2.description,
+      title: t('prestations.service2.title'),
+      description: t('prestations.service2.description'),
       image: '/Demoussage drone 1.jpg',
       image2: '/5kmh_et_jusquâ€™a_600m2_heure_de_traitement.png',
       link: '/prestations/demoussage',
       icon: Shield,
       benefits: [
-        t.prestations.service2.benefit1,
-        t.prestations.service2.benefit2,
-        t.prestations.service2.benefit3,
-        t.prestations.service2.benefit4,
-        t.prestations.service2.benefit5
+        t('prestations.service2.benefit1'),
+        t('prestations.service2.benefit2'),
+        t('prestations.service2.benefit3'),
+        t('prestations.service2.benefit4'),
+        t('prestations.service2.benefit5')
       ],
       color: 'green'
     },
     {
       id: 'panneaux-photovoltaiques',
-      title: t.prestations.service3.title,
-      description: t.prestations.service3.description,
+      title: t('prestations.service3.title'),
+      description: t('prestations.service3.description'),
       image: '/rony.jpg',
       image2: '/rony4.jpg',
       link: '/prestations/panneaux-photovoltaiques',
       icon: Sun,
       benefits: [
-        t.prestations.service3.benefit1,
-        t.prestations.service3.benefit2,
-        t.prestations.service3.benefit3,
-        t.prestations.service3.benefit4,
-        t.prestations.service3.benefit5
+        t('prestations.service3.benefit1'),
+        t('prestations.service3.benefit2'),
+        t('prestations.service3.benefit3'),
+        t('prestations.service3.benefit4'),
+        t('prestations.service3.benefit5')
       ],
       color: 'amber'
     },
     {
       id: 'elimination-frelons',
-      title: t.prestations.service4.title,
-      description: t.prestations.service4.description,
+      title: t('prestations.service4.title'),
+      description: t('prestations.service4.description'),
       image: '/abateur_de_frelons.png',
       image2: '/frel.png',
       link: '/prestations/elimination-frelons',
       icon: AlertTriangle,
       benefits: [
-        t.prestations.service4.benefit1,
-        t.prestations.service4.benefit2,
-        t.prestations.service4.benefit3,
-        t.prestations.service4.benefit4,
-        t.prestations.service4.benefit5
+        t('prestations.service4.benefit1'),
+        t('prestations.service4.benefit2'),
+        t('prestations.service4.benefit3'),
+        t('prestations.service4.benefit4'),
+        t('prestations.service4.benefit5')
       ],
       color: 'red'
     }
@@ -113,19 +113,19 @@ export default function Prestations() {
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
         <div className="relative z-20 w-full text-center px-4">
           <h1 className="text-3xl md:text-7xl font-extrabold mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
-            {t.prestations.hero.title}
+            {t('prestations.hero.title')}
           </h1>
           <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
-            {t.prestations.hero.subtitle}
+            {t('prestations.hero.subtitle')}
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12 font-medium">
-          <Link to="/" className="hover:text-[#233B72]">{t.prestations.breadcrumb.home}</Link>
+          <Link to="/" className="hover:text-[#233B72]">{t('prestations.breadcrumb.home')}</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-900">{t.prestations.breadcrumb.current}</span>
+          <span className="text-gray-900">{t('prestations.breadcrumb.current')}</span>
         </nav>
 
         <div className="space-y-12 md:space-y-28">
@@ -166,7 +166,7 @@ export default function Prestations() {
                       <div className={`${colors.bg} ${colors.border} border-2 rounded-[2rem] p-6 md:p-8 shadow-inner`}>
                         <h3 className="font-bold text-gray-900 mb-5 text-lg md:text-xl flex items-center gap-3">
                           <CheckCircle className={`w-6 h-6 ${colors.text}`} />
-                          {t.prestations.keyPoints}
+                          {language === 'fr' ? "Points clés de l'intervention :" : "Key intervention points:"}
                         </h3>
                         <ul className="space-y-4">
                           {prestation.benefits.map((benefit, idx) => (
@@ -185,7 +185,7 @@ export default function Prestations() {
                           to={prestation.link}
                           className={`flex-1 inline-flex items-center justify-center gap-3 bg-gradient-to-r ${colors.gradient} text-white px-8 py-5 rounded-2xl font-black text-lg hover:shadow-2xl transition-all active:scale-95 uppercase tracking-wider`}
                         >
-                          {t.prestations.learnMore}
+                          {language === 'fr' ? 'En savoir plus' : 'Learn more'}
                           <ChevronRight className="w-6 h-6" />
                         </Link>
 
@@ -193,7 +193,7 @@ export default function Prestations() {
                           to="/devis"
                           className={`flex-1 inline-flex items-center justify-center gap-3 border-2 ${colors.text} border-current px-8 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 transition-all active:scale-95 uppercase tracking-wider`}
                         >
-                          {t.prestations.freeQuote}
+                          {language === 'fr' ? 'Devis Gratuit' : 'Free Quote'}
                         </Link>
                       </div>
                     </div>
@@ -207,9 +207,13 @@ export default function Prestations() {
         {/* SECTION CTA */}
         <div className="mt-24 md:mt-32 bg-gradient-to-br from-[#233B72] via-blue-900 to-black rounded-[3rem] p-10 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-6xl font-black mb-8 uppercase tracking-tighter">{t.prestations.cta.title}</h2>
+            <h2 className="text-3xl md:text-6xl font-black mb-8 uppercase tracking-tighter">
+              {language === 'fr' ? 'Un projet spécifique ?' : 'A specific project?'}
+            </h2>
             <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto font-medium">
-              {t.prestations.cta.subtitle}
+              {language === 'fr' 
+                ? "Cartographie, thermographie ou inspection technique : nos experts déploient des solutions sur-mesure pour vos besoins complexes."
+                : "Mapping, thermography or technical inspection: our experts deploy tailor-made solutions for your complex needs."}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -217,16 +221,15 @@ export default function Prestations() {
                 to="/devis"
                 className="bg-white text-[#233B72] px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-3 uppercase tracking-widest"
               >
-                {t.prestations.cta.button}
+                {language === 'fr' ? 'Je fais ma demande !' : 'Make a request!'}
                 <ChevronRight className="w-6 h-6" />
               </Link>
 
               <a href="tel:0467209709" className="border-2 border-white/40 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/10 transition-all flex items-center justify-center uppercase tracking-widest">
-                {t.prestations.cta.callButton}
+                {language === 'fr' ? 'Nous appeler' : 'Call us'}
               </a>
             </div>
           </div>
-          {/* Lueurs décoratives */}
           <div className="absolute -top-20 -left-20 w-80 h-80 bg-orange-500 opacity-20 blur-[100px]"></div>
           <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-400 opacity-20 blur-[100px]"></div>
         </div>
