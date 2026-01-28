@@ -17,77 +17,78 @@ import { Hover3DCard } from '../components/Hover3DCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { HeroCarousel } from '../components/HeroCarousel';
 import Footer from '../components/Footer';
-import { useLanguage } from '../contexts/LanguageContext';
 
 export default function Prestations() {
-  const { t, language } = useLanguage();
-
   const prestations = [
     {
       id: 'nettoyage-facade',
-      title: t('prestations.service1.title'),
-      description: t('prestations.service1.description'),
+      title: 'Nettoyage de façades',
+      description:
+        "Une façade encrassée ou négligée nuit à l'image de votre bâtiment et accélère la dégradation des matériaux. Grâce à notre technologie de nettoyage par drone, certifiée et sans recours à l'échafaudage ou à la nacelle, redonnez éclat, propreté et durabilité à vos façades professionnelles en toute sécurité.",
       image: '/ares.png',
       image2: '/chronos.jpg',
       link: '/prestations/nettoyage-facade',
       icon: Droplets,
       benefits: [
-        t('prestations.service1.benefit1'),
-        t('prestations.service1.benefit2'),
-        t('prestations.service1.benefit3'),
-        t('prestations.service1.benefit4'),
-        t('prestations.service1.benefit5')
+        'Sécurité maximale : zéro risque de chute',
+        'Intervention 3x plus rapide que le traditionnel',
+        'Produits de nettoyage certifiés AB',
+        'Conformité législation 2026',
+        'Suivi avec rapport photo avant/après'
       ],
       color: 'sky'
     },
     {
       id: 'demoussage',
-      title: t('prestations.service2.title'),
-      description: t('prestations.service2.description'),
+      title: 'Nettoyage de Toitures',
+      description:
+        "Sans traitement régulier, les mousses et lichens dégradent l'étanchéité de votre toiture. Préservez votre patrimoine avec notre service de démoussage par drone, une solution sécurisée et rapide pour une toiture durable.",
       image: '/Demoussage drone 1.jpg',
-      image2: '/5kmh_et_jusquâ€™a_600m2_heure_de_traitement.png',
+      image2: '/5kmh_et_jusqu’a_600m2_heure_de_traitement.png',
       link: '/prestations/demoussage',
       icon: Shield,
       benefits: [
-        t('prestations.service2.benefit1'),
-        t('prestations.service2.benefit2'),
-        t('prestations.service2.benefit3'),
-        t('prestations.service2.benefit4'),
-        t('prestations.service2.benefit5')
+        'Zéro déplacement sur la toiture : tuiles préservées',
+        'Traitement 70% plus rapide',
+        'Produits anti-mousse écologiques',
+        'Efficace jusqu\'à 10 ans',
+        'Rapport d\'intervention détaillé'
       ],
       color: 'green'
     },
     {
       id: 'panneaux-photovoltaiques',
-      title: t('prestations.service3.title'),
-      description: t('prestations.service3.description'),
+      title: "Panneaux photovoltaïques",
+      description:
+        "Des panneaux encrassés perdent jusqu'à 30% de rendement. Notre nettoyage professionnel par drone vous permet de récupérer une production maximale et d'optimiser votre investissement.",
       image: '/rony.jpg',
       image2: '/rony4.jpg',
       link: '/prestations/panneaux-photovoltaiques',
       icon: Sun,
       benefits: [
-        t('prestations.service3.benefit1'),
-        t('prestations.service3.benefit2'),
-        t('prestations.service3.benefit3'),
-        t('prestations.service3.benefit4'),
-        t('prestations.service3.benefit5')
+        "Récupérez jusqu'à 30% de production d'énergie",
+        'Zéro contact direct : aucun risque de rayures',
+        'Eau déminéralisée osmosée',
+        'Intervention 5x plus rapide que le manuel',
+        'Rapport de performance inclus'
       ],
       color: 'amber'
     },
     {
       id: 'elimination-frelons',
-      title: t('prestations.service4.title'),
-      description: t('prestations.service4.description'),
+      title: 'Nids de frelons',
+      description:
+        "L'élimination des nids de frelons en hauteur est un risque sérieux. Notre technologie drone traite efficacement les nids difficiles d'accès avec un minimum d'exposition humaine.",
       image: '/abateur_de_frelons.png',
       image2: '/frel.png',
       link: '/prestations/elimination-frelons',
       icon: AlertTriangle,
       benefits: [
-        t('prestations.service4.benefit1'),
-        t('prestations.service4.benefit2'),
-        t('prestations.service4.benefit3'),
-        t('prestations.service4.benefit4'),
-        t('prestations.service4.benefit5')
+        'Intervention 100% sécurisée à distance',
+        'Accès aux nids à plus de 50m de hauteur',
+        'Méthode ultra-précise',
+        'Biocides certifiés écologiques',
+        'Destruction complète garantie'
       ],
       color: 'red'
     }
@@ -107,25 +108,25 @@ export default function Prestations() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
 
-      {/* HERO SECTION */}
+      {/* HERO SECTION HARMONISÉE : Overlay Risques/Valeurs */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
         <div className="relative z-20 w-full text-center px-4">
           <h1 className="text-3xl md:text-7xl font-extrabold mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
-            {t('prestations.hero.title')}
+            Nos Prestations
           </h1>
           <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
-            {t('prestations.hero.subtitle')}
+            L'expertise aérienne au service de votre patrimoine
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12 font-medium">
-          <Link to="/" className="hover:text-[#233B72]">{t('prestations.breadcrumb.home')}</Link>
+          <Link to="/" className="hover:text-[#233B72]">Accueil</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-900">{t('prestations.breadcrumb.current')}</span>
+          <span className="text-gray-900">Prestations</span>
         </nav>
 
         <div className="space-y-12 md:space-y-28">
@@ -166,7 +167,7 @@ export default function Prestations() {
                       <div className={`${colors.bg} ${colors.border} border-2 rounded-[2rem] p-6 md:p-8 shadow-inner`}>
                         <h3 className="font-bold text-gray-900 mb-5 text-lg md:text-xl flex items-center gap-3">
                           <CheckCircle className={`w-6 h-6 ${colors.text}`} />
-                          {language === 'fr' ? "Points clés de l'intervention :" : "Key intervention points:"}
+                          Points clés de l'intervention :
                         </h3>
                         <ul className="space-y-4">
                           {prestation.benefits.map((benefit, idx) => (
@@ -185,7 +186,7 @@ export default function Prestations() {
                           to={prestation.link}
                           className={`flex-1 inline-flex items-center justify-center gap-3 bg-gradient-to-r ${colors.gradient} text-white px-8 py-5 rounded-2xl font-black text-lg hover:shadow-2xl transition-all active:scale-95 uppercase tracking-wider`}
                         >
-                          {language === 'fr' ? 'En savoir plus' : 'Learn more'}
+                          En savoir plus
                           <ChevronRight className="w-6 h-6" />
                         </Link>
 
@@ -193,7 +194,7 @@ export default function Prestations() {
                           to="/devis"
                           className={`flex-1 inline-flex items-center justify-center gap-3 border-2 ${colors.text} border-current px-8 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 transition-all active:scale-95 uppercase tracking-wider`}
                         >
-                          {language === 'fr' ? 'Devis Gratuit' : 'Free Quote'}
+                          Devis Gratuit
                         </Link>
                       </div>
                     </div>
@@ -204,16 +205,12 @@ export default function Prestations() {
           })}
         </div>
 
-        {/* SECTION CTA */}
+        {/* SECTION CTA HARMONISÉE */}
         <div className="mt-24 md:mt-32 bg-gradient-to-br from-[#233B72] via-blue-900 to-black rounded-[3rem] p-10 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-6xl font-black mb-8 uppercase tracking-tighter">
-              {language === 'fr' ? 'Un projet spécifique ?' : 'A specific project?'}
-            </h2>
+            <h2 className="text-3xl md:text-6xl font-black mb-8 uppercase tracking-tighter">Un projet spécifique ?</h2>
             <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto font-medium">
-              {language === 'fr' 
-                ? "Cartographie, thermographie ou inspection technique : nos experts déploient des solutions sur-mesure pour vos besoins complexes."
-                : "Mapping, thermography or technical inspection: our experts deploy tailor-made solutions for your complex needs."}
+              Cartographie, thermographie ou inspection technique : nos experts déploient des solutions sur-mesure pour vos besoins complexes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -221,15 +218,16 @@ export default function Prestations() {
                 to="/devis"
                 className="bg-white text-[#233B72] px-12 py-5 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-3 uppercase tracking-widest"
               >
-                {language === 'fr' ? 'Je fais ma demande !' : 'Make a request!'}
+                Je fais ma demande !
                 <ChevronRight className="w-6 h-6" />
               </Link>
 
               <a href="tel:0467209709" className="border-2 border-white/40 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-white/10 transition-all flex items-center justify-center uppercase tracking-widest">
-                {language === 'fr' ? 'Nous appeler' : 'Call us'}
+                Nous appeler
               </a>
             </div>
           </div>
+          {/* Lueurs décoratives */}
           <div className="absolute -top-20 -left-20 w-80 h-80 bg-orange-500 opacity-20 blur-[100px]"></div>
           <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-400 opacity-20 blur-[100px]"></div>
         </div>
