@@ -540,7 +540,8 @@ export const translations = {
         subtitle: "Ne recevez pas un simple devis, obtenez une analyse de risques réelle.",
         button: "Demander mon diagnostic de faisabilité"
       }
-    },
+    }
+  },
   en: {
     nav: {
       home: 'Home',
