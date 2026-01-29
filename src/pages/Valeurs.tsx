@@ -1,5 +1,6 @@
 import { ChevronRight, Heart, Award, Leaf, Cpu, CheckCircle, Mail, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
 import { HeroCarousel } from '../components/HeroCarousel';
 import { Hover3DCard } from '../components/Hover3DCard';
@@ -18,51 +19,78 @@ const getColorClasses = (color: string) => {
 };
 
 export default function Valeurs() {
+  const { t } = useLanguage();
+
   const valeurs = [
     {
       id: 'securite',
-      title: 'Sécurité',
-      description: "Nous plaçons la sécurité de vos équipes au cœur de chaque intervention. Lors de chaque opération, un agent au sol accompagne le pilote, établissant un périmètre de sécurité pour garantir que l'intervention se déroule sans risque.",
+      title: t('benefits.safety.title'),
+      description: t('valeurs.value1.description'),
       image: '/nnewsecu.png',
       icon: Shield,
       color: 'red',
-      items: ['Conformité aux normes en vigueur', 'Assurance responsabilité civile', 'Pilotes certifiés et qualifiés', 'Protocoles de sécurité rigoureux']
+      items: [
+        t('valeurs.value1.item1'),
+        t('valeurs.value1.item2'),
+        t('valeurs.value1.item3'),
+        t('valeurs.value1.item4')
+      ]
     },
     {
       id: 'rigueur',
-      title: 'Rigueur',
-      description: "Nous faisons de la qualité notre priorité. Grâce à des méthodes structurées et rigoureuses, chaque intervention par drone est réalisée avec précision, fiabilité et résultats irréprochables.",
+      title: t('valeurs.value2.title'),
+      description: t('valeurs.value2.description'),
       image: '/newrig.png',
       icon: Award,
       color: 'gray',
-      items: ['Sérieux professionnel', 'Standards élevés', 'Méthodes éprouvées', 'Solutions pérennes']
+      items: [
+        t('valeurs.value2.item1'),
+        t('valeurs.value2.item2'),
+        t('valeurs.value2.item3'),
+        t('valeurs.value2.item4')
+      ]
     },
     {
       id: 'bienveillance',
-      title: 'Bienveillance',
-      description: "Nous plaçons la relation client au cœur de chaque projet, avec écoute attentive, accompagnement personnalisé, transparence totale et un suivi dédié à chaque étape.",
+      title: t('valeurs.value1.title'), // Clé correspondant à Benevolence/Bienveillance
+      description: t('valeurs.value1.description'),
       image: '/bienveillance.png',
       icon: Heart,
       color: 'sky',
-      items: ['Écoute active de vos besoins', 'Transparence totale', 'Suivi personnalisé', 'Disponibilité garantie']
+      items: [
+        t('valeurs.value1.item1'),
+        t('valeurs.value1.item2'),
+        t('valeurs.value1.item3'),
+        t('valeurs.value1.item4')
+      ]
     },
     {
       id: 'eco',
-      title: 'Eco-responsable',
-      description: "Engagement environnemental au cœur de nos pratiques. Produits respectueux et démarche durable pour une empreinte carbone minimale lors de nos interventions.",
+      title: t('valeurs.value3.title'),
+      description: t('valeurs.value3.description'),
       image: '/eco.png',
       icon: Leaf,
       color: 'green',
-      items: ['Produits éco-responsable', 'Respect environnemental', 'Approche durable', 'Empreinte minimale']
+      items: [
+        t('valeurs.value3.item1'),
+        t('valeurs.value3.item2'),
+        t('valeurs.value3.item3'),
+        t('valeurs.value3.item4')
+      ]
     },
     {
       id: 'technologie',
-      title: 'Technologie française',
-      description: "Innovation dans notre ADN. Drones français, technologies avancées, excellence et sécurité maximale pour un savoir-faire unique.",
+      title: t('valeurs.value4.title'),
+      description: t('valeurs.value4.description'),
       image: '/fr.png',
       icon: Cpu,
       color: 'blue',
-      items: ['Drones fabriqués en France', 'Innovation constante', 'Sécurité maximale', 'Savoir-faire français']
+      items: [
+        t('valeurs.value4.item1'),
+        t('valeurs.value4.item2'),
+        t('valeurs.value4.item3'),
+        t('valeurs.value4.item4')
+      ]
     }
   ];
 
@@ -70,28 +98,26 @@ export default function Valeurs() {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* HERO SECTION HARMONISÉE AVEC LA PAGE RISQUES */}
+      {/* HERO SECTION HARMONISÉE */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
-        
-        {/* LA LUEUR EXACTE RÉCUPÉRÉE : red-900 / blue-900 / black */}
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
 
         <div className="relative z-20 w-full text-center px-4">
-          <h1 className="text-3xl md:text-6xl font-extrabold mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
-            Nos Valeurs
+          <h1 className="text-3xl md:text-6xl font-black mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
+            {t('valeurs.title')}
           </h1>
           <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
-            Les drones au service de l'humain
+            {t('valeurs.subtitle')}
           </p>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12">
-          <Link to="/" className="hover:text-sky-600">Accueil</Link>
+          <Link to="/" className="hover:text-sky-600">{t('valeurs.breadcrumb.home')}</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-800 font-medium text-gray-800">Nos valeurs</span>
+          <span className="text-gray-800 font-bold uppercase tracking-tight">{t('valeurs.breadcrumb.current')}</span>
         </nav>
 
         <div className="space-y-12 md:space-y-24">
@@ -102,14 +128,14 @@ export default function Valeurs() {
 
             return (
               <ScrollReveal key={valeur.id} delay={0.1}>
-                <Hover3DCard className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden p-5 md:p-10 lg:p-12">
-                  <h2 className="text-2xl md:text-5xl font-extrabold mb-6 md:mb-10 text-center lg:text-left" style={{ color: '#233B72' }}>
+                <Hover3DCard className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden p-5 md:p-10 lg:p-12">
+                  <h2 className="text-2xl md:text-5xl font-black mb-6 md:mb-10 text-center lg:text-left uppercase tracking-tighter" style={{ color: '#233B72' }}>
                     {valeur.title}
                   </h2>
 
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-16 items-center`}>
                     <div className="w-full lg:w-1/2 flex-shrink-0">
-                      <div className="h-40 sm:h-56 md:h-[400px] relative overflow-hidden rounded-2xl shadow-lg">
+                      <div className="h-40 sm:h-56 md:h-[400px] relative overflow-hidden rounded-3xl shadow-lg">
                         <img
                           src={valeur.image}
                           alt={valeur.title}
@@ -124,18 +150,18 @@ export default function Valeurs() {
                     </div>
 
                     <div className="w-full lg:w-1/2 space-y-6">
-                      <p className="text-gray-600 leading-relaxed text-base md:text-lg text-justify text-gray-700">
+                      <p className="text-gray-600 leading-relaxed text-base md:text-xl font-bold italic">
                         {valeur.description}
                       </p>
-                      <div className={`${colors.bg} ${colors.border} border rounded-2xl p-5 md:p-8`}>
-                        <h3 className="font-bold text-gray-800 mb-4 text-md md:text-lg">Notre engagement :</h3>
+                      <div className={`${colors.bg} ${colors.border} border-2 rounded-[2rem] p-5 md:p-8 shadow-inner`}>
+                        <h3 className="font-black text-gray-800 mb-4 text-md md:text-lg uppercase tracking-wider">{t('valeurs.whyChoose.subtitle')} :</h3>
                         <ul className="space-y-3">
                           {valeur.items.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-3">
                               <div className={`w-5 h-5 md:w-6 md:h-6 bg-gradient-to-br ${colors.gradient} rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm`}>
                                 <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-white" />
                               </div>
-                              <span className="text-gray-700 text-sm md:text-base font-medium text-gray-800">{item}</span>
+                              <span className="text-gray-700 text-sm md:text-lg font-bold">{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -148,15 +174,16 @@ export default function Valeurs() {
           })}
         </div>
         
-        <div className="mt-16 md:mt-24 bg-gradient-to-br from-[#233B72] via-blue-800 to-black rounded-3xl p-8 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+        {/* BANNIÈRE CTA */}
+        <div className="mt-16 md:mt-24 bg-gradient-to-br from-[#233B72] via-blue-800 to-black rounded-[3rem] p-8 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="relative z-10">
             <Mail className="w-10 h-10 md:w-14 md:h-14 mx-auto mb-6 opacity-80" />
-            <h2 className="text-2xl md:text-4xl font-bold mb-4 px-2">Prêt à collaborer avec une équipe engagée ?</h2>
-            <p className="text-base md:text-xl text-sky-100 mb-8 max-w-2xl mx-auto px-4">
-              Découvrez l'expertise Ellipsys pour vos projets de maintenance par drone.
+            <h2 className="text-2xl md:text-5xl font-black mb-4 px-2 uppercase tracking-tighter">{t('valeurs.cta.title')}</h2>
+            <p className="text-base md:text-2xl text-sky-100 mb-8 max-w-2xl mx-auto px-4 font-medium">
+              {t('valeurs.cta.subtitle')}
             </p>
-            <Link to="/devis" className="inline-flex items-center gap-2 bg-white text-[#233B72] px-8 py-4 rounded-xl font-bold hover:scale-105 active:scale-95 transition-all shadow-lg text-lg">
-              Demander mon analyse
+            <Link to="/devis" className="inline-flex items-center gap-2 bg-white text-[#233B72] px-10 py-5 rounded-2xl font-black hover:scale-105 active:scale-95 transition-all shadow-2xl text-xl uppercase tracking-widest">
+              {t('valeurs.cta.button')}
               <ChevronRight className="w-5 h-5" />
             </Link>
           </div>
