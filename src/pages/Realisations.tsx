@@ -18,55 +18,124 @@ import Header from '../components/Header';
 import { HeroCarousel } from '../components/HeroCarousel';
 import Footer from '../components/Footer';
 
+interface Realisation {
+  id: number;
+  title: string;
+  category: string;
+  location: string;
+  date: string;
+  surface: string;
+  service: string;
+  imageBefore: string;
+  imageAfter: string;
+  description: string;
+  benefits: string[];
+  stats: {
+    label: string;
+    value: string;
+  }[];
+}
+
 export default function Realisations() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [comparisonSlider, setComparisonSlider] = useState<{[key: number]: number}>({});
 
-  // Utilisation des clés du dictionnaire pour les projets
-  const realisations = [
+  const realisations: Realisation[] = [
     {
       id: 1,
-      title: t('realisations.project1.title'),
+      title: language === 'fr' ? "Immeuble de bureaux" : "Office Building",
       category: "commercial",
-      location: t('realisations.project1.location'),
-      date: t('realisations.project1.date'),
-      surface: t('realisations.project1.stat3Value'),
+      location: "Paris 15ème",
+      date: language === 'fr' ? "Octobre 2024" : "October 2024",
+      surface: "2 500 m²",
       service: t('mainServices.facade.title'),
       imageBefore: "bati1.png",
       imageAfter: "bati2.png",
-      description: t('realisations.project1.description'),
+      description: language === 'fr' 
+        ? "Nettoyage complet d'une façade vitrée de 8 étages par drone. Intervention réalisée sans interruption d'activité."
+        : "Complete drone cleaning of an 8-story glass facade. Operation carried out without business interruption.",
       benefits: [
-        t('realisations.project1.benefit1'),
-        t('realisations.project1.benefit2'),
-        t('realisations.project1.benefit3')
+        language === 'fr' ? "Aucun échafaudage nécessaire" : "No scaffolding required",
+        language === 'fr' ? "Économie de 45% vs traditionnel" : "45% savings vs traditional",
+        language === 'fr' ? "Zéro interruption d'activité" : "Zero business interruption"
       ],
       stats: [
-        { label: t('realisations.project1.stat1Label'), value: t('realisations.project1.stat1Value') },
-        { label: t('realisations.project1.stat2Label'), value: t('realisations.project1.stat2Value') },
-        { label: t('realisations.project1.stat3Label'), value: t('realisations.project1.stat3Value') }
+        { label: language === 'fr' ? "Durée" : "Duration", value: "2 j" },
+        { label: language === 'fr' ? "Économie" : "Savings", value: "-45%" },
+        { label: "Surface", value: "2500m²" }
       ]
     },
     {
       id: 2,
-      title: t('servicesSection.industrial.title'),
+      title: language === 'fr' ? "Entrepôt industriel" : "Industrial Warehouse",
       category: "industrial",
-      location: "Lyon, FR",
-      date: "Sept. 2024",
+      location: "Lyon",
+      date: language === 'fr' ? "Septembre 2024" : "September 2024",
       surface: "5 000 m²",
       service: t('mainServices.demoussage.title'),
       imageBefore: "indus1.png",
       imageAfter: "indus2.png",
-      description: t('mainServices.demoussage.description'),
+      description: language === 'fr'
+        ? "Traitement anti-mousse longue durée par drone sur une toiture industrielle de grande envergure."
+        : "Long-lasting drone anti-moss treatment on a large-scale industrial roof.",
       benefits: [
-        t('prestations.service2.benefit1'),
-        t('prestations.service2.benefit2'),
-        t('prestations.service2.benefit3')
+        language === 'fr' ? "Traitement 100% homogène" : "100% homogeneous treatment",
+        language === 'fr' ? "Accès zones difficiles" : "Access to difficult areas",
+        language === 'fr' ? "Produit écologique certifié" : "Certified eco-friendly product"
       ],
       stats: [
-        { label: t('realisations.project1.stat1Label'), value: "3 j" },
-        { label: t('realisations.project1.stat2Label'), value: "-50%" },
-        { label: t('realisations.project1.stat3Label'), value: "5000m²" }
+        { label: language === 'fr' ? "Durée" : "Duration", value: "3 j" },
+        { label: language === 'fr' ? "Économie" : "Savings", value: "-50%" },
+        { label: "Surface", value: "5000m²" }
+      ]
+    },
+    {
+      id: 3,
+      title: language === 'fr' ? "Résidence de 6 étages" : "6-Story Residency",
+      category: "residential",
+      location: "Bordeaux",
+      date: language === 'fr' ? "Août 2024" : "August 2024",
+      surface: "1 800 m²",
+      service: t('mainServices.facade.title'),
+      imageBefore: "38.png", 
+      imageAfter: "39.png",
+      description: language === 'fr'
+        ? "Ravalement par drone en milieu habité. Aucune nuisance sonore ou visuelle pour les résidents."
+        : "Drone facade restoration in a residential area. No noise or visual nuisance for residents.",
+      benefits: [
+        language === 'fr' ? "Pas de gêne résidents" : "No resident disturbance",
+        language === 'fr' ? "Traitement anti-pollution" : "Anti-pollution treatment",
+        language === 'fr' ? "Garantie résultat 2 ans" : "2-year result guarantee"
+      ],
+      stats: [
+        { label: language === 'fr' ? "Durée" : "Duration", value: "3 j" },
+        { label: language === 'fr' ? "Économie" : "Savings", value: "-40%" },
+        { label: "Surface", value: "1800m²" }
+      ]
+    },
+    {
+      id: 4,
+      title: language === 'fr' ? "Monument historique" : "Historic Monument",
+      category: "heritage",
+      location: "Toulouse",
+      date: language === 'fr' ? "Juillet 2024" : "July 2024",
+      surface: "800 m²",
+      service: "Inspection + Nettoyage",
+      imageBefore: "36.png",
+      imageAfter: "37.png",
+      description: language === 'fr'
+        ? "Nettoyage délicat d'une façade classée avec validation de l'Architecte des Bâtiments de France."
+        : "Delicate cleaning of a listed facade with validation from France's heritage architects.",
+      benefits: [
+        language === 'fr' ? "Respect du patrimoine" : "Heritage preservation",
+        language === 'fr' ? "Produits non agressifs" : "Non-aggressive products",
+        language === 'fr' ? "Inspection thermique HD" : "HD thermal inspection"
+      ],
+      stats: [
+        { label: language === 'fr' ? "Durée" : "Duration", value: "4 j" },
+        { label: language === 'fr' ? "Précision" : "Precision", value: "100%" },
+        { label: "Surface", value: "800m²" }
       ]
     }
   ];
@@ -91,7 +160,6 @@ export default function Realisations() {
     <div className="min-h-screen bg-white">
       <Header />
       
-      {/* HERO SECTION */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
@@ -103,23 +171,10 @@ export default function Realisations() {
           <p className="text-lg md:text-2xl drop-shadow-lg font-semibold text-white">
             {t('realisations.subtitle')}
           </p>
-
-          <div className="flex justify-center gap-4 md:gap-8 mt-8">
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-              <TrendingUp className="w-5 h-5 text-orange-400" />
-              <span className="font-bold text-white text-xs md:text-sm">500+ {t('realisations.stats.projects')}</span>
-            </div>
-            <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-              <Check className="w-5 h-5 text-green-400" />
-              <span className="font-bold text-white text-xs md:text-sm">{t('realisations.stats.satisfaction')}</span>
-            </div>
-          </div>
         </div>
       </section>
 
       <div className="container mx-auto max-w-7xl px-4 py-8 md:py-16">
-        
-        {/* FILTRES */}
         <div className="flex overflow-x-auto pb-4 md:pb-0 md:flex-wrap gap-2 md:gap-3 mb-10 md:mb-16 no-scrollbar justify-start md:justify-center">
           {categories.map(cat => {
             const Icon = cat.icon;
@@ -146,56 +201,39 @@ export default function Realisations() {
 
             return (
               <div key={realisation.id} className="group bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 flex flex-col h-full hover:shadow-2xl transition-all duration-500">
-                {/* SLIDER AVANT/APRÈS */}
                 <div className="relative h-64 sm:h-72 md:h-80 bg-gray-200 overflow-hidden touch-none">
                   <div className="absolute inset-0">
                     <img src={realisation.imageAfter} alt="After" className="w-full h-full object-cover" />
                   </div>
-                  <div className="absolute inset-0 transition-none" style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}>
+                  <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - sliderValue}% 0 0)` }}>
                     <img src={realisation.imageBefore} alt="Before" className="w-full h-full object-cover" />
                   </div>
-                  <div className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(0,0,0,0.5)] z-20" style={{ left: `${sliderValue}%` }}>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2.5 shadow-2xl">
-                       <div className="flex gap-0.5">
+                  <div className="absolute top-0 bottom-0 w-1 bg-white shadow-2xl z-20" style={{ left: `${sliderValue}%` }}>
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-2 shadow-xl flex gap-1">
                          <ChevronLeft className="w-4 h-4 text-[#233B72]" />
                          <ChevronRight className="w-4 h-4 text-[#233B72]" />
-                       </div>
                     </div>
                   </div>
                   <input type="range" min="0" max="100" value={sliderValue} onChange={(e) => handleSliderChange(realisation.id, parseInt(e.target.value))} className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-30" />
                   <div className="absolute top-4 left-4 z-20">
-                    <span className="bg-black/70 backdrop-blur-md text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest border border-white/20">
-                      {t('realisations.comparison.before')}
-                    </span>
+                    <span className="bg-black/70 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest">{t('realisations.comparison.before')}</span>
                   </div>
                   <div className="absolute top-4 right-4 z-20">
-                    <span className="bg-[#233B72]/90 backdrop-blur-md text-white px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest border border-white/20">
-                      {t('realisations.comparison.after')}
-                    </span>
+                    <span className="bg-[#233B72]/90 backdrop-blur-md text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest">{t('realisations.comparison.after')}</span>
                   </div>
                 </div>
 
                 <div className="p-8 md:p-10 flex-grow flex flex-col">
-                  <h3 className="text-2xl md:text-3xl font-black text-[#233B72] mb-4 leading-tight uppercase tracking-tighter">
-                    {realisation.title}
-                  </h3>
-
-                  <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6 text-xs font-bold uppercase tracking-tighter text-gray-400">
-                    <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
-                      <MapPin className="w-4 h-4 text-[#f97316]" /> {realisation.location}
-                    </div>
-                    <div className="flex items-center gap-1.5 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-100">
-                      <Calendar className="w-4 h-4 text-[#f97316]" /> {realisation.date}
-                    </div>
+                  <h3 className="text-2xl md:text-3xl font-black text-[#233B72] mb-4 leading-tight uppercase tracking-tighter">{realisation.title}</h3>
+                  <div className="flex flex-wrap gap-4 mb-6 text-xs font-bold uppercase text-gray-400">
+                    <div className="flex items-center gap-1.5"><MapPin className="w-4 h-4 text-[#f97316]" /> {realisation.location}</div>
+                    <div className="flex items-center gap-1.5"><Calendar className="w-4 h-4 text-[#f97316]" /> {realisation.date}</div>
                   </div>
-
-                  <p className="text-gray-600 text-sm md:text-base mb-8 font-medium leading-relaxed">
-                    {realisation.description}
-                  </p>
-
-                  <div className="grid grid-cols-3 gap-3 md:gap-4 mb-8">
+                  <p className="text-gray-600 text-sm md:text-base mb-8 font-medium leading-relaxed">{realisation.description}</p>
+                  
+                  <div className="grid grid-cols-3 gap-3 mb-8">
                     {realisation.stats.map((stat, idx) => (
-                      <div key={idx} className="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center group-hover:bg-blue-50 transition-colors">
+                      <div key={idx} className="bg-slate-50 border border-slate-100 rounded-2xl p-3 text-center">
                         <div className="text-base md:text-xl font-black text-[#233B72]">{stat.value}</div>
                         <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{stat.label}</div>
                       </div>
@@ -203,11 +241,9 @@ export default function Realisations() {
                   </div>
 
                   <div className="space-y-3 mt-auto border-t border-gray-50 pt-6">
-                    {realisations[0].benefits.map((benefit, idx) => (
+                    {realisation.benefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-center gap-3 text-xs md:text-sm text-gray-700">
-                        <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
-                          <Check className="w-3.5 h-3.5 text-green-600" />
-                        </div>
+                        <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"><Check className="w-3 h-3 text-green-600" /></div>
                         <span className="font-bold">{benefit}</span>
                       </div>
                     ))}
@@ -216,23 +252,6 @@ export default function Realisations() {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* BANNIÈRE FINALE */}
-      <div className="bg-gradient-to-br from-[#233B72] via-blue-900 to-black text-white py-16 md:py-24 px-4 overflow-hidden relative">
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <Award className="w-12 h-12 text-orange-500 mx-auto mb-6" />
-          <h2 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter">
-            {t('realisations.cta.title')}
-          </h2>
-          <p className="text-sky-100 text-base md:text-xl mb-10 opacity-90 font-medium">
-            {t('realisations.cta.subtitle')}
-          </p>
-          <Link to="/devis" className="inline-flex items-center gap-3 bg-white text-[#233B72] px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all shadow-2xl active:scale-95 uppercase tracking-widest">
-            {t('hero.cta')}
-            <ChevronRight className="w-6 h-6" />
-          </Link>
         </div>
       </div>
 
