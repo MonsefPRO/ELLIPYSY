@@ -13,28 +13,30 @@ export default function Footer() {
           {/* LOGO & DESCRIPTION */}
           <div className="space-y-6">
             <img src="/bonlogo_de_cote.png" className="h-12 invert brightness-0" alt="Ellipsys" />
-            <p className="text-gray-400 text-sm leading-relaxed text-justify">
-              Leader de l'entretien technique par drone. Nous allions innovation technologique et sécurité pour préserver votre patrimoine immobilier.
+            <p className="text-gray-400 text-sm leading-relaxed text-justify font-medium">
+              {t('footer.description')}
             </p>
           </div>
 
           {/* LIENS RAPIDES */}
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Navigation</h4>
+            <h4 className="text-lg font-black mb-6 border-b border-white/10 pb-2 uppercase tracking-tighter">
+              {t('footer.quickLinks')}
+            </h4>
             <ul className="space-y-4">
               <li>
-                <Link to="/prestations" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                  <ChevronRight className="w-4 h-4 text-sky-500" /> Nos prestations
+                <Link to="/prestations" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold">
+                  <ChevronRight className="w-4 h-4 text-sky-500" /> {t('nav.services')}
                 </Link>
               </li>
               <li>
-                <Link to="/realisations" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                  <ChevronRight className="w-4 h-4 text-sky-500" /> Nos réalisations
+                <Link to="/realisations" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold">
+                  <ChevronRight className="w-4 h-4 text-sky-500" /> {t('nav.portfolio')}
                 </Link>
               </li>
               <li>
-                <Link to="/rejoignez-nous" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm">
-                  <ChevronRight className="w-4 h-4 text-sky-500" /> Rejoignez-nous
+                <Link to="/rejoignez-nous" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold">
+                  <ChevronRight className="w-4 h-4 text-sky-500" /> {t('rejoignez.title')}
                 </Link>
               </li>
             </ul>
@@ -42,26 +44,30 @@ export default function Footer() {
 
           {/* SERVICES */}
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Nos Services</h4>
+            <h4 className="text-lg font-black mb-6 border-b border-white/10 pb-2 uppercase tracking-tighter">
+              {t('footer.services')}
+            </h4>
             <ul className="space-y-4">
-              <li className="text-gray-400 text-sm">Nettoyage de façade</li>
-              <li className="text-gray-400 text-sm">Démoussage de toiture</li>
-              <li className="text-gray-400 text-sm">Panneaux photovoltaïques</li>
-              <li className="text-gray-400 text-sm">Destruction nids de frelons</li>
+              <li className="text-gray-400 text-sm font-medium">{t('mainServices.facade.title')}</li>
+              <li className="text-gray-400 text-sm font-medium">{t('mainServices.demoussage.title')}</li>
+              <li className="text-gray-400 text-sm font-medium">{t('servicesSection.industrial2.title')}</li>
+              <li className="text-gray-400 text-sm font-medium">{t('mainServices.hornets.title')}</li>
             </ul>
           </div>
 
           {/* CONTACT */}
           <div>
-            <h4 className="text-lg font-bold mb-6 border-b border-white/10 pb-2">Contact</h4>
+            <h4 className="text-lg font-black mb-6 border-b border-white/10 pb-2 uppercase tracking-tighter">
+              Contact
+            </h4>
             <ul className="space-y-4">
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
+              <li className="flex items-center gap-3 text-gray-400 text-sm font-bold">
                 <Phone className="w-4 h-4 text-sky-500" /> 04 67 20 97 09
               </li>
-              <li className="flex items-center gap-3 text-gray-400 text-sm">
+              <li className="flex items-center gap-3 text-gray-400 text-sm font-bold">
                 <Mail className="w-4 h-4 text-sky-500" /> contact@ellipsys-group.com
               </li>
-              <li className="flex items-start gap-3 text-gray-400 text-sm">
+              <li className="flex items-start gap-3 text-gray-400 text-sm font-bold">
                 <MapPin className="w-4 h-4 text-sky-500 mt-1 flex-shrink-0" /> 
                 <span>Montpellier & Grand Sud</span>
               </li>
@@ -71,15 +77,15 @@ export default function Footer() {
 
         {/* LIGNE FINALE */}
         <div className="pt-8 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-500 text-[10px] md:text-xs tracking-widest uppercase">
+          <p className="text-gray-500 text-[10px] md:text-xs tracking-widest uppercase font-bold">
             &copy; 2026 Ellipsys Solutions. {t('footer.rights')}
           </p>
           <div className="flex gap-6">
-            <Link to="/politique-confidentialite" className="text-gray-500 hover:text-white text-[10px] uppercase underline underline-offset-4">
-              Confidentialité
+            <Link to="/politique-confidentialite" className="text-gray-500 hover:text-white text-[10px] uppercase underline underline-offset-4 font-bold">
+              {t('footer.privacy')}
             </Link>
-            <Link to="/mentions-legales" className="text-gray-500 hover:text-white text-[10px] uppercase underline underline-offset-4">
-              Mentions Légales
+            <Link to="/mentions-legales" className="text-gray-500 hover:text-white text-[10px] uppercase underline underline-offset-4 font-bold">
+              {t('footer.legal')}
             </Link>
           </div>
         </div>
