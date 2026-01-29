@@ -9,14 +9,6 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isActualitesOpen, setIsActualitesOpen] = useState(false);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
   return (
     <header className="fixed w-full bg-white/98 backdrop-blur-md shadow-md z-50 transition-all border-b border-gray-100">
       <nav className="w-full">
@@ -67,14 +59,14 @@ export default function Header() {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
-            {/* NOUVEL ONGLET : RISQUES & CADRE LÉGAL */}
+            {/* RISQUES & CADRE LÉGAL */}
             <Link to="/risques-et-responsabilites" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
-              <span>Risques & Cadre Légal</span>
+              <span>{t('risques.title')}</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
             <Link to="/rejoignez-nous" className="text-gray-700 hover:text-sky-600 font-semibold text-lg transition-all relative group">
-              <span>Rejoignez-nous</span>
+              <span>{t('rejoignez.title')}</span>
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
           </div>
@@ -83,7 +75,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
             <Link to="/devis" className="bg-gradient-to-r from-brand-orange-500 to-red-600 text-white px-6 py-3 rounded-xl font-bold hover:scale-105 transition-all shadow-lg">
-              {t('hero.cta')}
+              {t('nav.quote')}
             </Link>
           </div>
 
@@ -97,26 +89,39 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t absolute w-full left-0 shadow-2xl animate-in slide-in-from-top duration-300">
             <div className="flex flex-col p-6 space-y-4 text-xl font-bold">
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Accueil</Link>
-              <Link to="/prestations" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Nos prestations</Link>
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">
+                {t('nav.home')}
+              </Link>
+              <Link to="/prestations" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">
+                {t('nav.services')}
+              </Link>
               
               <div className="py-2">
-                <p className="text-gray-400 text-sm uppercase tracking-widest mb-2">Actualités</p>
-                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold"><ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> Blog & Actualités</Link>
-                <Link to="/realisations" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold"><ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> Nos réalisations</Link>
+                <p className="text-gray-400 text-sm uppercase tracking-widest mb-2">{t('nav.news')}</p>
+                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold">
+                  <ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> {t('nav.blog')}
+                </Link>
+                <Link to="/realisations" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold">
+                  <ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> {t('nav.portfolio')}
+                </Link>
               </div>
 
-              <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Nos valeurs</Link>
+              <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">
+                {t('nav.values')}
+              </Link>
               
-              {/* LIEN RISQUES MOBILE */}
-              <Link to="/risques-et-responsabilites" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Risques & Cadre Légal</Link>
+              <Link to="/risques-et-responsabilites" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">
+                {t('risques.title')}
+              </Link>
               
-              <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">Rejoignez-nous</Link>
+              <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800">
+                {t('rejoignez.title')}
+              </Link>
               
               <div className="pt-4 flex flex-col gap-4">
                  <div className="flex justify-center"><LanguageSwitcher /></div>
                  <Link to="/devis" onClick={() => setIsMenuOpen(false)} className="w-full bg-brand-orange-500 text-white py-4 rounded-xl text-center shadow-lg font-bold">
-                   Demander un devis
+                   {t('nav.quote')}
                  </Link>
               </div>
             </div>
