@@ -73,10 +73,8 @@ export default function App() {
       <Header />
       
       <main className="flex-grow">
-        {/* SECTION HERO HARMONISÉE */}
+        {/* SECTION HERO */}
         <section id="accueil" className="min-h-[70vh] md:min-h-screen pt-28 pb-12 relative overflow-hidden flex items-center">
-          
-          {/* LUEUR HARMONISÉE : red-900 / blue-900 / black */}
           <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
           
           <div className="absolute inset-0">
@@ -88,7 +86,6 @@ export default function App() {
           </div>
 
           <div className="w-full relative z-20 container mx-auto px-4 text-center">
-            {/* TYPOGRAPHIE HARMONISÉE : uppercase + tracking-tighter */}
             <h1 className="text-3xl md:text-7xl font-black leading-tight drop-shadow-2xl text-white mb-6 uppercase tracking-tighter">
               {t('hero.title1')} <br className="md:hidden" /> {t('hero.title2')}
             </h1>
@@ -97,13 +94,13 @@ export default function App() {
               <p className="text-sm md:text-xl font-bold drop-shadow-md">{t('hero.subtitle')}</p>
               <div className="flex flex-wrap justify-center gap-2 font-bold px-2">
                 <span onClick={() => scrollToSection('benefit-safety')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer hover:bg-white/30 transition-all">
-                  <Shield className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('benefits.safety.title')}</span>
+                  <Shield className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('quickStats.safety')}</span>
                 </span>
                 <span onClick={() => scrollToSection('benefit-speed')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer hover:bg-white/30 transition-all">
-                  <Zap className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('benefits.speed.title')}</span>
+                  <Zap className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('quickStats.fast')}</span>
                 </span>
                 <span onClick={() => scrollToSection('benefit-cost')} className="inline-flex items-center bg-white/20 backdrop-blur-md px-3 py-2 rounded-xl border border-white/30 cursor-pointer hover:bg-white/30 transition-all">
-                  <BarChart3 className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('benefits.cost.title')}</span>
+                  <BarChart3 className="w-4 h-4 md:w-8 md:h-8 mr-1.5" /> <span className="text-[11px] md:text-xl uppercase">{t('quickStats.economic')}</span>
                 </span>
               </div>
               <p className="text-sm md:text-xl font-bold drop-shadow-md">{t('hero.intervention')}</p>
@@ -111,15 +108,15 @@ export default function App() {
 
             <div className="flex justify-center gap-4 mt-8">
               <div className="bg-black/20 backdrop-blur-sm p-3 rounded-2xl border border-white/10 text-left min-w-[120px]">
-                <div className="text-xl md:text-3xl font-bold text-white"><AnimatedCounter end={120000} suffix="m²" /></div>
+                <div className="text-xl md:text-3xl font-bold text-white"><AnimatedCounter end={180000} suffix="m²" /></div>
                 <div className="text-[10px] md:text-xs text-orange-200 font-bold uppercase tracking-widest mt-1">
-                  {language === 'fr' ? 'Traités' : 'Treated'}
+                  {t('hero.stat1Label')}
                 </div>
               </div>
               <div className="bg-black/20 backdrop-blur-sm p-3 rounded-2xl border border-white/10 text-left min-w-[120px]">
-                <div className="text-xl md:text-3xl font-bold text-white"><AnimatedCounter end={98} suffix="%" /></div>
+                <div className="text-xl md:text-3xl font-bold text-white"><AnimatedCounter end={500} suffix="+" /></div>
                 <div className="text-[10px] md:text-xs text-orange-200 font-bold uppercase tracking-widest mt-1">
-                  {language === 'fr' ? 'Satisfaction' : 'Satisfaction'}
+                  {t('hero.stat2Label')}
                 </div>
               </div>
             </div>
@@ -136,12 +133,17 @@ export default function App() {
         </section>
 
         <CertificationsSection />
+        
+        {/* Ici, nous appelons le titre traduit avant le composant si nécessaire, 
+            ou nous modifions directement DroneBenefits.tsx */}
         <DroneBenefits />
 
         {/* SECTION PRESTATIONS */}
         <section className="py-16 px-4 bg-gradient-to-br from-sky-50 to-blue-50">
           <div className="container mx-auto max-w-7xl">
-            <h2 className="text-2xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">{t('mainServices.title')}</h2>
+            <h2 className="text-2xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">
+              {t('mainServices.title')}
+            </h2>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
               {['facade', 'demoussage', 'hornets', 'industrial2'].map((key, i) => (
                 <ScrollReveal delay={0.1 * (i + 1)} key={key}>
@@ -150,7 +152,9 @@ export default function App() {
                       <div className="w-10 h-10 md:w-16 md:h-16 bg-gray-50 rounded-xl flex items-center justify-center mb-4">
                         <span className="text-gray-400 font-black text-lg">0{i + 1}</span>
                       </div>
-                      <h3 className="text-sm md:text-2xl font-black mb-2 text-[#233B72] leading-tight uppercase tracking-tighter">{t(`mainServices.${key}.title`)}</h3>
+                      <h3 className="text-sm md:text-2xl font-black mb-2 text-[#233B72] leading-tight uppercase tracking-tighter">
+                        {t(`mainServices.${key}.title`)}
+                      </h3>
                     </div>
                     <Link to="/prestations" className="mt-4 pt-4 border-t border-gray-100 text-sky-600 font-bold text-xs md:text-base flex items-center hover:gap-2 transition-all">
                       {language === 'fr' ? 'Découvrir' : 'Discover'} <ChevronRight className="w-4 h-4 ml-1" />
@@ -165,7 +169,9 @@ export default function App() {
         {/* SECTION AVIS */}
         <section id="avis" className="py-20 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
-            <h2 className="text-3xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">{t('testimonials.title')}</h2>
+            <h2 className="text-3xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">
+              {t('testimonials.title')}
+            </h2>
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               <div className="bg-slate-50 p-10 rounded-[2.5rem] text-center w-full lg:w-1/4 border border-slate-100 shadow-inner">
                 <div className="text-5xl font-black text-gray-900 mb-2">4.9/5</div>
