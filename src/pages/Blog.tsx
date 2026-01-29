@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 interface Article {
   id: number;
-  categoryKey: string; // Utilisation d'une clé pour la traduction
+  categoryKey: string;
   title: { fr: string; en: string };
   date: string;
   image: string;
@@ -35,34 +35,94 @@ export default function Blog() {
         fr: "Rendement photovoltaïque : Pourquoi 30% de votre énergie s'évapore ?",
         en: "Solar Yield: Why is 30% of your energy vanishing?"
       },
-      date: "15 Jan 2026",
+      date: "15 Janv 2026",
       image: "rendement.png",
       excerpt: {
-        fr: "L'accumulation de poussières fines crée un voile statique que la pluie ne peut rincer.",
-        en: "Fine dust accumulation creates a static veil that rain cannot rinse away."
+        fr: "Ce n'est plus une estimation, mais une reality mesurée : l'accumulation de poussières fines crée un voile statique que la pluie ne peut rincer.",
+        en: "It's no longer an estimate, but a measured reality: fine dust accumulation creates a static veil that rain cannot rinse away."
       },
       content: {
-        fr: `<div class="space-y-6"><p>La pluie ne suffit pas à nettoyer vos panneaux...</p></div>`,
-        en: `<div class="space-y-6"><p>Rain is not enough to clean your panels...</p></div>`
+        fr: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <p class="text-lg font-medium text-[#233B72]">"La pluie nettoie mes panneaux". C'est l'idée reçue la plus coûteuse du secteur solaire. En réalité, une installation non entretenue perd entre 10% et 30% de sa production annuelle.</p>
+            <h3 class="text-2xl font-bold text-[#233B72] mt-8 mb-4">L'effet "Pare-brise sale"</h3>
+            <p>Imaginez votre pare-brise après un mois sans lavage, même s'il a plu. Il reste un film grisâtre, gras et statique. C'est exactement ce qui se passe sur vos panneaux solaires.</p>
+            <h3 class="text-2xl font-bold text-[#233B72] mt-8 mb-4">Pourquoi l'eau pure est la seule solution ?</h3>
+            <p>Nous utilisons une <strong>eau pure à 99.9%, osmosée et déminéralisée</strong>. C'est un aimant à impuretés naturel.</p>
+          </div>
+        `,
+        en: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <p class="text-lg font-medium text-[#233B72]">"Rain cleans my panels". This is the most costly misconception. In reality, an unmaintained installation loses 10% to 30% of its production.</p>
+            <h3 class="text-2xl font-bold text-[#233B72] mt-8 mb-4">The "Dirty Windshield" Effect</h3>
+            <p>Imagine your windshield after a month without washing. A greasy static film remains. The same happens to your solar panels.</p>
+          </div>
+        `
       }
     },
     {
-        id: 2,
-        categoryKey: "regulations",
-        title: {
-          fr: "Réglementation 2026 : Ce qui change pour le survol urbain",
-          en: "2026 Regulations: What changes for urban flights"
-        },
-        date: "05 Jan 2026",
-        image: "regle.png",
-        excerpt: {
-          fr: "Le passage définitif aux scénarios européens STS-01 est acté.",
-          en: "The final transition to European STS-01 scenarios is now official."
-        },
-        content: {
-          fr: `<p>La réglementation drone évolue...</p>`,
-          en: `<p>Drone regulations are evolving...</p>`
-        }
+      id: 2,
+      categoryKey: "regulations",
+      title: {
+        fr: "Réglementation 2026 : Ce qui change pour le survol urbain",
+        en: "2026 Regulations: What changes for urban flights"
+      },
+      date: "05 Janv 2026",
+      image: "regle.png",
+      excerpt: {
+        fr: "Le passage définitif aux scénarios européens STS-01 est acté. Ellipsys fait le point sur les nouvelles certifications nécessaires.",
+        en: "The final transition to European STS-01 scenarios is official. Ellipsys reviews the new required certifications."
+      },
+      content: {
+        fr: `<div class="space-y-6 text-slate-700 leading-relaxed"><p>La réglementation drone évolue pour harmoniser les vols en zone urbaine à travers l'Europe. Les exploitants doivent désormais se conformer aux nouveaux certificats de navigabilité et aux scénarios standards STS.</p></div>`,
+        en: `<div class="space-y-6 text-slate-700 leading-relaxed"><p>Drone regulations are evolving to harmonize urban flights across Europe. Operators must now comply with new airworthiness certificates.</p></div>`
+      }
+    },
+    {
+      id: 3,
+      categoryKey: "technology",
+      title: {
+        fr: "Soft-Wash vs Haute Pression : Protégez vos enduits",
+        en: "Soft-Wash vs High Pressure: Protect your coatings"
+      },
+      date: "20 Déc 2025",
+      image: "facadeblog.png",
+      excerpt: {
+        fr: "Pourquoi la haute pression peut détruire vos façades et comment le drone propose une alternative douce.",
+        en: "Why high pressure can destroy your facades and how drones offer a gentle alternative."
+      },
+      content: {
+        fr: `<div class="space-y-6 text-slate-700 leading-relaxed"><p>Le nettoyage haute pression risque de fragiliser les enduits de façade et de créer des porosités. La technologie Soft-Wash utilise des produits basse pression.</p></div>`,
+        en: `<div class="space-y-6 text-slate-700 leading-relaxed"><p>High pressure cleaning risks weakening the coatings. Soft-Wash technology uses low-pressure products.</p></div>`
+      }
+    },
+    {
+      id: 4,
+      categoryKey: "technology",
+      title: {
+        fr: "L'ennemi invisible des façades : Les micro-organismes",
+        en: "The invisible enemy of facades: Micro-organisms"
+      },
+      date: "10 Janv 2026",
+      image: "ares.png", 
+      excerpt: {
+        fr: "Algues rouges, lichens et mousses ne sont pas qu'un problème esthétique. Ils s'enracinent dans votre enduit.",
+        en: "Red algae, lichens, and mosses are not just an aesthetic problem. They take root in your coating."
+      },
+      content: {
+        fr: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">Pourquoi une façade devient-elle rouge ou noire ?</h3>
+            <p>Ces colorations sont dues à la prolifération de micro-organismes qui se nourrissent de l'humidité.</p>
+          </div>
+        `,
+        en: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">Why does a facade turn red or black?</h3>
+            <p>These colors are due to the proliferation of microorganisms feeding on moisture.</p>
+          </div>
+        `
+      }
     }
   ];
 
@@ -114,8 +174,6 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-
-      {/* HERO SECTION */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
@@ -130,7 +188,6 @@ export default function Blog() {
       </section>
 
       <div className="container mx-auto px-4 py-12 md:py-16 max-w-7xl">
-        {/* CATEGORIES */}
         <div className="flex flex-wrap gap-2 md:gap-3 mb-12 justify-center">
           {categories.map((cat) => (
             <button
