@@ -103,7 +103,6 @@ export default function Prestations() {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
 
-      {/* HERO SECTION */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
         <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
@@ -121,7 +120,7 @@ export default function Prestations() {
         <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-600 mb-8 md:mb-12 font-medium">
           <Link to="/" className="hover:text-[#233B72]">{t('prestations.breadcrumb.home')}</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-gray-900">{t('prestations.breadcrumb.current')}</span>
+          <span className="text-gray-900 font-bold">{t('prestations.breadcrumb.current')}</span>
         </nav>
 
         <div className="space-y-12 md:space-y-28">
@@ -200,7 +199,6 @@ export default function Prestations() {
           })}
         </div>
 
-        {/* SECTION CTA SUR-MESURE */}
         <div className="mt-24 md:mt-32 bg-gradient-to-br from-[#233B72] via-blue-900 to-black rounded-[3rem] p-10 md:p-20 text-center text-white shadow-2xl relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-3xl md:text-6xl font-black mb-8 uppercase tracking-tighter">
@@ -224,7 +222,6 @@ export default function Prestations() {
               </a>
             </div>
           </div>
-          {/* Lueurs décoratives */}
           <div className="absolute -top-20 -left-20 w-80 h-80 bg-orange-500 opacity-20 blur-[100px]"></div>
           <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-blue-400 opacity-20 blur-[100px]"></div>
         </div>
