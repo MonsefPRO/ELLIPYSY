@@ -141,7 +141,7 @@ export default function PanneauxPhotovoltaiques() {
                   language === 'fr' ? 'RC Pro Électricité' : 'Electrical Liability', 
                   t('prestations.hero.compliant2026'), 
                   'Expertise PV', 
-                  language === 'fr' ? 'Garantie 10 ans' : '10-Year Warranty', 
+                  language === 'fr' ? 'Assurance décennale ' : 'Ten-year insurance', 
                   'Eco-Responsable'
                 ].map((cert, idx) => (
                   <div key={idx} className="bg-white/5 backdrop-blur-md rounded-2xl p-5 text-center border border-white/10 flex flex-col items-center gap-4 transition-colors hover:bg-white/10">
