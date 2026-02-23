@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -8,11 +8,33 @@ export default function Header() {
   const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isActualitesOpen, setIsActualitesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Détecter le défilement (scroll)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Définir les couleurs dynamiquement en fonction du scroll
+  const headerBg = isScrolled 
+    ? 'bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100' 
+    : 'bg-transparent border-b border-white/10';
+    
+  const linkColor = isScrolled 
+    ? 'text-[#233B72] hover:text-brand-orange-500' 
+    : 'text-white hover:text-sky-400 drop-shadow-md';
 
   return (
-    // J'ai enlevé bg-white/98 pour que le fond soit transparent au chargement
-    // Si tu as besoin d'un fond transparent, tu peux utiliser bg-transparent
-    <header className="fixed w-full bg-transparent z-50 transition-all border-b border-white/10">
+    <header className={`fixed w-full z-50 transition-all duration-300 ${headerBg}`}>
       <nav className="w-full">
         <div className="flex justify-between items-center h-20 md:h-[110px] px-4 md:px-[120px]">
           {/* LOGO */}
@@ -28,16 +50,15 @@ export default function Header() {
 
           {/* MENU DESKTOP */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-            {/* Remplacement de text-gray-700 par text-white */}
-            <Link to="/prestations" className="text-white hover:text-sky-400 font-semibold text-lg transition-all relative group drop-shadow-md">
+            <Link to="/prestations" className={`${linkColor} font-semibold text-lg transition-all relative group`}>
               <span>{t('nav.services')}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
             <div className="relative group">
               <button 
                 onMouseEnter={() => setIsActualitesOpen(true)}
-                className="flex items-center text-white hover:text-sky-400 font-semibold text-lg transition-all drop-shadow-md"
+                className={`flex items-center ${linkColor} font-semibold text-lg transition-all`}
               >
                 <span>{t('nav.news')}</span>
                 <ChevronDown className={`w-5 h-5 ml-1 transition-transform ${isActualitesOpen ? 'rotate-180' : ''}`} />
@@ -47,31 +68,30 @@ export default function Header() {
                   className="absolute top-full left-0 mt-1 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 z-50"
                   onMouseLeave={() => setIsActualitesOpen(false)}
                 >
-                  {/* Le sous-menu reste en texte sombre car le fond est blanc */}
-                  <Link to="/blog" className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-gray-700 font-medium">
-                    <ChevronRight className="w-4 h-4 text-sky-500" /> {t('nav.blog')}
+                  <Link to="/blog" className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-[#233B72] font-bold">
+                    <ChevronRight className="w-4 h-4 text-brand-orange-500" /> {t('nav.blog')}
                   </Link>
-                  <Link to="/realisations" className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-gray-700 font-medium">
-                    <ChevronRight className="w-4 h-4 text-sky-500" /> {t('nav.portfolio')}
+                  <Link to="/realisations" className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-[#233B72] font-bold">
+                    <ChevronRight className="w-4 h-4 text-brand-orange-500" /> {t('nav.portfolio')}
                   </Link>
                 </div>
               )}
             </div>
 
-            <Link to="/valeurs" className="text-white hover:text-sky-400 font-semibold text-lg transition-all relative group drop-shadow-md">
+            <Link to="/valeurs" className={`${linkColor} font-semibold text-lg transition-all relative group`}>
               <span>{t('nav.values')}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
             {/* RISQUES & CADRE LÉGAL */}
-            <Link to="/risques-et-responsabilites" className="text-white hover:text-sky-400 font-semibold text-lg transition-all relative group drop-shadow-md">
+            <Link to="/risques-et-responsabilites" className={`${linkColor} font-semibold text-lg transition-all relative group`}>
               <span>{t('risques.title')}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
-            <Link to="/rejoignez-nous" className="text-white hover:text-sky-400 font-semibold text-lg transition-all relative group drop-shadow-md">
+            <Link to="/rejoignez-nous" className={`${linkColor} font-semibold text-lg transition-all relative group`}>
               <span>{t('rejoignez.title')}</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-400 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-orange-500 group-hover:w-full transition-all duration-300"></span>
             </Link>
           </div>
 
@@ -83,42 +103,42 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* BOUTON MOBILE (Resté sombre si fond blanc en mobile) */}
+          {/* BOUTON MOBILE */}
           <button className="md:hidden p-2 bg-white/50 rounded-lg backdrop-blur-sm" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X className="w-8 h-8 text-gray-800" /> : <Menu className="w-8 h-8 text-gray-800" />}
+            {isMenuOpen ? <X className="w-8 h-8 text-[#233B72]" /> : <Menu className="w-8 h-8 text-[#233B72]" />}
           </button>
         </div>
 
-        {/* MENU MOBILE (Reste inchangé avec fond blanc et texte sombre) */}
+        {/* MENU MOBILE */}
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t absolute w-full left-0 shadow-2xl animate-in slide-in-from-top duration-300">
             <div className="flex flex-col p-6 space-y-4 text-xl font-bold">
-              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800 hover:text-sky-600">
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-[#233B72] hover:text-brand-orange-500">
                 {t('nav.home')}
               </Link>
-              <Link to="/prestations" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800 hover:text-sky-600">
+              <Link to="/prestations" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-[#233B72] hover:text-brand-orange-500">
                 {t('nav.services')}
               </Link>
               
               <div className="py-2">
                 <p className="text-gray-400 text-sm uppercase tracking-widest mb-2">{t('nav.news')}</p>
-                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold hover:text-sky-600">
-                  <ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> {t('nav.blog')}
+                <Link to="/blog" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-[#233B72] font-bold hover:text-brand-orange-500">
+                  <ChevronRight className="w-5 h-5 mr-2 text-brand-orange-500"/> {t('nav.blog')}
                 </Link>
-                <Link to="/realisations" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-gray-700 font-bold hover:text-sky-600">
-                  <ChevronRight className="w-5 h-5 mr-2 text-sky-500"/> {t('nav.portfolio')}
+                <Link to="/realisations" onClick={() => setIsMenuOpen(false)} className="flex items-center py-3 pl-4 text-[#233B72] font-bold hover:text-brand-orange-500">
+                  <ChevronRight className="w-5 h-5 mr-2 text-brand-orange-500"/> {t('nav.portfolio')}
                 </Link>
               </div>
 
-              <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800 hover:text-sky-600">
+              <Link to="/valeurs" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-[#233B72] hover:text-brand-orange-500">
                 {t('nav.values')}
               </Link>
               
-              <Link to="/risques-et-responsabilites" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800 hover:text-sky-600">
+              <Link to="/risques-et-responsabilites" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-[#233B72] hover:text-brand-orange-500">
                 {t('risques.title')}
               </Link>
               
-              <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-gray-800 hover:text-sky-600">
+              <Link to="/rejoignez-nous" onClick={() => setIsMenuOpen(false)} className="py-3 border-b border-gray-50 text-[#233B72] hover:text-brand-orange-500">
                 {t('rejoignez.title')}
               </Link>
               
