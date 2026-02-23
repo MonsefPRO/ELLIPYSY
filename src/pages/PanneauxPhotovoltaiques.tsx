@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { 
   Sun, 
   Zap, 
@@ -14,9 +13,7 @@ import {
   Cpu,
   MapPin,
   ChevronDown,
-  Star,
   Clock,
-  Leaf
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -138,19 +135,9 @@ export default function PanneauxPhotovoltaiques() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* SEO Meta Tags */}
-      <Helmet>
-        <title>Nettoyage Panneaux Solaires par Drone Occitanie | Ellipsys Solutions</title>
-        <meta name="description" content="Nettoyage professionnel de panneaux photovoltaïques par drone en Occitanie. Pilotes DGAC certifiés, robots 6-9kg sans brossage, +30% de rendement. Intervention Hérault, Gard, Aude, Haute-Garonne. Devis sous 24h." />
-        <meta name="keywords" content="nettoyage panneaux solaires drone occitanie, nettoyage photovoltaïque Montpellier, entretien panneaux solaires Hérault, nettoyage panneau photovoltaique Nîmes, prestataire panneaux solaires Toulouse" />
-        <link rel="canonical" href="https://ellipsys-solutions.com/prestations/panneaux-photovoltaiques" />
-        <meta property="og:title" content="Nettoyage Panneaux Solaires par Drone Occitanie | Ellipsys Solutions" />
-        <meta property="og:description" content="Nettoyage professionnel de panneaux photovoltaïques par drone. +30% de rendement. Certifiés DGAC. Intervention dans tout le Grand Sud." />
-        <meta property="og:url" content="https://ellipsys-solutions.com/prestations/panneaux-photovoltaiques" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      {/* Schema.org JSON-LD */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <Header />
 
