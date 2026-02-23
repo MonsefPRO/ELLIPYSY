@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ellipsys-solutions.com/sitemap.xml
+
+Disallow: /src/
+Disallow: /.bolt/
+Disallow: /supabase/
