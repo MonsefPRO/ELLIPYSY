@@ -7,10 +7,12 @@ import {
   Target, 
   Clock, 
   ChevronRight, 
-  CheckCircle2,
+  CheckCircle,
   Wind,
   Droplets,
-  ThermometerSun
+  ThermometerSun,
+  Award,
+  Building
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -82,10 +84,10 @@ export default function NettoyageFacade() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  { title: language === 'fr' ? "Drone Spécialisé" : "Specialized Drone", desc: language === 'fr' ? "Accès sécurisé aux grandes hauteurs" : "Secure access to great heights", icon: Wind },
-                  { title: language === 'fr' ? "Pression Adaptative" : "Adaptive Pressure", desc: language === 'fr' ? "Puissance réglée selon le support" : "Power adjusted according to substrate", icon: Droplets },
-                  { title: "Produits Bio AB", desc: language === 'fr' ? "Nettoyants écologiques performants" : "High-performance eco-cleaners", icon: Leaf },
-                  { title: "Thermique HD", desc: language === 'fr' ? "Diagnostic des zones critiques" : "Diagnostic of critical areas", icon: ThermometerSun }
+                  { title: language === 'fr' ? "Drone Spécialisé" : "Specialized Drone", desc: language === 'fr' ? "Accès sécurisé et rapide aux grandes hauteurs." : "Secure and fast access to great heights.", icon: Wind },
+                  { title: language === 'fr' ? "Basse Pression Douce" : "Gentle Low Pressure", desc: language === 'fr' ? "Préserve l'intégrité de vos crépis et enduits." : "Preserves the integrity of your plaster and coatings.", icon: Droplets },
+                  { title: language === 'fr' ? "Produits Bio Performants" : "Eco-friendly Products", desc: language === 'fr' ? "Nettoyants respectueux de l'environnement (certifiés AB)." : "Environmentally friendly cleaners.", icon: Leaf },
+                  { title: "Diagnostic HD", desc: language === 'fr' ? "Inspection détaillée de la façade avant intervention." : "Detailed facade inspection before intervention.", icon: Target }
                 ].map((item, idx) => (
                   <Hover3DCard key={idx}>
                     <div className="bg-sky-50 p-6 md:p-8 rounded-[2rem] border border-sky-100 flex items-start gap-5 h-full transition-all hover:bg-sky-100/50">
@@ -102,30 +104,57 @@ export default function NettoyageFacade() {
               </div>
             </section>
 
-            {/* Pourquoi choisir le drone ? */}
+            {/* Avantages de la solution - Format Photovoltaïque */}
             <ScrollReveal delay={0.2}>
               <section className="bg-white rounded-[2.5rem] border border-gray-100 p-8 md:p-12 shadow-xl">
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-10 text-center uppercase tracking-tighter">
                   {t('benefits.title')}
                 </h2>
-                <div className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {[
-                    { t: t('prestations.service1.benefit1'), d: language === 'fr' ? "Zéro risque de chute pour les techniciens." : "Zero risk of falls for technicians.", icon: ShieldCheck },
-                    { t: t('prestations.service1.benefit2'), d: language === 'fr' ? "Pas de montage d'échafaudage ou nacelle." : "No scaffolding or lift setup required.", icon: Clock },
-                    { t: language === 'fr' ? "Économie Majeure" : "Major Savings", d: language === 'fr' ? "Réduction des coûts logistiques et matériels." : "Reduction in logistical and material costs.", icon: Target },
-                    { t: t('prestations.service1.benefit7'), d: language === 'fr' ? "Nettoyage doux sans contact mécanique." : "Gentle cleaning without mechanical contact.", icon: CheckCircle2 }
+                    { t: language === 'fr' ? "Zéro Échafaudage" : "Zero Scaffolding", d: language === 'fr' ? "Pas de montage, pas de gêne pour les occupants." : "No setup, no disturbance for occupants.", icon: Building },
+                    { t: language === 'fr' ? "Sécurité Absolue" : "Absolute Safety", d: language === 'fr' ? "Aucun technicien en hauteur, risque de chute nul." : "No technician at height, zero fall risk.", icon: ShieldCheck },
+                    { t: language === 'fr' ? "Intervention Rapide" : "Fast Intervention", d: language === 'fr' ? "Temps de traitement divisé par 3." : "Treatment time divided by 3.", icon: Clock },
+                    { t: language === 'fr' ? "Protection des Façades" : "Facade Protection", d: language === 'fr' ? "Nettoyage chimique doux sans contact mécanique." : "Gentle chemical cleaning without mechanical contact.", icon: Droplets }
                   ].map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-6 p-4 hover:bg-sky-50 rounded-2xl transition-all border border-transparent hover:border-sky-100">
-                      <benefit.icon className="w-10 h-10 text-green-500 flex-shrink-0" />
+                    <div key={i} className="flex gap-5 p-2 hover:translate-x-2 transition-transform duration-300">
+                      <div className="w-12 h-12 bg-brand-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-200">
+                        <CheckCircle className="w-6 h-6 text-white" />
+                      </div>
                       <div>
-                        <h4 className="font-black text-gray-900 uppercase tracking-tight text-lg">{benefit.t}</h4>
-                        <p className="text-gray-600 font-medium leading-relaxed">{benefit.d}</p>
+                        <h4 className="font-black text-gray-900 uppercase text-sm tracking-tight mb-1">{benefit.t}</h4>
+                        <p className="text-sm text-gray-600 font-medium leading-snug">{benefit.d}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </section>
             </ScrollReveal>
+
+            {/* Garanties de Service (Déplacé ici pour uniformiser) */}
+            <section className="bg-gradient-to-br from-gray-900 to-[#233B72] rounded-[3rem] p-10 md:p-14 text-white shadow-2xl relative overflow-hidden">
+              <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+                <Award size={250} />
+              </div>
+              <h3 className="text-xl md:text-2xl font-black mb-12 text-center uppercase tracking-[0.2em] text-blue-400 italic">
+                {language === 'fr' ? 'Garanties & Sécurité' : 'Guarantees & Security'}
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-6 relative z-10">
+                {[
+                  t('prestations.hero.certified'), 
+                  language === 'fr' ? 'RC Pro Complète' : 'Full Liability', 
+                  language === 'fr' ? 'Respect des Enduits' : 'Coating Respect', 
+                  language === 'fr' ? 'Pilotes Pro' : 'Pro Pilots', 
+                  language === 'fr' ? 'Sécurité Urbaine' : 'Urban Safety', 
+                  language === 'fr' ? 'Produits Certifiés' : 'Certified Products'
+                ].map((cert, idx) => (
+                  <div key={idx} className="bg-white/5 backdrop-blur-md rounded-2xl p-5 text-center border border-white/10 flex flex-col items-center gap-4 transition-colors hover:bg-white/10">
+                    <Award className="w-8 h-8 text-blue-400" />
+                    <span className="text-xs md:text-sm font-black uppercase tracking-wider leading-tight">{cert}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
           </div>
 
           {/* Sidebar Sticky (Droite) */}
@@ -139,8 +168,8 @@ export default function NettoyageFacade() {
                 </h3>
                 <p className="mb-8 text-blue-100 font-medium relative z-10 leading-relaxed">
                   {language === 'fr' 
-                    ? 'Confiez votre façade à nos experts pour un résultat irréprochable et sécurisé.' 
-                    : 'Entrust your facade to our experts for a flawless and safe result.'}
+                    ? 'Confiez votre façade à nos experts pour un résultat irréprochable sans nacelle.' 
+                    : 'Entrust your facade to our experts for a flawless result without a lift.'}
                 </p>
                 <Link 
                   to="/devis"
@@ -150,25 +179,27 @@ export default function NettoyageFacade() {
                 </Link>
               </div>
 
-              {/* Atouts Rapides */}
+              {/* Atouts Rapides - Format Spécifications */}
               <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-lg">
                 <h4 className="font-black text-[#233B72] mb-6 uppercase text-xs tracking-[0.2em]">
-                  {language === 'fr' ? 'Atouts Ellipsys' : 'Ellipsys Assets'}
+                  {language === 'fr' ? 'Spécifications' : 'Specifications'}
                 </h4>
-                <ul className="space-y-5">
-                  <li className="flex items-center gap-4 text-sm font-bold text-gray-700">
-                    <div className="bg-sky-50 p-2 rounded-lg"><ShieldCheck className="w-5 h-5 text-blue-500" /></div>
-                    {language === 'fr' ? 'Intervention sans nacelle' : 'No lift required'}
-                  </li>
-                  <li className="flex items-center gap-4 text-sm font-bold text-gray-700">
-                    <div className="bg-sky-50 p-2 rounded-lg"><Zap className="w-5 h-5 text-blue-500" /></div>
-                    {language === 'fr' ? 'Mise en place immédiate' : 'Immediate setup'}
-                  </li>
-                  <li className="flex items-center gap-4 text-sm font-bold text-gray-700">
-                    <div className="bg-sky-50 p-2 rounded-lg"><Leaf className="w-5 h-5 text-blue-500" /></div>
-                    {t('prestations.hero.productsAB')}
-                  </li>
-                </ul>
+                <div className="space-y-6">
+                  {[
+                    { icon: Building, title: language === 'fr' ? 'Échafaudage' : 'Scaffolding', val: 'Zéro' },
+                    { icon: Wind, title: language === 'fr' ? 'Hauteur Max' : 'Max Height', val: '+ 40 mètres' },
+                    { icon: Droplets, title: language === 'fr' ? 'Pression' : 'Pressure', val: language === 'fr' ? 'Basse (Douce)' : 'Low (Gentle)' },
+                    { icon: Leaf, title: 'Produits', val: 'Bio / Certifiés' }
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center justify-between border-b border-gray-50 pb-4 last:border-0 last:pb-0">
+                      <div className="flex items-center gap-4">
+                        <div className="bg-sky-50 p-2 rounded-lg"><item.icon className="w-5 h-5 text-blue-500" /></div>
+                        <span className="text-sm font-black text-gray-700 uppercase tracking-tight">{item.title}</span>
+                      </div>
+                      <span className="text-sm font-black text-[#233B72]">{item.val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Navigation Autres Services */}
@@ -191,29 +222,6 @@ export default function NettoyageFacade() {
           </aside>
         </div>
       </main>
-
-      {/* Section Garanties Légales */}
-      <section className="bg-slate-900 py-20 text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-black text-center mb-16 tracking-[0.2em] uppercase">
-            {language === 'fr' ? 'Garanties Légales' : 'Legal Guarantees'}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-            <div className="p-8 border border-white/10 rounded-3xl bg-white/5 backdrop-blur-sm">
-              <div className="font-black text-xl mb-4 text-blue-400 uppercase tracking-tighter">{t('prestations.hero.certified')}</div>
-              <p className="text-gray-400 font-medium">{language === 'fr' ? 'Pilotes homologués pour vols en zone urbaine' : 'Pilots certified for urban area flights'}</p>
-            </div>
-            <div className="p-8 border border-white/10 rounded-3xl bg-white/5 backdrop-blur-sm">
-              <div className="font-black text-xl mb-4 text-blue-400 uppercase tracking-tighter">{language === 'fr' ? 'PILOTES PRO' : 'PRO PILOTS'}</div>
-              <p className="text-gray-400 font-medium">{language === 'fr' ? 'Formation continue et expertise technique' : 'Continuous training and technical expertise'}</p>
-            </div>
-            <div className="p-8 border border-white/10 rounded-3xl bg-white/5 backdrop-blur-sm">
-              <div className="font-black text-xl mb-4 text-blue-400 uppercase tracking-tighter">{language === 'fr' ? 'RC PRO COMPLÈTE' : 'FULL LIABILITY'}</div>
-              <p className="text-gray-400 font-medium">{language === 'fr' ? "Assurance couvrant l'intégralité du chantier" : 'Insurance covering the entire work site'}</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
