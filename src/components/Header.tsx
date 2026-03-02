@@ -5,12 +5,10 @@ import { useLanguage } from '../contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Header() {
-  // Ajout de "language" pour pouvoir traduire tes sous-menus si besoin
   const { t, language } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isActualitesOpen, setIsActualitesOpen] = useState(false);
   
-  // NOUVEAU : État pour le menu déroulant des prestations
   const [isPrestationsOpen, setIsPrestationsOpen] = useState(false);
   
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,7 +69,7 @@ export default function Header() {
               {isPrestationsOpen && (
                 <div 
                   className="absolute top-full left-0 mt-1 w-80 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 z-50"
-                  onMouseEnter={() => setIsPrestationsOpen(true)} // Maintient ouvert quand on survole le sous-menu
+                  onMouseEnter={() => setIsPrestationsOpen(true)}
                 >
                   <Link to="/prestations/nettoyage-facade" onClick={() => setIsPrestationsOpen(false)} className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-[#233B72] font-bold transition-colors">
                     <ChevronRight className="w-4 h-4 text-brand-orange-500 shrink-0" /> 
@@ -84,6 +82,11 @@ export default function Header() {
                   <Link to="/prestations/panneaux-photovoltaiques" onClick={() => setIsPrestationsOpen(false)} className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-[#233B72] font-bold transition-colors">
                     <ChevronRight className="w-4 h-4 text-brand-orange-500 shrink-0" /> 
                     {language === 'fr' ? 'Nettoyage de panneaux photovoltaïques' : 'Photovoltaic Panel Cleaning'}
+                  </Link>
+                  {/* NOUVEAU LIEN THERMOGRAPHIE DESKTOP */}
+                  <Link to="/prestations/thermographie" onClick={() => setIsPrestationsOpen(false)} className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-[#233B72] font-bold transition-colors">
+                    <ChevronRight className="w-4 h-4 text-brand-orange-500 shrink-0" /> 
+                    {language === 'fr' ? 'Thermographie par drone' : 'Drone Thermography'}
                   </Link>
                   <Link to="/prestations/elimination-frelons" onClick={() => setIsPrestationsOpen(false)} className="flex items-center gap-3 px-6 py-3 hover:bg-sky-50 text-[#233B72] font-bold transition-colors">
                     <ChevronRight className="w-4 h-4 text-brand-orange-500 shrink-0" /> 
@@ -172,6 +175,10 @@ export default function Header() {
                   </Link>
                   <Link to="/prestations/panneaux-photovoltaiques" onClick={() => setIsMenuOpen(false)} className="flex items-center text-[#233B72] text-base font-bold hover:text-brand-orange-500">
                     <ChevronRight className="w-5 h-5 mr-2 text-brand-orange-500 shrink-0"/> {language === 'fr' ? 'Panneaux photovoltaïques' : 'Solar Panels'}
+                  </Link>
+                  {/* NOUVEAU LIEN THERMOGRAPHIE MOBILE */}
+                  <Link to="/prestations/thermographie" onClick={() => setIsMenuOpen(false)} className="flex items-center text-[#233B72] text-base font-bold hover:text-brand-orange-500">
+                    <ChevronRight className="w-5 h-5 mr-2 text-brand-orange-500 shrink-0"/> {language === 'fr' ? 'Thermographie' : 'Thermography'}
                   </Link>
                   <Link to="/prestations/elimination-frelons" onClick={() => setIsMenuOpen(false)} className="flex items-center text-[#233B72] text-base font-bold hover:text-brand-orange-500">
                     <ChevronRight className="w-5 h-5 mr-2 text-brand-orange-500 shrink-0"/> {language === 'fr' ? 'Élimination frelons' : 'Hornet Elimination'}
