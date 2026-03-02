@@ -37,7 +37,7 @@ export default function Thermographie() {
             className="w-full h-full object-cover scale-110"
             alt={language === 'fr' ? 'Thermographie par drone' : 'Drone Thermography'}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 to-slate-800/60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/50 to-slate-800/20"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10 text-center md:text-left">
