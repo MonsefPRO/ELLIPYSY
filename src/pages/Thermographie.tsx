@@ -33,7 +33,7 @@ export default function Thermographie() {
       <section className="relative h-[40vh] md:h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/thermo.jpg" 
+            src="/bannerthermo.png" 
             className="w-full h-full object-cover scale-110"
             alt={language === 'fr' ? 'Thermographie par drone' : 'Drone Thermography'}
           />
