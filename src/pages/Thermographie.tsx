@@ -34,7 +34,7 @@ export default function Thermographie() {
         <div className="absolute inset-0 z-0">
           {/* Remplace par une belle image de drone thermique ou d'écran infrarouge */}
           <img 
-            src="/thermographie-hero.jpg" 
+            src="/thermo.jpg" 
             className="w-full h-full object-cover scale-110"
             alt={language === 'fr' ? 'Thermographie par drone' : 'Drone Thermography'}
           />
