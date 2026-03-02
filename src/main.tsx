@@ -10,6 +10,8 @@ import NettoyageFacade from './pages/NettoyageFacade.tsx';
 import Demoussage from './pages/Demoussage.tsx';
 import EliminationFrelons from './pages/EliminationFrelons.tsx';
 import PanneauxPhotovoltaiques from './pages/PanneauxPhotovoltaiques.tsx';
+// NOUVEL IMPORT DE TA PAGE THERMOGRAPHIE
+import Thermographie from './pages/Thermographie.tsx';
 import Blog from './pages/Blog.tsx';
 import Realisations from './pages/Realisations.tsx';
 import Devis from './pages/Devis.tsx';
@@ -93,6 +95,20 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        {/* NOUVELLE ROUTE : THERMOGRAPHIE */}
+        <Route
+          path="/prestations/thermographie"
+          element={
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+            >
+              <Thermographie />
+            </motion.div>
+          }
+        />
         <Route
           path="/prestations/elimination-frelons"
           element={
@@ -158,7 +174,6 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-        {/* NOUVELLE ROUTE : RISQUES ET RESPONSABILITÉS */}
         <Route
           path="/risques-et-responsabilites"
           element={
