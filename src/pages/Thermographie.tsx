@@ -13,7 +13,10 @@ import {
   Sun,
   Building2,
   Factory,
-  Zap
+  Zap,
+  Moon,
+  BrainCircuit,
+  MapPin
 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -52,8 +55,8 @@ export default function Thermographie() {
             </h1>
             <p className="text-xl md:text-2xl text-orange-200 font-bold italic drop-shadow-md">
               {language === 'fr' 
-                ? 'Aide à la décision pour industriels et gestionnaires d\'actifs.' 
-                : 'Decision support for industrials and asset managers.'}
+                ? 'L\'imagerie de pointe au service de vos infrastructures.' 
+                : 'Cutting-edge imaging for your infrastructures.'}
             </p>
           </motion.div>
         </div>
@@ -70,20 +73,20 @@ export default function Thermographie() {
               <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-lg border border-gray-100 overflow-hidden">
                 <h2 className="text-3xl font-black text-[#233B72] mb-8 flex items-center gap-3 uppercase tracking-tighter">
                   <div className="w-2 h-8 bg-brand-orange-500 rounded-full"></div>
-                  {language === 'fr' ? 'Détectez l\'invisible, sécurisez vos actifs' : 'Detect the invisible, secure your assets'}
+                  {language === 'fr' ? 'Détectez l\'invisible avec une précision chirurgicale' : 'Detect the invisible with surgical precision'}
                 </h2>
                 
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div className="prose prose-lg text-gray-600 max-w-none space-y-4 font-medium leading-relaxed">
                     <p>
                       {language === 'fr' 
-                        ? "La thermographie par drone permet d’identifier, mesurer et qualifier les anomalies thermiques sans aucune interruption d’exploitation. Elle s’intègre dans une stratégie globale de maintenance préventive, de maîtrise des risques (QHSE) et d’optimisation de la performance énergétique."
-                        : "Drone thermography identifies, measures, and qualifies thermal anomalies without any operational interruption. It integrates into a global strategy of preventive maintenance, risk management (QHSE), and energy performance optimization."}
+                        ? "Équipés des dernières technologies embarquées (gamme Enterprise), nos drones réalisent des audits thermiques et visuels d'une précision inédite. Nous identifions les anomalies sans aucune interruption de votre chaîne de production."
+                        : "Equipped with the latest airborne technologies (Enterprise range), our drones perform thermal and visual audits of unprecedented precision. We identify anomalies without any interruption to your production line."}
                     </p>
                     <p>
                       {language === 'fr'
-                        ? "Notre approche « Grand Compte » ne se limite pas à la simple détection d’anomalies. Elle vise à produire une donnée radiométrique exploitable, traçable et directement intégrable dans vos processus d'audit. Objectif : réduire les pertes de production et anticiper les défaillances critiques."
-                        : "Our 'Key Account' approach goes beyond simple anomaly detection. It aims to produce actionable, traceable radiometric data that directly integrates into your audit processes. Goal: reduce production losses and anticipate critical failures."}
+                        ? "Grâce à des capteurs radiométriques surpuissants couplés à l'Intelligence Artificielle, notre approche génère une donnée fiable, traçable et géolocalisée au centimètre près. Objectif : cibler la maintenance, réduire les pertes et maîtriser vos risques (QHSE)."
+                        : "Thanks to highly powerful radiometric sensors coupled with Artificial Intelligence, our approach generates reliable, traceable, and centimetric geolocated data. Goal: target maintenance, reduce losses, and control your risks (QHSE)."}
                     </p>
                   </div>
                   
@@ -99,17 +102,75 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Applications Ciblées + Image thermo2.png */}
+            {/* Technologie Embarquée (NOUVEAU CONTENU) */}
             <ScrollReveal delay={0.1}>
               <section>
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
-                  {language === 'fr' ? 'Applications Industrielles' : 'Industrial Applications'}
+                  {language === 'fr' ? 'Technologie & Équipement de Pointe' : 'Technology & Cutting-Edge Equipment'}
+                </h2>
+                
+                <div className="grid lg:grid-cols-12 gap-8">
+                  {/* IMAGE 3 (Colonne de gauche) */}
+                  <div className="lg:col-span-5 h-64 lg:h-auto rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 relative group">
+                    <img 
+                      src="/thermo3.png" 
+                      alt="Équipement radiométrique" 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                  </div>
+                  
+                  {/* CARTES ÉQUIPEMENTS (Colonne de droite) */}
+                  <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {[
+                      { 
+                        title: language === 'fr' ? "Thermique Radiométrique" : "Radiometric Thermal", 
+                        desc: language === 'fr' ? "Résolution HD (1280x1024) pour des mesures de température pixel par pixel." : "HD resolution (1280x1024) for pixel-by-pixel temperature measurements.", 
+                        icon: Camera 
+                      },
+                      { 
+                        title: language === 'fr' ? "Zoom Hybride x112" : "112x Hybrid Zoom", 
+                        desc: language === 'fr' ? "Détection de micro-fissures ou défauts à plus de 10 mètres de distance, en toute sécurité." : "Detection of micro-cracks or defects from more than 10 meters away, safely.", 
+                        icon: Target 
+                      },
+                      { 
+                        title: language === 'fr' ? "Géolocalisation RTK & Laser" : "RTK & Laser Geolocation", 
+                        desc: language === 'fr' ? "Télémètre laser (1800m) et module RTK pour un positionnement du défaut au centimètre près." : "Laser rangefinder (1800m) and RTK module for centimeter-accurate defect positioning.", 
+                        icon: MapPin 
+                      },
+                      { 
+                        title: language === 'fr' ? "Vision Nocturne & IA" : "Night Vision & AI", 
+                        desc: language === 'fr' ? "Vols de nuit jusqu'à 100m. L'IA embarquée assure le suivi et le comptage automatique (véhicules, etc.)." : "Night flights up to 100m. Embedded AI ensures tracking and automatic counting.", 
+                        icon: BrainCircuit 
+                      }
+                    ].map((item, idx) => (
+                      <Hover3DCard key={idx}>
+                        <div className="bg-slate-50 p-5 rounded-[1.5rem] border border-slate-200 flex flex-col gap-4 h-full transition-all hover:bg-white hover:shadow-md">
+                          <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-100 w-fit">
+                            <item.icon className="w-5 h-5 text-brand-orange-500" />
+                          </div>
+                          <div>
+                            <h3 className="font-black text-[#233B72] text-sm mb-1 uppercase tracking-tight">{item.title}</h3>
+                            <p className="text-xs text-gray-600 leading-relaxed font-medium">{item.desc}</p>
+                          </div>
+                        </div>
+                      </Hover3DCard>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* Applications Ciblées */}
+            <ScrollReveal delay={0.15}>
+              <section>
+                <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
+                  {language === 'fr' ? 'Domaines d\'Application' : 'Application Areas'}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
-                    { title: language === 'fr' ? 'Centrales Photovoltaïques' : 'Solar Power Plants', desc: language === 'fr' ? 'Détection de hotspots, modules défectueux, déséquilibres de strings et défauts de connectique.' : 'Detection of hotspots, defective modules, string imbalances, and connection faults.', icon: Sun },
-                    { title: language === 'fr' ? 'Bâtiments Industriels' : 'Industrial Buildings', desc: language === 'fr' ? 'Diagnostic des déperditions thermiques, défauts d’isolation, infiltrations et ponts thermiques.' : 'Diagnosis of heat loss, insulation defects, infiltrations, and thermal bridges.', icon: Building2 },
-                    { title: language === 'fr' ? 'Sites & Processus' : 'Sites & Processes', desc: language === 'fr' ? 'Contrôle des armoires électriques, réseaux de chaleur et équipements soumis à échauffement.' : 'Inspection of electrical cabinets, heating networks, and equipment subject to overheating.', icon: Factory }
+                    { title: language === 'fr' ? 'Centrales Photovoltaïques' : 'Solar Power Plants', desc: language === 'fr' ? 'Détection de hotspots, modules défectueux, et déséquilibres. Conformité norme IEC 62446-3.' : 'Detection of hotspots, defective modules, and imbalances. IEC 62446-3 standard compliant.', icon: Sun },
+                    { title: language === 'fr' ? 'Bâtiments & Modélisation 3D' : 'Buildings & 3D Modeling', desc: language === 'fr' ? 'Vols obliques (5 axes) pour scanner les façades sans zones mortes. Diagnostic des déperditions thermiques.' : 'Oblique flights (5 axes) to scan facades without dead zones. Diagnosis of heat loss.', icon: Building2 },
+                    { title: language === 'fr' ? 'Sécurité & Industrie' : 'Security & Industry', desc: language === 'fr' ? 'Contrôle des réseaux de chaleur, inspections nocturnes et levées de doutes sécurisées.' : 'Control of heating networks, night inspections, and secure doubt removal.', icon: Moon }
                   ].map((target, idx) => (
                     <div key={idx} className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-lg hover:shadow-xl transition-shadow group flex flex-col h-full">
                       <div className="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-brand-orange-500 transition-colors">
@@ -133,94 +194,26 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Équipement & Données Techniques + Image thermo3.png */}
-            <ScrollReveal delay={0.15}>
-              <section>
-                <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
-                  {language === 'fr' ? 'Technologie & Précision' : 'Technology & Precision'}
-                </h2>
-                
-                <div className="grid lg:grid-cols-12 gap-8">
-                  {/* IMAGE 3 (Colonne de gauche) */}
-                  <div className="lg:col-span-5 h-64 lg:h-auto rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 relative group">
-                    <img 
-                      src="/thermo3.png" 
-                      alt="Équipement radiométrique" 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                    />
-                  </div>
-                  
-                  {/* CARTES ÉQUIPEMENTS (Colonne de droite) */}
-                  <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {[
-                      { title: language === 'fr' ? "Capteur Radiométrique" : "Radiometric Sensor", desc: language === 'fr' ? "Caméra thermique haute résolution (VOx 640×512, 30 Hz)." : "High-res thermal camera (VOx 640×512, 30 Hz).", icon: Camera },
-                      { title: language === 'fr' ? "Double Lecture" : "Dual View", desc: language === 'fr' ? "Corrélation immédiate IR / Spectre visible." : "Immediate IR / Visible spectrum correlation.", icon: Activity },
-                      { title: language === 'fr' ? "Norme IEC" : "IEC Standard", desc: language === 'fr' ? "Méthodologie PV alignée TS 62446-3." : "PV Methodology aligned with TS 62446-3.", icon: ShieldCheck },
-                      { title: language === 'fr' ? "Télémètre Laser" : "Laser Rangefinder", desc: language === 'fr' ? "Géolocalisation précise jusqu'à 1800m." : "Precise geolocation up to 1800m.", icon: Target }
-                    ].map((item, idx) => (
-                      <Hover3DCard key={idx}>
-                        <div className="bg-slate-50 p-5 rounded-[1.5rem] border border-slate-200 flex flex-col gap-4 h-full transition-all hover:bg-white hover:shadow-md">
-                          <div className="bg-white p-3 rounded-xl shadow-sm border border-slate-100 w-fit">
-                            <item.icon className="w-5 h-5 text-brand-orange-500" />
-                          </div>
-                          <div>
-                            <h3 className="font-black text-[#233B72] text-sm mb-1 uppercase tracking-tight">{item.title}</h3>
-                            <p className="text-xs text-gray-600 leading-relaxed font-medium">{item.desc}</p>
-                          </div>
-                        </div>
-                      </Hover3DCard>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            </ScrollReveal>
-
-            {/* Méthodologie (Fond sombre) */}
+            {/* Sécurité et Homologation (NOUVEAU) */}
             <ScrollReveal delay={0.2}>
-              <section className="bg-[#233B72] rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
-                <div className="absolute right-0 top-0 opacity-5 pointer-events-none">
-                  <Thermometer size={300} />
+              <section className="bg-gradient-to-r from-emerald-600 to-green-500 rounded-[2.5rem] p-8 md:p-10 text-white shadow-xl relative overflow-hidden flex items-center">
+                <div className="absolute right-0 top-0 opacity-10 pointer-events-none">
+                  <ShieldCheck size={250} />
                 </div>
-                <div className="relative z-10 grid md:grid-cols-2 gap-12">
-                  <div>
-                    <h3 className="text-2xl font-black mb-6 uppercase tracking-tighter text-brand-orange-500">
-                      {language === 'fr' ? 'Livrables Techniques' : 'Technical Deliverables'}
-                    </h3>
-                    <ul className="space-y-4 font-medium text-blue-100">
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Rapport PDF structuré (synthèse, tableaux)' : 'Structured PDF report (summary, tables)'}</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Images radiométriques et visibles (16 bits)' : 'Radiometric and visible images (16 bits)'}</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Localisation géoréférencée des défauts' : 'Georeferenced localization of defects'}</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Recommandations de maintenance O&M' : 'O&M maintenance recommendations'}</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-black mb-6 uppercase tracking-tighter text-brand-orange-500">
-                      {language === 'fr' ? 'Méthodologie d\'intervention' : 'Intervention Methodology'}
-                    </h3>
-                    <div className="space-y-5">
-                      <div className="flex gap-4">
-                        <div className="w-8 h-8 rounded-full bg-brand-orange-500/20 border border-brand-orange-500 flex items-center justify-center font-bold text-brand-orange-400 shrink-0">1</div>
-                        <div>
-                          <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Cadrage HSE' : 'HSE Scoping'}</h4>
-                          <p className="text-sm text-blue-200">{language === 'fr' ? 'Analyse du site, contraintes d’exploitation et plan de vol.' : 'Site analysis, operational constraints, and flight plan.'}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="w-8 h-8 rounded-full bg-brand-orange-500/20 border border-brand-orange-500 flex items-center justify-center font-bold text-brand-orange-400 shrink-0">2</div>
-                        <div>
-                          <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Acquisition Terrain' : 'Field Acquisition'}</h4>
-                          <p className="text-sm text-blue-200">{language === 'fr' ? 'Vols automatisés garantissant homogénéité et précision.' : 'Automated flights ensuring homogeneity and precision.'}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="w-8 h-8 rounded-full bg-brand-orange-500/20 border border-brand-orange-500 flex items-center justify-center font-bold text-brand-orange-400 shrink-0">3</div>
-                        <div>
-                          <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Analyse & Restitution' : 'Analysis & Restitution'}</h4>
-                          <p className="text-sm text-blue-200">{language === 'fr' ? 'Qualification des anomalies par criticité et rapport actionnable.' : 'Qualification of anomalies by criticality and actionable report.'}</p>
-                        </div>
-                      </div>
+                <div className="relative z-10 w-full">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
+                      <ShieldCheck className="w-8 h-8 text-white" />
                     </div>
+                    <h3 className="text-2xl font-black uppercase tracking-tighter">
+                      {language === 'fr' ? 'Vols en zone urbaine : Homologation C5' : 'Urban flights: C5 Certification'}
+                    </h3>
                   </div>
+                  <p className="text-emerald-50 font-medium leading-relaxed max-w-3xl">
+                    {language === 'fr' 
+                      ? "Nos équipements sont certifiés pour évoluer en toute légalité en agglomération. Équipés de parachutes à déclenchement automatique crypté et de capteurs d'évitement d'obstacles à 360°, nous garantissons une sécurité absolue au-dessus de vos installations et du public." 
+                      : "Our equipment is certified to operate legally in urban areas. Equipped with encrypted automatic deployment parachutes and 360° obstacle avoidance sensors, we guarantee absolute safety above your facilities and the public."}
+                  </p>
                 </div>
               </section>
             </ScrollReveal>
@@ -245,10 +238,10 @@ export default function Thermographie() {
                     </h2>
                     <div className="flex flex-col gap-6">
                       {[
-                        { t: language === 'fr' ? "Continuité" : "Continuity", d: language === 'fr' ? "Aucun arrêt de la production nécessaire." : "No production shutdown required.", icon: Zap },
-                        { t: language === 'fr' ? "Gain de Temps" : "Time Saving", d: language === 'fr' ? "Inspection 50 à 80% plus rapide." : "Inspection 50 to 80% faster.", icon: Clock },
-                        { t: language === 'fr' ? "Maintenance ciblée" : "Targeted Maintenance", d: language === 'fr' ? "Intervention uniquement là où l'anomalie est avérée." : "Intervention only where anomaly is confirmed.", icon: Target },
-                        { t: language === 'fr' ? "Auditabilité" : "Auditability", d: language === 'fr' ? "Preuves pour assureurs et directions." : "Proof for insurers and management.", icon: FileText }
+                        { t: language === 'fr' ? "Zéro Interruption" : "Zero Interruption", d: language === 'fr' ? "Aucun arrêt de production ni de consignation électrique." : "No production shutdown or electrical lockout.", icon: Zap },
+                        { t: language === 'fr' ? "Déploiement Éclair" : "Rapid Deployment", d: language === 'fr' ? "Le drone est opérationnel en 15 secondes sur site." : "The drone is operational in 15 seconds on site.", icon: Clock },
+                        { t: language === 'fr' ? "Maintenance ciblée" : "Targeted Maintenance", d: language === 'fr' ? "Intervention uniquement là où l'anomalie est avérée (Point GPS)." : "Intervention only where the anomaly is confirmed (GPS Point).", icon: Target },
+                        { t: language === 'fr' ? "Livrables Actionnables" : "Actionable Deliverables", d: language === 'fr' ? "Rapports détaillés avec corrélation Immédiate (IR / Visible)." : "Detailed reports with immediate correlation (IR / Visible).", icon: FileText }
                       ].map((benefit, i) => (
                         <div key={i} className="flex gap-4 p-2 hover:translate-x-2 transition-transform duration-300">
                           <div className="w-10 h-10 bg-brand-orange-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
@@ -275,12 +268,12 @@ export default function Thermographie() {
               <div className="bg-gradient-to-br from-[#233B72] to-slate-800 rounded-[2.5rem] p-10 text-white shadow-2xl relative overflow-hidden text-center">
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand-orange-500/20 rounded-full blur-3xl"></div>
                 <h3 className="text-2xl font-black mb-4 relative z-10 uppercase tracking-tight">
-                  {language === 'fr' ? "Planifier une mission" : "Schedule a Mission"}
+                  {language === 'fr' ? "Planifier un Audit" : "Schedule an Audit"}
                 </h3>
                 <p className="mb-8 text-blue-100 font-medium relative z-10 leading-relaxed text-sm">
                   {language === 'fr' 
-                    ? 'Campagne ponctuelle ou contrat de surveillance périodique. Obtenez une étude chiffrée.' 
-                    : 'One-off campaign or periodic surveillance contract. Get a detailed estimate.'}
+                    ? 'Campagne ponctuelle ou contrat de surveillance. Obtenez une étude de faisabilité.' 
+                    : 'One-off campaign or surveillance contract. Get a feasibility study.'}
                 </p>
                 <Link 
                   to="/devis"
@@ -293,13 +286,14 @@ export default function Thermographie() {
               {/* Atouts Rapides - Format Spécifications */}
               <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-lg">
                 <h4 className="font-black text-[#233B72] mb-6 uppercase text-xs tracking-[0.2em]">
-                  {language === 'fr' ? 'Performances' : 'Performance'}
+                  {language === 'fr' ? 'Spécifications' : 'Specifications'}
                 </h4>
                 <div className="space-y-6">
                   {[
-                    { icon: Camera, title: 'Résolution IR', val: '640×512' },
-                    { icon: Zap, title: language === 'fr' ? 'Arrêt de prod.' : 'Prod. Stop', val: '0 (Zéro)' },
-                    { icon: ShieldCheck, title: 'Norme PV', val: 'IEC 62446-3' },
+                    { icon: Camera, title: 'Résolution IR', val: '1280×1024' },
+                    { icon: Target, title: 'Zoom Max', val: 'x112' },
+                    { icon: MapPin, title: 'Précision', val: 'Centimétrique (RTK)' },
+                    { icon: ShieldCheck, title: 'Sécurité', val: 'Parachute (C5)' },
                     { icon: Activity, title: 'Diagnostic', val: language === 'fr' ? 'Radiométrique' : 'Radiometric' }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center justify-between border-b border-gray-50 pb-4 last:border-0 last:pb-0">
