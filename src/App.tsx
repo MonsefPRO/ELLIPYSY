@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Shield, ChevronRight, Star, Zap, 
-  BarChart3, Play, ChevronLeft 
+  BarChart3, Play, ChevronLeft,
+  Thermometer // Ajout de l'icône Thermometer
 } from 'lucide-react';
 
 import { AnimatedCounter } from './components/AnimatedCounter';
@@ -50,6 +51,16 @@ export default function App() {
       role: language === 'fr' ? "Syndic de copropriété, Résidence Le Parc" : "Property Manager, Le Parc Residency",
       image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop"
     }
+  ];
+
+  // Tableau détaillé pour la grille des prestations sur l'accueil
+  // AJOUT DES IMAGES ICI (correspondant aux couvertures des pages prestations)
+  const homeServices = [
+    { key: 'facade', link: '/prestations/nettoyage-facade', border: 'border-sky-500', image: '/ares.png' },
+    { key: 'demoussage', link: '/prestations/demoussage', border: 'border-green-500', image: '/Demoussage drone 1.jpg' },
+    { key: 'industrial2', link: '/prestations/panneaux-photovoltaiques', border: 'border-amber-500', image: '/rony.jpg' },
+    { key: 'thermographie', link: '/prestations/thermographie', border: 'border-indigo-500', image: '/thermo.jpg', customTitle: language === 'fr' ? 'Thermographie' : 'Thermography' },
+    { key: 'hornets', link: '/prestations/elimination-frelons', border: 'border-red-500', image: '/abateur_de_frelons.png' }
   ];
 
   const nextTestimonial = () => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -133,9 +144,6 @@ export default function App() {
         </section>
 
         <CertificationsSection />
-        
-        {/* Ici, nous appelons le titre traduit avant le composant si nécessaire, 
-            ou nous modifions directement DroneBenefits.tsx */}
         <DroneBenefits />
 
         {/* SECTION PRESTATIONS */}
@@ -144,21 +152,33 @@ export default function App() {
             <h2 className="text-2xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">
               {t('mainServices.title')}
             </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-              {['facade', 'demoussage', 'hornets', 'industrial2'].map((key, i) => (
-                <ScrollReveal delay={0.1 * (i + 1)} key={key}>
-                  <Hover3DCard className={`bg-white rounded-[2rem] p-5 md:p-8 shadow-lg border-t-8 h-full flex flex-col hover:shadow-2xl transition-all ${i === 0 ? 'border-sky-500' : i === 1 ? 'border-green-500' : i === 2 ? 'border-red-500' : 'border-amber-500'}`}>
-                    <div className="flex-grow">
-                      <div className="w-10 h-10 md:w-16 md:h-16 bg-gray-50 rounded-xl flex items-center justify-center mb-4">
-                        <span className="text-gray-400 font-black text-lg">0{i + 1}</span>
+            {/* Grille modifiée pour 5 colonnes sur grand écran */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+              {homeServices.map((service, i) => (
+                <ScrollReveal delay={0.1 * (i + 1)} key={service.key}>
+                  <Hover3DCard className={`bg-white rounded-[2.5rem] shadow-lg border-t-8 h-full flex flex-col hover:shadow-2xl transition-all ${service.border}`}>
+                    {/* NOUVEAU BLOCK IMAGE EN HAUT DE LA CARTE */}
+                    <img 
+                      src={service.image} 
+                      alt={service.customTitle ? service.customTitle : t(`mainServices.${service.key}.title`)}
+                      className="w-full h-40 object-cover rounded-t-3xl"
+                    />
+                    
+                    {/* Le reste du contenu avec un p-5 (padding) interne */}
+                    <div className="flex-grow p-5 flex flex-col">
+                      <div className="flex-grow">
+                        <div className="w-10 h-10 md:w-14 md:h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-4 mt-2">
+                          <span className="text-gray-400 font-black text-lg">0{i + 1}</span>
+                        </div>
+                        <h3 className="text-sm md:text-xl font-black mb-2 text-[#233B72] leading-tight uppercase tracking-tighter">
+                          {service.customTitle ? service.customTitle : t(`mainServices.${service.key}.title`)}
+                        </h3>
                       </div>
-                      <h3 className="text-sm md:text-2xl font-black mb-2 text-[#233B72] leading-tight uppercase tracking-tighter">
-                        {t(`mainServices.${key}.title`)}
-                      </h3>
+                      {/* Lien mis à jour vers la page spécifique */}
+                      <Link to={service.link} className="mt-4 pt-4 border-t border-gray-100 text-[#233B72] font-bold text-xs md:text-sm flex items-center hover:gap-2 hover:text-brand-orange-500 transition-all">
+                        {language === 'fr' ? 'Découvrir' : 'Discover'} <ChevronRight className="w-4 h-4 ml-1" />
+                      </Link>
                     </div>
-                    <Link to="/prestations" className="mt-4 pt-4 border-t border-gray-100 text-sky-600 font-bold text-xs md:text-base flex items-center hover:gap-2 transition-all">
-                      {language === 'fr' ? 'Découvrir' : 'Discover'} <ChevronRight className="w-4 h-4 ml-1" />
-                    </Link>
                   </Hover3DCard>
                 </ScrollReveal>
               ))}
