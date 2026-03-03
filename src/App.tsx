@@ -148,23 +148,22 @@ export default function App() {
 
         {/* SECTION PRESTATIONS */}
         <section className="py-16 px-4 bg-gradient-to-br from-sky-50 to-blue-50">
-          <div className="container mx-auto max-w-7xl">
+          {/* C'est ICI que j'ai modifié la largeur maximale : max-w-[1400px] au lieu de max-w-7xl */}
+          <div className="container mx-auto max-w-[1400px]">
             <h2 className="text-2xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">
               {t('mainServices.title')}
             </h2>
-            {/* Grille modifiée pour 5 colonnes sur grand écran */}
+            {/* Grille maintenue à 5 colonnes */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
               {homeServices.map((service, i) => (
                 <ScrollReveal delay={0.1 * (i + 1)} key={service.key}>
                   <Hover3DCard className={`bg-white rounded-[2.5rem] shadow-lg border-t-8 h-full flex flex-col hover:shadow-2xl transition-all ${service.border}`}>
-                    {/* NOUVEAU BLOCK IMAGE EN HAUT DE LA CARTE */}
                     <img 
                       src={service.image} 
                       alt={service.customTitle ? service.customTitle : t(`mainServices.${service.key}.title`)}
                       className="w-full h-40 object-cover rounded-t-3xl"
                     />
                     
-                    {/* Le reste du contenu avec un p-5 (padding) interne */}
                     <div className="flex-grow p-5 flex flex-col">
                       <div className="flex-grow">
                         <div className="w-10 h-10 md:w-14 md:h-14 bg-gray-50 rounded-xl flex items-center justify-center mb-4 mt-2">
@@ -174,7 +173,6 @@ export default function App() {
                           {service.customTitle ? service.customTitle : t(`mainServices.${service.key}.title`)}
                         </h3>
                       </div>
-                      {/* Lien mis à jour vers la page spécifique */}
                       <Link to={service.link} className="mt-4 pt-4 border-t border-gray-100 text-[#233B72] font-bold text-xs md:text-sm flex items-center hover:gap-2 hover:text-brand-orange-500 transition-all">
                         {language === 'fr' ? 'Découvrir' : 'Discover'} <ChevronRight className="w-4 h-4 ml-1" />
                       </Link>
