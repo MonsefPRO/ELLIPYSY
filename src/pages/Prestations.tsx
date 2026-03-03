@@ -5,7 +5,8 @@ import {
   Droplets,
   AlertTriangle,
   Sun,
-  CheckCircle
+  CheckCircle,
+  Thermometer // Nouvel import pour l'icône de thermographie
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
@@ -16,7 +17,8 @@ import { HeroCarousel } from '../components/HeroCarousel';
 import Footer from '../components/Footer';
 
 export default function Prestations() {
-  const { t } = useLanguage();
+  // J'ai ajouté "language" ici pour gérer la traduction directe de la nouvelle carte
+  const { t, language } = useLanguage();
 
   const prestations = [
     {
@@ -70,6 +72,26 @@ export default function Prestations() {
       ],
       color: 'amber'
     },
+    // NOUVELLE CARTE : THERMOGRAPHIE
+    {
+      id: 'thermographie',
+      title: language === 'fr' ? 'Thermographie par Drone' : 'Drone Thermography',
+      description: language === 'fr' 
+        ? "La thermographie par drone permet d’identifier, mesurer et qualifier les anomalies thermiques sans aucune interruption d’exploitation. Une solution d'aide à la décision idéale pour les centrales photovoltaïques et les bâtiments industriels."
+        : "Drone thermography identifies, measures, and qualifies thermal anomalies without operational interruption. An ideal decision-support solution for solar power plants and industrial buildings.",
+      image: '/thermo.jpg', // Image principale
+      image2: '/thermo1.png', // Image secondaire (Expertise)
+      link: '/prestations/thermographie',
+      icon: Thermometer,
+      benefits: [
+        language === 'fr' ? "Continuité d'exploitation (zéro arrêt)" : "Operational continuity (zero shutdown)",
+        language === 'fr' ? "Capteur radiométrique haute précision" : "High-precision radiometric sensor",
+        language === 'fr' ? "Détection précoce des défaillances" : "Early detection of failures",
+        language === 'fr' ? "Rapports techniques d'audit structurés" : "Structured technical audit reports",
+        language === 'fr' ? "Sécurité et maîtrise du risque industriel" : "Safety and industrial risk management"
+      ],
+      color: 'indigo' // Nouvelle couleur pour la thermographie
+    },
     {
       id: 'elimination-frelons',
       title: t('prestations.service4.title'),
@@ -94,7 +116,9 @@ export default function Prestations() {
       sky: { gradient: 'from-[#233B72] to-blue-600', text: 'text-[#233B72]', bg: 'bg-slate-50', border: 'border-blue-100' },
       green: { gradient: 'from-green-600 to-emerald-600', text: 'text-green-600', bg: 'bg-green-50', border: 'border-green-100' },
       amber: { gradient: 'from-orange-500 to-amber-600', text: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-100' },
-      red: { gradient: 'from-red-600 to-rose-700', text: 'text-red-600', bg: 'bg-red-50', border: 'border-red-100' }
+      red: { gradient: 'from-red-600 to-rose-700', text: 'text-red-600', bg: 'bg-red-50', border: 'border-red-100' },
+      // AJOUT DE LA NOUVELLE COULEUR INDIGO
+      indigo: { gradient: 'from-indigo-600 to-blue-900', text: 'text-indigo-700', bg: 'bg-indigo-50', border: 'border-indigo-100' }
     };
     return colors[color] || colors.sky;
   };
