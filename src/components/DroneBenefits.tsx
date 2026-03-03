@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Shield, Zap, BarChart3, ChevronDown, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Hover3DCard } from './Hover3DCard'; // On réutilise ton super composant 3D
+import { Hover3DCard } from './Hover3DCard';
 
 export default function DroneBenefits() {
   const { t } = useLanguage();
@@ -57,20 +57,21 @@ export default function DroneBenefits() {
 
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
         
-        {/* EN-TÊTE DE SECTION (Plus Premium) */}
+        {/* EN-TÊTE DE SECTION */}
         <div className="text-center mb-12 md:mb-20">
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#233B72] font-black text-sm uppercase tracking-widest mb-6">
             <CheckCircle2 className="w-5 h-5 text-brand-orange-500" />
             L'Avantage Ellipsys
           </div>
           
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 uppercase tracking-tighter text-[#233B72] leading-tight">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-8 uppercase tracking-tighter text-[#233B72] leading-tight">
             Pourquoi choisir le <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange-500 to-red-600">nettoyage par drone ?</span>
           </h2>
           
+          {/* C'est ICI que j'ai enlevé le "max-w-3xl" et ajouté "w-full lg:text-2xl" */}
           <p
-            className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed text-justify md:text-center max-w-3xl mx-auto font-medium"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed text-justify md:text-center w-full font-medium"
             dangerouslySetInnerHTML={{ __html: t('benefits.summary') }}
           />
         </div>
