@@ -11,13 +11,11 @@ import {
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
 import CertificationsSection from '../components/CertificationsSection';
-import { Hover3DCard } from '../components/Hover3DCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import { HeroCarousel } from '../components/HeroCarousel';
 import Footer from '../components/Footer';
 
 export default function Prestations() {
-  // J'ai ajouté "language" ici pour gérer la traduction directe de la nouvelle carte
   const { t, language } = useLanguage();
 
   const prestations = [
@@ -72,15 +70,14 @@ export default function Prestations() {
       ],
       color: 'amber'
     },
-    // NOUVELLE CARTE : THERMOGRAPHIE
     {
       id: 'thermographie',
       title: language === 'fr' ? 'Thermographie par Drone' : 'Drone Thermography',
       description: language === 'fr' 
         ? "La thermographie par drone permet d’identifier, mesurer et qualifier les anomalies thermiques sans aucune interruption d’exploitation. Une solution d'aide à la décision idéale pour les centrales photovoltaïques et les bâtiments industriels."
         : "Drone thermography identifies, measures, and qualifies thermal anomalies without operational interruption. An ideal decision-support solution for solar power plants and industrial buildings.",
-      image: '/thermo.jpg', // Image principale
-      image2: '/thermo1.png', // Image secondaire (Expertise)
+      image: '/thermo.jpg',
+      image2: '/thermo1.png',
       link: '/prestations/thermographie',
       icon: Thermometer,
       benefits: [
@@ -90,7 +87,7 @@ export default function Prestations() {
         language === 'fr' ? "Rapports techniques d'audit structurés" : "Structured technical audit reports",
         language === 'fr' ? "Sécurité et maîtrise du risque industriel" : "Safety and industrial risk management"
       ],
-      color: 'indigo' // Nouvelle couleur pour la thermographie
+      color: 'indigo'
     },
     {
       id: 'elimination-frelons',
@@ -117,7 +114,6 @@ export default function Prestations() {
       green: { gradient: 'from-green-600 to-emerald-600', text: 'text-green-600', bg: 'bg-green-50', border: 'border-green-100' },
       amber: { gradient: 'from-orange-500 to-amber-600', text: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-100' },
       red: { gradient: 'from-red-600 to-rose-700', text: 'text-red-600', bg: 'bg-red-50', border: 'border-red-100' },
-      // AJOUT DE LA NOUVELLE COULEUR INDIGO
       indigo: { gradient: 'from-indigo-600 to-blue-900', text: 'text-indigo-700', bg: 'bg-indigo-50', border: 'border-indigo-100' }
     };
     return colors[color] || colors.sky;
@@ -155,7 +151,8 @@ export default function Prestations() {
 
             return (
               <ScrollReveal key={prestation.id} delay={0.1}>
-                <Hover3DCard className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden p-6 md:p-12 lg:p-14">
+                {/* Remplacement du composant Hover3DCard par une simple div avec un hover beaucoup plus sobre */}
+                <div className="bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden p-6 md:p-12 lg:p-14 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
                   <h2 className="text-2xl md:text-5xl font-black mb-8 md:mb-12 text-center lg:text-left text-[#233B72] leading-tight uppercase tracking-tighter">
                     {prestation.title}
                   </h2>
@@ -163,7 +160,8 @@ export default function Prestations() {
                   <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 items-center`}>
                     <div className="w-full lg:w-1/2 space-y-6">
                       <div className="grid grid-cols-1 gap-6">
-                        <div className="h-64 sm:h-72 md:h-80 relative overflow-hidden rounded-3xl shadow-2xl">
+                        <div className="h-64 sm:h-72 md:h-80 relative overflow-hidden rounded-3xl shadow-2xl group">
+                          {/* Le scale-105 sur l'image reste pour un petit côté dynamique à l'intérieur de la carte */}
                           <img src={prestation.image} alt={prestation.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                           <div className="absolute top-5 left-5">
                             <div className={`w-14 h-14 md:w-20 md:h-20 bg-gradient-to-br ${colors.gradient} rounded-2xl flex items-center justify-center shadow-2xl text-white`}>
@@ -217,7 +215,7 @@ export default function Prestations() {
                       </div>
                     </div>
                   </div>
-                </Hover3DCard>
+                </div>
               </ScrollReveal>
             );
           })}
