@@ -102,7 +102,7 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Technologie Embarquée + Image thermoo2.png */}
+            {/* Technologie Embarquée + Image thermoo2.png (MODIFIÉE POUR NE PAS COUPER) */}
             <ScrollReveal delay={0.1}>
               <section>
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
@@ -110,12 +110,12 @@ export default function Thermographie() {
                 </h2>
                 
                 <div className="grid lg:grid-cols-12 gap-8">
-                  {/* IMAGE 2 (Colonne de gauche) */}
-                  <div className="lg:col-span-5 h-64 lg:h-auto rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 relative group">
+                  {/* IMAGE 2 (Colonne de gauche) - Object-contain pour être visible à 100% */}
+                  <div className="lg:col-span-5 h-64 lg:h-auto rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 relative group bg-white flex items-center justify-center p-6">
                     <img 
                       src="/thermoo2.png" 
                       alt="Équipement radiométrique" 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700" 
                     />
                   </div>
                   
@@ -160,7 +160,7 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Applications Ciblées + Image thermoo3.png */}
+            {/* Applications Ciblées + Image thermoo3.png (MODIFIÉE POUR NE PAS COUPER) */}
             <ScrollReveal delay={0.15}>
               <section>
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
@@ -182,14 +182,13 @@ export default function Thermographie() {
                   ))}
                 </div>
                 
-                {/* IMAGE 3 EN BANNIÈRE */}
-                <div className="mt-8 h-64 md:h-80 w-full rounded-[2.5rem] overflow-hidden shadow-xl relative group border border-gray-100">
+                {/* IMAGE 3 EN BANNIÈRE - Object-contain avec fond blanc pour être vue à 100% */}
+                <div className="mt-8 w-full rounded-[2.5rem] overflow-hidden shadow-xl relative group border border-gray-100 bg-white p-4 md:p-8 flex justify-center items-center">
                   <img 
                     src="/thermoo3.png" 
                     alt="Domaines d'intervention thermographique" 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    className="w-full h-auto max-h-[500px] object-contain group-hover:scale-105 transition-transform duration-700" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#233B72]/40 to-transparent"></div>
                 </div>
               </section>
             </ScrollReveal>
@@ -256,7 +255,7 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Sécurité et Homologation + Image thermoo4.png */}
+            {/* Sécurité et Homologation + Image thermoo4.png (MODIFIÉE POUR NE PAS COUPER) */}
             <ScrollReveal delay={0.25}>
               <section className="bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden shadow-xl">
                 <div className="grid lg:grid-cols-2">
@@ -280,12 +279,12 @@ export default function Thermographie() {
                       </p>
                     </div>
                   </div>
-                  {/* IMAGE 4 */}
-                  <div className="h-64 lg:h-auto w-full relative group">
+                  {/* IMAGE 4 - Object-contain pour être visible à 100% */}
+                  <div className="w-full relative group bg-white flex items-center justify-center p-8 md:p-12">
                     <img 
                       src="/thermoo4.png" 
                       alt="Sécurité et Homologation C5" 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      className="w-full h-auto max-h-[400px] object-contain group-hover:scale-105 transition-transform duration-700" 
                     />
                   </div>
                 </div>
