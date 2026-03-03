@@ -68,7 +68,7 @@ export default function Thermographie() {
           {/* Contenu Principal (Gauche) */}
           <div className="lg:w-2/3 space-y-16">
             
-            {/* Introduction SEO + Image thermo1.png */}
+            {/* Introduction SEO + Image thermoo1.png */}
             <ScrollReveal>
               <section className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-lg border border-gray-100 overflow-hidden">
                 <h2 className="text-3xl font-black text-[#233B72] mb-8 flex items-center gap-3 uppercase tracking-tighter">
@@ -93,7 +93,7 @@ export default function Thermographie() {
                   {/* IMAGE 1 */}
                   <div className="h-64 lg:h-full min-h-[300px] w-full rounded-3xl overflow-hidden shadow-xl border border-gray-100 relative group">
                     <img 
-                      src="/thermo1.png" 
+                      src="/thermoo1.png" 
                       alt="Inspection thermographique" 
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
@@ -102,7 +102,7 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Technologie Embarquée (NOUVEAU CONTENU) */}
+            {/* Technologie Embarquée + Image thermoo2.png */}
             <ScrollReveal delay={0.1}>
               <section>
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
@@ -110,10 +110,10 @@ export default function Thermographie() {
                 </h2>
                 
                 <div className="grid lg:grid-cols-12 gap-8">
-                  {/* IMAGE 3 (Colonne de gauche) */}
+                  {/* IMAGE 2 (Colonne de gauche) */}
                   <div className="lg:col-span-5 h-64 lg:h-auto rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 relative group">
                     <img 
-                      src="/thermo3.png" 
+                      src="/thermoo2.png" 
                       alt="Équipement radiométrique" 
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
@@ -133,13 +133,13 @@ export default function Thermographie() {
                         icon: Target 
                       },
                       { 
-                        title: language === 'fr' ? "Géolocalisation RTK & Laser" : "RTK & Laser Geolocation", 
+                        title: language === 'fr' ? "Géolocalisation RTK" : "RTK & Laser Geolocation", 
                         desc: language === 'fr' ? "Télémètre laser (1800m) et module RTK pour un positionnement du défaut au centimètre près." : "Laser rangefinder (1800m) and RTK module for centimeter-accurate defect positioning.", 
                         icon: MapPin 
                       },
                       { 
                         title: language === 'fr' ? "Vision Nocturne & IA" : "Night Vision & AI", 
-                        desc: language === 'fr' ? "Vols de nuit jusqu'à 100m. L'IA embarquée assure le suivi et le comptage automatique (véhicules, etc.)." : "Night flights up to 100m. Embedded AI ensures tracking and automatic counting.", 
+                        desc: language === 'fr' ? "Vols de nuit jusqu'à 100m. L'IA embarquée assure le suivi et le comptage automatique." : "Night flights up to 100m. Embedded AI ensures tracking and automatic counting.", 
                         icon: BrainCircuit 
                       }
                     ].map((item, idx) => (
@@ -160,7 +160,7 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Applications Ciblées */}
+            {/* Applications Ciblées + Image thermoo3.png */}
             <ScrollReveal delay={0.15}>
               <section>
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
@@ -169,7 +169,7 @@ export default function Thermographie() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {[
                     { title: language === 'fr' ? 'Centrales Photovoltaïques' : 'Solar Power Plants', desc: language === 'fr' ? 'Détection de hotspots, modules défectueux, et déséquilibres. Conformité norme IEC 62446-3.' : 'Detection of hotspots, defective modules, and imbalances. IEC 62446-3 standard compliant.', icon: Sun },
-                    { title: language === 'fr' ? 'Bâtiments & Modélisation 3D' : 'Buildings & 3D Modeling', desc: language === 'fr' ? 'Vols obliques (5 axes) pour scanner les façades sans zones mortes. Diagnostic des déperditions thermiques.' : 'Oblique flights (5 axes) to scan facades without dead zones. Diagnosis of heat loss.', icon: Building2 },
+                    { title: language === 'fr' ? 'Bâtiments & Modélisation' : 'Buildings & 3D Modeling', desc: language === 'fr' ? 'Vols obliques (5 axes) pour scanner les façades sans zones mortes. Diagnostic des déperditions thermiques.' : 'Oblique flights (5 axes) to scan facades without dead zones. Diagnosis of heat loss.', icon: Building2 },
                     { title: language === 'fr' ? 'Sécurité & Industrie' : 'Security & Industry', desc: language === 'fr' ? 'Contrôle des réseaux de chaleur, inspections nocturnes et levées de doutes sécurisées.' : 'Control of heating networks, night inspections, and secure doubt removal.', icon: Moon }
                   ].map((target, idx) => (
                     <div key={idx} className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-lg hover:shadow-xl transition-shadow group flex flex-col h-full">
@@ -182,10 +182,10 @@ export default function Thermographie() {
                   ))}
                 </div>
                 
-                {/* IMAGE 2 EN BANNIÈRE */}
+                {/* IMAGE 3 EN BANNIÈRE */}
                 <div className="mt-8 h-64 md:h-80 w-full rounded-[2.5rem] overflow-hidden shadow-xl relative group border border-gray-100">
                   <img 
-                    src="/thermo2.png" 
+                    src="/thermoo3.png" 
                     alt="Domaines d'intervention thermographique" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                   />
@@ -194,45 +194,119 @@ export default function Thermographie() {
               </section>
             </ScrollReveal>
 
-            {/* Sécurité et Homologation (NOUVEAU) */}
+            {/* Méthodologie (Fond sombre) + Image thermoo6.png */}
             <ScrollReveal delay={0.2}>
-              <section className="bg-gradient-to-r from-emerald-600 to-green-500 rounded-[2.5rem] p-8 md:p-10 text-white shadow-xl relative overflow-hidden flex items-center">
-                <div className="absolute right-0 top-0 opacity-10 pointer-events-none">
-                  <ShieldCheck size={250} />
+              <section className="bg-[#233B72] rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+                <div className="absolute right-0 top-0 opacity-5 pointer-events-none">
+                  <Thermometer size={300} />
                 </div>
-                <div className="relative z-10 w-full">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
-                      <ShieldCheck className="w-8 h-8 text-white" />
+                
+                <div className="relative z-10 grid lg:grid-cols-12 gap-10 items-center">
+                  <div className="lg:col-span-7 grid sm:grid-cols-2 gap-8">
+                    <div>
+                      <h3 className="text-2xl font-black mb-6 uppercase tracking-tighter text-brand-orange-500">
+                        {language === 'fr' ? 'Livrables Techniques' : 'Technical Deliverables'}
+                      </h3>
+                      <ul className="space-y-4 font-medium text-blue-100">
+                        <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Rapport PDF structuré et détaillé' : 'Structured PDF report (summary, tables)'}</li>
+                        <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Images radiométriques HD' : 'HD Radiometric images'}</li>
+                        <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Cartographie et position RTK' : 'Mapping and RTK positioning'}</li>
+                        <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-brand-orange-400 shrink-0" /> {language === 'fr' ? 'Recommandations de maintenance' : 'O&M maintenance recommendations'}</li>
+                      </ul>
                     </div>
-                    <h3 className="text-2xl font-black uppercase tracking-tighter">
-                      {language === 'fr' ? 'Vols en zone urbaine : Homologation C5' : 'Urban flights: C5 Certification'}
-                    </h3>
+                    <div>
+                      <h3 className="text-2xl font-black mb-6 uppercase tracking-tighter text-brand-orange-500">
+                        {language === 'fr' ? 'Notre Méthode' : 'Our Methodology'}
+                      </h3>
+                      <div className="space-y-5">
+                        <div className="flex gap-4">
+                          <div className="w-8 h-8 rounded-full bg-brand-orange-500/20 border border-brand-orange-500 flex items-center justify-center font-bold text-brand-orange-400 shrink-0">1</div>
+                          <div>
+                            <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Cadrage HSE' : 'HSE Scoping'}</h4>
+                            <p className="text-sm text-blue-200">{language === 'fr' ? 'Analyse des contraintes et plan de vol.' : 'Constraint analysis and flight plan.'}</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-4">
+                          <div className="w-8 h-8 rounded-full bg-brand-orange-500/20 border border-brand-orange-500 flex items-center justify-center font-bold text-brand-orange-400 shrink-0">2</div>
+                          <div>
+                            <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Acquisition' : 'Acquisition'}</h4>
+                            <p className="text-sm text-blue-200">{language === 'fr' ? 'Vols automatisés par intelligence artificielle.' : 'Automated flights by AI.'}</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-4">
+                          <div className="w-8 h-8 rounded-full bg-brand-orange-500/20 border border-brand-orange-500 flex items-center justify-center font-bold text-brand-orange-400 shrink-0">3</div>
+                          <div>
+                            <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Restitution' : 'Restitution'}</h4>
+                            <p className="text-sm text-blue-200">{language === 'fr' ? 'Qualification et rapport actionnable.' : 'Qualification and actionable report.'}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-emerald-50 font-medium leading-relaxed max-w-3xl">
-                    {language === 'fr' 
-                      ? "Nos équipements sont certifiés pour évoluer en toute légalité en agglomération. Équipés de parachutes à déclenchement automatique crypté et de capteurs d'évitement d'obstacles à 360°, nous garantissons une sécurité absolue au-dessus de vos installations et du public." 
-                      : "Our equipment is certified to operate legally in urban areas. Equipped with encrypted automatic deployment parachutes and 360° obstacle avoidance sensors, we guarantee absolute safety above your facilities and the public."}
-                  </p>
+                  
+                  {/* IMAGE 6 (Colonne de droite pour aérer le bloc bleu) */}
+                  <div className="lg:col-span-5 h-64 lg:h-full min-h-[350px] rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 relative group">
+                    <img 
+                      src="/thermoo6.png" 
+                      alt="Analyse thermique" 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                  </div>
                 </div>
               </section>
             </ScrollReveal>
 
-            {/* Avantages et ROI + Image thermo4.png intégrée */}
-            <ScrollReveal delay={0.3}>
+            {/* Sécurité et Homologation + Image thermoo4.png */}
+            <ScrollReveal delay={0.25}>
               <section className="bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden shadow-xl">
                 <div className="grid lg:grid-cols-2">
+                  <div className="p-8 md:p-12 bg-gradient-to-br from-emerald-600 to-green-500 text-white flex flex-col justify-center relative overflow-hidden">
+                    <div className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none">
+                      <ShieldCheck size={200} />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="bg-white/20 p-3 rounded-xl backdrop-blur-sm">
+                          <ShieldCheck className="w-8 h-8 text-white" />
+                        </div>
+                        <h3 className="text-2xl font-black uppercase tracking-tighter">
+                          {language === 'fr' ? 'Vols Urbains : Homologation C5' : 'Urban flights: C5 Certification'}
+                        </h3>
+                      </div>
+                      <p className="text-emerald-50 font-medium leading-relaxed text-lg">
+                        {language === 'fr' 
+                          ? "Nos équipements sont certifiés pour évoluer en toute légalité en agglomération. Équipés de parachutes à déclenchement automatique crypté et de capteurs d'évitement d'obstacles à 360°, nous garantissons une sécurité absolue au-dessus de vos installations et du public." 
+                          : "Our equipment is certified to operate legally in urban areas. Equipped with encrypted automatic deployment parachutes and 360° obstacle avoidance sensors, we guarantee absolute safety above your facilities and the public."}
+                      </p>
+                    </div>
+                  </div>
                   {/* IMAGE 4 */}
                   <div className="h-64 lg:h-auto w-full relative group">
                     <img 
-                      src="/thermo4.png" 
+                      src="/thermoo4.png" 
+                      alt="Sécurité et Homologation C5" 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                  </div>
+                </div>
+              </section>
+            </ScrollReveal>
+
+            {/* Avantages et ROI + Image thermoo5.png */}
+            <ScrollReveal delay={0.3}>
+              <section className="bg-white rounded-[2.5rem] border border-gray-100 overflow-hidden shadow-xl">
+                <div className="grid lg:grid-cols-2">
+                  {/* IMAGE 5 */}
+                  <div className="h-64 lg:h-auto w-full relative group order-2 lg:order-1">
+                    <img 
+                      src="/thermoo5.png" 
                       alt="Retour sur investissement thermographie" 
                       className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                     />
                   </div>
                   
                   {/* TEXTE ROI */}
-                  <div className="p-8 md:p-12">
+                  <div className="p-8 md:p-12 order-1 lg:order-2">
                     <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter">
                       {language === 'fr' ? 'Une Logique de R.O.I Rapide' : 'A Fast R.O.I Logic'}
                     </h2>
