@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, Briefcase, Users, Heart, Award, FileText, Building2, Handshake, Target, TrendingUp, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, Briefcase, Users, Heart, Award, FileText, Building2, Handshake, Target, TrendingUp, Sparkles, CheckCircle2, User, Mail, Phone, MapPin, AlignLeft } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
 import { useSecureForm } from '../hooks/useSecureForm';
 import { HeroCarousel } from '../components/HeroCarousel';
 import Footer from '../components/Footer';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 // --- SECTIONS DE SOUTIEN ---
 
@@ -50,7 +51,7 @@ function WhyJoinSection() {
 // --- PAGE PRINCIPALE ---
 
 export default function RejoignezNous() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<'candidature' | 'apporteur' | 'franchisee' | 'architecte'>('candidature');
 
   useEffect(() => {
@@ -64,13 +65,13 @@ export default function RejoignezNous() {
       {/* HERO SECTION */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
-        <div className="absolute inset-0 bg-gradient-to-br from-red-900/40 via-blue-900/40 to-black/60 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#233B72]/80 via-[#233B72]/60 to-black/70 z-10"></div>
         <div className="relative z-20 w-full text-center px-4">
-          <h1 className="text-3xl md:text-7xl font-black mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
+          <h1 className="text-3xl md:text-6xl lg:text-7xl font-black mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
             {t('rejoignez.title')}
           </h1>
           <p className="text-lg md:text-2xl drop-shadow-lg font-bold text-white italic">
-            {t('rejoignez.subtitle') || "Les drones au service de l'humain"}
+            {language === 'fr' ? "Rejoignez l'aventure technologique Ellipsys" : "Join the Ellipsys technological adventure"}
           </p>
         </div>
       </section>
@@ -102,7 +103,7 @@ export default function RejoignezNous() {
                 <div className={`w-14 h-14 md:w-20 md:h-20 rounded-[1.5rem] flex items-center justify-center mb-6 transition-all duration-500 shadow-md ${
                   isActive ? 'bg-white' : 'bg-gray-50'
                 }`}>
-                  <Icon className="w-7 h-7 md:w-10 md:h-10 text-[#233B72]" />
+                  <Icon className={`w-7 h-7 md:w-10 md:h-10 ${isActive ? `text-${color}-600` : 'text-[#233B72]'}`} />
                 </div>
                 <h3 className={`text-xs md:text-xl font-black uppercase tracking-widest transition-colors mb-3 ${isActive ? 'text-gray-900' : 'text-gray-400'}`}>
                   {title}
@@ -117,10 +118,10 @@ export default function RejoignezNous() {
         </div>
 
         <div className="transition-all duration-700 w-full">
-          {activeTab === 'candidature' && <CandidatureSpontaneeForm />}
-          {activeTab === 'apporteur' && <ApporteurAffairesForm />}
-          {activeTab === 'franchisee' && <FranchiseeForm />}
-          {activeTab === 'architecte' && <ArchitecteForm />}
+          {activeTab === 'candidature' && <ScrollReveal><CandidatureSpontaneeForm /></ScrollReveal>}
+          {activeTab === 'apporteur' && <ScrollReveal><ApporteurAffairesForm /></ScrollReveal>}
+          {activeTab === 'franchisee' && <ScrollReveal><FranchiseeForm /></ScrollReveal>}
+          {activeTab === 'architecte' && <ScrollReveal><ArchitecteForm /></ScrollReveal>}
         </div>
       </div>
 
@@ -133,29 +134,55 @@ export default function RejoignezNous() {
 // --- FORMULAIRES ---
 
 function CandidatureSpontaneeForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isFr = language === 'fr';
   const { handleChange, handleSubmit, submitSuccess } = useSecureForm({
     nom: '', prenom: '', email: '', telephone: '', poste: '', motivation: ''
   });
+
   return (
-    <div className="bg-gradient-to-br from-white to-green-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-green-100 animate-fadeIn">
-      <div className="flex items-center mb-16 text-gray-800">
-        <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mr-8 shadow-xl text-white"><FileText className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black tracking-tighter uppercase">{t('rejoignez.tab1_title')}</h2>
+    <div className="bg-white rounded-[4rem] shadow-2xl p-8 md:p-20 border-t-8 border-green-500 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-green-50 rounded-full blur-[80px] pointer-events-none"></div>
+      <div className="flex items-center mb-12 relative z-10">
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mr-6 shadow-lg text-white">
+          <FileText className="w-8 h-8" />
+        </div>
+        <h2 className="text-2xl md:text-5xl font-black tracking-tighter uppercase text-[#233B72]">{t('rejoignez.tab1_title')}</h2>
       </div>
+      
       {submitSuccess ? <SuccessView color="green" /> : (
-        <form onSubmit={handleSubmit(() => {})} className="space-y-10">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="input-field-xxl" />
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="email" type="email" placeholder={`${t('quote.form.email')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="input-field-xxl" />
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="email" type="email" placeholder={`${t('quote.form.email')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <input name="poste" placeholder={t('rejoignez.form_job') || "Poste recherché *"} onChange={handleChange} required className="input-field-xxl" />
-          <textarea name="motivation" placeholder={t('rejoignez.form_motivation') || "Décrivez votre parcours..."} rows={8} onChange={handleChange} required className="input-field-xxl"></textarea>
-          <button type="submit" className="w-full bg-green-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-green-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">{t('rejoignez.form_submit_profile') || "Envoyer mon profil"}</button>
+          <div className="relative">
+            <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input name="poste" placeholder={isFr ? "Poste recherché *" : "Desired position *"} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all" />
+          </div>
+          <div className="relative">
+            <AlignLeft className="absolute left-4 top-5 text-gray-400 w-5 h-5" />
+            <textarea name="motivation" placeholder={isFr ? "Décrivez votre parcours et vos motivations..." : "Describe your background and motivations..."} rows={6} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" className="w-full bg-green-500 text-white py-5 rounded-2xl font-black text-xl hover:bg-green-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 uppercase tracking-widest mt-4">
+            {isFr ? "Envoyer ma candidature" : "Submit my application"}
+          </button>
         </form>
       )}
     </div>
@@ -163,28 +190,51 @@ function CandidatureSpontaneeForm() {
 }
 
 function ApporteurAffairesForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isFr = language === 'fr';
   const { handleChange, handleSubmit, submitSuccess } = useSecureForm({
     nom: '', prenom: '', email: '', telephone: '', message: ''
   });
+
   return (
-    <div className="bg-gradient-to-br from-white to-sky-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-sky-100 animate-fadeIn">
-      <div className="flex items-center mb-16 text-gray-800">
-        <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center mr-8 shadow-xl text-white"><Handshake className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black tracking-tighter uppercase">{t('rejoignez.tab2_title')}</h2>
+    <div className="bg-white rounded-[4rem] shadow-2xl p-8 md:p-20 border-t-8 border-sky-500 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-sky-50 rounded-full blur-[80px] pointer-events-none"></div>
+      <div className="flex items-center mb-12 relative z-10">
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center mr-6 shadow-lg text-white">
+          <Handshake className="w-8 h-8" />
+        </div>
+        <h2 className="text-2xl md:text-5xl font-black tracking-tighter uppercase text-[#233B72]">{t('rejoignez.tab2_title')}</h2>
       </div>
+      
       {submitSuccess ? <SuccessView color="sky" /> : (
-        <form onSubmit={handleSubmit(() => {})} className="space-y-10">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="input-field-xxl" />
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="email" type="email" placeholder={`${t('quote.form.email')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="input-field-xxl" />
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="email" type="email" placeholder={`${t('quote.form.email')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <textarea name="message" placeholder={t('rejoignez.form_network') || "Parlez-nous de votre réseau..."} rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
-          <button type="submit" className="w-full bg-sky-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-sky-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">{t('rejoignez.form_submit_request') || "Envoyer la demande"}</button>
+          <div className="relative">
+            <AlignLeft className="absolute left-4 top-5 text-gray-400 w-5 h-5" />
+            <textarea name="message" placeholder={isFr ? "Parlez-nous de votre réseau et de vos opportunités..." : "Tell us about your network and opportunities..."} rows={6} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" className="w-full bg-sky-500 text-white py-5 rounded-2xl font-black text-xl hover:bg-sky-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 uppercase tracking-widest mt-4">
+            {isFr ? "Devenir Apporteur d'Affaires" : "Become a Business Introducer"}
+          </button>
         </form>
       )}
     </div>
@@ -192,32 +242,61 @@ function ApporteurAffairesForm() {
 }
 
 function FranchiseeForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isFr = language === 'fr';
   const { handleChange, handleSubmit, submitSuccess } = useSecureForm({
     nom: '', prenom: '', email: '', telephone: '', ville: '', apport: '', motivation: ''
   });
+
   return (
-    <div className="bg-gradient-to-br from-white to-amber-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-amber-100 animate-fadeIn">
-      <div className="flex items-center mb-16 text-gray-800">
-        <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center mr-8 shadow-xl text-white"><Briefcase className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black tracking-tighter uppercase">{t('rejoignez.tab3_title')}</h2>
+    <div className="bg-white rounded-[4rem] shadow-2xl p-8 md:p-20 border-t-8 border-amber-500 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-amber-50 rounded-full blur-[80px] pointer-events-none"></div>
+      <div className="flex items-center mb-12 relative z-10">
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mr-6 shadow-lg text-white">
+          <Briefcase className="w-8 h-8" />
+        </div>
+        <h2 className="text-2xl md:text-5xl font-black tracking-tighter uppercase text-[#233B72]">{t('rejoignez.tab3_title')}</h2>
       </div>
+      
       {submitSuccess ? <SuccessView color="amber" /> : (
-        <form onSubmit={handleSubmit(() => {})} className="space-y-10">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="input-field-xxl" />
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="email" type="email" placeholder={`${t('quote.form.email')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="input-field-xxl" />
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="email" type="email" placeholder={`${t('quote.form.email')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="ville" placeholder={`${t('quote.form.city')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="apport" placeholder={t('rejoignez.form_investment') || "Apport disponible"} onChange={handleChange} className="input-field-xxl" />
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="ville" placeholder={`${t('quote.form.city')} ciblée *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <TrendingUp className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="apport" placeholder={isFr ? "Apport personnel disponible" : "Available personal contribution"} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <textarea name="motivation" placeholder={t('rejoignez.form_project') || "Votre projet..."} rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
-          <button type="submit" className="w-full bg-amber-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-amber-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">{t('rejoignez.form_request_doc') || "Demander documentation"}</button>
+          <div className="relative">
+            <AlignLeft className="absolute left-4 top-5 text-gray-400 w-5 h-5" />
+            <textarea name="motivation" placeholder={isFr ? "Décrivez votre projet entrepreneurial..." : "Describe your entrepreneurial project..."} rows={6} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:bg-white transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" className="w-full bg-amber-500 text-white py-5 rounded-2xl font-black text-xl hover:bg-amber-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 uppercase tracking-widest mt-4">
+            {isFr ? "Demander la documentation" : "Request Documentation"}
+          </button>
         </form>
       )}
     </div>
@@ -225,29 +304,55 @@ function FranchiseeForm() {
 }
 
 function ArchitecteForm() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isFr = language === 'fr';
   const { handleChange, handleSubmit, submitSuccess } = useSecureForm({
     nom: '', prenom: '', email: '', cabinet: '', message: ''
   });
+
   return (
-    <div className="bg-gradient-to-br from-white to-orange-50 rounded-[4rem] shadow-2xl p-8 md:p-20 border border-orange-100 animate-fadeIn">
-      <div className="flex items-center mb-16 text-gray-800">
-        <div className="w-16 h-16 md:w-24 md:h-24 rounded-3xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mr-8 shadow-xl text-white"><Building2 className="w-8 h-8 md:w-12 md:h-12" /></div>
-        <h2 className="text-3xl md:text-6xl font-black tracking-tighter uppercase">{t('rejoignez.tab4_title')}</h2>
+    <div className="bg-white rounded-[4rem] shadow-2xl p-8 md:p-20 border-t-8 border-orange-500 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-orange-50 rounded-full blur-[80px] pointer-events-none"></div>
+      <div className="flex items-center mb-12 relative z-10">
+        <div className="w-16 h-16 md:w-20 md:h-20 rounded-3xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mr-6 shadow-lg text-white">
+          <Building2 className="w-8 h-8" />
+        </div>
+        <h2 className="text-2xl md:text-5xl font-black tracking-tighter uppercase text-[#233B72]">{t('rejoignez.tab4_title')}</h2>
       </div>
+      
       {submitSuccess ? <SuccessView color="orange" /> : (
-        <form onSubmit={handleSubmit(() => {})} className="space-y-10">
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="input-field-xxl" />
-            <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="input-field-xxl" />
+        <form onSubmit={handleSubmit(() => {})} className="space-y-6 relative z-10">
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="nom" placeholder={`${t('quote.form.lastName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="prenom" placeholder={`${t('quote.form.firstName')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all" />
+            </div>
           </div>
-          <input name="cabinet" placeholder={t('rejoignez.form_firm') || "Nom du cabinet *"} onChange={handleChange} required className="input-field-xxl" />
-          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-            <input name="email" type="email" placeholder={t('rejoignez.form_pro_email') || "Email professionnel *"} onChange={handleChange} required className="input-field-xxl" />
-            <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="input-field-xxl" />
+          <div className="relative">
+            <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <input name="cabinet" placeholder={isFr ? "Nom du cabinet d'architecture *" : "Architecture firm name *"} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all" />
           </div>
-          <textarea name="message" placeholder={t('rejoignez.form_needs') || "Besoins spécifiques..."} rows={8} onChange={handleChange} className="input-field-xxl"></textarea>
-          <button type="submit" className="w-full bg-orange-600 text-white py-8 rounded-3xl font-black text-2xl hover:bg-orange-700 transition-all shadow-2xl active:scale-[0.99] uppercase tracking-[0.2em]">{t('rejoignez.form_join_network') || "Rejoindre le réseau"}</button>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="email" type="email" placeholder={isFr ? "Email professionnel *" : "Professional Email *"} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all" />
+            </div>
+            <div className="relative">
+              <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input name="telephone" type="tel" placeholder={`${t('quote.form.phone')} *`} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all" />
+            </div>
+          </div>
+          <div className="relative">
+            <AlignLeft className="absolute left-4 top-5 text-gray-400 w-5 h-5" />
+            <textarea name="message" placeholder={isFr ? "Quels sont vos besoins spécifiques (Jumeau numérique, nettoyage...) ?" : "What are your specific needs (Digital twin, cleaning...)?"} rows={6} onChange={handleChange} required className="w-full bg-gray-50 border border-gray-200 rounded-2xl py-4 pl-12 pr-4 font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" className="w-full bg-orange-500 text-white py-5 rounded-2xl font-black text-xl hover:bg-orange-600 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 uppercase tracking-widest mt-4">
+            {isFr ? "Contacter le service pro" : "Contact Pro Services"}
+          </button>
         </form>
       )}
     </div>
@@ -268,15 +373,26 @@ function useInView() {
 }
 
 function SuccessView({ color }: { color: string }) {
-    const { t } = useLanguage();
-    const bg = color === 'green' ? 'bg-green-500' : color === 'sky' ? 'bg-sky-500' : color === 'amber' ? 'bg-amber-500' : 'bg-orange-500';
+    const { language } = useLanguage();
+    const isFr = language === 'fr';
+    
+    // Attribution de la couleur pour le bouton/icone
+    let bgClass = 'bg-green-500';
+    if (color === 'sky') bgClass = 'bg-sky-500';
+    if (color === 'amber') bgClass = 'bg-amber-500';
+    if (color === 'orange') bgClass = 'bg-orange-500';
+
     return (
-        <div className="text-center py-20 animate-in fade-in zoom-in duration-500">
-            <div className={`w-32 h-32 ${bg} rounded-full flex items-center justify-center mx-auto mb-10 text-white shadow-2xl animate-bounce`}>
+        <div className="text-center py-20 relative z-10">
+            <div className={`w-32 h-32 ${bgClass} rounded-full flex items-center justify-center mx-auto mb-10 text-white shadow-2xl`}>
               <CheckCircle2 size={64} />
             </div>
-            <h3 className="text-4xl md:text-5xl font-black text-gray-800 uppercase tracking-tighter">{t('devis.form.success')}</h3>
-            <p className="text-gray-500 text-2xl mt-6 font-medium">We will get back to you shortly.</p>
+            <h3 className="text-3xl md:text-5xl font-black text-[#233B72] uppercase tracking-tighter mb-4">
+              {isFr ? "Demande envoyée !" : "Request sent!"}
+            </h3>
+            <p className="text-gray-500 text-xl font-medium">
+              {isFr ? "Notre équipe reviendra vers vous très prochainement." : "Our team will get back to you very soon."}
+            </p>
         </div>
     );
 }
