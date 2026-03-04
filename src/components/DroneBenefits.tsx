@@ -4,7 +4,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Hover3DCard } from './Hover3DCard';
 
 export default function DroneBenefits() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   // État pour gérer quel bloc est ouvert sur mobile (null = tous fermés)
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
@@ -61,15 +61,16 @@ export default function DroneBenefits() {
         <div className="text-center mb-12 md:mb-20">
           <div className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-[#233B72] font-black text-sm uppercase tracking-widest mb-6">
             <CheckCircle2 className="w-5 h-5 text-brand-orange-500" />
-            L'Avantage Ellipsys
+            {language === 'fr' ? "L'Avantage Ellipsys" : "The Ellipsys Advantage"}
           </div>
           
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-8 uppercase tracking-tighter text-[#233B72] leading-tight">
-            Pourquoi choisir le <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange-500 to-red-600">nettoyage par drone ?</span>
+            {language === 'fr' ? 'Pourquoi choisir le' : 'Why choose'} <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange-500 to-red-600">
+              {language === 'fr' ? 'nettoyage par drone ?' : 'drone cleaning?'}
+            </span>
           </h2>
           
-          {/* C'est ICI que j'ai enlevé le "max-w-3xl" et ajouté "w-full lg:text-2xl" */}
           <p
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed text-justify md:text-center w-full font-medium"
             dangerouslySetInnerHTML={{ __html: t('benefits.summary') }}
@@ -91,6 +92,8 @@ export default function DroneBenefits() {
                   <button
                     onClick={() => window.innerWidth < 768 && toggleBenefit(index)}
                     className="w-full flex items-center justify-between md:justify-start md:flex-col md:items-start p-6 md:p-10 text-left cursor-pointer md:cursor-default group focus:outline-none"
+                    aria-expanded={isExpanded}
+                    aria-label={language === 'fr' ? `Voir les détails pour ${benefit.title}` : `See details for ${benefit.title}`}
                   >
                     <div className="flex items-center gap-5 md:flex-col md:items-start md:gap-0 w-full">
                       <div 
