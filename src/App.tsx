@@ -24,14 +24,14 @@ export default function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const heroImages = [
-    { src: '/rony.jpg', alt: 'Expert drone Ellipsys' },
-    { src: '/ares.png', alt: 'Drone ARES' },
-    { src: '/abateur_de_frelons.png', alt: 'Abatteur de frelons' },
-    { src: '/rony2.jpg', alt: 'Expert drone en action' },
-    { src: '/chronos.jpg', alt: 'Drone Chronos' },
-    { src: '/rony4.jpg', alt: 'Expert drone Ellipsys' },
-    { src: '/chronos2.jpg', alt: 'Drone Chronos 2' },
-    { src: '/rony5.jpg', alt: 'Expert drone Ellipsys' }
+    { src: '/rony.jpg', alt: language === 'fr' ? 'Expert drone Ellipsys' : 'Ellipsys drone expert' },
+    { src: '/ares.png', alt: language === 'fr' ? 'Drone ARES' : 'ARES Drone' },
+    { src: '/abateur_de_frelons.png', alt: language === 'fr' ? 'Abatteur de frelons' : 'Hornet exterminator' },
+    { src: '/rony2.jpg', alt: language === 'fr' ? 'Expert drone en action' : 'Drone expert in action' },
+    { src: '/chronos.jpg', alt: language === 'fr' ? 'Drone Chronos' : 'Chronos Drone' },
+    { src: '/rony4.jpg', alt: language === 'fr' ? 'Expert drone Ellipsys' : 'Ellipsys drone expert' },
+    { src: '/chronos2.jpg', alt: language === 'fr' ? 'Drone Chronos 2' : 'Chronos 2 Drone' },
+    { src: '/rony5.jpg', alt: language === 'fr' ? 'Expert drone Ellipsys' : 'Ellipsys drone expert' }
   ];
 
   const testimonials = [
@@ -54,7 +54,6 @@ export default function App() {
   ];
 
   // Tableau détaillé pour la grille des prestations sur l'accueil
-  // AJOUT DES IMAGES ICI (correspondant aux couvertures des pages prestations)
   const homeServices = [
     { key: 'facade', link: '/prestations/nettoyage-facade', border: 'border-sky-500', image: '/ares.png' },
     { key: 'demoussage', link: '/prestations/demoussage', border: 'border-green-500', image: '/Demoussage drone 1.jpg' },
@@ -148,12 +147,10 @@ export default function App() {
 
         {/* SECTION PRESTATIONS */}
         <section className="py-16 px-4 bg-gradient-to-br from-sky-50 to-blue-50">
-          {/* C'est ICI que j'ai modifié la largeur maximale : max-w-[1400px] au lieu de max-w-7xl */}
           <div className="container mx-auto max-w-[1400px]">
             <h2 className="text-2xl md:text-5xl font-black mb-12 text-center text-[#233B72] uppercase tracking-tighter">
               {t('mainServices.title')}
             </h2>
-            {/* Grille maintenue à 5 colonnes */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
               {homeServices.map((service, i) => (
                 <ScrollReveal delay={0.1 * (i + 1)} key={service.key}>
@@ -196,20 +193,22 @@ export default function App() {
                 <div className="flex justify-center mb-3 text-orange-500">
                   {[...Array(5)].map((_, i) => <Star key={i} className="w-5 h-5 fill-current" />)}
                 </div>
-                <p className="text-gray-500 font-bold uppercase text-xs tracking-widest">98% satisfaction</p>
+                <p className="text-gray-500 font-bold uppercase text-xs tracking-widest">
+                  {language === 'fr' ? '98% satisfaction' : '98% satisfaction'}
+                </p>
               </div>
               <div className="flex-1 bg-white p-6 md:p-12 rounded-[2.5rem] shadow-2xl border border-gray-50 relative">
                 <p className="text-gray-700 md:text-xl italic mb-8 font-medium leading-relaxed">"{testimonials[currentTestimonial].text}"</p>
                 <div className="flex items-center">
-                  <img src={testimonials[currentTestimonial].image} className="w-16 h-16 rounded-full mr-4 object-cover ring-4 ring-slate-50" alt="client" />
+                  <img src={testimonials[currentTestimonial].image} className="w-16 h-16 rounded-full mr-4 object-cover ring-4 ring-slate-50" alt={language === 'fr' ? 'Client' : 'Client'} />
                   <div>
                     <div className="font-black text-[#233B72] text-lg">{testimonials[currentTestimonial].name}</div>
                     <div className="text-sm text-gray-400 font-bold uppercase tracking-widest">{testimonials[currentTestimonial].role}</div>
                   </div>
                 </div>
                 <div className="flex gap-4 mt-10">
-                  <button onClick={prevTestimonial} className="p-4 rounded-xl bg-slate-50 shadow-md hover:bg-[#233B72] hover:text-white transition-all text-[#233B72]"><ChevronLeft /></button>
-                  <button onClick={nextTestimonial} className="p-4 rounded-xl bg-slate-50 shadow-md hover:bg-[#233B72] hover:text-white transition-all text-[#233B72]"><ChevronRight /></button>
+                  <button onClick={prevTestimonial} aria-label={language === 'fr' ? 'Précédent' : 'Previous'} className="p-4 rounded-xl bg-slate-50 shadow-md hover:bg-[#233B72] hover:text-white transition-all text-[#233B72]"><ChevronLeft /></button>
+                  <button onClick={nextTestimonial} aria-label={language === 'fr' ? 'Suivant' : 'Next'} className="p-4 rounded-xl bg-slate-50 shadow-md hover:bg-[#233B72] hover:text-white transition-all text-[#233B72]"><ChevronRight /></button>
                 </div>
               </div>
             </div>
