@@ -93,7 +93,7 @@ export default function Thermographie() {
                 <div className="w-full bg-slate-50 p-4 flex justify-center items-center">
                   <img 
                     src="/thermoo1.png" 
-                    alt="Inspection thermographique" 
+                    alt={language === 'fr' ? 'Inspection thermographique' : 'Thermographic inspection'} 
                     className="w-full h-auto max-h-[600px] object-contain rounded-2xl shadow-sm hover:scale-[1.02] transition-transform duration-700" 
                   />
                 </div>
@@ -111,7 +111,7 @@ export default function Thermographie() {
                 <div className="w-full mb-10 bg-white flex justify-center items-center rounded-2xl overflow-hidden border border-gray-100 p-4">
                   <img 
                     src="/thermoo2.png" 
-                    alt="Équipement radiométrique" 
+                    alt={language === 'fr' ? 'Équipement radiométrique' : 'Radiometric equipment'} 
                     className="w-full h-auto max-h-[500px] object-contain hover:scale-[1.02] transition-transform duration-700" 
                   />
                 </div>
@@ -182,7 +182,7 @@ export default function Thermographie() {
                 <div className="w-full rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 bg-white p-4 md:p-8 flex justify-center items-center">
                   <img 
                     src="/thermoo3.png" 
-                    alt="Domaines d'intervention thermographique" 
+                    alt={language === 'fr' ? 'Domaines d\'intervention thermographique' : 'Thermography intervention areas'} 
                     className="w-full h-auto max-h-[600px] object-contain hover:scale-[1.02] transition-transform duration-700" 
                   />
                 </div>
@@ -243,7 +243,7 @@ export default function Thermographie() {
                 <div className="relative z-10 w-full rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 bg-white/5 flex justify-center items-center p-4">
                   <img 
                     src="/thermoo6.png" 
-                    alt="Analyse thermique" 
+                    alt={language === 'fr' ? 'Analyse thermique' : 'Thermal analysis'} 
                     className="w-full h-auto max-h-[600px] object-contain hover:scale-[1.02] transition-transform duration-700" 
                   />
                 </div>
@@ -257,7 +257,7 @@ export default function Thermographie() {
                 <div className="w-full bg-white flex justify-center items-center p-6 md:p-8">
                   <img 
                     src="/thermoo4.png" 
-                    alt="Sécurité et Homologation C5" 
+                    alt={language === 'fr' ? 'Sécurité et Homologation C5' : 'Safety and C5 Certification'} 
                     className="w-full h-auto max-h-[500px] object-contain hover:scale-[1.02] transition-transform duration-700" 
                   />
                 </div>
@@ -293,7 +293,7 @@ export default function Thermographie() {
                 <div className="w-full bg-slate-50 border-b border-gray-100 flex justify-center items-center p-6 md:p-8">
                   <img 
                     src="/thermoo5.png" 
-                    alt="Retour sur investissement thermographie" 
+                    alt={language === 'fr' ? 'Retour sur investissement thermographie' : 'Thermography return on investment'} 
                     className="w-full h-auto max-h-[500px] object-contain hover:scale-[1.02] transition-transform duration-700" 
                   />
                 </div>
@@ -356,11 +356,11 @@ export default function Thermographie() {
                 </h4>
                 <div className="space-y-6">
                   {[
-                    { icon: Camera, title: 'Résolution IR', val: '1280×1024' },
-                    { icon: Target, title: 'Zoom Max', val: 'x112' },
-                    { icon: MapPin, title: 'Précision', val: 'Centimétrique (RTK)' },
-                    { icon: ShieldCheck, title: 'Sécurité', val: 'Parachute (C5)' },
-                    { icon: Activity, title: 'Diagnostic', val: language === 'fr' ? 'Radiométrique' : 'Radiometric' }
+                    { icon: Camera, title: language === 'fr' ? 'Résolution IR' : 'IR Resolution', val: '1280×1024' },
+                    { icon: Target, title: language === 'fr' ? 'Zoom Max' : 'Max Zoom', val: 'x112' },
+                    { icon: MapPin, title: language === 'fr' ? 'Précision' : 'Accuracy', val: language === 'fr' ? 'Centimétrique (RTK)' : 'Centimetric (RTK)' },
+                    { icon: ShieldCheck, title: language === 'fr' ? 'Sécurité' : 'Safety', val: 'Parachute (C5)' },
+                    { icon: Activity, title: language === 'fr' ? 'Diagnostic' : 'Diagnostics', val: language === 'fr' ? 'Radiométrique' : 'Radiometric' }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center justify-between border-b border-gray-50 pb-4 last:border-0 last:pb-0">
                       <div className="flex items-center gap-4">
