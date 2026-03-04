@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, ArrowRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
 import { HeroCarousel } from '../components/HeroCarousel';
@@ -38,7 +38,7 @@ export default function Blog() {
       date: "15 Janv 2026",
       image: "rendement.png",
       excerpt: {
-        fr: "Ce n'est plus une estimation, mais une reality mesurée : l'accumulation de poussières fines crée un voile statique que la pluie ne peut rincer.",
+        fr: "Ce n'est plus une estimation, mais une réalité mesurée : l'accumulation de poussières fines crée un voile statique que la pluie ne peut rincer.",
         en: "It's no longer an estimate, but a measured reality: fine dust accumulation creates a static veil that rain cannot rinse away."
       },
       content: {
@@ -120,6 +120,123 @@ export default function Blog() {
           <div class="space-y-6 text-slate-700 leading-relaxed">
             <h3 class="text-2xl font-bold text-[#233B72]">Why does a facade turn red or black?</h3>
             <p>These colors are due to the proliferation of microorganisms feeding on moisture.</p>
+          </div>
+        `
+      }
+    },
+    // ---- NOUVEAUX ARTICLES ----
+    {
+      id: 5,
+      categoryKey: "technology",
+      title: {
+        fr: "Inspection Thermographique par Drone : Le futur de la maintenance",
+        en: "Drone Thermographic Inspection: The future of maintenance"
+      },
+      date: "05 Fév 2026",
+      image: "thermoo3.png", 
+      excerpt: {
+        fr: "Comment les caméras thermiques embarquées permettent d'anticiper les pannes sur les réseaux de chaleur et bâtiments industriels.",
+        en: "How embedded thermal cameras allow anticipating failures on heating networks and industrial buildings."
+      },
+      content: {
+        fr: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">La puissance de la radiométrie HD</h3>
+            <p>L'inspection traditionnelle à la caméra thermique manuelle prend un temps considérable. Le drone, équipé de capteurs haute résolution, scanne des toitures entières en quelques minutes. Les anomalies (ponts thermiques, fuites d'isolation, surchauffes) sont détectées instantanément et géolocalisées via RTK.</p>
+            <p>C'est un atout majeur pour cibler les travaux de rénovation énergétique sans perturber l'activité du site.</p>
+          </div>
+        `,
+        en: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">The power of HD radiometry</h3>
+            <p>Traditional inspection with a handheld thermal camera takes a considerable amount of time. The drone, equipped with high-resolution sensors, scans entire roofs in minutes. Anomalies (thermal bridges, insulation leaks, overheating) are instantly detected and geolocated via RTK.</p>
+          </div>
+        `
+      }
+    },
+    {
+      id: 6,
+      categoryKey: "tips",
+      title: {
+        fr: "Toiture envahie par la mousse : Quels sont les risques réels ?",
+        en: "Moss-invaded roof: What are the real risks?"
+      },
+      date: "12 Fév 2026",
+      image: "Demoussage drone 1.jpg", 
+      excerpt: {
+        fr: "Au-delà de l'aspect négligé, la mousse retient l'eau, gèle en hiver et finit par faire éclater vos tuiles. Explications.",
+        en: "Beyond the neglected look, moss retains water, freezes in winter and eventually shatters your tiles. Explanations."
+      },
+      content: {
+        fr: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">L'effet éponge destructeur</h3>
+            <p>La mousse n'est pas qu'un végétal inoffensif. Elle agit comme une éponge géante qui gorge vos tuiles ou vos ardoises d'humidité. Lorsque les températures chutent en dessous de zéro, cette eau gèle et se dilate, provoquant des micro-fissures puis l'éclatement des matériaux.</p>
+            <p>Un démoussage préventif par drone avec traitement hydrofuge prolonge la durée de vie de votre toiture de plusieurs décennies.</p>
+          </div>
+        `,
+        en: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">The destructive sponge effect</h3>
+            <p>Moss is not just a harmless plant. It acts like a giant sponge that soaks your tiles or slates with moisture. When temperatures drop below freezing, this water freezes and expands, causing micro-cracks and material shattering.</p>
+          </div>
+        `
+      }
+    },
+    {
+      id: 7,
+      categoryKey: "regulations",
+      title: {
+        fr: "La sécurité avant tout : Nos parachutes de drones certifiés C5",
+        en: "Safety first: Our C5 certified drone parachutes"
+      },
+      date: "22 Fév 2026",
+      image: "thermoo4.png", 
+      excerpt: {
+        fr: "Voler en ville ou au-dessus d'installations industrielles critiques exige un équipement de sécurité absolu. Focus sur la norme C5.",
+        en: "Flying in cities or over critical industrial facilities requires absolute safety equipment. Focus on the C5 standard."
+      },
+      content: {
+        fr: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">Pourquoi l'homologation C5 est cruciale</h3>
+            <p>Réaliser une prestation de nettoyage ou d'inspection par drone en agglomération n'est pas autorisé à n'importe qui. Nos drones lourds sont équipés de systèmes de parachutes à déclenchement automatique et crypté.</p>
+            <p>Cette technologie de pointe garantit une protection totale des personnes et des infrastructures situées sous l'appareil, répondant aux exigences les plus strictes de la DGAC.</p>
+          </div>
+        `,
+        en: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">Why C5 certification is crucial</h3>
+            <p>Performing a drone cleaning or inspection service in an urban area is not permitted for everyone. Our heavy drones are equipped with automatic and encrypted parachute systems.</p>
+          </div>
+        `
+      }
+    },
+    {
+      id: 8,
+      categoryKey: "technology",
+      title: {
+        fr: "Le nettoyage drone vs nacelle élévatrice : Le match des coûts",
+        en: "Drone cleaning vs Aerial platform: The cost match"
+      },
+      date: "01 Mars 2026",
+      image: "rony2.jpg", 
+      excerpt: {
+        fr: "Découvrez pourquoi faire appel à un drone pour l'entretien de vos bâtiments réduit vos coûts opérationnels de près de 40%.",
+        en: "Discover why using a drone for building maintenance reduces your operational costs by nearly 40%."
+      },
+      content: {
+        fr: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">Au-delà de la location de matériel</h3>
+            <p>Louer une nacelle nacelle ou installer un échafaudage coûte cher, bloque la voirie, demande des autorisations municipales et immobilise des équipes entières pendant des jours. Le nettoyage par drone supprime toutes ces contraintes.</p>
+            <p>Le temps d'intervention est divisé par trois, et le risque d'accident de travail (chute de hauteur) est réduit à zéro. Le calcul financier est sans appel pour les gestionnaires de parc immobilier.</p>
+          </div>
+        `,
+        en: `
+          <div class="space-y-6 text-slate-700 leading-relaxed">
+            <h3 class="text-2xl font-bold text-[#233B72]">Beyond equipment rental</h3>
+            <p>Renting a cherry picker or scaffolding is expensive, blocks roads, requires municipal permits, and ties up entire teams for days. Drone cleaning eliminates all these constraints.</p>
           </div>
         `
       }
