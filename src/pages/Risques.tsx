@@ -1,9 +1,9 @@
-import { ChevronRight, ShieldAlert, Scale, AlertTriangle, CheckCircle, ShieldCheck, Zap, Lock, Activity, Radar, ArrowRight, XCircle } from 'lucide-react';
+import React from 'react';
+import { ChevronRight, ShieldAlert, Scale, AlertTriangle, CheckCircle, ShieldCheck, Zap, Lock, Activity, Radar, ArrowRight, XCircle, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
 import { HeroCarousel } from '../components/HeroCarousel';
-import { Hover3DCard } from '../components/Hover3DCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 import Footer from '../components/Footer';
 
@@ -17,10 +17,10 @@ export default function Risques() {
       title: isFr ? 'Maîtrise des Risques Humains' : 'Human Risk Management',
       description: isFr ? "Neutraliser le risque de chute : La priorité absolue." : "Neutralize fall risks: The absolute priority.",
       icon: ShieldAlert,
-      image: '/ares.png', // Ajout d'image
+      image: '/ares.png',
       content: isFr 
-        ? "En application du Code du Travail (R4323-58), la priorité doit être donnée aux équipements de protection collective. Le drone n'est pas une alternative 'gadget', c'est le seul bouclier technologique qui supprime totalement l'exposition au vide."
-        : "Under labor regulations, collective protection equipment must take priority. The drone is not a 'gimmick' alternative, it's the only technological shield that completely eliminates exposure to heights.",
+        ? "En application du Code du Travail (R4323-58), la priorité doit être donnée aux équipements de protection collective. Le drone n'est pas une alternative 'gadget', c'est le seul bouclier technologique qui supprime totalement l'exposition au vide et protège vos équipes ainsi que les nôtres."
+        : "Under labor regulations, collective protection equipment must take priority. The drone is not a 'gimmick' alternative, it's the only technological shield that completely eliminates exposure to heights and protects your teams as well as ours.",
       items: [
         isFr ? 'Zéro personnel suspendu ou en nacelle' : 'Zero personnel suspended or in lifts',
         isFr ? 'Protection collective par technologie déportée' : 'Collective protection via remote tech',
@@ -35,10 +35,10 @@ export default function Risques() {
       title: isFr ? 'Sécurisation Juridique' : 'Legal Security',
       description: isFr ? "Syndics & industriels : votre responsabilité est engagée." : "Property managers & industrials: your liability is at stake.",
       icon: Scale,
-      image: '/regle.png', // Ajout d'image
+      image: '/regle.png', 
       content: isFr
-        ? "Nous ne livrons pas seulement une façade propre, nous livrons un dossier de conformité. Nous gérons l'intégralité des protocoles : déclarations préfectorales S1, S2, S3, accords avec la DGAC et autorisations de survol."
-        : "We don't just deliver a clean facade, we deliver a compliance file. We manage all protocols: S1, S2, S3 prefectural declarations, DGAC agreements and flight authorizations.",
+        ? "Nous ne livrons pas seulement une façade propre, nous livrons un dossier de conformité. Nous gérons l'intégralité des protocoles : déclarations préfectorales S1, S2, S3, accords avec la DGAC et autorisations de survol spécifiques."
+        : "We don't just deliver a clean facade, we deliver a compliance file. We manage all protocols: S1, S2, S3 prefectural declarations, DGAC agreements and specific flight authorizations.",
       items: [
         isFr ? 'Assurance RC Aérienne spécifique' : 'Specific Aerial Liability Insurance',
         isFr ? 'Conformité DGAC & Protocoles Préfectoraux' : 'DGAC Compliance & Prefectural Protocols',
@@ -73,12 +73,14 @@ export default function Risques() {
         <div className="container mx-auto px-4 py-3">
           <ol className="flex items-center gap-2 text-sm text-gray-500">
             <li>
-              <Link to="/" className="hover:text-[#1a2e5a] font-medium">{isFr ? "Accueil" : "Home"}</Link>
+              <Link to="/" className="hover:text-[#1a2e5a] font-medium">
+                {isFr ? "Accueil" : "Home"}
+              </Link>
             </li>
             <ChevronRight className="w-3 h-3" />
             <li>
               <span className="text-[#1a2e5a] font-bold uppercase tracking-tight">
-                {isFr ? "Risques & Légal" : "Risks & Legal"}
+                {isFr ? "Risques & Responsabilités" : "Risks & Liabilities"}
               </span>
             </li>
           </ol>
@@ -90,7 +92,9 @@ export default function Risques() {
         {/* INTRODUCTION */}
         <ScrollReveal>
           <div className="max-w-4xl mb-16 md:mb-24 text-center mx-auto">
-            <ShieldCheck className="w-16 h-16 text-[#e63946] mx-auto mb-6" />
+            <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner border border-red-100">
+              <ShieldCheck className="w-10 h-10 text-[#e63946]" />
+            </div>
             <h2 className="text-3xl md:text-5xl font-black text-[#1a2e5a] mb-6 leading-tight uppercase tracking-tighter italic">
               {isFr ? "\"Celui qui explique le risque inspire plus confiance que celui qui promet qu'il n'existe pas.\"" : "\"He who explains the risk inspires more trust than he who promises it doesn't exist.\""}
             </h2>
@@ -102,7 +106,7 @@ export default function Risques() {
           </div>
         </ScrollReveal>
 
-        {/* SECTIONS DE MAÎTRISE - NOUVEAU DESIGN */}
+        {/* SECTIONS DE MAÎTRISE - DESIGN AÉRÉ ET IMAGES NON COUPÉES */}
         <div className="space-y-16 md:space-y-24">
           {sections.map((section, index) => {
             const Icon = section.icon;
@@ -110,10 +114,10 @@ export default function Risques() {
 
             return (
               <ScrollReveal key={section.id} delay={0.1}>
-                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 items-center bg-white rounded-[3rem] p-6 md:p-10 shadow-xl border border-gray-100`}>
+                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 bg-white rounded-[3rem] p-6 md:p-10 shadow-xl border border-gray-100 overflow-hidden`}>
                   
                   {/* TEXTE */}
-                  <div className="w-full lg:w-1/2 space-y-6">
+                  <div className="w-full lg:w-1/2 space-y-6 flex flex-col justify-center">
                     <div className="flex items-center gap-4 mb-4">
                         <div className="p-3 rounded-2xl bg-slate-50 text-[#e63946] border border-gray-100 shadow-inner">
                             <Icon size={32} />
@@ -125,39 +129,44 @@ export default function Risques() {
                     <p className="text-[#e63946] font-black text-lg md:text-xl uppercase tracking-tight">
                       {section.description}
                     </p>
-                    <p className="text-gray-600 md:text-lg leading-relaxed font-medium">
+                    <p className="text-gray-600 text-lg leading-relaxed font-medium">
                       {section.content}
                     </p>
                     
-                    <div className="bg-slate-50 border border-slate-200 rounded-[2rem] p-6 mt-6">
-                      <ul className="space-y-3">
+                    <div className="bg-slate-50 border border-slate-200 rounded-[2rem] p-6 mt-6 shadow-sm">
+                      <ul className="space-y-4">
                         {section.items.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-3 text-gray-700 font-bold">
-                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                            <span>{item}</span>
+                            <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0" />
+                            <span className="mt-0.5">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  {/* IMAGE / VISUEL */}
-                  <div className="w-full lg:w-1/2 h-full min-h-[300px] relative rounded-[2rem] overflow-hidden group">
-                    <img 
-                      src={section.image} 
-                      alt={section.title} 
-                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e5a]/90 via-[#1a2e5a]/40 to-transparent flex flex-col justify-end p-8">
-                      <div className="flex items-center gap-3 mb-2">
-                        <Radar className="w-6 h-6 text-[#e63946]" />
-                        <h3 className="text-xl font-black text-white uppercase tracking-wider">{section.visualTitle}</h3>
+                  {/* IMAGE / VISUEL (Ajusté pour ne rien couper) */}
+                  <div className="w-full lg:w-1/2 flex flex-col">
+                    <div className="bg-slate-50 rounded-t-[2rem] border-x border-t border-gray-100 p-6 flex justify-center items-center flex-grow min-h-[300px]">
+                      <img 
+                        src={section.image} 
+                        alt={section.title} 
+                        className="w-full h-auto max-h-[400px] object-contain hover:scale-105 transition-transform duration-700" 
+                      />
+                    </div>
+                    <div className="bg-[#1a2e5a] rounded-b-[2rem] p-6 md:p-8 text-white relative overflow-hidden shadow-inner">
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-3 mb-2">
+                          <Radar className="w-6 h-6 text-[#e63946]" />
+                          <h3 className="text-xl font-black text-white uppercase tracking-wider">{section.visualTitle}</h3>
+                        </div>
+                        <p className="text-blue-100 text-sm mb-4 font-medium">{section.visualDesc}</p>
+                        <div className="inline-flex items-center px-3 py-1.5 bg-white/10 backdrop-blur-md rounded-lg border border-white/20 font-mono text-xs text-white uppercase tracking-widest">
+                          <Activity className="w-4 h-4 mr-2 text-green-400" />
+                          {section.visualDetail}
+                        </div>
                       </div>
-                      <p className="text-blue-100 text-sm mb-4 font-medium">{section.visualDesc}</p>
-                      <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-lg border border-white/30 font-mono text-[10px] text-white uppercase tracking-widest w-fit">
-                        <Activity className="w-3 h-3 inline mr-2 text-green-400" />
-                        {section.visualDetail}
-                      </div>
+                      <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-[80px]"></div>
                     </div>
                   </div>
 
@@ -169,42 +178,42 @@ export default function Risques() {
 
         {/* LIMITES TECHNIQUES */}
         <ScrollReveal delay={0.2}>
-          <section className="mt-24 bg-amber-50 rounded-[3rem] p-8 md:p-16 border border-amber-200 shadow-lg relative overflow-hidden">
-            <div className="absolute right-0 top-0 opacity-10 p-8 pointer-events-none">
-              <AlertTriangle size={150} className="text-amber-600" />
+          <section className="mt-24 bg-gradient-to-br from-amber-50 to-orange-50 rounded-[3rem] p-8 md:p-16 border border-amber-200 shadow-lg relative overflow-hidden">
+            <div className="absolute right-0 top-0 opacity-5 p-8 pointer-events-none">
+              <AlertTriangle size={200} className="text-amber-700" />
             </div>
             <div className="max-w-3xl relative z-10">
               <h2 className="text-2xl md:text-4xl font-black text-amber-900 mb-4 uppercase tracking-tighter">
                 {isFr ? "L'Honnêteté Technique : Savoir dire Non" : "Technical Honesty: Knowing when to say No"}
               </h2>
-              <p className="text-lg text-amber-800 font-bold mb-8">
+              <p className="text-lg md:text-xl text-amber-800 font-bold mb-8 italic">
                 {isFr ? "La confiance naît de la rigueur, pas des promesses intenables." : "Trust is born from rigor, not from untenable promises."}
               </p>
-              <p className="text-gray-700 font-medium mb-8 leading-relaxed">
+              <p className="text-gray-700 font-medium mb-10 leading-relaxed text-lg">
                 {isFr 
                   ? "Le drone est une solution d'excellence, mais elle possède des contre-indications. Si le vent dépasse 30 km/h, si le support est trop abîmé, ou si la zone d'exclusion aérienne l'interdit, nous préconisons d'autres méthodes." 
                   : "The drone is an excellent solution, but it has contraindications. If the wind exceeds 30 km/h, if the surface is too damaged, or if the no-fly zone prohibits it, we recommend other methods."}
               </p>
               <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl text-sm font-bold text-gray-700 border border-amber-200">
-                  <Zap className="w-4 h-4 text-amber-500" /> {isFr ? "Vent < 30km/h" : "Wind < 30km/h"}
+                <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-2xl text-sm font-black text-gray-700 border border-amber-200 shadow-sm">
+                  <Zap className="w-5 h-5 text-amber-500" /> {isFr ? "Vent < 30km/h" : "Wind < 30km/h"}
                 </div>
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl text-sm font-bold text-gray-700 border border-amber-200">
-                  <MapPin className="w-4 h-4 text-amber-500" /> {isFr ? "Analyse No-Fly Zone" : "No-Fly Zone Analysis"}
+                <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-2xl text-sm font-black text-gray-700 border border-amber-200 shadow-sm">
+                  <MapPin className="w-5 h-5 text-amber-500" /> {isFr ? "Analyse No-Fly Zone" : "No-Fly Zone Analysis"}
                 </div>
               </div>
             </div>
           </section>
         </ScrollReveal>
 
-        {/* TABLEAU COMPARATIF AMÉLIORÉ */}
+        {/* TABLEAU COMPARATIF AMÉLIORÉ ET 100% BILINGUE */}
         <ScrollReveal>
             <div className="mt-24 max-w-5xl mx-auto">
                 <h2 className="text-3xl md:text-5xl font-black text-[#1a2e5a] mb-12 text-center uppercase tracking-tighter">
                   {isFr ? 'Drone vs Traditionnel : Gestion des risques' : 'Drone vs Traditional: Risk Management'}
                 </h2>
-                <div className="overflow-hidden rounded-[2.5rem] border border-gray-200 shadow-2xl bg-white">
-                    <table className="w-full text-left border-collapse">
+                <div className="overflow-x-auto rounded-[2.5rem] border border-gray-200 shadow-2xl bg-white">
+                    <table className="w-full text-left border-collapse min-w-[600px]">
                         <thead className="bg-[#1a2e5a] text-white">
                             <tr>
                                 <th className="p-6 md:p-8 font-black uppercase text-xs md:text-sm tracking-[0.2em] w-1/3">
@@ -243,11 +252,17 @@ export default function Risques() {
                             ].map((row, i) => (
                               <tr key={i} className="border-b border-gray-100 hover:bg-slate-50 transition-colors">
                                 <td className="p-6 md:p-8 font-black text-[#1a2e5a] uppercase tracking-tight">{row.label}</td>
-                                <td className="p-6 md:p-8 text-gray-500 font-medium border-l border-gray-100 flex items-center gap-2">
-                                  <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" /> {row.trad}
+                                <td className="p-6 md:p-8 text-gray-500 font-medium border-l border-gray-100">
+                                  <div className="flex items-start gap-3">
+                                    <XCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" /> 
+                                    <span>{row.trad}</span>
+                                  </div>
                                 </td>
-                                <td className="p-6 md:p-8 font-black text-green-700 bg-green-50/50 border-l border-gray-100 flex items-center gap-2">
-                                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" /> {row.drone}
+                                <td className="p-6 md:p-8 font-black text-green-700 bg-green-50/50 border-l border-gray-100">
+                                  <div className="flex items-start gap-3">
+                                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" /> 
+                                    <span>{row.drone}</span>
+                                  </div>
                                 </td>
                               </tr>
                             ))}
@@ -271,7 +286,7 @@ export default function Risques() {
                 ? "Nous étudions votre bâtiment pour confirmer si le drone est la solution la plus sûre pour votre projet." 
                 : "We study your building to confirm if the drone is the safest solution for your project."}
             </p>
-            <Link to="/devis" className="inline-flex items-center gap-3 bg-[#e63946] text-white px-10 md:px-12 py-5 rounded-2xl font-black hover:scale-105 transition-all shadow-2xl text-lg md:text-xl uppercase tracking-widest">
+            <Link to="/devis" className="inline-flex items-center gap-3 bg-[#e63946] hover:bg-red-500 text-white px-10 md:px-12 py-5 rounded-2xl font-black hover:scale-105 transition-all shadow-2xl text-lg md:text-xl uppercase tracking-widest">
               {isFr ? "Demander mon audit gratuit" : "Request my free audit"}
               <ArrowRight className="w-6 h-6" />
             </Link>
