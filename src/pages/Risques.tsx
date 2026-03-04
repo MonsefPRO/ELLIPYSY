@@ -1,4 +1,4 @@
-import { ChevronRight, ShieldAlert, Scale, AlertTriangle, CheckCircle, ShieldCheck, Zap, Lock, Activity, Radar } from 'lucide-react';
+import { ChevronRight, ShieldAlert, Scale, AlertTriangle, CheckCircle, ShieldCheck, Zap, Lock, Activity, Radar, ArrowRight, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import Header from '../components/Header';
@@ -8,59 +8,45 @@ import { ScrollReveal } from '../components/ScrollReveal';
 import Footer from '../components/Footer';
 
 export default function Risques() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isFr = language === 'fr';
 
   const sections = [
     {
       id: 'securite-humaine',
-      title: t('risques.title1') || 'Maîtrise des Risques Humains & EPC',
-      description: t('risques.desc1') || "Neutraliser le risque de chute : La priorité absolue du donneur d'ordre.",
+      title: isFr ? 'Maîtrise des Risques Humains' : 'Human Risk Management',
+      description: isFr ? "Neutraliser le risque de chute : La priorité absolue." : "Neutralize fall risks: The absolute priority.",
       icon: ShieldAlert,
-      content: t('risques.content1') || `En application du Code du Travail (R4323-58), la priorité doit être donnée aux équipements de protection collective. Le drone n'est pas une alternative 'gadget', c'est le seul bouclier technologique qui supprime totalement l'exposition au vide.`,
+      image: '/ares.png', // Ajout d'image
+      content: isFr 
+        ? "En application du Code du Travail (R4323-58), la priorité doit être donnée aux équipements de protection collective. Le drone n'est pas une alternative 'gadget', c'est le seul bouclier technologique qui supprime totalement l'exposition au vide."
+        : "Under labor regulations, collective protection equipment must take priority. The drone is not a 'gimmick' alternative, it's the only technological shield that completely eliminates exposure to heights.",
       items: [
-        t('benefits.safety.title'),
-        t('risques.item1_2') || 'Protection collective par technologie déportée',
-        t('risques.item1_3') || 'Réduction drastique de la pénibilité (TMS)',
-        t('risques.item1_4') || 'Zéro personnel suspendu ou en nacelle'
+        isFr ? 'Zéro personnel suspendu ou en nacelle' : 'Zero personnel suspended or in lifts',
+        isFr ? 'Protection collective par technologie déportée' : 'Collective protection via remote tech',
+        isFr ? 'Réduction drastique de la pénibilité (TMS)' : 'Drastic reduction of physical strain'
       ],
-      visualTitle: t('risques.vTitle1') || "Bulle de Sécurité Active",
-      visualDesc: t('risques.vDesc1') || "Zone 100% hermétique aux tiers durant l'intervention.",
-      visualIcon: Radar,
-      visualDetail: <div className="mt-4 flex items-center gap-2 text-green-400 font-mono text-xs"><Activity size={Activity} /> {t('risques.vDetail1') || 'SCANNER_SOL: ACTIF'}</div>
+      visualTitle: isFr ? "Bulle de Sécurité" : "Safety Bubble",
+      visualDesc: isFr ? "Zone 100% hermétique aux tiers durant l'intervention." : "100% airtight zone for third parties during operation.",
+      visualDetail: isFr ? 'SCANNER_SOL: ACTIF' : 'GROUND_SCAN: ACTIVE'
     },
     {
       id: 'cadre-juridique',
-      title: t('risques.title2') || 'Sécurisation de votre Position Juridique',
-      description: t('risques.desc2') || "Syndics, foncières et industriels : votre responsabilité civile et pénale est engagée.",
+      title: isFr ? 'Sécurisation Juridique' : 'Legal Security',
+      description: isFr ? "Syndics & industriels : votre responsabilité est engagée." : "Property managers & industrials: your liability is at stake.",
       icon: Scale,
-      content: t('risques.content2') || `Nous ne livrons pas seulement une façade propre, nous livrons un dossier de conformité. Nous gérons l'intégralité des protocoles : déclarations préfectorales S1, S2, S3, accords avec la DGAC.`,
+      image: '/regle.png', // Ajout d'image
+      content: isFr
+        ? "Nous ne livrons pas seulement une façade propre, nous livrons un dossier de conformité. Nous gérons l'intégralité des protocoles : déclarations préfectorales S1, S2, S3, accords avec la DGAC et autorisations de survol."
+        : "We don't just deliver a clean facade, we deliver a compliance file. We manage all protocols: S1, S2, S3 prefectural declarations, DGAC agreements and flight authorizations.",
       items: [
-        t('risques.item2_1') || 'Assurance RC Aérienne spécifique (hors standard)',
-        t('risques.item2_2') || 'Conformité DGAC & Protocoles Préfectoraux',
-        t('risques.item2_3') || 'Dossier de levée de risques complet',
-        t('risques.item2_4') || 'Traçabilité et archivage post-intervention'
+        isFr ? 'Assurance RC Aérienne spécifique' : 'Specific Aerial Liability Insurance',
+        isFr ? 'Conformité DGAC & Protocoles Préfectoraux' : 'DGAC Compliance & Prefectural Protocols',
+        isFr ? 'Dossier de levée de risques complet' : 'Comprehensive risk assessment file'
       ],
-      visualTitle: t('risques.vTitle2') || "Dossier de Diligence",
-      visualDesc: t('risques.vDesc2') || "Accès aux protocoles S1-S2-S3 et attestations RC Pro Aérienne.",
-      visualIcon: Lock,
-      visualDetail: <div className="mt-4 p-2 bg-white/10 rounded border border-white/20 font-mono text-[10px] text-blue-200 uppercase tracking-widest">{t('risques.vDetail2') || 'Auth_DGAC: Validé'}</div>
-    },
-    {
-      id: 'limites-techniques',
-      title: t('risques.title3') || 'L\'Honnêteté Technique : Savoir dire Non',
-      description: t('risques.desc3') || "La confiance naît de la rigueur, pas des promesses intenables.",
-      icon: AlertTriangle,
-      content: t('risques.content3') || `Le drone est une solution d'excellence, mais elle possède des contre-indications. Si le vent dépasse 30 km/h, nous préconisons d'autres méthodes.`,
-      items: [
-        t('risques.item3_1') || 'Seuil météo strict (Vent < 30km/h)',
-        t('risques.item3_2') || 'Diagnostic de porosité préalable',
-        t('risques.item3_3') || 'Analyse No-Fly Zone (Zone d\'exclusion)',
-        t('risques.item3_4') || 'Validation d\'intégrité du support'
-      ],
-      visualTitle: t('risques.vTitle3') || "Télémétrie Météo",
-      visualDesc: t('risques.vDesc3') || "Monitoring temps réel des conditions de vol.",
-      visualIcon: Zap,
-      visualDetail: <div className="mt-4 flex gap-2"><span className="text-[10px] font-bold px-2 py-1 bg-yellow-500/20 text-yellow-400 rounded border border-yellow-500/30 uppercase">Vent: 22km/h</span><span className="text-[10px] font-bold px-2 py-1 bg-green-500/20 text-green-400 rounded border border-green-500/30 uppercase">Statut: OK</span></div>
+      visualTitle: isFr ? "Dossier de Diligence" : "Due Diligence File",
+      visualDesc: isFr ? "Accès aux protocoles S1-S3 et attestations RC Pro." : "Access to S1-S3 protocols and liability certificates.",
+      visualDetail: isFr ? 'Auth_DGAC: Validé' : 'DGAC_Auth: Approved'
     }
   ];
 
@@ -71,70 +57,83 @@ export default function Risques() {
       {/* HERO SECTION */}
       <section className="relative pt-20 overflow-hidden flex items-center h-[300px] md:h-[450px]">
         <HeroCarousel />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a2e5a]/80 via-[#1a2e5a]/60 to-black/70 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a2e5a]/90 via-[#1a2e5a]/80 to-black/80 z-10"></div>
         <div className="relative z-20 w-full text-center px-4">
           <h1 className="text-3xl md:text-6xl font-black mb-3 drop-shadow-2xl text-white uppercase tracking-tighter">
-            {t('risques.title')}
+            {isFr ? "Risques & Cadre Légal" : "Risks & Legal Framework"}
           </h1>
           <p className="text-lg md:text-2xl drop-shadow-lg font-bold text-blue-200 italic uppercase tracking-wider">
-            {t('risques.subtitle')}
+            {isFr ? "La sécurité n'est pas une option, c'est la règle." : "Safety is not an option, it's the rule."}
           </p>
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8 md:py-16 max-w-7xl">
-        <nav className="hidden sm:flex items-center space-x-2 text-sm text-gray-500 mb-8 md:mb-12">
-          <Link to="/" className="hover:text-[#1a2e5a]">{t('nav.home')}</Link>
-          <ChevronRight className="w-4 h-4" />
-          <span className="text-[#1a2e5a] font-black uppercase tracking-tight">{t('risques.title')}</span>
-        </nav>
+      {/* BREADCRUMB */}
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li>
+              <Link to="/" className="hover:text-[#1a2e5a] font-medium">{isFr ? "Accueil" : "Home"}</Link>
+            </li>
+            <ChevronRight className="w-3 h-3" />
+            <li>
+              <span className="text-[#1a2e5a] font-bold uppercase tracking-tight">
+                {isFr ? "Risques & Légal" : "Risks & Legal"}
+              </span>
+            </li>
+          </ol>
+        </div>
+      </nav>
 
+      <div className="container mx-auto px-4 py-12 md:py-20 max-w-7xl">
+        
+        {/* INTRODUCTION */}
         <ScrollReveal>
-          <div className="max-w-4xl mb-16 md:mb-24">
+          <div className="max-w-4xl mb-16 md:mb-24 text-center mx-auto">
+            <ShieldCheck className="w-16 h-16 text-[#e63946] mx-auto mb-6" />
             <h2 className="text-3xl md:text-5xl font-black text-[#1a2e5a] mb-6 leading-tight uppercase tracking-tighter italic">
-              {t('risques.quote') || "\"Celui qui explique le risque inspire plus confiance que celui qui promet qu'il n'existe pas.\""}
+              {isFr ? "\"Celui qui explique le risque inspire plus confiance que celui qui promet qu'il n'existe pas.\"" : "\"He who explains the risk inspires more trust than he who promises it doesn't exist.\""}
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 leading-relaxed text-justify font-medium">
-              {t('risques.intro') || "Le nettoyage de façade par drone n'est pas une simple innovation, c'est une stratégie de réduction des risques industriels."}
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium">
+              {isFr 
+                ? "Le nettoyage technique par drone n'est pas une simple innovation, c'est une stratégie redoutable de réduction des risques industriels et d'accidents du travail." 
+                : "Technical drone cleaning is not a simple innovation, it is a formidable strategy for reducing industrial risks and workplace accidents."}
             </p>
           </div>
         </ScrollReveal>
 
-        {/* SECTIONS DE MAÎTRISE */}
-        <div className="space-y-16 md:space-y-32">
+        {/* SECTIONS DE MAÎTRISE - NOUVEAU DESIGN */}
+        <div className="space-y-16 md:space-y-24">
           {sections.map((section, index) => {
             const Icon = section.icon;
-            const VisualIcon = section.visualIcon;
             const isEven = index % 2 === 0;
 
             return (
               <ScrollReveal key={section.id} delay={0.1}>
-                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
+                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-10 lg:gap-16 items-center bg-white rounded-[3rem] p-6 md:p-10 shadow-xl border border-gray-100`}>
+                  
+                  {/* TEXTE */}
                   <div className="w-full lg:w-1/2 space-y-6">
-                    <div className="flex items-center gap-4 mb-2">
-                        <div className="p-3 rounded-xl bg-white shadow-xl text-[#e63946] border border-gray-100">
+                    <div className="flex items-center gap-4 mb-4">
+                        <div className="p-3 rounded-2xl bg-slate-50 text-[#e63946] border border-gray-100 shadow-inner">
                             <Icon size={32} />
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-black text-[#1a2e5a] uppercase tracking-tighter">
+                        <h2 className="text-2xl md:text-3xl font-black text-[#1a2e5a] uppercase tracking-tighter leading-none">
                             {section.title}
                         </h2>
                     </div>
-                    <p className="text-[#1a2e5a] font-black text-lg md:text-xl leading-relaxed italic border-l-4 border-[#e63946] pl-4 uppercase tracking-tight">
+                    <p className="text-[#e63946] font-black text-lg md:text-xl uppercase tracking-tight">
                       {section.description}
                     </p>
-                    <p className="text-gray-600 text-sm md:text-lg leading-relaxed text-justify font-medium">
+                    <p className="text-gray-600 md:text-lg leading-relaxed font-medium">
                       {section.content}
                     </p>
                     
-                    <div className="bg-white border-2 border-slate-100 rounded-[2rem] p-6 md:p-8 shadow-xl">
-                      <h3 className="font-black text-[#1a2e5a] mb-6 flex items-center gap-2 text-sm md:text-base uppercase tracking-widest">
-                        <CheckCircle size={20} className="text-green-600" />
-                        {t('valeurs.whyChoose.subtitle') || 'Engagements Ellipsys :'}
-                      </h3>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+                    <div className="bg-slate-50 border border-slate-200 rounded-[2rem] p-6 mt-6">
+                      <ul className="space-y-3">
                         {section.items.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-gray-700 font-bold">
-                            <span className="text-[#e63946] font-black">✓</span>
+                          <li key={idx} className="flex items-start gap-3 text-gray-700 font-bold">
+                            <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -142,50 +141,114 @@ export default function Risques() {
                     </div>
                   </div>
 
-                  {/* CARTE VISUELLE TECHNIQUE */}
-                  <div className="w-full lg:w-1/2">
-                    <Hover3DCard className="bg-[#1a2e5a] rounded-[3rem] p-10 md:p-16 text-white shadow-2xl relative overflow-hidden border border-white/10 group">
-                        <div className="relative z-10">
-                            <VisualIcon size={48} className="mb-6 text-[#e63946] group-hover:scale-110 transition-transform duration-500" />
-                            <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter italic">{section.visualTitle}</h3>
-                            <p className="text-blue-100/70 mb-4 text-lg leading-relaxed font-medium">{section.visualDesc}</p>
-                            {section.visualDetail}
-                        </div>
-                        <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-white/5 rounded-full blur-[100px]"></div>
-                    </Hover3DCard>
+                  {/* IMAGE / VISUEL */}
+                  <div className="w-full lg:w-1/2 h-full min-h-[300px] relative rounded-[2rem] overflow-hidden group">
+                    <img 
+                      src={section.image} 
+                      alt={section.title} 
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e5a]/90 via-[#1a2e5a]/40 to-transparent flex flex-col justify-end p-8">
+                      <div className="flex items-center gap-3 mb-2">
+                        <Radar className="w-6 h-6 text-[#e63946]" />
+                        <h3 className="text-xl font-black text-white uppercase tracking-wider">{section.visualTitle}</h3>
+                      </div>
+                      <p className="text-blue-100 text-sm mb-4 font-medium">{section.visualDesc}</p>
+                      <div className="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-lg border border-white/30 font-mono text-[10px] text-white uppercase tracking-widest w-fit">
+                        <Activity className="w-3 h-3 inline mr-2 text-green-400" />
+                        {section.visualDetail}
+                      </div>
+                    </div>
                   </div>
+
                 </div>
               </ScrollReveal>
             );
           })}
         </div>
 
-        {/* TABLEAU COMPARATIF */}
+        {/* LIMITES TECHNIQUES */}
+        <ScrollReveal delay={0.2}>
+          <section className="mt-24 bg-amber-50 rounded-[3rem] p-8 md:p-16 border border-amber-200 shadow-lg relative overflow-hidden">
+            <div className="absolute right-0 top-0 opacity-10 p-8 pointer-events-none">
+              <AlertTriangle size={150} className="text-amber-600" />
+            </div>
+            <div className="max-w-3xl relative z-10">
+              <h2 className="text-2xl md:text-4xl font-black text-amber-900 mb-4 uppercase tracking-tighter">
+                {isFr ? "L'Honnêteté Technique : Savoir dire Non" : "Technical Honesty: Knowing when to say No"}
+              </h2>
+              <p className="text-lg text-amber-800 font-bold mb-8">
+                {isFr ? "La confiance naît de la rigueur, pas des promesses intenables." : "Trust is born from rigor, not from untenable promises."}
+              </p>
+              <p className="text-gray-700 font-medium mb-8 leading-relaxed">
+                {isFr 
+                  ? "Le drone est une solution d'excellence, mais elle possède des contre-indications. Si le vent dépasse 30 km/h, si le support est trop abîmé, ou si la zone d'exclusion aérienne l'interdit, nous préconisons d'autres méthodes." 
+                  : "The drone is an excellent solution, but it has contraindications. If the wind exceeds 30 km/h, if the surface is too damaged, or if the no-fly zone prohibits it, we recommend other methods."}
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl text-sm font-bold text-gray-700 border border-amber-200">
+                  <Zap className="w-4 h-4 text-amber-500" /> {isFr ? "Vent < 30km/h" : "Wind < 30km/h"}
+                </div>
+                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-xl text-sm font-bold text-gray-700 border border-amber-200">
+                  <MapPin className="w-4 h-4 text-amber-500" /> {isFr ? "Analyse No-Fly Zone" : "No-Fly Zone Analysis"}
+                </div>
+              </div>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* TABLEAU COMPARATIF AMÉLIORÉ */}
         <ScrollReveal>
-            <div className="mt-32 max-w-5xl mx-auto">
+            <div className="mt-24 max-w-5xl mx-auto">
                 <h2 className="text-3xl md:text-5xl font-black text-[#1a2e5a] mb-12 text-center uppercase tracking-tighter">
-                  {t('risques.compareTitle') || 'Drone vs Traditionnel : Gestion des risques'}
+                  {isFr ? 'Drone vs Traditionnel : Gestion des risques' : 'Drone vs Traditional: Risk Management'}
                 </h2>
-                <div className="overflow-hidden rounded-[2.5rem] border-4 border-slate-100 shadow-2xl bg-white">
+                <div className="overflow-hidden rounded-[2.5rem] border border-gray-200 shadow-2xl bg-white">
                     <table className="w-full text-left border-collapse">
                         <thead className="bg-[#1a2e5a] text-white">
                             <tr>
-                                <th className="p-8 font-black uppercase text-xs tracking-[0.2em]">{t('risques.tableCol1') || 'Risques'}</th>
-                                <th className="p-8 font-black uppercase text-xs tracking-[0.2em] text-blue-200">{t('risques.tableCol2') || 'Méthodes Classiques'}</th>
-                                <th className="p-8 font-black uppercase text-xs tracking-[0.2em] bg-red-600/20">{t('risques.tableCol3') || 'Solution Drone'}</th>
+                                <th className="p-6 md:p-8 font-black uppercase text-xs md:text-sm tracking-[0.2em] w-1/3">
+                                  {isFr ? 'Risques' : 'Risks'}
+                                </th>
+                                <th className="p-6 md:p-8 font-black uppercase text-xs md:text-sm tracking-[0.2em] text-blue-200 w-1/3 border-l border-white/10">
+                                  {isFr ? 'Méthodes Classiques' : 'Classic Methods'}
+                                </th>
+                                <th className="p-6 md:p-8 font-black uppercase text-xs md:text-sm tracking-[0.2em] bg-green-600/20 w-1/3 border-l border-white/10">
+                                  {isFr ? 'Solution Drone' : 'Drone Solution'}
+                                </th>
                             </tr>
                         </thead>
-                        <tbody className="text-sm md:text-lg">
+                        <tbody className="text-sm md:text-base">
                             {[
-                              { label: "Fall from height", trad: "Major risk (High exposure)", drone: "Risk eliminated (Ground based)" },
-                              { label: "Surface damage", trad: "Impact risk (Scaffolding)", drone: "Zero physical contact" },
-                              { label: "Security / Intrusion", trad: "Permanent structures", drone: "No fixed access points" },
-                              { label: "Operation continuity", trad: "Long term disruptions", drone: "Fast & discreet (Hours)" }
+                              { 
+                                label: isFr ? "Chute de hauteur" : "Fall from height", 
+                                trad: isFr ? "Risque majeur (Échafaudage/Nacelle)" : "Major risk (Scaffolding/Lift)", 
+                                drone: isFr ? "Risque éliminé (Opérateur au sol)" : "Risk eliminated (Ground operator)" 
+                              },
+                              { 
+                                label: isFr ? "Dégradation du bâti" : "Surface damage", 
+                                trad: isFr ? "Risque d'impact (Ancrages, frottements)" : "Impact risk (Anchors, friction)", 
+                                drone: isFr ? "Zéro contact physique" : "Zero physical contact" 
+                              },
+                              { 
+                                label: isFr ? "Sécurité / Intrusion" : "Security / Intrusion", 
+                                trad: isFr ? "Facilite l'accès aux balcons/fenêtres" : "Eases access to balconies/windows", 
+                                drone: isFr ? "Aucune structure d'accès fixe" : "No fixed access structures" 
+                              },
+                              { 
+                                label: isFr ? "Continuité d'activité" : "Operation continuity", 
+                                trad: isFr ? "Gêne longue (Bruit, blocage accès)" : "Long term disruptions (Noise, access)", 
+                                drone: isFr ? "Rapide et discret (Quelques heures)" : "Fast & discreet (A few hours)" 
+                              }
                             ].map((row, i) => (
-                              <tr key={i} className="border-b border-slate-50 hover:bg-slate-50 transition-colors">
-                                <td className="p-8 font-black text-[#1a2e5a] uppercase text-sm tracking-tight">{row.label}</td>
-                                <td className="p-8 text-gray-500 italic font-medium">{row.trad}</td>
-                                <td className="p-8 font-black text-green-700 bg-green-50/30">{row.drone}</td>
+                              <tr key={i} className="border-b border-gray-100 hover:bg-slate-50 transition-colors">
+                                <td className="p-6 md:p-8 font-black text-[#1a2e5a] uppercase tracking-tight">{row.label}</td>
+                                <td className="p-6 md:p-8 text-gray-500 font-medium border-l border-gray-100 flex items-center gap-2">
+                                  <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" /> {row.trad}
+                                </td>
+                                <td className="p-6 md:p-8 font-black text-green-700 bg-green-50/50 border-l border-gray-100 flex items-center gap-2">
+                                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" /> {row.drone}
+                                </td>
                               </tr>
                             ))}
                         </tbody>
@@ -195,19 +258,24 @@ export default function Risques() {
         </ScrollReveal>
 
         {/* CTA FINAL AUDIT */}
-        <div className="mt-32 bg-[#1a2e5a] rounded-[4rem] p-10 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+        <div className="mt-32 bg-gradient-to-br from-[#1a2e5a] to-blue-900 rounded-[4rem] p-10 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+          <div className="absolute right-0 top-0 opacity-10 pointer-events-none">
+            <ShieldCheck size={400} />
+          </div>
           <div className="relative z-10">
-            <ShieldCheck className="w-20 h-20 mx-auto mb-10 text-[#e63946]" />
-            <h2 className="text-3xl md:text-6xl font-black mb-8 tracking-tighter uppercase italic">{t('risques.ctaTitle') || 'Besoin d\'un audit de risque ?'}</h2>
+            <h2 className="text-3xl md:text-5xl font-black mb-8 tracking-tighter uppercase italic">
+              {isFr ? "Besoin d'un audit de risque ?" : "Need a risk audit?"}
+            </h2>
             <p className="text-lg md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto font-medium leading-relaxed">
-              {t('risques.ctaSubtitle') || "Nous étudions votre bâtiment pour confirmer si le drone est la solution la plus sûre pour votre projet."}
+              {isFr 
+                ? "Nous étudions votre bâtiment pour confirmer si le drone est la solution la plus sûre pour votre projet." 
+                : "We study your building to confirm if the drone is the safest solution for your project."}
             </p>
-            <Link to="/devis" className="inline-flex items-center gap-3 bg-[#e63946] text-white px-12 py-6 rounded-2xl font-black hover:scale-105 transition-all shadow-2xl text-xl uppercase tracking-widest">
-              {t('risques.cta') || 'Demander mon audit gratuit'}
-              <ChevronRight className="w-6 h-6" />
+            <Link to="/devis" className="inline-flex items-center gap-3 bg-[#e63946] text-white px-10 md:px-12 py-5 rounded-2xl font-black hover:scale-105 transition-all shadow-2xl text-lg md:text-xl uppercase tracking-widest">
+              {isFr ? "Demander mon audit gratuit" : "Request my free audit"}
+              <ArrowRight className="w-6 h-6" />
             </Link>
           </div>
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
         </div>
       </div>
       <Footer />
