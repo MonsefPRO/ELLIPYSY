@@ -75,12 +75,12 @@ export default function Demoussage() {
                   <p>
                     {language === 'fr' 
                       ? "Mousses, lichens et champignons ne sont pas qu'un problème esthétique. Leurs micro-racines s'infiltrent dans les tuiles et les rendent poreuses. En hiver, l'eau gorgée dans la mousse gèle, fait éclater la tuile et provoque des infiltrations graves dans votre charpente."
-                      : "Moss, lichens and fungi are not just an aesthetic problem. Their micro-roots infiltrate the tiles and make them porous. In winter, this causes tiles to crack and leads to severe leaks."}
+                      : "Moss, lichens and fungi are not just an aesthetic problem. Their micro-roots infiltrate the tiles and make them porous. In winter, water soaked in the moss freezes, causing tiles to crack and leading to severe leaks in your roof structure."}
                   </p>
                   <p>
                     {language === 'fr'
-                      ? "Le nettoyage manuel est risqué : marcher sur un toit ancien garantit presque toujours la casse de plusieurs tuiles. Ellipsys Solutions élimine ce risque à 100%. Nos drones pulvérisent à basse pression des traitements curatifs et préventifs (gamme Ecolab) directement depuis les airs. C'est plus rapide, ultra-efficace, et totalement sûr pour votre toiture et pour les humains."
-                      : "Manual cleaning is risky: walking on an old roof almost always breaks tiles. Ellipsys eliminates this risk 100%. Our drones spray curative and preventive treatments (Ecolab) at low pressure. It's faster, highly effective, and completely safe."}
+                      ? "Le nettoyage manuel est risqué : marcher sur un toit ancien garantit presque toujours la casse de plusieurs tuiles. Ellipsys Solutions élimine ce risque à 100%. Nos drones pulvérisent à basse pression des traitements curatifs et préventifs directement depuis les airs. C'est plus rapide, ultra-efficace, et totalement sûr pour votre toiture."
+                      : "Manual cleaning is risky: walking on an old roof almost always breaks tiles. Ellipsys eliminates this risk 100%. Our drones spray curative and preventive treatments at low pressure directly from the air. It's faster, highly effective, and completely safe for your roof."}
                   </p>
                 </div>
               </section>
@@ -89,10 +89,10 @@ export default function Demoussage() {
             {/* Box Alerte Vitale - Les Dangers de la Mousse */}
             <ScrollReveal delay={0.1}>
               <section className="bg-amber-50 rounded-[2.5rem] p-8 md:p-10 border border-amber-200 shadow-sm relative overflow-hidden">
-                <div className="absolute right-0 top-0 opacity-10 p-4">
+                <div className="absolute right-0 top-0 opacity-10 p-4 pointer-events-none">
                   <AlertTriangle size={120} className="text-amber-600" />
                 </div>
-                <h3 className="text-2xl font-black text-amber-800 mb-8 flex items-center gap-3 uppercase tracking-tight">
+                <h3 className="text-2xl font-black text-amber-800 mb-8 flex items-center gap-3 uppercase tracking-tight relative z-10">
                   <Shield className="w-7 h-7" />
                   {t('demoussage.why.title')}
                 </h3>
@@ -103,8 +103,8 @@ export default function Demoussage() {
                     language === 'fr' ? "Infiltrations d'eau dans l'isolation thermique." : "Water infiltration into thermal insulation.",
                     language === 'fr' ? "Dégradation prématurée de la charpente." : "Premature degradation of the roof structure."
                   ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3 bg-white/60 p-4 rounded-2xl border border-amber-100 shadow-sm">
-                      <CheckCircle className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                    <div key={index} className="flex items-start gap-3 bg-white/60 p-4 rounded-2xl border border-amber-100 shadow-sm hover:bg-white transition-colors">
+                      <CheckCircle className="w-5 h-5 text-amber-600 flex-shrink-0 mt-0.5" />
                       <span className="text-amber-900 font-bold text-sm md:text-base leading-tight">{item}</span>
                     </div>
                   ))}
@@ -124,10 +124,10 @@ export default function Demoussage() {
                       {language === 'fr' ? 'Toitures prises en charge' : 'Supported Roofs'}
                     </h3>
                     <ul className="space-y-4 font-medium text-emerald-100">
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400" /> Tuiles canal, romanes, plates</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400" /> Ardoises naturelles et synthétiques</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400" /> Bacs acier et toitures industrielles</li>
-                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400" /> Toits-terrasses et fibrociment</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" /> {language === 'fr' ? 'Tuiles canal, romanes, plates' : 'Canal, Roman, flat tiles'}</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" /> {language === 'fr' ? 'Ardoises naturelles et synthétiques' : 'Natural and synthetic slates'}</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" /> {language === 'fr' ? 'Bacs acier et toitures industrielles' : 'Steel decks and industrial roofs'}</li>
+                      <li className="flex items-center gap-3"><CheckCircle className="w-5 h-5 text-emerald-400 shrink-0" /> {language === 'fr' ? 'Toits-terrasses et fibrociment' : 'Flat roofs and fiber cement'}</li>
                     </ul>
                   </div>
                   <div>
@@ -138,15 +138,15 @@ export default function Demoussage() {
                       <div className="flex gap-4">
                         <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center font-bold shrink-0">1</div>
                         <div>
-                          <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Traitement Curatif Ecolab' : 'Ecolab Curative Treatment'}</h4>
-                          <p className="text-sm text-emerald-200">{language === 'fr' ? 'Pulvérisation d\'un algicide/fongicide détruisant la mousse jusqu\'à la racine.' : 'Spraying an algaecide/fungicide destroying moss down to the root.'}</p>
+                          <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Traitement Curatif' : 'Curative Treatment'}</h4>
+                          <p className="text-sm text-emerald-200">{language === 'fr' ? 'Pulvérisation d\'un algicide/fongicide professionnel détruisant la mousse jusqu\'à la racine.' : 'Spraying of a professional algaecide/fungicide destroying moss down to the root.'}</p>
                         </div>
                       </div>
                       <div className="flex gap-4">
                         <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-400 flex items-center justify-center font-bold shrink-0">2</div>
                         <div>
                           <h4 className="font-bold text-lg mb-1">{language === 'fr' ? 'Finition Hydrofuge' : 'Water Repellent Finish'}</h4>
-                          <p className="text-sm text-emerald-200">{language === 'fr' ? 'Application optionnelle d\'un hydrofuge pour imperméabiliser la tuile durablement.' : 'Optional application of a water repellent to durably waterproof the tile.'}</p>
+                          <p className="text-sm text-emerald-200">{language === 'fr' ? 'Application d\'un hydrofuge pour imperméabiliser la tuile durablement et retarder le retour des végétaux.' : 'Application of a water repellent to durably waterproof the tile and delay the return of vegetation.'}</p>
                         </div>
                       </div>
                     </div>
@@ -161,12 +161,12 @@ export default function Demoussage() {
                 <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-10 text-center uppercase tracking-tighter">
                    {language === 'fr' ? 'Les Avantages du Drone' : 'Drone Benefits'}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {[
                     { t: language === 'fr' ? "Zéro Tuile Cassée" : "Zero Broken Tiles", d: language === 'fr' ? "Aucune pression mécanique humaine sur votre toiture." : "No human mechanical pressure on your roof.", icon: Home },
                     { t: language === 'fr' ? "Sécurité Humaine" : "Human Safety", d: language === 'fr' ? "Opération réalisée 100% depuis le sol, aucun risque d'accident." : "Operation performed 100% from the ground, no accident risk.", icon: Shield },
                     { t: language === 'fr' ? "Efficacité Éclair" : "Lightning Efficiency", d: language === 'fr' ? "Traitement de centaines de m² en un temps record." : "Treatment of hundreds of sqm in record time.", icon: Zap },
-                    { t: language === 'fr' ? "Économique" : "Cost-Effective", d: language === 'fr' ? "Pas de nacelle ni d'échafaudage à louer." : "No lift or scaffolding to rent.", icon: Award }
+                    { t: language === 'fr' ? "Économique" : "Cost-Effective", d: language === 'fr' ? "Pas de nacelle, d'échafaudage ou de ligne de vie à installer." : "No lift, scaffolding or lifeline to install.", icon: Award }
                   ].map((benefit, i) => (
                     <div key={i} className="flex gap-5 p-2 hover:translate-x-2 transition-transform duration-300">
                       <div className="w-12 h-12 bg-brand-orange-500 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-orange-200">
@@ -194,8 +194,8 @@ export default function Demoussage() {
                 </h3>
                 <p className="mb-8 text-emerald-50 font-medium relative z-10 leading-relaxed text-sm">
                   {language === 'fr' 
-                    ? 'N\'attendez pas les fuites. Demandez un diagnostic et un devis gratuit pour éliminer la mousse sans casser vos tuiles.' 
-                    : 'Don\'t wait for leaks. Ask for a free diagnosis and quote to eliminate moss without breaking tiles.'}
+                    ? 'N\'attendez pas les fuites ou la casse. Demandez un devis gratuit pour éliminer la mousse durablement.' 
+                    : 'Don\'t wait for leaks or breakage. Ask for a free quote to eliminate moss durably.'}
                 </p>
                 <Link 
                   to="/devis"
@@ -212,10 +212,10 @@ export default function Demoussage() {
                 </h4>
                 <div className="space-y-6">
                   {[
-                    { icon: Home, title: 'Intégrité', val: language === 'fr' ? 'Zéro Casse' : 'Zero Breakage' },
-                    { icon: Droplets, title: 'Technique', val: language === 'fr' ? 'Pulvérisation Douce' : 'Gentle Spray' },
-                    { icon: Sparkles, title: 'Produit', val: 'Ecolab Pro' },
-                    { icon: Shield, title: 'Risque', val: language === 'fr' ? 'Nul (Sol)' : 'Zero (Ground)' }
+                    { icon: Home, title: language === 'fr' ? 'Intégrité' : 'Integrity', val: language === 'fr' ? 'Zéro Casse' : 'Zero Breakage' },
+                    { icon: Droplets, title: language === 'fr' ? 'Technique' : 'Technique', val: language === 'fr' ? 'Basse Pression' : 'Low Pressure' },
+                    { icon: Sparkles, title: language === 'fr' ? 'Produit' : 'Product', val: language === 'fr' ? 'Algicide Pro' : 'Pro Algaecide' },
+                    { icon: Shield, title: language === 'fr' ? 'Risque' : 'Risk', val: language === 'fr' ? 'Nul (Sol)' : 'Zero (Ground)' }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center justify-between border-b border-gray-50 pb-4 last:border-0 last:pb-0">
                       <div className="flex items-center gap-4">
