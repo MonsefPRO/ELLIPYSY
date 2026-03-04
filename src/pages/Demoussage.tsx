@@ -205,7 +205,7 @@ export default function Demoussage() {
                 </Link>
               </div>
 
-              {/* Atouts Rapides - Format Spécifications */}
+              {/* Atouts Rapides - Format Spécifications (ENTIÈREMENT TRADUIT) */}
               <div className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-lg">
                 <h4 className="font-black text-[#233B72] mb-6 uppercase text-xs tracking-[0.2em]">
                   {language === 'fr' ? 'Spécifications' : 'Specifications'}
@@ -213,9 +213,9 @@ export default function Demoussage() {
                 <div className="space-y-6">
                   {[
                     { icon: Home, title: language === 'fr' ? 'Intégrité' : 'Integrity', val: language === 'fr' ? 'Zéro Casse' : 'Zero Breakage' },
-                    { icon: Droplets, title: language === 'fr' ? 'Technique' : 'Technique', val: language === 'fr' ? 'Basse Pression' : 'Low Pressure' },
+                    { icon: Droplets, title: language === 'fr' ? 'Technique' : 'Method', val: language === 'fr' ? 'Basse Pression' : 'Low Pressure' },
                     { icon: Sparkles, title: language === 'fr' ? 'Produit' : 'Product', val: language === 'fr' ? 'Algicide Pro' : 'Pro Algaecide' },
-                    { icon: Shield, title: language === 'fr' ? 'Risque' : 'Risk', val: language === 'fr' ? 'Nul (Sol)' : 'Zero (Ground)' }
+                    { icon: Shield, title: language === 'fr' ? 'Risque' : 'Risk', val: language === 'fr' ? 'Nul (Sol)' : 'None (Ground)' }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center justify-between border-b border-gray-50 pb-4 last:border-0 last:pb-0">
                       <div className="flex items-center gap-4">
