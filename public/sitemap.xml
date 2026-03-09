@@ -1,60 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Page d'accueil -->
+  <!-- Homepage -->
   <url>
     <loc>https://ellipsys-solutions.com/</loc>
-    <lastmod>2026-02-23</lastmod>
+    <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- P1 — Panneaux solaires (priorité absolue) -->
+  <!-- Devis — priorité haute (conversion) -->
   <url>
-    <loc>https://ellipsys-solutions.com/nettoyage-panneaux-solaires-drone-occitanie</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://ellipsys-solutions.com/devis</loc>
+    <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- P1 — Façades -->
+  <!-- Page prestations (index) -->
   <url>
-    <loc>https://ellipsys-solutions.com/nettoyage-facade-drone-occitanie</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://ellipsys-solutions.com/prestations</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Panneaux photovoltaïques -->
+  <url>
+    <loc>https://ellipsys-solutions.com/prestations/panneaux-photovoltaiques</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Nettoyage façades -->
+  <url>
+    <loc>https://ellipsys-solutions.com/prestations/nettoyage-facade</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Démoussage toiture -->
+  <url>
+    <loc>https://ellipsys-solutions.com/prestations/demoussage</loc>
+    <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- P1 — Toitures -->
+  <!-- Thermographie -->
   <url>
-    <loc>https://ellipsys-solutions.com/demoussage-toiture-drone-occitanie</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://ellipsys-solutions.com/prestations/thermographie</loc>
+    <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- P1 — Frelons -->
+  <!-- Élimination frelons -->
   <url>
-    <loc>https://ellipsys-solutions.com/destruction-nids-frelons-drone</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://ellipsys-solutions.com/prestations/elimination-frelons</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://ellipsys-solutions.com/blog</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Réalisations -->
+  <url>
+    <loc>https://ellipsys-solutions.com/realisations</loc>
+    <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Devis / Contact -->
+  <!-- Valeurs -->
   <url>
-    <loc>https://ellipsys-solutions.com/devis</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- À propos -->
-  <url>
-    <loc>https://ellipsys-solutions.com/a-propos</loc>
-    <lastmod>2026-02-23</lastmod>
+    <loc>https://ellipsys-solutions.com/valeurs</loc>
+    <lastmod>2026-03-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+
+  <!-- Risques & Responsabilités -->
+  <url>
+    <loc>https://ellipsys-solutions.com/risques-et-responsabilites</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Rejoignez-nous -->
+  <url>
+    <loc>https://ellipsys-solutions.com/rejoignez-nous</loc>
+    <lastmod>2026-03-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
