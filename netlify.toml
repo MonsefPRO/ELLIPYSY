@@ -1,10 +1,12 @@
 [build]
 publish = "dist"
-command = "npx vite build"
+command = "npm run build"
 
 [build.environment]
 NODE_VERSION = "18"
 
+# Chaque route prérendue est servie directement en HTML statique
+# Le fallback SPA reste actif pour les routes non prérendues
 [[redirects]]
 from = "/*"
 to = "/index.html"
@@ -12,9 +14,20 @@ status = 200
 
 [[headers]]
 for = "/*"
+  [headers.values]
+  X-Frame-Options = "DENY"
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
-[headers.values]
-X-Frame-Options = "DENY"
-X-Content-Type-Options = "nosniff"
-Referrer-Policy = "strict-origin-when-cross-origin"
-Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+# Cache long sur les assets statiques (JS/CSS hashés par Vite)
+[[headers]]
+for = "/assets/*"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
+# Pas de cache sur les HTML prérendus pour que Google voit toujours la version fraîche
+[[headers]]
+for = "/*.html"
+  [headers.values]
+  Cache-Control = "public, max-age=0, must-revalidate"
