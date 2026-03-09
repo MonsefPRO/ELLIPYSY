@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
 import {
   Shield, ChevronRight, Star, Zap,
   BarChart3, Play, ChevronLeft
@@ -14,6 +14,15 @@ import { ScrollReveal } from './components/ScrollReveal';
 import { VideoModal } from './components/VideoModal';
 import Header from './components/Header';
 import Footer from './components/Footer';
+
+// Pages villes
+import Montpellier from './pages/Montpellier';
+import Nimes from './pages/Nimes';
+import Toulouse from './pages/Toulouse';
+import Marseille from './pages/Marseille';
+import Carcassonne from './pages/Carcassonne';
+import Perpignan from './pages/Perpignan';
+import Lyon from './pages/Lyon';
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -78,7 +87,7 @@ const webSiteSchema = {
   }
 };
 
-export default function App() {
+function HomePage() {
   const { t, language } = useLanguage();
   const isFr = language === 'fr';
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -86,14 +95,14 @@ export default function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const heroImages = [
-    { src: '/rony.jpg', alt: isFr ? 'Robot nettoyage panneaux solaires France - Ellipsys Solutions' : 'Robot solar panel cleaning France - Ellipsys Solutions' },
-    { src: '/ares.png', alt: isFr ? 'Drone ARES nettoyage façade France' : 'ARES drone facade cleaning France' },
-    { src: '/abateur_de_frelons.png', alt: isFr ? 'Drone destruction nids frelons France' : 'Drone hornet nest removal France' },
-    { src: '/rony2.jpg', alt: isFr ? 'Nettoyage panneaux photovoltaïques robotique France' : 'Robotic solar panel cleaning France' },
-    { src: '/chronos.jpg', alt: isFr ? 'Drone Chronos inspection bâtiment France' : 'Chronos drone building inspection France' },
-    { src: '/rony4.jpg', alt: isFr ? 'Expert nettoyage drone Ellipsys Solutions' : 'Ellipsys Solutions drone cleaning expert' },
-    { src: '/chronos2.jpg', alt: isFr ? 'Thermographie drone France Ellipsys' : 'Ellipsys drone thermography France' },
-    { src: '/rony5.jpg', alt: isFr ? 'Entretien panneaux solaires robotique Ellipsys' : 'Robotic solar panel maintenance Ellipsys' }
+    { src: '/rony.jpg', altFr: 'Robot nettoyage panneaux solaires France - Ellipsys Solutions', altEn: 'Robot solar panel cleaning France - Ellipsys Solutions' },
+    { src: '/ares.png', altFr: 'Drone ARES nettoyage façade France', altEn: 'ARES drone facade cleaning France' },
+    { src: '/abateur_de_frelons.png', altFr: 'Drone destruction nids frelons France', altEn: 'Drone hornet nest removal France' },
+    { src: '/rony2.jpg', altFr: 'Nettoyage panneaux photovoltaïques robotique France', altEn: 'Robotic solar panel cleaning France' },
+    { src: '/chronos.jpg', altFr: 'Drone Chronos inspection bâtiment France', altEn: 'Chronos drone building inspection France' },
+    { src: '/rony4.jpg', altFr: 'Expert nettoyage drone Ellipsys Solutions', altEn: 'Ellipsys Solutions drone cleaning expert' },
+    { src: '/chronos2.jpg', altFr: 'Thermographie drone France Ellipsys', altEn: 'Ellipsys drone thermography France' },
+    { src: '/rony5.jpg', altFr: 'Entretien panneaux solaires robotique Ellipsys', altEn: 'Robotic solar panel maintenance Ellipsys' }
   ];
 
   const testimonials = [
@@ -282,5 +291,20 @@ export default function App() {
       <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videodemo.mp4" />
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/nettoyage-drone-montpellier" element={<Montpellier />} />
+      <Route path="/nettoyage-drone-nimes" element={<Nimes />} />
+      <Route path="/nettoyage-drone-toulouse" element={<Toulouse />} />
+      <Route path="/nettoyage-drone-marseille" element={<Marseille />} />
+      <Route path="/nettoyage-drone-carcassonne" element={<Carcassonne />} />
+      <Route path="/nettoyage-drone-perpignan" element={<Perpignan />} />
+      <Route path="/nettoyage-drone-lyon" element={<Lyon />} />
+    </Routes>
   );
 }
