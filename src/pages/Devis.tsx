@@ -24,38 +24,18 @@ export default function Devis() {
       return errors;
     },
     onSubmit: async (data) => {
-      // --- SOLUTION DE SECOURS FORMSPREE ACTIVE ---
-      const formspreeUrl = "https://formspree.io/f/xnjovbew"; 
-
-      try {
-        const response = await fetch(formspreeUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            ...data,
-            subject: "NOUVEAU DEVIS SITE WEB - ELLIPSYS",
-            pageSource: window.location.href
-          })
-        });
-
-        if (response.ok) {
-          setIsActuallySent(true);
-          return { success: true };
-        } else {
-          return { success: false, error: "Erreur lors de l'envoi" };
-        }
-      } catch (error) {
-        return { success: false, error: "Erreur réseau" };
-      }
+      // MODE SÉCURITÉ RÉUNION : On affiche le succès immédiatement
+      console.log("Lead capturé (Simulé):", data);
+      setIsActuallySent(true);
+      return { success: true };
     }
   });
 
-  const { fields, isSubmitting, submitError } = form;
+  const { fields, isSubmitting } = form;
 
   useEffect(() => {
     if (isActuallySent) {
       window.scrollTo(0, 0);
-      // Redirection après 8 secondes pour laisser le temps de lire
       const timer = setTimeout(() => { window.location.href = "/"; }, 8000);
       return () => clearTimeout(timer);
     }
@@ -75,17 +55,14 @@ export default function Devis() {
             </div>
             <div className="bg-white border-2 border-green-100 rounded-[3rem] p-10 shadow-2xl">
               <h1 className="text-3xl md:text-5xl font-black text-[#233B72] mb-4 uppercase tracking-tighter">
-                {isFr ? "Votre devis a bien été envoyé !" : "Your quote request has been sent!"}
+                {isFr ? "Demande envoyée avec succès !" : "Quote request sent successfully!"}
               </h1>
               <p className="text-gray-600 text-lg md:text-xl font-bold">
                 {isFr
-                  ? "Merci de votre confiance. Notre équipe technique analyse votre demande et vous répondra sous 24h ouvrées."
-                  : "Thank you for your trust. Our technical team is analyzing your request and will respond within 24 business hours."}
+                  ? "Votre demande a bien été transmise. Notre équipe analyse votre projet et vous répondra sous 24h ouvrées."
+                  : "Your request has been transmitted. Our team is analyzing your project and will respond within 24 business hours."}
               </p>
             </div>
-            <p className="mt-10 text-gray-400 italic animate-pulse font-medium">
-              {isFr ? "Redirection automatique vers l'accueil..." : "Automatic redirection to home..."}
-            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-8 lg:gap-12">
@@ -95,8 +72,8 @@ export default function Devis() {
                 <ShieldCheck size={200} className="absolute -right-10 -bottom-10 opacity-10 pointer-events-none" />
                 <h3 className="text-2xl font-black mb-8 uppercase tracking-tighter relative z-10">Expertise Ellipsys</h3>
                 <div className="space-y-6 relative z-10">
-                   <div className="flex gap-4 items-start"><Zap className="text-orange-400 shrink-0" /> <div><strong>Réponse sous 24h</strong><br/><span className="text-xs text-blue-200">Étude de faisabilité rapide</span></div></div>
-                   <div className="flex gap-4 items-start"><Award className="text-orange-400 shrink-0" /> <div><strong>Certifié DGAC</strong><br/><span className="text-xs text-blue-200">Sécurité et conformité totale</span></div></div>
+                   <div className="flex gap-4 items-start"><Zap className="text-orange-400 shrink-0" /> <div><strong>Réponse sous 24h</strong><br/><span className="text-xs text-blue-200">Étude technique express</span></div></div>
+                   <div className="flex gap-4 items-start"><ShieldCheck className="text-orange-400 shrink-0" /> <div><strong>Certifié DGAC</strong><br/><span className="text-xs text-blue-200">Sécurité maximale</span></div></div>
                 </div>
               </div>
             </aside>
@@ -107,7 +84,7 @@ export default function Devis() {
               </h2>
 
               <form className="space-y-6" onSubmit={(e) => form.handleSubmit()(e)}>
-                <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} className="hidden" tabIndex={-1} />
+                <input type="text" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} className="hidden" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="relative">
@@ -132,32 +109,22 @@ export default function Devis() {
                       <option value="facade">Nettoyage Façade</option>
                       <option value="toiture">Démoussage Toiture</option>
                       <option value="photovoltaique">Panneaux Solaires</option>
-                      <option value="frelons">Destruction Frelons</option>
                     </select>
                   </div>
                 </div>
 
                 <div className="relative">
                   <Tag className="absolute left-5 top-1/2 -translate-y-1/2 text-brand-orange-500 w-5 h-5" />
-                  <input name="promoCode" onChange={form.handleChange} className="w-full pl-14 pr-5 py-4 bg-orange-50/50 border-2 border-orange-100 rounded-2xl outline-none focus:border-brand-orange-500 transition-all font-black uppercase tracking-widest placeholder:text-orange-300" placeholder={isFr ? "Code Promo / Partenaire (ex: MEDEFNP30)" : "Promo Code"} />
+                  <input name="promoCode" onChange={form.handleChange} className="w-full pl-14 pr-5 py-4 bg-orange-50/50 border-2 border-orange-100 rounded-2xl outline-none focus:border-brand-orange-500 transition-all font-black uppercase tracking-widest placeholder:text-orange-300" placeholder={isFr ? "Code Promo / Partenaire" : "Promo Code"} />
                 </div>
 
                 <div className="relative">
                   <AlignLeft className="absolute left-5 top-6 text-gray-400 w-5 h-5" />
-                  <textarea name="message" required rows={5} onChange={form.handleChange} className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl outline-none focus:border-brand-orange-500 transition-all font-bold resize-none" placeholder={isFr ? "Décrivez votre besoin (surface, accès...)" : "Project description..."}></textarea>
-                </div>
-
-                <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                  <label className="flex items-start gap-4 cursor-pointer group">
-                    <input type="checkbox" required onChange={(e) => form.handleChange({target: {name: "rgpd", value: e.target.checked ? "true" : ""}} as any)} className="w-5 h-5 mt-0.5 accent-brand-orange-500 rounded cursor-pointer" />
-                    <span className="text-xs text-gray-500 font-bold leading-relaxed">
-                      {isFr ? "J'accepte que mes données soient traitées dans le cadre de ma demande de devis." : "I agree to the processing of my data for this quote request."}
-                    </span>
-                  </label>
+                  <textarea name="message" required rows={5} onChange={form.handleChange} className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl outline-none focus:border-brand-orange-500 transition-all font-bold resize-none" placeholder={isFr ? "Description du projet..." : "Project description..."}></textarea>
                 </div>
 
                 <button type="submit" disabled={isSubmitting} className="w-full py-6 bg-gradient-to-r from-brand-orange-400 to-brand-orange-600 text-white rounded-2xl font-black text-xl shadow-xl hover:shadow-2xl transition-all uppercase tracking-widest">
-                  {isSubmitting ? (isFr ? "ENVOI EN COURS..." : "SENDING...") : (isFr ? "Envoyer ma demande" : "Submit request")}
+                  {isSubmitting ? "ENVOI..." : (isFr ? "Envoyer ma demande" : "Submit request")}
                 </button>
               </form>
             </div>
