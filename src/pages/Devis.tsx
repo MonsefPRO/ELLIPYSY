@@ -24,8 +24,7 @@ const schemaData = {
       "addressCountry": "FR"
     },
     "telephone": "+33467209709",
-    "url": "https://ellipsys-solutions.com",
-    "areaServed": [{"@type":"Country","name":"France"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"Espagne"},{"@type":"AdministrativeArea","name":"Occitanie"},{"@type":"AdministrativeArea","name":"Hérault"},{"@type":"AdministrativeArea","name":"Gard"},{"@type":"AdministrativeArea","name":"Aude"},{"@type":"AdministrativeArea","name":"Haute-Garonne"},{"@type":"AdministrativeArea","name":"Pyrénées-Orientales"}]
+    "url": "https://ellipsys-solutions.com"
   }
 };
 
@@ -47,7 +46,7 @@ export default function Devis() {
     },
     onSubmit: async (data) => {
       setIsActuallySent(true);
-      console.log('Données transmises:', data);
+      console.log("Données transmises:", data);
       return { success: true };
     }
   });
@@ -58,7 +57,7 @@ export default function Devis() {
   useEffect(() => {
     if (isActuallySent) {
       window.scrollTo(0, 0);
-      const timer = setTimeout(() => { window.location.href = '/'; }, 5000);
+      const timer = setTimeout(() => { window.location.href = '/'; }, 6000);
       return () => clearTimeout(timer);
     }
   }, [isActuallySent]);
@@ -98,12 +97,12 @@ export default function Devis() {
             </div>
             <div className="bg-white border-2 border-green-100 rounded-[3rem] p-10 shadow-2xl">
               <h1 className="text-3xl md:text-5xl font-black text-[#233B72] mb-4 uppercase tracking-tighter">
-                {isFr ? "Demande reçue !" : "Request received!"}
+                {isFr ? "Votre devis a bien été envoyé !" : "Your quote request has been sent!"}
               </h1>
               <p className="text-gray-600 text-lg md:text-xl font-bold">
                 {isFr
-                  ? "Notre équipe technique analyse votre demande. Nous vous recontactons dans les 24h ouvrées."
-                  : "Our technical team is analyzing your request. We will contact you within 24 business hours."}
+                  ? "Notre équipe technique analyse votre demande. Vous recevrez une réponse sous 24h ouvrées."
+                  : "Our technical team is analyzing your request. You will receive a response within 24 business hours."}
               </p>
             </div>
             <p className="mt-10 text-gray-400 italic animate-pulse font-medium">
@@ -126,10 +125,10 @@ export default function Devis() {
                 </h3>
                 <div className="space-y-6 relative z-10">
                   {[
-                    { icon: ShieldCheck, title: isFr ? "Certifié DGAC" : "DGAC Certified", desc: isFr ? "Pilotes agréés Scénarios S1, S2, S3. Conformité totale EASA." : "Pilots approved for S1, S2, S3 scenarios. Full EASA compliance." },
+                    { icon: ShieldCheck, title: isFr ? "Certifié DGAC" : "DGAC Certified", desc: isFr ? "Pilotes agréés Scénarios S1, S2, S3. Conformité EASA." : "Pilots approved for S1, S2, S3 scenarios. EASA compliance." },
                     { icon: Award, title: isFr ? "Assurance RC Pro" : "Liability Insurance", desc: isFr ? "Couverture aérienne et industrielle complète." : "Complete aerial and industrial coverage." },
-                    { icon: Zap, title: isFr ? "Réponse Rapide" : "Fast Response", desc: isFr ? "Devis personnalisé sous 24h ouvrées." : "Personalized quote within 24 business hours." },
-                    { icon: MapPin, title: isFr ? "Zone Occitanie" : "Occitanie Coverage", desc: isFr ? "Occitanie · PACA · Île-de-France · France entière & International sur devis." : "Occitanie · PACA · Île-de-France · France entière & International on quote." }
+                    { icon: Zap, title: isFr ? "Réponse 24h" : "24h Response", desc: isFr ? "Devis personnalisé sous 24h ouvrées." : "Personalized quote within 24 business hours." },
+                    { icon: MapPin, title: isFr ? "Zone d'action" : "Service Area", desc: isFr ? "Occitanie · PACA · Île-de-France · International." : "Occitanie · PACA · Île-de-France · International." }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-4">
                       <div className="bg-white/10 p-3 rounded-2xl flex-shrink-0 backdrop-blur-sm">
@@ -254,7 +253,7 @@ export default function Devis() {
                     name="promoCode" 
                     value={fields.promoCode?.value || ''} 
                     onChange={(e) => form.handleChange(e)} 
-                    className="w-full pl-14 pr-5 py-4 bg-orange-50/50 border-2 border-orange-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-black placeholder:text-orange-300 placeholder:font-bold uppercase tracking-widest" 
+                    className="w-full pl-14 pr-5 py-4 bg-orange-50/50 border-2 border-orange-200 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-black placeholder:text-orange-400 placeholder:font-bold uppercase tracking-widest" 
                     placeholder={isFr ? "Code Promo / Partenaire (Optionnel)" : "Promo / Partner Code (Optional)"} 
                   />
                 </div>
@@ -291,8 +290,8 @@ export default function Devis() {
                 <button type="submit" disabled={isSubmitting}
                   className="w-full py-6 bg-gradient-to-r from-brand-orange-400 to-brand-orange-600 text-white rounded-2xl font-black text-xl shadow-xl hover:shadow-2xl hover:shadow-orange-500/30 transition-all hover:-translate-y-1 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 uppercase tracking-widest mt-4">
                   {isSubmitting
-                    ? (isFr ? 'ENVOI EN COURS...' : 'SENDING...')
-                    : (isFr ? 'Envoyer ma demande' : 'Submit my request')}
+                    ? (isFr ? "ENVOI EN COURS..." : "SENDING...")
+                    : (isFr ? "Envoyer ma demande" : "Submit my request")}
                   {!isSubmitting && <ChevronRight className="w-6 h-6" />}
                 </button>
 
