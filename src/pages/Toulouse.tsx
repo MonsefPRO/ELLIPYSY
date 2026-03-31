@@ -1,337 +1,238 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import {
-  MapPin, ChevronRight, CheckCircle, Phone,
-  Sun, Building2, Droplets, Thermometer, Bug, ChevronDown, Star
+import { 
+  MapPin, 
+  ChevronRight, 
+  Building2, 
+  Sun, 
+  Home, 
+  Target, 
+  ShieldCheck, 
+  Zap, 
+  Award,
+  CheckCircle2,
+  ArrowRight
 } from 'lucide-react';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import { ScrollReveal } from '../../components/ScrollReveal';
-import { useLanguage } from '../../contexts/LanguageContext';
+import { useLanguage } from '../contexts/LanguageContext';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { ScrollReveal } from '../components/ScrollReveal';
+import { Hover3DCard } from '../components/Hover3DCard';
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": "Nettoyage par Drone et Robotique à Toulouse",
-  "description": "Nettoyage professionnel par drone à Toulouse (Haute-Garonne (31)) : panneaux photovoltaïques, façades, démoussage toiture, thermographie, destruction nids de frelons. Certifiés DGAC/EASA. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.",
-  "provider": {
+export default function Toulouse() {
+  const { t, language } = useLanguage();
+  const isFr = language === 'fr';
+
+  // Données SEO locales pour Toulouse
+  const localSchema = {
+    "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Ellipsys Solutions",
+    "name": "Ellipsys Solutions - Nettoyage Drone Toulouse",
+    "description": "Spécialiste du nettoyage par drone à Toulouse et en Haute-Garonne (31). Façades, toitures, panneaux solaires et destruction de nids de frelons.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "159 Rue de Thor",
-      "addressLocality": "Montpellier",
-      "postalCode": "34057",
+      "addressLocality": "Toulouse",
+      "postalCode": "31000",
       "addressRegion": "Occitanie",
       "addressCountry": "FR"
     },
     "telephone": "+33467209709",
-    "url": "https://ellipsys-solutions.com",
-    "geo": { "@type": "GeoCoordinates", "latitude": "43.6047", "longitude": "1.4442" },
-    "areaServed": { "@type": "City", "name": "Toulouse" }
-  },
-  "areaServed": { "@type": "City", "name": "Toulouse" },
-  "serviceType": "Nettoyage drone robotique"
-};
+    "areaServed": "Toulouse, Colomiers, Tournefeuille, Blagnac, Muret, Haute-Garonne"
+  };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Ellipsys Solutions intervient-il à Toulouse ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Ellipsys Solutions intervient à Toulouse et dans tout le Haute-Garonne (31) pour le nettoyage par drone : panneaux solaires, façades, toitures, thermographie et destruction de nids de frelons. Intervention régulière en Haute-Garonne et dans toute la région toulousaine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quel est le délai d'intervention pour un nettoyage par drone à Toulouse ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nous répondons à toute demande sous 24h. L'intervention est planifiée en fonction de vos contraintes. Devis gratuit et sans engagement pour tout projet à Toulouse."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quels types de bâtiments nettoyez-vous à Toulouse ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "À Toulouse, nous intervenons sur les sites industriels aéronautiques, entrepôts, copropriétés, ombrières. Nos drones accèdent à toutes les surfaces sans échafaudage ni nacelle."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Combien coûte le nettoyage par drone à Toulouse ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Nos tarifs sont 30 à 40% inférieurs aux méthodes traditionnelles (nacelle, échafaudage). Chaque devis est personnalisé selon la surface et le type d'intervention. Demandez votre devis gratuit en 24h."
-      }
-    }
-  ]
-};
-
-export default function VilleToulouse() {
-  const { language } = useLanguage();
-  const isFr = language === 'fr';
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const prestations = [
-    {
-      icon: Sun,
-      title: isFr ? 'Panneaux Photovoltaïques' : 'Solar Panels',
-      desc: isFr ? 'Nettoyage eau osmosée, +30% rendement, 500m² en 45min.' : 'Osmotic water cleaning, +30% yield, 500m² in 45min.',
-      link: '/prestations/panneaux-photovoltaiques',
-      color: 'amber'
-    },
+  const services = [
     {
       icon: Building2,
-      title: isFr ? 'Nettoyage Façades' : 'Facade Cleaning',
-      desc: isFr ? 'Accès jusqu'à 50m, 4x plus rapide, 30% moins cher.' : 'Access up to 50m, 4x faster, 30% cheaper.',
+      title: isFr ? "Nettoyage de Façades" : "Facade Cleaning",
+      // CORRECTION DES GUILLEMETS ICI
+      desc: isFr ? "Accès jusqu'à 50m, 4x plus rapide, 30% moins cher. Zéro échafaudage." : "Access up to 50m, 4x faster, 30% cheaper. Zero scaffolding.",
       link: '/prestations/nettoyage-facade',
       color: 'sky'
     },
     {
-      icon: Droplets,
-      title: isFr ? 'Démoussage Toiture' : 'Roof Moss Removal',
-      desc: isFr ? 'Zéro tuile cassée, protection hydrofuge 5 ans.' : 'Zero broken tiles, 5-year waterproofing.',
+      icon: Sun,
+      title: isFr ? "Panneaux Solaires" : "Solar Panels",
+      desc: isFr ? "Boostez votre rendement solaire dans la région toulousaine. Eau osmosée pure." : "Boost your solar yield in the Toulouse region. Pure osmosed water.",
+      link: '/prestations/panneaux-photovoltaiques',
+      color: 'amber'
+    },
+    {
+      icon: Home,
+      title: isFr ? "Démoussage Toiture" : "Roof Moss Removal",
+      desc: isFr ? "Traitement curatif et préventif sans marcher sur vos tuiles. Zéro casse." : "Curative and preventive treatment without walking on your tiles. Zero breakage.",
       link: '/prestations/demoussage',
-      color: 'green'
+      color: 'emerald'
     },
     {
-      icon: Thermometer,
-      title: isFr ? 'Thermographie' : 'Thermography',
-      desc: isFr ? 'Caméra HD 1280×1024, précision RTK, rapport 48h.' : 'HD 1280×1024 camera, RTK accuracy, 48h report.',
-      link: '/prestations/thermographie',
-      color: 'orange'
-    },
-    {
-      icon: Bug,
-      title: isFr ? 'Nids de Frelons' : 'Hornet Nests',
-      desc: isFr ? 'Accès 50m, biocides certifiés, 0 risque opérateur.' : '50m access, certified biocides, 0 operator risk.',
+      icon: Target,
+      title: isFr ? "Destruction Frelons" : "Hornet Eradication",
+      desc: isFr ? "Intervention d'urgence dans toute la Haute-Garonne. Précision et sécurité." : "Emergency intervention throughout Haute-Garonne. Precision and safety.",
       link: '/prestations/elimination-frelons',
       color: 'red'
-    },
-  ];
-
-  const faqs = [
-    {
-      q: isFr ? `Ellipsys Solutions intervient-il à Toulouse ?` : `Does Ellipsys Solutions operate in Toulouse?`,
-      a: isFr ? `Oui. Nous intervenons à Toulouse et dans tout le Haute-Garonne (31) pour le nettoyage par drone : panneaux solaires, façades, toitures, thermographie et destruction de nids de frelons. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.` : `Yes. We operate in Toulouse and throughout Haute-Garonne (31) for drone cleaning: solar panels, facades, roofs, thermography and hornet nest removal. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.`
-    },
-    {
-      q: isFr ? `Quel délai d'intervention à Toulouse ?` : `What is the response time in Toulouse?`,
-      a: isFr ? `Nous répondons sous 24h à toute demande. L'intervention est planifiée selon vos contraintes. Devis gratuit et sans engagement.` : `We respond within 24h to any request. The intervention is planned around your constraints. Free and no-commitment quote.`
-    },
-    {
-      q: isFr ? `Quels bâtiments nettoyez-vous à Toulouse ?` : `What buildings do you clean in Toulouse?`,
-      a: isFr ? `À Toulouse, nous intervenons sur les sites industriels aéronautiques, entrepôts, copropriétés, ombrières. Nos drones accèdent à toutes les surfaces sans échafaudage ni nacelle.` : `In Toulouse, we operate on sites industriels aéronautiques, entrepôts, copropriétés, ombrières. Our drones access all surfaces without scaffolding or platforms.`
-    },
-    {
-      q: isFr ? `Combien coûte le nettoyage par drone à Toulouse ?` : `How much does drone cleaning cost in Toulouse?`,
-      a: isFr ? `Nos tarifs sont 30 à 40% inférieurs aux méthodes traditionnelles. Chaque devis est personnalisé selon la surface et le type d'intervention. Demandez votre devis gratuit.` : `Our rates are 30 to 40% below traditional methods. Each quote is customized by surface and intervention type. Request your free quote.`
-    },
+    }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }} />
       <Header />
 
-      {/* Hero */}
-      <section className="relative bg-gradient-to-br from-[#233B72] to-blue-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-96 h-96 bg-orange-400 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-300 rounded-full blur-3xl"></div>
+      {/* HERO SECTION LOCALE */}
+      <section className="relative h-[50vh] md:h-[70vh] flex items-center justify-center overflow-hidden pt-20">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/rony.jpg" 
+            className="w-full h-full object-cover"
+            alt="Nettoyage drone Toulouse"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e5a]/90 to-blue-900/70"></div>
         </div>
-        <div className="container mx-auto px-4 relative z-10">
-          {/* Breadcrumb */}
-          <nav className="mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center gap-2 text-sm text-blue-200" itemScope itemType="https://schema.org/BreadcrumbList">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link to="/" className="hover:text-white font-medium" itemProp="item"><span itemProp="name">{isFr ? 'Accueil' : 'Home'}</span></Link>
-                <meta itemProp="position" content="1" />
-              </li>
-              <ChevronRight className="w-3 h-3" />
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <span className="text-white font-bold" itemProp="name">{isFr ? 'Nettoyage Drone Toulouse' : 'Drone Cleaning Toulouse'}</span>
-                <meta itemProp="position" content="2" />
-              </li>
-            </ol>
-          </nav>
-
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="flex items-center gap-2 mb-4">
-              <MapPin className="w-5 h-5 text-orange-400" />
-              <span className="text-orange-300 font-bold uppercase tracking-widest text-sm">Haute-Garonne (31) · Occitanie</span>
+        
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-black text-sm uppercase tracking-widest mb-6">
+              <MapPin className="w-4 h-4 text-brand-orange-500" />
+              Toulouse & Haute-Garonne (31)
             </div>
-            <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase tracking-tighter leading-tight">
-              {isFr ? <>Nettoyage par<br />Drone & Robotique<br /><span className="text-orange-400">à Toulouse</span></> : <>Drone & Robotic<br />Cleaning<br /><span className="text-orange-400">in Toulouse</span></>}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 uppercase tracking-tighter leading-tight drop-shadow-lg">
+              {isFr ? "Nettoyage par Drone à" : "Drone Cleaning in"} <span className="text-brand-orange-400">Toulouse</span>
             </h1>
-            <p className="text-xl text-blue-100 font-bold max-w-2xl mb-8">
-              {isFr
-                ? `Panneaux solaires, façades, toitures, thermographie, nids de frelons — Certifiés DGAC/EASA. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.`
-                : `Solar panels, facades, roofs, thermography, hornet nests — DGAC/EASA Certified. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.`}
+            <p className="text-xl md:text-2xl text-blue-100 font-bold italic drop-shadow-md mb-10 max-w-2xl mx-auto">
+              {isFr 
+                ? "L'expertise Ellipsys Solutions au service des entreprises, syndics et particuliers de la ville rose." 
+                : "Ellipsys Solutions expertise serving businesses, property managers, and residents of the pink city."}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/devis" className="inline-block bg-orange-500 hover:bg-orange-600 text-white py-5 px-10 rounded-2xl font-black uppercase tracking-widest transition-all shadow-xl hover:-translate-y-1">
-                {isFr ? 'Devis gratuit 24h' : 'Free quote 24h'}
-              </Link>
-              <a href="tel:0467209709" className="inline-flex items-center justify-center gap-3 bg-white/10 border border-white/30 text-white py-5 px-10 rounded-2xl font-black uppercase tracking-widest hover:bg-white/20 transition-all">
-                <Phone className="w-5 h-5" /> 04 67 20 97 09
-              </a>
-            </div>
+            <Link to="/devis" className="inline-flex items-center gap-3 bg-brand-orange-500 hover:bg-brand-orange-600 text-white px-10 py-5 rounded-2xl font-black text-lg transition-all shadow-2xl hover:shadow-orange-500/50 hover:-translate-y-1 uppercase tracking-widest">
+              {isFr ? "Demander un devis gratuit" : "Request a free quote"}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      <main className="container mx-auto px-4 py-16 max-w-6xl space-y-16">
-
-        {/* Intro géolocalisée */}
-        <ScrollReveal>
-          <section className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-lg border border-gray-100">
-            <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-6 uppercase tracking-tighter flex items-center gap-3">
-              <div className="w-2 h-8 bg-orange-500 rounded-full"></div>
-              {isFr ? `Ellipsys Solutions intervient à Toulouse` : `Ellipsys Solutions operates in Toulouse`}
-            </h2>
-            <div className="prose prose-lg text-gray-600 max-w-none space-y-4 font-medium leading-relaxed">
-              {isFr ? (
-                <>
-                  <p>Ellipsys Solutions est votre partenaire spécialisé en <strong>nettoyage par drone et robotique à Toulouse</strong>, métropole aéronautique et industrielle du Sud-Ouest. Nos équipes certifiées <strong>DGAC/EASA</strong> interviennent sur tous types de surfaces et d'infrastructures dans le Haute-Garonne (31).</p>
-                  <p>Grâce à nos drones et robots ultra-légers (6 à 9 kg), nous accédons aux surfaces les plus complexes sans nacelle, sans échafaudage, sans interruption de votre activité. <strong>40% moins cher que les méthodes traditionnelles</strong>, 4x plus rapide, zéro risque de chute.</p>
-                  <p>Nous intervenons sur les <strong>sites industriels aéronautiques, entrepôts, copropriétés, ombrières</strong> de Toulouse et de l'ensemble du Haute-Garonne (31). Intervention régulière en Haute-Garonne et dans toute la région toulousaine.</p>
-                </>
-              ) : (
-                <>
-                  <p>Ellipsys Solutions is your specialist partner for <strong>drone and robotic cleaning in Toulouse</strong>, métropole aéronautique et industrielle du Sud-Ouest. Our <strong>DGAC/EASA</strong> certified teams operate on all surface types and infrastructures in Haute-Garonne (31).</p>
-                  <p>With our ultra-light drones and robots (6 to 9 kg), we access the most complex surfaces without lifts, scaffolding, or business interruption. <strong>40% cheaper than traditional methods</strong>, 4x faster, zero fall risk.</p>
-                  <p>We serve <strong>sites industriels aéronautiques, entrepôts, copropriétés, ombrières</strong> in Toulouse and throughout Haute-Garonne (31). Intervention régulière en Haute-Garonne et dans toute la région toulousaine.</p>
-                </>
-              )}
-            </div>
-            <div className="grid grid-cols-3 gap-4 mt-8">
-              {[
-                { val: '40%', label: isFr ? 'Moins cher' : 'Cheaper' },
-                { val: '4x', label: isFr ? 'Plus rapide' : 'Faster' },
-                { val: '0', label: isFr ? 'Risque chute' : 'Fall risk' },
-              ].map((kpi, i) => (
-                <div key={i} className="bg-orange-50 rounded-2xl p-4 text-center border border-orange-100">
-                  <div className="text-2xl md:text-3xl font-black text-orange-600">{kpi.val}</div>
-                  <div className="text-xs text-gray-600 font-bold uppercase tracking-tight mt-1">{kpi.label}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-        </ScrollReveal>
-
-        {/* Nos 5 prestations à Toulouse */}
-        <ScrollReveal>
-          <section>
-            <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter flex items-center gap-3">
-              <div className="w-2 h-10 bg-orange-500 rounded-full"></div>
-              {isFr ? `Nos prestations à Toulouse` : `Our services in Toulouse`}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {prestations.map((p, i) => (
-                <Link key={i} to={p.link} className="bg-white rounded-[2rem] p-6 border border-gray-100 shadow-md hover:shadow-xl transition-all hover:-translate-y-1 group flex flex-col gap-4">
-                  <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center group-hover:bg-orange-500 transition-colors">
-                    <p.icon className="w-6 h-6 text-orange-500 group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h3 className="font-black text-[#233B72] text-lg mb-2 uppercase tracking-tight">{p.title}</h3>
-                    <p className="text-sm text-gray-600 font-medium leading-relaxed">{p.desc}</p>
-                  </div>
-                  <div className="flex items-center gap-2 text-orange-500 font-bold text-sm mt-auto">
-                    {isFr ? 'En savoir plus' : 'Learn more'} <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </section>
-        </ScrollReveal>
-
-        {/* Pourquoi Ellipsys à Toulouse */}
-        <ScrollReveal>
-          <section className="bg-[#233B72] rounded-[2.5rem] p-8 md:p-12 text-white">
-            <h2 className="text-2xl md:text-3xl font-black mb-8 uppercase tracking-tighter text-orange-400">
-              {isFr ? `Pourquoi choisir Ellipsys à Toulouse ?` : `Why choose Ellipsys in Toulouse?`}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {(isFr ? [
-                'Certifiés DGAC/EASA — conformité totale pour vols en agglomération',
-                'Robots ultra-légers 6-9kg — zéro contrainte structurelle',
-                'Eau osmosée pure — séchage sans traces, sans produits chimiques',
-                'Devis gratuit sous 24h — intervention planifiée selon vos contraintes',
-                '40% moins cher qu'une nacelle ou un échafaudage',
-                'Rapport d'intervention fourni après chaque prestation',
-              ] : [
-                'DGAC/EASA certified — full compliance for urban flights',
-                'Ultra-light robots 6-9kg — zero structural constraint',
-                'Pure osmotic water — trace-free drying, no chemicals',
-                'Free quote within 24h — intervention planned around your needs',
-                '40% cheaper than a lift or scaffolding',
-                'Intervention report provided after each service',
-              ]).map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <CheckCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-blue-100 font-medium text-sm leading-relaxed">{item}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        </ScrollReveal>
-
-        {/* FAQ SEO géolocalisée */}
-        <ScrollReveal>
-          <section itemScope itemType="https://schema.org/FAQPage">
-            <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-8 uppercase tracking-tighter flex items-center gap-3">
-              <div className="w-2 h-10 bg-orange-500 rounded-full"></div>
-              {isFr ? `Questions fréquentes — Toulouse` : `FAQ — Toulouse`}
-            </h2>
-            <div className="space-y-3">
-              {faqs.map((faq, i) => (
-                <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm" itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                  <button className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors" onClick={() => setOpenFaq(openFaq === i ? null : i)} aria-expanded={openFaq === i}>
-                    <span className="font-black text-[#233B72] pr-4" itemProp="name">{faq.q}</span>
-                    <ChevronDown className={`w-5 h-5 text-orange-500 flex-shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                  </button>
-                  {openFaq === i && (
-                    <div className="px-6 pb-6 text-gray-600 font-medium leading-relaxed border-t border-gray-100 pt-4" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                      <p itemProp="text">{faq.a}</p>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </section>
-        </ScrollReveal>
-
-        {/* CTA Final */}
-        <ScrollReveal>
-          <section className="bg-orange-50 rounded-[2.5rem] p-10 md:p-14 border border-orange-100 text-center">
-            <h2 className="text-2xl md:text-3xl font-black text-[#233B72] mb-4 uppercase tracking-tighter">
-              {isFr ? `Un projet de nettoyage à Toulouse ?` : `A cleaning project in Toulouse?`}
-            </h2>
-            <p className="text-gray-600 font-medium mb-8 max-w-xl mx-auto">
-              {isFr ? `Devis gratuit et personnalisé sous 24h. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.` : `Free personalized quote within 24h. Intervention régulière en Haute-Garonne et dans toute la région toulousaine.`}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/devis" className="inline-block bg-orange-500 hover:bg-orange-600 text-white py-5 px-12 rounded-2xl font-black uppercase tracking-widest transition-all shadow-xl hover:-translate-y-1">
-                {isFr ? 'Demander un devis gratuit' : 'Request a free quote'}
+      {/* BREADCRUMB */}
+      <nav aria-label="Breadcrumb" className="bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4 py-3">
+          <ol className="flex items-center gap-2 text-sm text-gray-500">
+            <li>
+              <Link to="/" className="hover:text-brand-orange-500 font-medium transition-colors">
+                {isFr ? "Accueil" : "Home"}
               </Link>
-              <a href="tel:0467209709" className="inline-flex items-center justify-center gap-3 bg-white border-2 border-orange-200 text-orange-700 py-5 px-10 rounded-2xl font-black uppercase tracking-widest hover:border-orange-500 transition-all">
-                <Phone className="w-5 h-5" /> 04 67 20 97 09
-              </a>
+            </li>
+            <ChevronRight className="w-3 h-3" />
+            <li>
+              <span className="text-[#1a2e5a] font-bold uppercase tracking-tight">Toulouse</span>
+            </li>
+          </ol>
+        </div>
+      </nav>
+
+      <main className="flex-grow container mx-auto px-4 py-12 md:py-20 max-w-7xl">
+        
+        {/* INTRODUCTION SEO LOCALE */}
+        <ScrollReveal>
+          <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-xl border border-gray-100 mb-16 md:mb-24">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-black text-[#1a2e5a] mb-6 uppercase tracking-tighter">
+                  {isFr ? "Votre expert local en Haute-Garonne" : "Your local expert in Haute-Garonne"}
+                </h2>
+                <div className="prose prose-lg text-gray-600 font-medium leading-relaxed">
+                  <p>
+                    {isFr 
+                      ? "Ellipsys Solutions déploie sa flotte de drones certifiés DGAC sur tout le département de la Haute-Garonne (31) et la région Occitanie, pour des interventions rapides, sûres et économiques."
+                      : "Ellipsys Solutions deploys its DGAC-certified drone fleet throughout the Haute-Garonne department and the Occitanie region, for fast, safe, and economical operations."}
+                  </p>
+                  <p className="mt-4">
+                    {isFr
+                      ? "De Toulouse à Colomiers, en passant par Blagnac et Muret, la pollution urbaine et les intempéries dégradent vos toitures et façades. Notre technologie de nettoyage à l'eau osmosée basse pression garantit un résultat impeccable, sans risque de dégradation pour vos bâtiments historiques ou industriels."
+                      : "From Toulouse to Colomiers, urban pollution and weather degrade your roofs and facades. Our low-pressure pure osmosed water cleaning technology guarantees flawless results, without risk of damage to your historic or industrial buildings."}
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {[
+                  { title: isFr ? "Intervention Rapide" : "Fast Response", desc: isFr ? "Devis sous 24h" : "Quote within 24h", icon: Zap },
+                  { title: isFr ? "Sécurité Totale" : "Total Safety", desc: isFr ? "Zéro risque de chute" : "Zero fall risk", icon: ShieldCheck },
+                  { title: "Certifié DGAC", desc: isFr ? "Vols en agglomération" : "Urban flights approved", icon: Award },
+                  { title: isFr ? "Éco-responsable" : "Eco-friendly", desc: isFr ? "Produits biodégradables" : "Biodegradable products", icon: CheckCircle2 }
+                ].map((feature, idx) => (
+                  <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-100 flex flex-col items-center text-center hover:bg-white hover:shadow-md transition-all">
+                    <feature.icon className="w-8 h-8 text-brand-orange-500 mb-3" />
+                    <h4 className="font-black text-[#1a2e5a] text-sm uppercase tracking-tight mb-1">{feature.title}</h4>
+                    <span className="text-xs font-bold text-gray-500">{feature.desc}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </section>
+          </div>
+        </ScrollReveal>
+
+        {/* GRILLE DES SERVICES LOCAUX */}
+        <ScrollReveal delay={0.2}>
+          <div className="mb-24">
+            <h2 className="text-3xl md:text-5xl font-black text-center text-[#1a2e5a] mb-12 uppercase tracking-tighter">
+              {isFr ? "Nos interventions dans le 31" : "Our services in the 31 area"}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {services.map((service, idx) => (
+                <Hover3DCard key={idx} className="h-full">
+                  <div className={`bg-white rounded-[2.5rem] p-8 border-t-8 h-full flex flex-col hover:shadow-2xl transition-all border-gray-100 border-t-${service.color}-500 shadow-lg`}>
+                    <div className={`w-16 h-16 rounded-2xl bg-${service.color}-50 flex items-center justify-center mb-6`}>
+                      <service.icon className={`w-8 h-8 text-${service.color}-500`} />
+                    </div>
+                    <h3 className="text-xl font-black text-[#1a2e5a] mb-4 uppercase tracking-tight">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 font-medium leading-relaxed mb-8 flex-grow">
+                      {service.desc}
+                    </p>
+                    <Link to={service.link} className={`inline-flex items-center text-sm font-black uppercase tracking-widest text-${service.color}-600 hover:text-${service.color}-700 transition-colors group`}>
+                      {isFr ? "En savoir plus" : "Learn more"} 
+                      <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
+                </Hover3DCard>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* CTA FINAL */}
+        <ScrollReveal delay={0.3}>
+          <div className="bg-gradient-to-br from-[#1a2e5a] to-blue-900 rounded-[4rem] p-10 md:p-20 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
+              <MapPin size={300} />
+            </div>
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-black mb-6 uppercase tracking-tighter">
+                {isFr ? "Un projet à Toulouse ou ses alentours ?" : "A project in or around Toulouse?"}
+              </h2>
+              <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto font-medium">
+                {isFr 
+                  ? "Nos équipes interviennent rapidement. Obtenez une étude de faisabilité et un devis gratuit sous 24h ouvrées." 
+                  : "Our teams respond quickly. Get a feasibility study and a free quote within 24 business hours."}
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <Link to="/devis" className="inline-flex items-center justify-center gap-3 bg-brand-orange-500 hover:bg-brand-orange-600 text-white px-10 py-5 rounded-2xl font-black transition-all shadow-xl hover:-translate-y-1 text-lg uppercase tracking-widest">
+                  {isFr ? "Demander un devis" : "Request a quote"}
+                </Link>
+                <a href="tel:0467209709" className="inline-flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-2xl font-black transition-all text-lg uppercase tracking-widest">
+                  04 67 20 97 09
+                </a>
+              </div>
+            </div>
+          </div>
         </ScrollReveal>
 
       </main>
+
       <Footer />
     </div>
   );
