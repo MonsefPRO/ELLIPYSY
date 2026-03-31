@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Home, ChevronRight, AlertCircle, CheckCircle2, ShieldCheck, Zap, Award, User, Mail, Phone, FolderOpen, AlignLeft, MapPin, Star } from 'lucide-react';
+import { Home, ChevronRight, AlertCircle, CheckCircle2, ShieldCheck, Zap, Award, User, Mail, Phone, FolderOpen, AlignLeft, MapPin, Star, Tag } from 'lucide-react';
 import { useSecureForm } from '../hooks/useSecureForm';
 import { validateDevisForm } from '../utils/validation';
 import { useState, useEffect } from 'react';
@@ -37,7 +37,7 @@ export default function Devis() {
 
   const form = useSecureForm({
     initialValues: {
-      name: '', companyType: '', email: '', phone: '', service: '', message: '', rgpd: ''
+      name: '', companyType: '', email: '', phone: '', service: '', message: '', promoCode: '', rgpd: ''
     },
     validate: (values) => {
       const errors: Record<string, string> = {};
@@ -69,6 +69,7 @@ export default function Devis() {
 
       <Header />
 
+      {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[#e0f2fe] to-transparent pointer-events-none z-0"></div>
 
       <main className="flex-grow container mx-auto px-4 py-8 md:py-16 pt-28 md:pt-36 max-w-7xl relative z-10">
@@ -128,11 +129,11 @@ export default function Devis() {
                     { icon: ShieldCheck, title: isFr ? "Certifié DGAC" : "DGAC Certified", desc: isFr ? "Pilotes agréés Scénarios S1, S2, S3. Conformité totale EASA." : "Pilots approved for S1, S2, S3 scenarios. Full EASA compliance." },
                     { icon: Award, title: isFr ? "Assurance RC Pro" : "Liability Insurance", desc: isFr ? "Couverture aérienne et industrielle complète." : "Complete aerial and industrial coverage." },
                     { icon: Zap, title: isFr ? "Réponse Rapide" : "Fast Response", desc: isFr ? "Devis personnalisé sous 24h ouvrées." : "Personalized quote within 24 business hours." },
-                    { icon: MapPin, title: isFr ? "Zone Occitanie" : "Occitanie Coverage", desc: isFr ? "Occitanie · PACA · Île-de-France · France entière & International sur devis." : "Occitanie · PACA · Île-de-France · France entière & International sur devis." }
+                    { icon: MapPin, title: isFr ? "Zone Occitanie" : "Occitanie Coverage", desc: isFr ? "Occitanie · PACA · Île-de-France · France entière & International sur devis." : "Occitanie · PACA · Île-de-France · France entière & International on quote." }
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-4">
                       <div className="bg-white/10 p-3 rounded-2xl flex-shrink-0 backdrop-blur-sm">
-                        <item.icon className="w-6 h-6 text-orange-400" />
+                        <item.icon className="w-6 h-6 text-brand-orange-400" />
                       </div>
                       <div>
                         <div className="font-black uppercase tracking-tight text-sm mb-1">{item.title}</div>
@@ -162,7 +163,7 @@ export default function Devis() {
               {/* Contact direct */}
               <div className="bg-white rounded-[2rem] p-8 border border-gray-200 shadow-lg text-center">
                 <div className="w-14 h-14 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Phone className="w-7 h-7 text-orange-500" />
+                  <Phone className="w-7 h-7 text-brand-orange-500" />
                 </div>
                 <h4 className="font-black text-[#233B72] uppercase tracking-tight mb-2 text-sm">
                   {isFr ? "Besoin d'une réponse immédiate ?" : "Need an immediate answer?"}
@@ -170,7 +171,7 @@ export default function Devis() {
                 <p className="text-xs text-gray-500 font-medium mb-4">
                   {isFr ? "Notre équipe technique vous répond directement." : "Our technical team answers directly."}
                 </p>
-                <a href="tel:0467209709" className="text-xl font-black text-orange-500 hover:text-orange-600 transition-colors block">
+                <a href="tel:0467209709" className="text-xl font-black text-brand-orange-500 hover:text-brand-orange-600 transition-colors block">
                   04 67 20 97 09
                 </a>
                 <p className="text-xs text-gray-400 mt-2 font-medium">
@@ -194,8 +195,8 @@ export default function Devis() {
                 </h1>
                 <p className="text-gray-500 text-lg font-medium">
                   {isFr
-                    ? "Nettoyage drone en Occitanie — Remplissez le formulaire pour obtenir une étude personnalisée sous 24h."
-                    : "Drone cleaning in Southern France — Fill in the form for a personalized study within 24h."}
+                    ? "Nettoyage par drone haute précision. Remplissez le formulaire pour obtenir une étude personnalisée sous 24h."
+                    : "High-precision drone cleaning. Fill in the form for a personalized study within 24h."}
                 </p>
               </div>
 
@@ -213,13 +214,13 @@ export default function Devis() {
                   <div className="relative">
                     <User className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input type="text" name="name" required value={fields.name?.value || ''} onChange={(e) => form.handleChange(e)}
-                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-blue-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium"
+                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium"
                       placeholder={isFr ? "Nom ou Raison Sociale *" : "Name or Company Name *"} />
                   </div>
                   <div className="relative">
                     <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input type="email" name="email" required value={fields.email?.value || ''} onChange={(e) => form.handleChange(e)}
-                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-blue-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium"
+                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium"
                       placeholder={isFr ? "Adresse Email *" : "Email Address *"} />
                   </div>
                 </div>
@@ -228,13 +229,13 @@ export default function Devis() {
                   <div className="relative">
                     <Phone className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
                     <input type="tel" name="phone" required value={fields.phone?.value || ''} onChange={(e) => form.handleChange(e)}
-                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-blue-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium"
+                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium"
                       placeholder={isFr ? "Numéro de téléphone *" : "Phone Number *"} />
                   </div>
                   <div className="relative">
                     <FolderOpen className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5 z-10" />
                     <select name="service" required value={fields.service?.value || ''} onChange={(e) => form.handleChange(e)}
-                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-blue-500 outline-none transition-all text-gray-900 font-bold appearance-none cursor-pointer">
+                      className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-bold appearance-none cursor-pointer">
                       <option value="" disabled className="text-gray-400 font-medium">{t('quote.form.selectService')}</option>
                       <option value="facade">{isFr ? "Nettoyage de Façade" : "Facade Cleaning"}</option>
                       <option value="toiture">{isFr ? "Démoussage de Toiture" : "Roof Moss Removal"}</option>
@@ -245,37 +246,50 @@ export default function Devis() {
                   </div>
                 </div>
 
+                {/* CHAMP CODE PROMO - SPÉCIAL MEDEF */}
+                <div className="relative">
+                  <Tag className="absolute left-5 top-1/2 -translate-y-1/2 text-brand-orange-500 w-5 h-5" />
+                  <input 
+                    type="text" 
+                    name="promoCode" 
+                    value={fields.promoCode?.value || ''} 
+                    onChange={(e) => form.handleChange(e)} 
+                    className="w-full pl-14 pr-5 py-4 bg-orange-50/50 border-2 border-orange-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-black placeholder:text-orange-300 placeholder:font-bold uppercase tracking-widest" 
+                    placeholder={isFr ? "Code Promo / Partenaire (Optionnel)" : "Promo / Partner Code (Optional)"} 
+                  />
+                </div>
+
                 <div className="relative">
                   <AlignLeft className="absolute left-5 top-6 text-gray-400 w-5 h-5" />
                   <textarea name="message" required rows={5} value={fields.message?.value || ''} onChange={(e) => form.handleChange(e)}
-                    className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-blue-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium resize-none"
-                    placeholder={isFr ? "Décrivez votre besoin : surface estimée, adresse d'intervention en Occitanie, contraintes d'accès..." : "Describe your need: estimated surface area, address in Southern France, access constraints..."}></textarea>
+                    className="w-full pl-14 pr-5 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:bg-white focus:border-brand-orange-500 outline-none transition-all text-gray-900 font-bold placeholder:text-gray-400 placeholder:font-medium resize-none"
+                    placeholder={isFr ? "Décrivez votre besoin : surface estimée, type de bâtiment, contraintes d'accès..." : "Describe your need: estimated surface area, building type, access constraints..."}></textarea>
                 </div>
 
                 {/* Zone de confiance visible */}
-                <div className="bg-blue-50 rounded-2xl p-5 border border-blue-100 flex items-start gap-4">
+                <div className="bg-blue-50/50 rounded-2xl p-5 border border-blue-100 flex items-start gap-4">
                   <ShieldCheck className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm font-bold text-blue-700">
+                  <p className="text-sm font-bold text-blue-800">
                     {isFr
-                      ? "Devis 100% gratuit et sans engagement. Réponse sous 24h ouvrées. Vos données restent confidentielles."
-                      : "100% free and no-commitment quote. Response within 24 business hours. Your data remains confidential."}
+                      ? "Devis 100% gratuit et sans engagement. Réponse sous 24h ouvrées."
+                      : "100% free and no-commitment quote. Response within 24 business hours."}
                   </p>
                 </div>
 
-                <div className="bg-sky-50/50 p-5 rounded-2xl border border-sky-100">
+                <div className="bg-gray-50 p-4 rounded-2xl border border-gray-100">
                   <label className="flex items-start gap-4 cursor-pointer group">
                     <input type="checkbox" required onChange={(e) => form.handleChange({ target: { name: 'rgpd', value: e.target.checked ? 'true' : '' } } as any)}
-                      className="w-5 h-5 mt-0.5 accent-blue-600 rounded cursor-pointer" />
-                    <span className="text-xs md:text-sm text-gray-600 font-bold leading-relaxed group-hover:text-gray-900 transition-colors">
+                      className="w-5 h-5 mt-0.5 accent-brand-orange-500 rounded cursor-pointer" />
+                    <span className="text-xs md:text-sm text-gray-500 font-bold leading-relaxed group-hover:text-gray-800 transition-colors">
                       {isFr
-                        ? "J'accepte que les informations saisies soient exploitées dans le cadre strict de la demande de devis et de la relation commerciale qui peut en découler."
-                        : "I agree that the information entered will be used strictly within the context of the quote request and the business relationship that may result from it."}
+                        ? "J'accepte que les informations saisies soient exploitées dans le cadre strict de ma demande de devis."
+                        : "I agree that the information entered will be used strictly within the context of my quote request."}
                     </span>
                   </label>
                 </div>
 
                 <button type="submit" disabled={isSubmitting}
-                  className="w-full py-6 bg-gradient-to-r from-[#233B72] to-blue-600 text-white rounded-2xl font-black text-xl shadow-xl hover:shadow-2xl hover:shadow-blue-500/30 transition-all hover:-translate-y-1 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 uppercase tracking-widest mt-4">
+                  className="w-full py-6 bg-gradient-to-r from-brand-orange-400 to-brand-orange-600 text-white rounded-2xl font-black text-xl shadow-xl hover:shadow-2xl hover:shadow-orange-500/30 transition-all hover:-translate-y-1 active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 uppercase tracking-widest mt-4">
                   {isSubmitting
                     ? (isFr ? 'ENVOI EN COURS...' : 'SENDING...')
                     : (isFr ? 'Envoyer ma demande' : 'Submit my request')}
@@ -290,7 +304,7 @@ export default function Devis() {
                     { label: isFr ? "RC Pro" : "Liability Ins.", icon: Award },
                     { label: "4.9/5 ⭐", icon: Star }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-xl p-3 border border-gray-100">
+                    <div key={i} className="flex items-center gap-2 bg-white rounded-xl p-3 border border-gray-100 shadow-sm">
                       <item.icon className="w-4 h-4 text-blue-500 flex-shrink-0" />
                       <span className="text-xs font-black text-gray-700 uppercase tracking-tight">{item.label}</span>
                     </div>
