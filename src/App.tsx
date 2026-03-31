@@ -22,7 +22,6 @@ import Toulouse from './pages/Toulouse';
 import Marseille from './pages/Marseille';
 import Carcassonne from './pages/Carcassonne';
 import Perpignan from './pages/Perpignan';
-import Lyon from './pages/Lyon';
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -304,7 +303,6 @@ export default function App() {
       <Route path="/nettoyage-drone-marseille" element={<Marseille />} />
       <Route path="/nettoyage-drone-carcassonne" element={<Carcassonne />} />
       <Route path="/nettoyage-drone-perpignan" element={<Perpignan />} />
-      <Route path="/nettoyage-drone-lyon" element={<Lyon />} />
     </Routes>
   );
 }
