@@ -1,163 +1,83 @@
-// prerender.mjs v2 - toutes les pages du site
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { chromium } from 'playwright';
+import { writeFileSync, mkdirSync } from 'fs';
+import { join } from 'path';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const distDir = join(__dirname, 'dist');
+const BASE_URL = 'http://localhost:4173';
+const DIST_DIR = './dist';
 
 const routes = [
-  '/',
-  '/devis',
-  '/blog',
-  '/realisations',
-  '/prestations',
-  '/valeurs',
-  '/risques-et-responsabilites',
-  '/rejoignez-nous',
-  '/prestations/nettoyage-facade',
-  '/prestations/demoussage',
-  '/prestations/panneaux-photovoltaiques',
-  '/prestations/thermographie',
-  '/prestations/elimination-frelons',
+  { path: '/', title: 'Nettoyage par Drone & Robotique — France & International | Ellipsys Solutions', description: 'Ellipsys Solutions : nettoyage professionnel par drone et robotique. Panneaux solaires, façades, toitures, thermographie, nids de frelons. Certifiés DGAC/EASA. Basés à Montpellier — France entière & International.' },
+  { path: '/devis', title: 'Devis Gratuit Nettoyage Drone — Réponse 24h | Ellipsys Solutions', description: 'Demandez votre devis gratuit pour nettoyage par drone : panneaux solaires, façades, toitures, frelons, thermographie. Réponse sous 24h. France entière et international.' },
+  { path: '/prestations', title: 'Prestations Nettoyage Drone & Robotique | Ellipsys Solutions', description: 'Découvrez les 5 prestations Ellipsys Solutions : panneaux photovoltaïques, façades, démoussage, thermographie, nids de frelons. Intervention France entière.' },
+  { path: '/prestations/panneaux-photovoltaiques', title: 'Nettoyage Panneaux Solaires par Drone — +30% Rendement | Ellipsys', description: 'Nettoyage panneaux photovoltaïques par drone et robot. +30% de rendement récupéré, eau osmosée pure, 500m² en 45min. 40% moins cher que la nacelle. France entière.' },
+  { path: '/prestations/nettoyage-facade', title: 'Nettoyage Façades par Drone — Jusqu\'à 50m | Ellipsys Solutions', description: 'Nettoyage façades par drone : accès jusqu\'à 50m, 4x plus rapide, 30% moins cher. Eau osmosée chaude 90°C. Zéro échafaudage. France entière et international.' },
+  { path: '/prestations/demoussage', title: 'Démoussage Toiture par Drone — Zéro Tuile Cassée | Ellipsys', description: 'Démoussage toiture par drone : 3x plus rapide, zéro risque de chute, zéro tuile cassée. Protection hydrofuge jusqu\'à 10 ans. France entière.' },
+  { path: '/prestations/thermographie', title: 'Thermographie Drone — Caméra HD 1280×1024 | Ellipsys Solutions', description: 'Inspection thermographique par drone. Caméra HD 1280×1024, précision RTK centimétrique, rapport sous 48h. Fermes solaires, bâtiments industriels. France entière.' },
+  { path: '/prestations/elimination-frelons', title: 'Destruction Nids de Frelons par Drone — Accès 50m | Ellipsys', description: 'Élimination nids de frelons asiatiques par drone. Accès jusqu\'à 50m, biocides certifiés Certibiocide, zéro risque opérateur. DGAC certifié. France entière.' },
+  { path: '/blog', title: 'Blog Nettoyage Drone & Robotique | Ellipsys Solutions', description: 'Actualités, conseils et guides sur le nettoyage par drone : panneaux solaires, façades, toitures. Expertise Ellipsys Solutions.' },
+  { path: '/realisations', title: 'Réalisations Nettoyage Drone — Nos Chantiers | Ellipsys Solutions', description: 'Découvrez nos réalisations : nettoyage panneaux solaires, façades, démoussage toiture par drone en France. Photos et résultats concrets.' },
+  { path: '/valeurs', title: 'Nos Valeurs — Engagement & Innovation | Ellipsys Solutions', description: 'Les valeurs d\'Ellipsys Solutions : innovation technologique, sécurité, écologie et excellence. Notre engagement pour un nettoyage responsable par drone.' },
+  { path: '/risques-et-responsabilites', title: 'Risques & Responsabilités | Ellipsys Solutions', description: 'Informations sur la gestion des risques et responsabilités pour les interventions par drone. Certifications DGAC/EASA, assurance RC Pro.' },
+  { path: '/rejoignez-nous', title: 'Rejoignez Ellipsys Solutions — Recrutement Drone | Ellipsys', description: 'Rejoignez l\'équipe Ellipsys Solutions : télépilotes certifiés DGAC, techniciens robotique. Postes ouverts en France.' },
+  // Pages villes
+  { path: '/nettoyage-drone-montpellier', title: 'Nettoyage par Drone à Montpellier (34) | Ellipsys Solutions', description: 'Nettoyage par drone à Montpellier : panneaux solaires, façades, toitures, thermographie, nids de frelons. Certifiés DGAC. Basés à Montpellier — intervention immédiate.' },
+  { path: '/nettoyage-drone-nimes', title: 'Nettoyage par Drone à Nîmes (30) | Ellipsys Solutions', description: 'Nettoyage par drone à Nîmes et dans tout le Gard : panneaux solaires, façades, démoussage, frelons. Certifiés DGAC. À moins d\'1h de Montpellier.' },
+  { path: '/nettoyage-drone-toulouse', title: 'Nettoyage par Drone à Toulouse (31) | Ellipsys Solutions', description: 'Nettoyage par drone à Toulouse : panneaux photovoltaïques, façades, toitures, thermographie. Sites industriels et logistiques. Certifiés DGAC/EASA.' },
+  { path: '/nettoyage-drone-marseille', title: 'Nettoyage par Drone à Marseille (13) | Ellipsys Solutions', description: 'Nettoyage par drone à Marseille et en région PACA : panneaux solaires, façades maritimes, toitures. Certifiés DGAC. Devis gratuit sous 24h.' },
+  { path: '/nettoyage-drone-carcassonne', title: 'Nettoyage par Drone à Carcassonne (11) | Ellipsys Solutions', description: 'Nettoyage par drone à Carcassonne et dans l\'Aude : panneaux solaires, toitures historiques, démoussage, frelons. Certifiés DGAC. À moins d\'1h de Montpellier.' },
+  { path: '/nettoyage-drone-perpignan', title: 'Nettoyage par Drone à Perpignan (66) | Ellipsys Solutions', description: 'Nettoyage par drone à Perpignan et dans les Pyrénées-Orientales : panneaux solaires, façades, thermographie. Forte exposition solaire. Certifiés DGAC.' },
+  { path: '/nettoyage-drone-lyon', title: 'Nettoyage par Drone à Lyon (69) | Ellipsys Solutions', description: 'Nettoyage par drone à Lyon et en région Auvergne-Rhône-Alpes : panneaux solaires, façades, démoussage, thermographie. Certifiés DGAC. Devis gratuit sous 24h.' },
 ];
 
-const routeMeta = {
-  '/': {
-    title: 'Ellipsys Solutions — Nettoyage par Drone & Robotique | France & International',
-    description: 'Nettoyage professionnel par drone et robotique : panneaux solaires, façades, toitures, thermographie, nids de frelons. Basés en Occitanie — France entière et international. Certifiés DGAC/EASA.',
-    canonical: 'https://ellipsys-solutions.com/',
-  },
-  '/devis': {
-    title: 'Demande de Devis Gratuit — Nettoyage Drone | Ellipsys Solutions',
-    description: 'Obtenez un devis gratuit sous 24h pour le nettoyage par drone en France. Panneaux solaires, façades, toitures, thermographie, nids de frelons. Sans engagement.',
-    canonical: 'https://ellipsys-solutions.com/devis',
-  },
-  '/blog': {
-    title: 'Blog — Actualités Drone & Robotique Nettoyage | Ellipsys Solutions',
-    description: 'Actualités, conseils et innovations sur le nettoyage par drone et robotique. Panneaux solaires, façades, toitures, thermographie. Ellipsys Solutions.',
-    canonical: 'https://ellipsys-solutions.com/blog',
-  },
-  '/realisations': {
-    title: 'Nos Réalisations — Nettoyage Drone & Robotique en France | Ellipsys Solutions',
-    description: 'Découvrez nos chantiers et réalisations de nettoyage par drone en France : centrales solaires, façades industrielles, toitures, thermographie. Ellipsys Solutions.',
-    canonical: 'https://ellipsys-solutions.com/realisations',
-  },
-  '/prestations': {
-    title: 'Nos Prestations — Nettoyage Drone & Robotique | Ellipsys Solutions',
-    description: 'Toutes nos prestations de nettoyage par drone et robotique : panneaux photovoltaïques, façades, démoussage toiture, thermographie, destruction nids de frelons. France entière.',
-    canonical: 'https://ellipsys-solutions.com/prestations',
-  },
-  '/valeurs': {
-    title: 'Nos Valeurs — Innovation, Sécurité & Écologie | Ellipsys Solutions',
-    description: 'Découvrez les valeurs d\'Ellipsys Solutions : innovation technologique, sécurité opérationnelle, engagement écologique et excellence du service. Certifiés DGAC/EASA.',
-    canonical: 'https://ellipsys-solutions.com/valeurs',
-  },
-  '/risques-et-responsabilites': {
-    title: 'Risques & Responsabilités — Conformité DGAC | Ellipsys Solutions',
-    description: 'Informations sur la conformité réglementaire, les certifications DGAC/EASA et la gestion des risques pour nos opérations de drone en France. Ellipsys Solutions.',
-    canonical: 'https://ellipsys-solutions.com/risques-et-responsabilites',
-  },
-  '/rejoignez-nous': {
-    title: 'Rejoignez-Nous — Carrières Drone & Robotique | Ellipsys Solutions',
-    description: 'Rejoignez l\'équipe Ellipsys Solutions : pilotes de drone certifiés DGAC, techniciens robotique, commerciaux. Postes disponibles en France. Envoyez votre candidature.',
-    canonical: 'https://ellipsys-solutions.com/rejoignez-nous',
-  },
-  '/prestations/nettoyage-facade': {
-    title: 'Nettoyage de Façades par Drone — France & International | Ellipsys Solutions',
-    description: 'Nettoyage de façades par drone : accès jusqu\'à 50m, 30% moins cher qu\'une nacelle, 4x plus rapide. Certifié DGAC. Intervention France entière et international.',
-    canonical: 'https://ellipsys-solutions.com/prestations/nettoyage-facade',
-  },
-  '/prestations/demoussage': {
-    title: 'Démoussage de Toiture par Drone — France & International | Ellipsys Solutions',
-    description: 'Démoussage de toiture par drone : zéro tuile cassée, traitement biocide professionnel, protection hydrofuge 5 ans. Intervention France entière. Certifié DGAC.',
-    canonical: 'https://ellipsys-solutions.com/prestations/demoussage',
-  },
-  '/prestations/panneaux-photovoltaiques': {
-    title: 'Nettoyage Panneaux Photovoltaïques par Drone & Robot — France | Ellipsys Solutions',
-    description: 'Nettoyage panneaux solaires par drone et robot : +30% de rendement, 500m² en 45 min, 40% moins cher qu\'une nacelle. Eau osmosée pure. France entière et international.',
-    canonical: 'https://ellipsys-solutions.com/prestations/panneaux-photovoltaiques',
-  },
-  '/prestations/thermographie': {
-    title: 'Thermographie par Drone — Inspection Solaire & Bâtiment | Ellipsys Solutions',
-    description: 'Inspection thermographique par drone : caméra radiométrique HD 1280×1024, précision RTK centimétrique, rapports sous 48h. Centrales PV, bâtiments, industrie. France entière.',
-    canonical: 'https://ellipsys-solutions.com/prestations/thermographie',
-  },
-  '/prestations/elimination-frelons': {
-    title: 'Destruction Nids de Frelons par Drone — France | Ellipsys Solutions',
-    description: 'Destruction de nids de frelons asiatiques par drone : accès jusqu\'à 50m, biocides certifiés Certibiocide, intervention en moins de 30 min. Opérateurs au sol. France entière.',
-    canonical: 'https://ellipsys-solutions.com/prestations/elimination-frelons',
-  },
-};
-
-const templatePath = join(distDir, 'index.html');
-if (!existsSync(templatePath)) {
-  console.error('❌ dist/index.html introuvable. Lance `npm run build` d\'abord.');
-  process.exit(1);
+function buildOgTags(route, siteUrl) {
+  const url = `${siteUrl}${route.path}`;
+  return `
+    <meta property="og:title" content="${route.title}" />
+    <meta property="og:description" content="${route.description}" />
+    <meta property="og:url" content="${url}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ellipsys Solutions" />
+    <meta property="og:image" content="${siteUrl}/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="${route.title}" />
+    <meta name="twitter:description" content="${route.description}" />
+    <link rel="canonical" href="${url}" />`;
 }
 
-const template = readFileSync(templatePath, 'utf-8');
-let generated = 0;
+async function prerenderRoutes() {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
 
-for (const route of routes) {
-  const meta = routeMeta[route] || {
-    title: 'Ellipsys Solutions — Nettoyage par Drone & Robotique',
-    description: 'Nettoyage professionnel par drone et robotique en France. Certifiés DGAC/EASA.',
-    canonical: `https://ellipsys-solutions.com${route}`,
-  };
+  for (const route of routes) {
+    const url = `${BASE_URL}${route.path}`;
+    console.log(`Prérendu: ${route.path}`);
 
-  let html = template;
+    try {
+      await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+      let html = await page.content();
 
-  // Title
-  if (/<title>.*?<\/title>/.test(html)) {
-    html = html.replace(/<title>.*?<\/title>/, `<title>${meta.title}</title>`);
-  } else {
-    html = html.replace('</head>', `  <title>${meta.title}</title>\n  </head>`);
+      // Injecter title, meta, og, canonical
+      const headTags = `
+    <title>${route.title}</title>
+    <meta name="description" content="${route.description}" />${buildOgTags(route, 'https://ellipsys-solutions.com')}`;
+
+      html = html.replace(/<title>.*?<\/title>/s, '');
+      html = html.replace(/<meta name="description".*?\/>/s, '');
+      html = html.replace('</head>', `${headTags}\n  </head>`);
+
+      // Écriture du fichier
+      const routePath = route.path === '/' ? '' : route.path;
+      const dir = join(DIST_DIR, routePath);
+      mkdirSync(dir, { recursive: true });
+      writeFileSync(join(dir, 'index.html'), html, 'utf-8');
+      console.log(`  ✅ ${route.path}`);
+    } catch (err) {
+      console.error(`  ❌ Erreur ${route.path}: ${err.message}`);
+    }
   }
 
-  // Meta description
-  if (/<meta name="description" content=".*?">/.test(html)) {
-    html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${meta.description}">`);
-  } else {
-    html = html.replace('</head>', `  <meta name="description" content="${meta.description}">\n  </head>`);
-  }
-
-  // Canonical
-  if (/<link rel="canonical" href=".*?">/.test(html)) {
-    html = html.replace(/<link rel="canonical" href=".*?">/, `<link rel="canonical" href="${meta.canonical}">`);
-  } else {
-    html = html.replace('</head>', `  <link rel="canonical" href="${meta.canonical}">\n  </head>`);
-  }
-
-  // Open Graph tags
-  if (!html.includes('og:title')) {
-    const ogTags = `  <meta property="og:title" content="${meta.title}">
-  <meta property="og:description" content="${meta.description}">
-  <meta property="og:url" content="${meta.canonical}">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Ellipsys Solutions">
-  <meta property="og:image" content="https://ellipsys-solutions.com/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="${meta.title}">
-  <meta name="twitter:description" content="${meta.description}">`;
-    html = html.replace('</head>', `${ogTags}\n  </head>`);
-  }
-
-  // Créer le dossier si nécessaire
-  const routePath = route === '/' ? '' : route;
-  const outputDir = join(distDir, routePath);
-  if (routePath && !existsSync(outputDir)) {
-    mkdirSync(outputDir, { recursive: true });
-  }
-
-  const outputPath = routePath
-    ? join(outputDir, 'index.html')
-    : join(distDir, 'index.html');
-
-  writeFileSync(outputPath, html, 'utf-8');
-  console.log(`✅ Prérendu : ${route} → ${outputPath.replace(distDir, 'dist')}`);
-  generated++;
+  await browser.close();
+  console.log(`\n🚀 ${routes.length} pages prérendues avec succès.`);
 }
 
-console.log(`\n🚀 ${generated} pages prérendues avec succès.`);
-console.log('Google recevra maintenant du HTML complet dès le premier crawl.');
+prerenderRoutes();
