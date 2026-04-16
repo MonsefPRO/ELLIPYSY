@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import {
   Shield, ChevronRight, Star, Zap,
   BarChart3, Play, ChevronLeft
@@ -22,6 +22,28 @@ import Toulouse from './pages/Toulouse';
 import Marseille from './pages/Marseille';
 import Carcassonne from './pages/Carcassonne';
 import Perpignan from './pages/Perpignan';
+
+// PostHog type declaration
+declare global {
+  interface Window {
+    posthog: any;
+  }
+}
+
+// Tracker de navigation pour React Router
+function PostHogPageTracker() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (typeof window.posthog !== 'undefined') {
+      window.posthog.capture('$pageview', {
+        $current_url: window.location.href,
+      });
+    }
+  }, [location.pathname]);
+
+  return null;
+}
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -295,14 +317,17 @@ function HomePage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/nettoyage-drone-montpellier" element={<Montpellier />} />
-      <Route path="/nettoyage-drone-nimes" element={<Nimes />} />
-      <Route path="/nettoyage-drone-toulouse" element={<Toulouse />} />
-      <Route path="/nettoyage-drone-marseille" element={<Marseille />} />
-      <Route path="/nettoyage-drone-carcassonne" element={<Carcassonne />} />
-      <Route path="/nettoyage-drone-perpignan" element={<Perpignan />} />
-    </Routes>
+    <>
+      <PostHogPageTracker />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/nettoyage-drone-montpellier" element={<Montpellier />} />
+        <Route path="/nettoyage-drone-nimes" element={<Nimes />} />
+        <Route path="/nettoyage-drone-toulouse" element={<Toulouse />} />
+        <Route path="/nettoyage-drone-marseille" element={<Marseille />} />
+        <Route path="/nettoyage-drone-carcassonne" element={<Carcassonne />} />
+        <Route path="/nettoyage-drone-perpignan" element={<Perpignan />} />
+      </Routes>
+    </>
   );
 }
