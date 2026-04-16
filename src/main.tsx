@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import posthog from 'posthog-js';
 import { LanguageProvider } from './contexts/LanguageContext';
 import ScrollToTop from './components/ScrollToTop';
 import App from './App.tsx';
@@ -10,7 +11,6 @@ import NettoyageFacade from './pages/NettoyageFacade.tsx';
 import Demoussage from './pages/Demoussage.tsx';
 import EliminationFrelons from './pages/EliminationFrelons.tsx';
 import PanneauxPhotovoltaiques from './pages/PanneauxPhotovoltaiques.tsx';
-// NOUVEL IMPORT DE TA PAGE THERMOGRAPHIE
 import Thermographie from './pages/Thermographie.tsx';
 import Blog from './pages/Blog.tsx';
 import Realisations from './pages/Realisations.tsx';
@@ -18,11 +18,15 @@ import Devis from './pages/Devis.tsx';
 import Valeurs from './pages/Valeurs.tsx';
 import RejoignezNous from './pages/RejoignezNous.tsx';
 import PolitiqueConfidentialite from './pages/PolitiqueConfidentialite.tsx';
-
-// NOUVEL IMPORT EXPERT
 import Risques from './pages/Risques.tsx';
 
 import './index.css';
+
+// Initialisation PostHog
+posthog.init('phc_tNqhdPtxvwxyePwyJztECMyyzUfznGtE8qrtWVXxoZVy', {
+  api_host: 'https://us.i.posthog.com',
+  defaults: '2026-01-30',
+});
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -95,7 +99,6 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
-        {/* NOUVELLE ROUTE : THERMOGRAPHIE */}
         <Route
           path="/prestations/thermographie"
           element={
