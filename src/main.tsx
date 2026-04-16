@@ -24,7 +24,7 @@ import './index.css';
 
 // Initialisation PostHog
 posthog.init('phc_ALRnDPcuJmXLj9cdid2fGJgLX8t5Buqeu6hfg5aGyuEU', {
-  api_host: 'https://us.i.posthog.com',
+  api_host: 'https://eu.i.posthog.com',
   defaults: '2026-01-30',
 });
 
