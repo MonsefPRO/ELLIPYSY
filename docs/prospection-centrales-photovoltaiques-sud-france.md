@@ -105,12 +105,54 @@ Les décisions de nettoyage se prennent chez l'exploitant/asset manager, pas sur
 
 ---
 
-## 7. Plan d'action proposé (90 jours)
+## 7. Plan d'action éclair — 7 jours
 
-1. **Semaine 1–2** : extraire le fichier ODRÉ, croiser avec Google Earth → liste de 200 sites scorés.
-2. **Semaine 3–6** : campagne ciblée sur les 3 asset managers « faciles » (Tenergie, Arkolia, Reden — portefeuilles agricoles anciens) + tournée plateau des Mées / Durance.
-3. **Semaine 7–12** : offre « audit drone offert » sur 10 sites pilotes → transformer en contrats de nettoyage récurrents (2 passages/an) + viser les contrats-cadres portefeuille entier.
-4. **En continu** : partenariats avec O&M indépendants et chambres d'agriculture.
+**Séquence : email d'abord + ajout LinkedIn le même jour → relance téléphonique à J+3/J+4 si pas de réponse, avec l'accroche « je vous ai laissé un mail au sujet du nettoyage de votre centrale solaire ».**
+
+| Jour | Action |
+|---|---|
+| **J1** | Constituer la liste courte : 20–30 cibles (exploitants §5 + sites §3). Trouver les bons interlocuteurs sur LinkedIn : chercher « asset manager », « responsable exploitation », « O&M manager » + nom de la société. Récupérer les emails (format classique `prenom.nom@societe.fr`, ou via l'accueil téléphonique) |
+| **J2** | **Vague 1 (10 cibles)** : envoyer l'email personnalisé (modèle A) **et** l'invitation LinkedIn (modèle B) dans la foulée — la notification LinkedIn fait remonter le mail dans leur esprit |
+| **J3** | **Vague 2 (10–20 cibles)** : même séquence. Répondre immédiatement aux premières réactions |
+| **J4** | **Relance téléphonique de la vague 1** (modèle C) : « Bonjour, je vous ai laissé un mail au sujet du nettoyage de votre centrale solaire de [commune]… ». Objectif : décrocher un rendez-vous ou un accord pour un audit drone offert |
+| **J5** | Relance téléphonique de la vague 2 + deuxième tentative sur les injoignables de la veille (autre créneau horaire : 8h30–9h30 ou 17h–18h marchent mieux) |
+| **J6** | Envoyer aux intéressés la proposition d'audit drone offert avec 2 créneaux concrets. Message LinkedIn de relance douce aux contacts qui ont accepté l'invitation sans répondre |
+| **J7** | Bilan : classer les cibles (chaud / tiède / à recycler dans 1 mois), caler les audits, préparer la liste de la semaine suivante |
+
+**Règle d'or** : chaque contact reçoit maximum 3 touches en 7 jours (email + LinkedIn + appel). Les non-répondeurs sont recyclés un mois plus tard, pas harcelés.
+
+### Modèle A — Email de prospection
+
+> **Objet : Nettoyage de votre centrale solaire de [commune] — [X] €/an récupérables**
+>
+> Bonjour [Prénom],
+>
+> Votre centrale de [commune] ([X] MWc, mise en service en [année]) fonctionne depuis [N] ans. À ce stade, un encrassement de 5 à 10 % est courant — soit environ **[montant] €/an de production perdue** à votre tarif d'achat actuel.
+>
+> Point important : chaque kWh perdu d'ici la fin de votre contrat d'obligation d'achat ([année de fin]) est irrécupérable au tarif bonifié.
+>
+> Ellipsys nettoie les centrales par **drone** : sans échafaudage, sans marche sur les modules, eau pure sans produit chimique.
+>
+> Je vous propose un **audit drone offert** (inspection visuelle + thermique) qui chiffre précisément votre perte avant tout engagement. Seriez-vous disponible [semaine] pour 15 minutes d'échange ?
+>
+> Bien cordialement,
+> Monsef — Ellipsys, nettoyage par drone
+> [téléphone] · solutionellipsys@gmail.com
+
+### Modèle B — Invitation LinkedIn (300 caractères max)
+
+> Bonjour [Prénom], je viens de vous envoyer un mail au sujet du nettoyage par drone de votre centrale de [commune]. Ravi d'échanger sur les pertes liées à l'encrassement — surtout avant la fin de votre contrat d'achat. Au plaisir !
+
+### Modèle C — Script d'appel de relance (J+3/J+4)
+
+> « Bonjour [Prénom], Monsef de la société Ellipsys. Je vous ai laissé un **mail il y a quelques jours au sujet du nettoyage de votre centrale solaire de [commune]** — vous avez eu l'occasion de le voir ? »
+>
+> - **S'il ne l'a pas vu** : « Pas de souci, je vous résume en 30 secondes : votre centrale a [N] ans, et à cet âge l'encrassement coûte typiquement 5 à 10 % de production — à votre tarif d'achat, ça fait environ [montant] € par an. On propose un audit par drone offert pour chiffrer ça précisément. Qu'est-ce que vous en dites ? »
+> - **S'il l'a vu mais n'a pas répondu** : « Qu'est-ce qui vous a retenu — le timing, ou vous avez déjà un prestataire ? » (traiter l'objection, puis proposer l'audit offert)
+> - **Objection « on a déjà un O&M »** : « Justement, la plupart des contrats O&M ne couvrent pas le nettoyage curatif. L'audit offert vous dira si vous perdez de l'argent — si tout est propre, vous aurez la confirmation gratuitement. »
+> - **Objectif unique de l'appel** : caler une date d'audit ou de rendez-vous. Pas de devis par téléphone.
+
+4. **En continu** : partenariats avec O&M indépendants et chambres d'agriculture ; extraction ODRÉ complète pour alimenter les vagues suivantes.
 
 ---
 
