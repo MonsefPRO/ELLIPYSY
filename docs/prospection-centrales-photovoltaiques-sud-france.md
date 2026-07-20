@@ -45,9 +45,13 @@ Sources de cette section : [Légifrance — arrêté du 10 juillet 2006](https:/
 
 ---
 
-## 3. Cibles prioritaires — grandes centrales au sol anciennes (à vérifier avant démarchage)
+## 3. Cibles prioritaires — grandes centrales au sol anciennes
 
-*Données issues de recherches web + connaissances sectorielles : vérifier puissance/exploitant actuels avant contact (les portefeuilles ont beaucoup changé de mains).*
+> **➡️ Fichier opérationnel : [`docs/prospection/vague1-cibles.xlsx`](prospection/vague1-cibles.xlsx)** (20 cibles vérifiées, contacts, pertes estimées, suivi) et **[`docs/prospection/emails-vague1.md`](prospection/emails-vague1.md)** (10 emails prêts à envoyer).
+>
+> **Corrections issues de la vérification (juillet 2026)** : Ortaffa appartient au fonds **123 IM** avec O&M **Neoen** (pas EDF) ; Torreilles (12 MWc) est chez **Neoen** (ex-Poweo) ; la centrale EDF 2008 de Narbonne s'appelle **La Narbonnaise** (zone Malvési) ; le plateau des Mées se répartit entre **ENGIE Green** (~23,6 MWc ex-Solairedirect), **Eco Delta** (~36 MWc, exploitant local à La Ciotat) et un bloc ex-Enfinity de 18,2 MWc cédé au fonds allemand Doric (propriétaire actuel à élucider) ; Signes = **Le Mouruen** (7 MWc, ENGIE Green) ; Istres = **Sulauze** (12 MWc, EDF power solutions).
+
+*Tableau d'origine (hypothèses initiales, conservé pour mémoire) :*
 
 | Centrale | Dépt | MWc | Mise en service | Exploitant (d'origine) | Intérêt |
 |---|---|---|---|---|---|
