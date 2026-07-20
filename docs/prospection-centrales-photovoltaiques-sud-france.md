@@ -22,16 +22,26 @@ On identifie donc les cibles par **faisceau d'indices** :
 
 ---
 
-## 2. L'argument commercial massue : les tarifs d'achat historiques
+## 2. L'argument commercial massue : les tarifs d'achat historiques (faits vérifiés)
 
-- Contrats signés **2006–2011** : obligation d'achat EDF sur **20 ans**, tarifs de ~0,30 €/kWh (centrales au sol 2008–2010) jusqu'à **0,60 €/kWh** (intégré au bâti — hangars agricoles, serres).
+Chaque affirmation ci-dessous est sourcée (voir liens en bas de section) :
+
+1. **Durée des contrats : 20 ans, sans renouvellement automatique.** L'obligation d'achat impose à EDF OA d'acheter la production à prix fixe supérieur au marché pendant 20 ans (source : photovoltaique.info / rapport du Sénat).
+2. **Tarifs vérifiés** :
+   - Arrêté du **10 juillet 2006** (« S06 ») : **30 c€/kWh** en métropole + **prime d'intégration au bâti de 25 c€/kWh** → **55 c€/kWh** pour l'intégré au bâti (hangars, serres) — texte sur Légifrance.
+   - Arrêtés du **12 janvier 2010** (« S10 ») et **31 août 2010** (« S10B ») : baisse d'environ 30 %, création de l'« intégration simplifiée », tarifs des centrales au sol régionalisés selon l'ensoleillement.
+   - Rapport du Sénat (2021) : **~235 000 contrats** signés sous S06/S10/S10B, soutien public moyen de **480 €/MWh** (0,48 €/kWh), ~2 Md€/an de charges publiques.
+3. **Calendrier d'expiration vérifié** : le boom français démarre en 2008 ; contrats de 20 ans → **la plupart arrivent à échéance entre 2026 et 2031** (une centrale raccordée en 2009 sort en 2029, etc.). EDF OA prévient le producteur ~6 mois avant l'échéance ; ensuite, vente au prix de marché ou autoconsommation — bien moins rémunérateur.
+4. **La révision à la baisse de 2021 a été ANNULÉE** : l'article 225 de la loi de finances 2021 prévoyait de raboter les contrats > 250 kWc, décret + arrêté du 26 octobre 2021. Mais le **Conseil d'État (27 janvier 2023, n° 458991) a annulé l'arrêté** (défaut de notification à la Commission européenne) : **les tarifs d'origine S06/S10 restent en vigueur, y compris pour les > 250 kWc**. ⚠️ Le PLF 2026 propose de réactiver une révision — à surveiller, mais à ce jour les producteurs touchent toujours le tarif historique.
+5. **Conséquence commerciale** : un exploitant sous tarif S06/S10 touche 0,30 à 0,55 €/kWh alors que le marché est à ~0,05–0,08 €/kWh. Chaque kWh perdu par encrassement d'ici la fin du contrat vaut **4 à 10 fois** ce qu'il vaudra après. C'est l'argument d'urgence : la fenêtre se referme entre 2026 et 2031.
+
 - Exemple chiffré à utiliser en rendez-vous :
-  - Hangar agricole 250 kWc (tarif 0,55 €/kWh, mise en service 2010, Hérault)
+  - Hangar agricole 250 kWc (tarif intégré S06 : 0,55 €/kWh, mise en service 2010, Hérault)
   - Productible ~1 400 kWh/kWc → CA ≈ **192 000 €/an**
   - Salissure 8 % (jamais nettoyé en 15 ans, réaliste voire optimiste) → **~15 400 €/an perdus**
   - Nettoyage drone : facturable quelques milliers d'€ → **ROI en quelques mois**
-- ⚠️ Nuance : la loi de finances 2021 a révisé à la baisse certains gros contrats S06–S10 (> 250 kWc) — mais même révisés, ces tarifs restent bien au-dessus du marché.
-- Les contrats 2008–2011 **expirent entre 2028 et 2031** : argument d'urgence (« chaque année perdue est irrécupérable »).
+
+Sources de cette section : [Légifrance — arrêté du 10 juillet 2006](https://legifrance.gouv.fr/affichTexte.do?cidTexte=JORFTEXT000000818376) · [Rapport du Sénat r20-864 (2021)](https://www.senat.fr/rap/r20-864/r20-864_mono.html) · [photovoltaique.info — obligation d'achat](https://www.photovoltaique.info/fr/tarifs-dachat-et-autoconsommation/dispositifs-de-soutien-public/obligation-dachat-pv/) · [photovoltaique.info — sortie des contrats OA](https://www.photovoltaique.info/fr/exploiter-une-installation/vie-des-contrats/sortie-des-contrats-en-obligation-dachat/) · [PV Magazine — annulation de l'arrêté du 26 octobre 2021](https://www.pv-magazine.fr/2023/02/01/annulation-de-larrete-du-26-octobre-2021-sur-la-revision-des-tarifs-dachat-s06-et-s10/) · [Cabinet Gossement — CE 27 janv. 2023 n° 458991](https://www.gossement-avocats.com/blog/revision-des-contrats-et-tarifs-d-achat-solaire-le-conseil-d-etat-valide-le-principe-et-la-procedure-de-revision-decret-mais-annule-l-arrete-qui-fixe-le-niveau-de-reduction-pour-defaut-de-notification/) · [Cabinet Gossement — PLF 2026, réactivation de la révision](https://www.gossement-avocats.com/blog/solaire-le-gouvernement-propose-une-majoration-du-tarif-de-lifer-pour-les-centrales-photovoltaique-installees-avant-2021-un-nouveau-mecanisme-de-deplafonnement-des-primes-negatives-et-reactive-la/)
 
 ---
 
